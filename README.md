@@ -1,2 +1,3 @@
 # projet_ihm
-projet IHM (site de vente immobilier
+vente immobiliere projet d'interface homme machine 
+L3
