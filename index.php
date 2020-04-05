@@ -32,7 +32,7 @@
     
     <ul class="navigation">
     <a href="./pages/Immobilier.php" class="onglet_menu"><li>Immobiliers</li></a>
-    <a href=""><li>Déposer une annonce</li></a>
+    <a href="./pages/deposer_annonce.php"><li>Déposer une annonce</li></a>
     <a href="./pages/contact" class="onglet_menu"><li>Contact</li></a>
     </ul>
 </nav>
