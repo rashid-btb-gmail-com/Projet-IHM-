@@ -1,0 +1,29 @@
+<link rel="stylesheet" href="../style/style.css">
+<header>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+<script type="text/javascript" src="./js/jQuery.js"></script>
+<script src="./js/jsscript.js"></script>
+
+
+    <img src="../images/logo.png" alt="logo" class="logo">
+    
+ 
+    <div class="container_rechercher">
+        <input type="text" name="rechercher" class="recherche" placeholder="Rechercher">
+        <button class="btn_recherche"><i class="fas fa-search"></i></button>
+    </div>
+
+    <div class="inscription_connexion">
+      <a href="../admin"class="inscription" >Administrateur</a>
+      <a href="../pages/inscription.php" class="inscription">Crée un compte</a>
+      <a href="../pages/connexion.php" class="inscription">Se connecter</a>
+    </div>
+<nav>
+    
+    <ul class="navigation">
+    <a href="../pages/Immobilier.php" class="onglet_menu"><li>Immobiliers</li></a>
+    <a href=""><li>Déposer une annonce</li></a>
+    <a href="../pages/contact" class="onglet_menu"><li>Contact</li></a>
+    </ul>
+</nav>
+</header>
