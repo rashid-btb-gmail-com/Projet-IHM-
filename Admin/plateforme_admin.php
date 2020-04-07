@@ -8,6 +8,13 @@
     <title>Administrateur</title>
 </head>
 <body>
+    <?php
+    session_start();
+        
+        if(($_SESSION["nom_admin"]!="user")||($_SESSION["psw_admin"]!="1234")){
+            header("location: ./index.php");
+        }
+    ?>
     <header class="header_admin">
     <h2>Platforme Administrateur</h2>
     <ul class="navigation">
