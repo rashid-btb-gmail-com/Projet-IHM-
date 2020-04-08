@@ -16,12 +16,7 @@
         }
     ?>
     <header class="header_admin">
-    <h2>Platforme Administrateur</h2>
-    <ul class="navigation">
-    <a href="../pages/Immobilier.php" class="onglet_menu"><li>Ajouter</li></a>
-    <a href=""><li>Modifier</li></a>
-    <a href="../pages/contact" class="onglet_menu"><li>Supprimer</li></a>
-    </ul>
+    
     </header>
 </body>
 </html>

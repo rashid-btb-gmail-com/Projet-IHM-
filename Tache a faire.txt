@@ -17,14 +17,15 @@ language utilisé : jquery et bootstrap coours disponible sure open classeroom
   -detail
 
 *deposer annonce: (hocine)
-lieu-adress
+lieu-adresse
 voisinage
 vis a vis
 prix
 photo
 
 * page administrateur (admin) hocine-squelette 
-1 -autentification admin =====================================>fait
+1 -autentification admin =====================================>fait       [pour l'instant :nom de l'admin=user 
+                                                                            mot de passe =1234]
 2  - entrer pltform: 
    >menu (side bar) : annonce [ajout , gestion] Rdv client; fixe 
    >coté nouveau : demande de visit [] demande d'annonce de vente [tablea de donné neessaire ] 

@@ -21,9 +21,9 @@
  </head>
  <body>
      <header>
-         <img src="./images/logo.png" alt="logo" class="logo"/><span class="slogan">L'immbobilier à petit prix</span>
+         <a href="./index.php"><img src="./images/logo.png" alt="logo" class="logo"/><span class="slogan">L'immbobilier à petit prix</span></a>
           <div class="container_rechercher">
-             <input type="text" name="rechercher" class="recherche" placeholder="  Rechercher quelque chose">
+             <input type="search" name="rechercher" class="recherche" placeholder="  Rechercher quelque chose">
              <button class="btn_recherche"><i class="fas fa-search"></i></button>
           </div>
           <div class="inscription_connexion">

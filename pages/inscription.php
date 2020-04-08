@@ -15,10 +15,10 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','');
     <input class="inp_insc" type="password" id="mdp1" name="password" placeholder="Mot de passe" required><br>
     <input class="inp_insc" type="password" id="mdp2" name="confirm_password" placeholder="Confirmer mot de passe" required><br>
     <input class="inp_insc" list="sitfam" name="sit_fam" placeholder="Situation familiale" required><br>
-    <datalist id="sitfam">
-    <option value="Marié">
-    <option value="Celibataire">
-    </datalist>
+            <datalist id="sitfam">
+            <option value="Marié">
+            <option value="Celibataire">
+            </datalist>
     <input type="submit" value="S'inscrire" name="submit" class="btn_inscr"><br>
 
         <?php
