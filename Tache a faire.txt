@@ -2,6 +2,9 @@
 a chaque nouvelle idé ecrire prenom et decrire idéé dans le fichier idéé
 a chaque changement dans specifié
 language utilisé : jquery et bootstrap coours disponible sure open classeroom
+
+
+************************************************************************************************
 [modifiable] check list
 *General :
   - Index 
@@ -21,17 +24,17 @@ prix
 photo
 
 * page administrateur (admin) hocine-squelette 
-1 -autentification admin
+1 -autentification admin =====================================>fait
 2  - entrer pltform: 
    >menu (side bar) : annonce [ajout , gestion] Rdv client; fixe 
    >coté nouveau : demande de visit [] demande d'annonce de vente [tablea de donné neessaire ] 
-   
+ ****************************************************************************************************** 
  *index (massilva)
 1- header
 2 -bar de recherche 
 3- proposition
 4- footer
-
+******************************************************************************************************
 *immobilier (pipou)
 une page qui affiche tous nos bien ave des filtres 
 par defaut les plus recente 
