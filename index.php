@@ -17,9 +17,7 @@
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
      <!--kidot de fodil-->
      <script src="https://kit.fontawesome.com/b811c1c09f.js" crossorigin="anonymous"></script>
-     <!--Scriptes-->
-     <script type="text/javascript" src="./js/jQuery.js"></script>
-     <script src="./js/jsscript.js"></script>
+     
  </head>
  <body>
      <header>
@@ -62,5 +60,9 @@
          </div>
          </div>
       </footer>
+      <!--Scriptes -->
+        <script type="text/javascript" src="./js/jQuery.js"></script>
+        <script src="./js/jsscript.js"></script>
+     <!--ajouter a la fin pour que la page ce recharche plus rapidement-->
    </body>
 </html>
