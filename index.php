@@ -15,15 +15,17 @@
      <link rel="stylesheet" href="./style/style.css">
      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+     <!--kidot de fodil-->
+     <script src="https://kit.fontawesome.com/b811c1c09f.js" crossorigin="anonymous"></script>
      <!--Scriptes-->
      <script type="text/javascript" src="./js/jQuery.js"></script>
      <script src="./js/jsscript.js"></script>
  </head>
  <body>
      <header>
-         <img src="./images/logo.png" alt="logo" class="logo"/>
+         <img src="./images/logo.png" alt="logo" class="logo"/><span class="slogan">L'immbobilier à petit prix</span>
           <div class="container_rechercher">
-             <input type="text" name="rechercher" class="recherche" placeholder="Rechercher">
+             <input type="text" name="rechercher" class="recherche" placeholder="  Rechercher quelque chose">
              <button class="btn_recherche"><i class="fas fa-search"></i></button>
           </div>
           <div class="inscription_connexion">
@@ -44,15 +46,20 @@
 
      <footer>
          <div class="a_propos">
-              <h5 style="position:absolute;color:#ffffff">A PROPOS DE NOUS :</h5>
-         </div>
-
+          <div class="contact">
+            <i class="fas fa-phone-square-alt"id="numero"><span>026200532</span></i><br>       
+            <i class="fas fa-map-marker-alt"id="adresse"></i><span class="adres">rue khoudja khaled 
+             batiment 5 tizi-ouzou</span>
+          </div> 
+          <span class="rej">rejoignez nous sur:</span>
          <div class="social-button">
-             <a href=""><i class="fab fa-facebook-f"></i></a>
-             <a href=""><i class="fab fa-twitter"></i></a>
-             <a href=""><i class="fab fa-instagram"></i></a>
+           
+             <a href="" title="notre page facebook" class="fab fa-facebook-f"></i></a>
+             <a href=""title="twitter"><i class="fab fa-twitter"></i></a>
+             <a href="" title="notre instagram"> <i class="fab fa-instagram"></i></a>
              <a href=""><i class="fab fa-linkedin"></i></a>
-             <a href=""><i class="fab fa-youtube"></i></a>
+             <a href=""title="notre chaine youtube"><i class="fab fa-youtube"></i></a>
+         </div>
          </div>
       </footer>
    </body>

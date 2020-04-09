@@ -36,8 +36,8 @@ ul li:hover{
 }
 
 .logo{
-    width: 1.7cm;
-    height: 1.7cm;
+    width: 1.8cm;
+    height: 1.8cm;
     position: relative;
 }
 
@@ -48,15 +48,35 @@ ul li:hover{
     top: 25px;
     right: 10px;
     font-size: 17px;
-    
+    color: #e74c3c;
 }
 .inscription{
     margin-left: 10px;
     
+color: #e74c3c;
+font-weight: bold;
+}
+.slogan{
+  position: absolute;
+    font-weight: bold;
+    color: #e74c3c;
+    margin-top: 20px;
 
 }
+.rej{
+     position: absolute;
+    font-weight: bold;
+    color: #d6dadb;
+    padding-left: 600px;
+
+}
+
 .inscription:hover{
-    color: #e74c3c;
+    text-decoration: none;
+color: #e74c3c;
+background-color: #d6dadb;
+border:1px #d6dadb solid;
+border-radius: 34px;
 }
 .container_rechercher{
     position: relative;
@@ -65,10 +85,10 @@ ul li:hover{
     width: 483px;
 }
 .recherche{
+
     width: 400px;
-    height: 24px;
+    height: 41px;
     font-size: 20px;
-    padding: 8px 15px;
     border:1px solid #d6dadb;
     border-radius: 50px;
     margin-bottom: 30px;
@@ -76,58 +96,114 @@ ul li:hover{
     bottom: 20px;
     border-bottom-right-radius: 0;
     border-top-right-radius: 0;
+    background-color:#d6dadb;
+
 }
 .btn_recherche{
     width: 40px;
     height: 41px;
     font-size: 20px;
-    padding: 8px 15px;
-    border:1px solid #d6dadb;
+    padding: 7px 20px;
+    padding-left: 13px;
     border-radius: 50px;
     margin-bottom: 30px;
     position: relative;
     bottom: 18.5px;
+   background-color: #e74c3c;
+    border:1px solid #d6dadb;
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
-
+    color:#d6dadb;
 }
 
 .btn_recherche i{
-    color: #e74c3c;
-    justify-content: center;
+
     align-items: center;
-    position: relative;
+position: relative;
     right: 8px;
     font-size: 22px;
+    background-color: #e74c3c;
 }
 /**************************************   FOOTER   *************************************/
 footer{
     background-color: #e74c3c;
-    height: 2.5cm;
-    position: relative;
-
+    height: 3.5cm;
+    position: absolute;
     bottom:0;
     width: 100%;
 }
-.social-button{
+.social-button {
     position: absolute;
     right: 20px;
-    margin-top: 20px;
+display: inline;
+    margin-right:40px;
+    margin-top:45px;
 }
+.contact{
+	
+	display:inline-block;
+    }
+    span{
+        font-size: 23px;
+        margin-left:20px;
+         color: #d6dadb;
+    }
+    .adres{
+         font-size: 20px;
+         margin-left:5px;
+         font-weight: bold;
+    }
+#numero{
+    margin-right: 15px;
+    padding-top: 10px;
+
+    padding-left: 12px;
+	font-size: 30px;
+	width:50px;
+	height:50px;
+    background-color: #d6dadb;
+    color: #e74c3c;
+    border-radius: 100%;
+    align-items: center;
+    justify-content: center;
+
+display: block;
+margin-top: 5px;
+}
+
+
+
+#adresse{
+    height:50px;
+    width:50px;
+    background-color: #d6dadb;
+     color: #e74c3c;
+    border-radius: 100%;
+     margin-right: 5px;
+    padding-top: 10px;
+    padding-left: 13px;
+    font-size: 30px;
+    border: 1px #d6dadb solid ;
+    float: left;    
+}
+
+
+
 .social-button a{
     display: inline-flex;
     text-decoration: none;
-    font-size: 40px;
-    width: 60px;
-    height: 60px;
+    font-size: 30px;
+    width: 50px;
+    height: 50px;
     background-color: #d6dadb;
     justify-content: center;
     align-items: center;
     color: #e74c3c;
     position: relative;
-    margin: 0 5px;
-    border-radius: 100%;
+    margin-left:5px;
+    border-radius: 360px;
     transition: 0.6s;
+
 }
 .social-button a:hover{
     text-decoration: none;
@@ -136,10 +212,6 @@ footer{
 
 }
 
-a{
-    text-decoration: none;
-    color: #000000;
-}
 
 
 /**********************************   PAGE INSCRIPTION  ************************************/
