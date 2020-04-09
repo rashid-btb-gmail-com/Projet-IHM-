@@ -1,0 +1,86 @@
+body{
+    padding: 0;
+    margin: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+/***********************  MENU ADMIN    ********************/
+.menu_admin{
+    position: fixed;
+    background-color: #ecf0f1;
+    width: 240px;
+    height: 100%;
+    text-align: center;
+    border-right: solid black;
+}
+
+.btn_admin{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 180px;
+    height: 30px;
+    background-color: #3498db;
+    font-size: 15px;
+    font-weight: bold;
+    border: 1px solid black;
+}
+
+.btn_admin:hover{
+    background-color: #5dade2;
+}
+
+.btn_rdv{
+    background-color: #e74c3c;
+}
+.btn_rdv:hover{
+    background-color: #fa6d5d;
+}
+
+.photo_profil{
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border: 2px solid black;
+    border-radius: 200px;
+    top: 10px;
+}
+/***********************           Page Admin             *****************/
+.container{
+    position: absolute;
+    left: 250px;
+
+}
+
+.titre_plfrm{
+    margin: 0;
+    text-decoration: underline;
+}
+
+.header_admin{
+    position: fixed;
+    background-color: #ecf0f1;
+    width: 100%;
+    height: 1.2cm;
+    margin: 0;
+    padding-left: 10px;
+}
+
+.container_icon{
+    position: relative;
+    left: 1020px;
+    bottom: 35px;
+}
+
+.icon_header{
+    font-size: 30px;
+    color: black;
+    margin-right: 5px;
+}
+
+.rdv{
+    position: relative;
+    top:50px
+}
+
+table{
+    border: 2px solid black;
+}
