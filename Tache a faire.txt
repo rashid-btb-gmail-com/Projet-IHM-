@@ -40,4 +40,15 @@ photo
 une page qui affiche tous nos bien ave des filtres 
 par defaut les plus recente 
 *************************************************************************************
-commit de fodil moi je ne fais rien ?
+*detail ( fodil)
+- faire une barre de suggestion a coté genre avec 3 suggestion un article de appartement a proximité
+un dans meme daira et un autre meme type
+-faire un deffilement de photo et un bonne plae pour la description * c un script php *
+- a toi de voir comment
+******************************************************************************************
+contact (fodil ) 
+formulaire pour nous contacter
+avec quelque information sure ou on ce situe
+ **************************************************************************************
+a propos de nous (fodil et pipou )
+créé une histooire sure nous et ce que on fait 
