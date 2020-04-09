@@ -1,4 +1,4 @@
-[chacun va nous dire ce qu'il va faire] on ajoutera des pages et des commentaire a fur et a musur
+﻿[chacun va nous dire ce qu'il va faire] on ajoutera des pages et des commentaire a fur et a musur
 a chaque nouvelle idé ecrire prenom et decrire idéé dans le fichier idéé
 a chaque changement dans specifié
 language utilisé : jquery et bootstrap coours disponible sure open classeroom
@@ -38,3 +38,5 @@ photo
 *immobilier (pipou)
 une page qui affiche tous nos bien ave des filtres 
 par defaut les plus recente 
+*************************************************************************************
+commit de fodil moi je ne fais rien ?
