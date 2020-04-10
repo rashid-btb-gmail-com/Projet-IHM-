@@ -13,25 +13,31 @@ body{
     border-right: solid black;
 }
 
-.btn_admin{
-    margin-top: 5px;
-    margin-bottom: 5px;
+.onglet_admin{
+    position: relative;
+    display: block;
+    left: 30px;
+    margin-top: 7px;
+    margin-bottom: 7px;
+    text-decoration: none;
     width: 180px;
     height: 30px;
     background-color: #3498db;
     font-size: 15px;
     font-weight: bold;
     border: 1px solid black;
+    color: black;
+    
 }
 
-.btn_admin:hover{
+.onglet_admin:hover{
     background-color: #5dade2;
 }
 
-.btn_rdv{
+.onglet_rdv{
     background-color: #e74c3c;
 }
-.btn_rdv:hover{
+.onglet_rdv:hover{
     background-color: #fa6d5d;
 }
 
@@ -81,6 +87,24 @@ body{
     top:50px
 }
 
-table{
-    border: 2px solid black;
+/***************************************  formulaire admin     ********************************/
+.form_admin{
+    position: relative;
+    border: 1px solid black;
+    top: 50px;
+    background-color: #ecf0f1;
+    padding: 10px;
+}
+
+.inp_insc{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 30px;
+
+
+}
+
+/***********************************   Liste des biens ******************************************/
+.liste_biens{
+    border: 1px solid black;
 }
