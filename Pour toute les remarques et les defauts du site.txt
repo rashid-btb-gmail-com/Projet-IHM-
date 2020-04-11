@@ -1,0 +1,4 @@
+[massilva] remarque e qui concerne mon dernier commit
+- j'ai ajouter des fichier supplemantaire pour bootstrap et ses js mais si je lesutiliserai pas apres je vais les supprimer 
+- ce qui est de .map c la documentationen ligne de la version et des fichier 
+**************************
