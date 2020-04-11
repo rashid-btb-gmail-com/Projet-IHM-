@@ -25,7 +25,6 @@
         <hr color="black">
         <a href="?action=ajouter_bien" class="onglet_admin">Ajouter un bien</a>
         <a href="?action=gerer_biens" class="onglet_admin">Gerer les biens</a>
-        <a href="?action=supprimer_bien" class="onglet_admin">Supprimer des biens</a>
         <a href="?action=confirmer_annonces" class="onglet_admin" style="height:35px">Confirmer les annonces</a>
         
 
@@ -181,7 +180,7 @@
                             <?php
                         }
                         if($_GET["action"]=="gerer_biens"){
-                            $select=$db->query('SELECT * FROM biens')
+                            $select=$db->query('SELECT * FROM biens');
                             ?>
                             <div class="form_admin">
                             <table class="liste_biens" cellpadding="3" rules="all">
@@ -195,28 +194,39 @@
                                     <th>Action</th>
                                 </tr>
                                 <?php
+                                
                                 while($donnees=$select->fetch()){
-
+                                    
                                     ?>
                                     <tr>
-                                    <td><?php echo $donnees["titre"] ?></td>
-                                    <td><?php echo $donnees["surface"] ?></td>
-                                    <td><?php echo $donnees["etage"] ?></td>
-                                    <td><?php echo $donnees["daira"] ?></td>
-                                    <td><?php echo $donnees["commune"] ?></td>
-                                    <td><a href="">Modifier</a>   <a href="">Supprimer</a></td>
+                                        <td><?php echo $donnees["titre"] ?></td>
+                                        <td><?php echo $donnees["surface"] ?></td>
+                                        <td><?php echo $donnees["etage"] ?></td>
+                                        <td><?php echo $donnees["daira"] ?></td>
+                                        <td><?php echo $donnees["commune"] ?></td>
+                                        <td><a href="?action=gerer_biens&action2=modifier&id=<?php echo $donnees["id"]; ?>">Modifier</a> 
+                                            <a href="?action=gerer_biens&action2=supprimer&id=<?php echo $donnees["id"]; ?>">Supprimer</a>
+                                        </td>
                                     </tr>
 
                                     <?php
                                 }
 
+                                //********************  supprimer des biens    **************************** */
+                                
+                                if(isset($_GET["action2"])=="supprimer"){
+                                    $id=$_GET["id"];
+                                    $supprimer=$db->prepare("DELETE FROM biens WHERE id = $id");
+                                    $supprimer->execute();
+                                }
+                                
                                 ?>
                                 
                                 
                             </table>
                             </div>
                             <?php
-                        }
+                        }   
                     }
                 ?>
 
