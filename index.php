@@ -13,7 +13,7 @@
      <link rel="icon" href="./images/icon/favicon.ico">
      <!--feuilles de style-->
      <link rel="stylesheet" href="./style/style.css">
-     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+     <link rel="stylesheet" href="./style/bootstrap.css">
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
      <!--kidot de fodil-->
      <script src="https://kit.fontawesome.com/b811c1c09f.js" crossorigin="anonymous"></script>
@@ -61,7 +61,7 @@
          </div>
       </footer>
       <!--Scriptes -->
-        <script type="text/javascript" src="./js/jQuery.js"></script>
+        <script type="text/javascript" src="./js/jquery.js"></script>
         <script src="./js/jsscript.js"></script>
      <!--ajouter a la fin pour que la page ce recharche plus rapidement-->
    </body>
