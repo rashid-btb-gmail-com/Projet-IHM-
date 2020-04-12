@@ -14,6 +14,7 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','');
     <input class="inp_insc" type="text" name="email" placeholder="E-mail" required><br>
     <input class="inp_insc" type="password" id="mdp1" name="password" placeholder="Mot de passe" required><br>
     <input class="inp_insc" type="password" id="mdp2" name="confirm_password" placeholder="Confirmer mot de passe" required><br>
+    <input class="inp_insc" type="tel" name="tel" placeholder="Numéro de telephone" >
     <input class="inp_insc" list="sitfam" name="sit_fam" placeholder="Situation familiale" required><br>
             <datalist id="sitfam">
             <option value="Marié">
@@ -33,8 +34,8 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','');
                 }
                 else{
                     //   insertion dans la base de donnee
-                $insert=$db->prepare('INSERT INTO clients VALUES(NULL,?,?,?,?,?,?)');
-                $insert->execute(array($_POST['nom'],$_POST['prenom'],$_POST['username'],$_POST['email'],$_POST['password'],$_POST['sit_fam']));
+                $insert=$db->prepare('INSERT INTO clients VALUES(NULL,?,?,?,?,?,?,?)');
+                $insert->execute(array($_POST['nom'],$_POST['prenom'],$_POST['username'],$_POST['email'],$_POST['password'],$_POST['tel'],$_POST['sit_fam']));
                 }
             }
 

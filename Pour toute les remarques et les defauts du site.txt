@@ -2,3 +2,7 @@
 - j'ai ajouter des fichier supplemantaire pour bootstrap et ses js mais si je lesutiliserai pas apres je vais les supprimer 
 - ce qui est de .map c la documentationen ligne de la version et des fichier 
 **************************
+
+
+[Hocine]******************************************************
+on doit ajouter des controles dans les formilaires pour eviter les erreurs comme un numero de tel avec des lettres.

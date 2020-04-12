@@ -17,7 +17,7 @@ language utilisé : jquery et bootstrap coours disponible sure open classeroom
   -detail
 
 *deposer annonce: (hocine)
-lieu-adresse
+lieu-adresse ============>(fait)
 voisinage
 vis a vis
 prix
@@ -27,8 +27,14 @@ photo
 1 -autentification admin =====================================>fait       [pour l'instant :nom de l'admin=user 
                                                                             mot de passe =1234]
 2  - entrer pltform: 
-   >menu (side bar) : annonce [ajout , gestion] Rdv client; fixe 
-   >coté nouveau : demande de visit [] demande d'annonce de vente [tablea de donné neessaire ] 
+   >menu (side bar) : annonce [ajout , gestion] Rdv client; fixe========>(fait) 
+   >ajouter un rdv==========>(fait)
+   >coté nouveau : demande de rdv [] demande d'annonce de vente [tablea de donné neessaire ] 
+
+
+3-modifier une annonce 
+
+
  ****************************************************************************************************** 
  *index (massilva)
 1- header

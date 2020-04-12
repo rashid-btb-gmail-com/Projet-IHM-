@@ -30,7 +30,7 @@
 
         
         <hr color="black">
-        <a href="" class="onglet_admin onglet_rdv">Ajouter un RDV</a>
+        <a href="?action=ajouter_rdv" class="onglet_admin onglet_rdv">Ajouter un RDV</a>
         <a href="" class="onglet_admin onglet_rdv">Gérer les RDV</a>
         <a href="" class="onglet_admin onglet_rdv">Confirmer les RDV</a>
         </nav>
@@ -47,7 +47,7 @@
             <div class="page_admin">
                 <?php
                     if(isset($_GET["action"])){
-                        //***************************affichage du formulaire ajouter des biens ************  */
+                        //***************************affichage du formulaire ajouter un bien ************  */
                         if($_GET["action"]=="ajouter_bien"){
                             ?>
 
@@ -159,7 +159,7 @@
                                 <input type="number" name="surface" class="inp_insc" placeholder="Surface">
                                 <input type="number" name="nbr_etages" class="inp_insc" placeholder="Nombre d'étages">
                                 <input type="file" name="image_annonce"  ><br>
-                                <input type="submit" value="Envoyer" class="btn_inscr" name="submit">
+                                <input type="submit" value="Enregister" class="btn_inscr" name="submit">
                                     <?php
                                         if(isset($_POST["submit"])){
                                             //pas d'image pour l'instant-------------
@@ -179,6 +179,7 @@
                             
                             <?php
                         }
+                        //****************************  afficher tout les biens de l'agence*************** */
                         if($_GET["action"]=="gerer_biens"){
                             $select=$db->query('SELECT * FROM biens');
                             ?>
@@ -226,7 +227,42 @@
                             </table>
                             </div>
                             <?php
-                        }   
+                        } 
+                        //*******************************afficher le formulaire ajouter des RDV************ */
+                        if($_GET["action"]=="ajouter_rdv"){
+                            ?>
+
+                            
+                            <form action="" method="post" class="form_admin">
+                                <h2>Ajouter un rendez-vous :</h2>
+                                <input type="text" name="client" class="inp_insc" placeholder="Client" ><br>
+                                <input type="text" name="lieu" class="inp_insc" placeholder="Lieu du rendez-vous"><br>
+                                <span>Date du rendez-vous :</span>
+                                <input type="date" name="date_rdv" class="inp_insc">
+                                <span>Heure du rendez-vous :</span>
+                                <input type="time" name="heure_rdv" class="inp_insc" ><br>
+                                
+                                <input type="submit" value="Enregister" class="btn_inscr" name="submit">
+                                    <?php
+                                        if(isset($_POST["submit"])){
+                                            $date=$_POST["date_rdv"];
+                                            $heure=$_POST["heure_rdv"];
+
+                                            //   insertion dans la base de donnee
+                                            $insert=$db->prepare('INSERT INTO rdv_confirmer VALUES(NULL,?,?,?)');
+                                            $insert->execute(array($_POST["client"],$_POST["lieu"],$date.' '.$heure));
+                                            
+                                        }
+
+
+                                    ?>
+
+                            </form>
+                            
+                            
+                            <?php
+                        }
+
                     }
                 ?>
 
