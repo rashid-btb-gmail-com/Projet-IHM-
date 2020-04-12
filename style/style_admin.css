@@ -41,6 +41,13 @@ body{
     background-color: #fa6d5d;
 }
 
+.onglet_client{
+    background-color: #ffd000;
+}
+
+.onglet_client:hover{
+    background-color: #f8e17c;
+}
 .photo_profil{
     position: relative;
     width: 150px;

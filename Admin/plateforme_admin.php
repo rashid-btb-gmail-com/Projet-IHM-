@@ -27,12 +27,13 @@
         <a href="?action=gerer_biens" class="onglet_admin">Gerer les biens</a>
         <a href="?action=confirmer_annonces" class="onglet_admin" style="height:35px">Confirmer les annonces</a>
         
-
-        
         <hr color="black">
         <a href="?action=ajouter_rdv" class="onglet_admin onglet_rdv">Ajouter un RDV</a>
         <a href="" class="onglet_admin onglet_rdv">Gérer les RDV</a>
         <a href="" class="onglet_admin onglet_rdv">Confirmer les RDV</a>
+
+        <hr color="black">
+        <a href="?action=clients" class="onglet_admin onglet_client">Clients</a>
         </nav>
 
         <div class="container">
@@ -184,6 +185,7 @@
                             $select=$db->query('SELECT * FROM biens');
                             ?>
                             <div class="form_admin">
+                            <h2>Liste des biens :</h2>
                             <table class="liste_biens" cellpadding="3" rules="all">
                                 <colgroup span="6" class="columns"></colgroup>
                                 <tr>
@@ -205,8 +207,8 @@
                                         <td><?php echo $donnees["etage"] ?></td>
                                         <td><?php echo $donnees["daira"] ?></td>
                                         <td><?php echo $donnees["commune"] ?></td>
-                                        <td><a href="?action=gerer_biens&action2=modifier&id=<?php echo $donnees["id"]; ?>">Modifier</a> 
-                                            <a href="?action=gerer_biens&action2=supprimer&id=<?php echo $donnees["id"]; ?>">Supprimer</a>
+                                        <td><a href="?action=gerer_biens&action2=modifier&id=<?php echo $donnees["id"]; ?>" title="Modifier le bien">Modifier</a> 
+                                            <a href="?action=gerer_biens&action2=supprimer&id=<?php echo $donnees["id"]; ?>" title="Supprimer le bien"><i class="far fa-trash-alt"></i></a>
                                         </td>
                                     </tr>
 
@@ -262,11 +264,56 @@
                             
                             <?php
                         }
+                        //****************************  afficher tout les biens de l'agence*************** */
+                        if($_GET["action"]=="clients"){
+                            $select=$db->query('SELECT * FROM clients');
+                            ?>
+                            <div class="form_admin">
+                            <h2>Liste des clients :</h2>
+                            <table class="liste_biens" cellpadding="3" rules="all">
+                                <colgroup span="4" class="columns"></colgroup>
+                                <tr>
+                                    <th>Nom</th>
+                                    <th>Prénom</th>
+                                    <th>E-mail</th>
+                                    <th>Tel</th>    
+                                </tr>
+                                <?php
+                                
+                                while($donnees=$select->fetch()){
+                                    
+                                    ?>
+                                    <tr>
+                                        <td><?php echo $donnees["nom"] ?></td>
+                                        <td><?php echo $donnees["prenom"] ?></td>
+                                        <td><?php echo $donnees["email"] ?></td>
+                                        <td><?php echo $donnees["tel"] ?></td>
+                                        <td><a href="?action=clients&action2=modifier&id=<?php echo $donnees["id"]; ?>" title="Modifier le bien">Modifier</a> 
+                                            <a href="?action=clients&action2=supprimer&id=<?php echo $donnees["id"]; ?>" title="Supprimer le bien"><i class="far fa-trash-alt"></i></a>
+                                        </td>
+                                    </tr>
+
+                                    <?php
+                                }
+
+                                //********************  supprimer des biens    **************************** */
+                                
+                                if(isset($_GET["action2"])=="supprimer"){
+                                    $id=$_GET["id"];
+                                    $supprimer=$db->prepare("DELETE FROM clients WHERE id = $id");
+                                    $supprimer->execute();
+                                }
+                                
+                                ?>
+                                
+                                
+                            </table>
+                            </div>
+                            <?php
+                        } 
 
                     }
-                ?>
-
-                
+                ?>   
             </div>
 
         </div>
