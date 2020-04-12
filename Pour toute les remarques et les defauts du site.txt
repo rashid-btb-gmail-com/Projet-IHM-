@@ -6,3 +6,5 @@
 
 [Hocine]******************************************************
 on doit ajouter des controles dans les formilaires pour eviter les erreurs comme un numero de tel avec des lettres.
+massilva: pour les control on les fait avec jquery j'ai des idéé comme faire des span avec une couleur rouge et a chaque foi que l'utilisateur rempli une condition ca devien vert 
+mais on peut lesser ca pour apres quand o vastructurer toute la page et on attaque le design ;
