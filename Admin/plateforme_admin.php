@@ -194,7 +194,6 @@
                                     <th>Etages</th>
                                     <th>Daïra</th>
                                     <th>Commune</th>
-                                    <th>Action</th>
                                 </tr>
                                 <?php
                                 
@@ -207,9 +206,9 @@
                                         <td><?php echo $donnees["etage"] ?></td>
                                         <td><?php echo $donnees["daira"] ?></td>
                                         <td><?php echo $donnees["commune"] ?></td>
-                                        <td><a href="?action=gerer_biens&action2=modifier&id=<?php echo $donnees["id"]; ?>" title="Modifier le bien">Modifier</a> 
-                                            <a href="?action=gerer_biens&action2=supprimer&id=<?php echo $donnees["id"]; ?>" title="Supprimer le bien"><i class="far fa-trash-alt"></i></a>
-                                        </td>
+                                        <td><a href="?action=gerer_biens&action2=modifier&id=<?php echo $donnees["id"]; ?>" title="Modifier le bien"><i class="far fa-edit"></i></a></td>
+                                        <td><a href="?action=gerer_biens&action2=supprimer&id=<?php echo $donnees["id"]; ?>" title="Supprimer le bien"><i class="far fa-trash-alt"></i></a></td>
+                                        
                                     </tr>
 
                                     <?php
@@ -288,9 +287,9 @@
                                         <td><?php echo $donnees["prenom"] ?></td>
                                         <td><?php echo $donnees["email"] ?></td>
                                         <td><?php echo $donnees["tel"] ?></td>
-                                        <td><a href="?action=clients&action2=modifier&id=<?php echo $donnees["id"]; ?>" title="Modifier le bien">Modifier</a> 
-                                            <a href="?action=clients&action2=supprimer&id=<?php echo $donnees["id"]; ?>" title="Supprimer le bien"><i class="far fa-trash-alt"></i></a>
-                                        </td>
+                                        <td><a href="?action=clients&action2=modifier&id=<?php echo $donnees["id"]; ?>" title="Modifier le bien"><i class="far fa-edit"></i></a></td>
+                                        <td><a href="?action=clients&action2=supprimer&id=<?php echo $donnees["id"]; ?>" title="Supprimer le bien"><i class="far fa-trash-alt"></i></a></td>
+                                        
                                     </tr>
 
                                     <?php
