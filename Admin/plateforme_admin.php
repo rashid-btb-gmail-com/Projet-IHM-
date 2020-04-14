@@ -29,22 +29,32 @@
         
         <hr color="black">
         <a href="?action=ajouter_rdv" class="onglet_admin onglet_rdv">Ajouter un RDV</a>
-        <a href="" class="onglet_admin onglet_rdv">Gérer les RDV</a>
+        <a href="?action=gerer_rdv" class="onglet_admin onglet_rdv">Gérer les RDV</a>
         <a href="" class="onglet_admin onglet_rdv">Confirmer les RDV</a>
 
         <hr color="black">
         <a href="?action=clients" class="onglet_admin onglet_client">Clients</a>
         </nav>
 
+
+
+
+
+
+
+
         <div class="container">
+            <!--**********************     header    *************************-->
             <header class="header_admin">
             <h1 class="titre_plfrm">Plateforme Administrateur</h1>
             <div class="container_icon">
                 <a href=""class="icon_header" title="Messages"><i class="fas fa-comments"></i></a>
+                <a href="../index.php"class="icon_header" title="Acceuil"><i class="fas fa-home"></i></a>
                 <a href="" class="icon_header" title="Déconnexion"><i class="fas fa-sign-out-alt"></i></a>
+
             </div>
             </header>
-        <!--*****************************************Page admin*******************************************-->
+            <!--*****************************************Page admin*******************************************-->
             <div class="page_admin">
                 <?php
                     if(isset($_GET["action"])){
@@ -206,8 +216,8 @@
                                         <td><?php echo $donnees["etage"] ?></td>
                                         <td><?php echo $donnees["daira"] ?></td>
                                         <td><?php echo $donnees["commune"] ?></td>
-                                        <td><a href="?action=gerer_biens&action2=modifier&id=<?php echo $donnees["id"]; ?>" title="Modifier le bien"><i class="far fa-edit"></i></a></td>
-                                        <td><a href="?action=gerer_biens&action2=supprimer&id=<?php echo $donnees["id"]; ?>" title="Supprimer le bien"><i class="far fa-trash-alt"></i></a></td>
+                                        <td><a href="?action=gerer_biens&action2=modifier&id=<?php echo $donnees["id"]; ?>" title="Modifier le bien"class="icon_supprimer" style="color:green;"><i class="far fa-edit"></i></a></td>
+                                        <td><a href="?action=gerer_biens&action2=supprimer&id=<?php echo $donnees["id"]; ?>" title="Supprimer le bien"class="icon_supprimer "><i class="far fa-trash-alt"></i></a></td>
                                         
                                     </tr>
 
@@ -263,7 +273,71 @@
                             
                             <?php
                         }
-                        //****************************  afficher tout les biens de l'agence*************** */
+                        //****************************  afficher tout les RDV *************** */
+                        if($_GET["action"]=="gerer_rdv"){
+                            $select=$db->query('SELECT * FROM rdv_confirmer');
+                            ?>
+                            <div class="form_admin">
+                            <h2>Liste des RDV :</h2>
+
+
+                            <!--****    filtre pour les rdv   **************     -->
+                            <form action="" method="post" class="filtre">
+                                <input type="text" name="client_filtre" class="inp_insc" placeholder="Nom du client">
+                                <input type="text" name="lieu_filtre" class="inp_insc" placeholder="lieu du rdv">
+                                <input type="date" name="date_filtre" class="inp_insc" >
+                                <input type="time" name="heure_filtre" class="inp_insc">
+                                <input type="button" value="filtrer" class="inp_insc">
+
+                            </form>
+
+
+                            <table class="liste_biens" cellpadding="3" rules="all">
+                                <colgroup span="3" class="columns"></colgroup>
+                                <tr>
+                                    <th>Client</th>
+                                    <th>Lieu</th>
+                                    <th>Date et Heure</th>
+                                    
+                                </tr>
+                                <?php
+                                
+                                while($donnees=$select->fetch()){
+                                    
+                                    ?>
+                                    <tr>
+                                        <td><?php echo $donnees["client"] ?></td>
+                                        <td><?php echo $donnees["lieu"] ?></td>
+                                        <td><?php echo $donnees["date_heure"] ?></td>
+                                        <td><a href="?action=gerer_rdv&action2=modifier&id=<?php echo $donnees["id"]; ?>" title="Modifier le rdv" class="icon_supprimer" style="color:green;"><i class="far fa-edit"></i></a></td>
+                                        <td><a href="?action=gerer_rdv&action2=supprimer&id=<?php echo $donnees["id"]; ?>" title="Supprimer le rdv" class="icon_supprimer"><i class="far fa-trash-alt"></i></a></td>
+                                        
+                                    </tr>
+
+                                    <?php
+                                }
+
+                                //********************  supprimer des rdv    **************************** */
+                                
+                                if(isset($_GET["action2"])=="supprimer"){
+                                    $id=$_GET["id"];
+                                    $supprimer=$db->prepare("DELETE FROM rdv_confirmer WHERE id = $id");
+                                    $supprimer->execute();
+                                }
+                                
+                                ?>
+                                
+                                
+                            </table>
+
+
+                            
+
+
+                            </div>
+                            <?php
+                        } 
+                        //****************************  afficher tout les clients de l'agence*************** */
                         if($_GET["action"]=="clients"){
                             $select=$db->query('SELECT * FROM clients');
                             ?>
@@ -287,15 +361,15 @@
                                         <td><?php echo $donnees["prenom"] ?></td>
                                         <td><?php echo $donnees["email"] ?></td>
                                         <td><?php echo $donnees["tel"] ?></td>
-                                        <td><a href="?action=clients&action2=modifier&id=<?php echo $donnees["id"]; ?>" title="Modifier le bien"><i class="far fa-edit"></i></a></td>
-                                        <td><a href="?action=clients&action2=supprimer&id=<?php echo $donnees["id"]; ?>" title="Supprimer le bien"><i class="far fa-trash-alt"></i></a></td>
+                                        <td><a href="?action=clients&action2=modifier&id=<?php echo $donnees["id"]; ?>" title="Modifier le client" class="icon_supprimer" style="color:green;"><i class="far fa-edit"></i></a></td>
+                                        <td><a href="?action=clients&action2=supprimer&id=<?php echo $donnees["id"]; ?>" title="Supprimer le client" class="icon_supprimer"><i class="far fa-trash-alt"></i></a></td>
                                         
                                     </tr>
 
                                     <?php
                                 }
 
-                                //********************  supprimer des biens    **************************** */
+                                //********************  supprimer des clients    **************************** */
                                 
                                 if(isset($_GET["action2"])=="supprimer"){
                                     $id=$_GET["id"];

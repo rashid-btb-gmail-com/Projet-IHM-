@@ -79,7 +79,7 @@ body{
 
 .container_icon{
     position: relative;
-    left: 1020px;
+    left: 950px;
     bottom: 35px;
 }
 
@@ -87,6 +87,10 @@ body{
     font-size: 30px;
     color: black;
     margin-right: 5px;
+}
+
+.icon_header:hover{
+    color: #e74c3c;
 }
 
 .rdv{
@@ -114,4 +118,8 @@ body{
 /***********************************   Liste des biens ******************************************/
 .liste_biens{
     border: 1px solid black;
+}
+
+.icon_supprimer{
+    color: red;
 }
