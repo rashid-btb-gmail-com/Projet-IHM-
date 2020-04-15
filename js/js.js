@@ -10,17 +10,17 @@ function verifier_mdp(){
 }
 
 function saisie_champ(){
-    //var nom=null;
+    
     var i;
     for(i=0;i<=8;i++){
         if(document.getElementsByTagName("input")[i].value==""){  
  
-        document.getElementsByTagName("span")[i].innerHTML='<i class="fas fa-times" style="color:red"></i>';
+        document.getElementsByClassName("controle")[i].innerHTML='<i class="fas fa-times" style="color:red"></i>';
         
             
         }
         else
-        document.getElementsByTagName("span")[i].innerHTML='<i class="fas fa-check" style="color:green"></i>';
+        document.getElementsByClassName("controle")[i].innerHTML='<i class="fas fa-check" style="color:green"></i>';
 
     }
 }

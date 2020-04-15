@@ -12,8 +12,8 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','');
 
 
     <form action="" method="post" class="form_inscription">
-    <h2>Crée un compte Vilavie</h2>
-    <input class="inp_insc" type="text" name="nom" placeholder="Nom" required onclick="saisie_champ()">  <span class="controle"></span><br>
+    <h2>Crée un compte Vilavie</h2><span class="controle" style="display:none"></span><br>
+    <input class="inp_insc" type="text" name="nom" placeholder="Nom" required onclick="saisie_champ()">                                  <span class="controle"></span><br>
     <input class="inp_insc" type="text" name="prenom" placeholder="Prenom" required onclick="saisie_champ()">                            <span class="controle"></span><br>
     <input class="inp_insc" type="text" name="username" placeholder="Pseudo" required onclick="saisie_champ()">                          <span class="controle"></span><br>
     
@@ -22,7 +22,7 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','');
     <input class="inp_insc" type="password" id="mdp" name="password" placeholder="Mot de passe" required onclick="saisie_champ()" >      <span class="controle"></span><br>
     <input class="inp_insc" type="password" id="mdp2" name="confirm_password" placeholder="Confirmer mot de passe" required onchange="verifier_mdp()" onclick="saisie_champ()"><span class="controle"></span><br>
     
-    <input class="inp_insc" type="tel" name="tel" placeholder="Numéro de telephone" required onclick="saisie_champ()">                           <span class="controle"></span>
+    <input class="inp_insc" type="tel" name="tel" placeholder="Numéro de telephone" required onclick="saisie_champ()">                   <span class="controle"></span><br>
     <input class="inp_insc" list="sitfam" name="sit_fam" placeholder="Situation familiale" required onclick="saisie_champ()">            <span class="controle"></span><br>
             <datalist id="sitfam">
             <option value="Marié">
