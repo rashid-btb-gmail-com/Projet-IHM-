@@ -13,17 +13,17 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','');
 
     <form action="" method="post" class="form_inscription">
     <h2>Crée un compte Vilavie</h2>
-    <input class="inp_insc" type="text" name="nom" placeholder="Nom" required ><br>
-    <input class="inp_insc" type="text" name="prenom" placeholder="Prenom" required><br>
-    <input class="inp_insc" type="text" name="username" placeholder="Pseudo" required><br>
+    <input class="inp_insc" type="text" name="nom" placeholder="Nom" required onclick="saisie_champ()">  <span class="controle"></span><br>
+    <input class="inp_insc" type="text" name="prenom" placeholder="Prenom" required onclick="saisie_champ()">                            <span class="controle"></span><br>
+    <input class="inp_insc" type="text" name="username" placeholder="Pseudo" required onclick="saisie_champ()">                          <span class="controle"></span><br>
     
-    <input class="inp_insc" type="text" name="email" placeholder="E-mail" required><br>
+<input class="inp_insc" type="text" name="email" placeholder="E-mail" required onclick="saisie_champ()">                                 <span class="controle"></span><br>
 
-    <input class="inp_insc" type="password" id="mdp" name="password" placeholder="Mot de passe" required ><br>
-    <input class="inp_insc" type="password" id="mdp2" name="confirm_password" placeholder="Confirmer mot de passe" required onchange="verifier_mdp()"><br>
+    <input class="inp_insc" type="password" id="mdp" name="password" placeholder="Mot de passe" required onclick="saisie_champ()" >      <span class="controle"></span><br>
+    <input class="inp_insc" type="password" id="mdp2" name="confirm_password" placeholder="Confirmer mot de passe" required onchange="verifier_mdp()" onclick="saisie_champ()"><span class="controle"></span><br>
     
-    <input class="inp_insc" type="tel" name="tel" placeholder="Numéro de telephone" >
-    <input class="inp_insc" list="sitfam" name="sit_fam" placeholder="Situation familiale" required><br>
+    <input class="inp_insc" type="tel" name="tel" placeholder="Numéro de telephone" required onclick="saisie_champ()">                           <span class="controle"></span>
+    <input class="inp_insc" list="sitfam" name="sit_fam" placeholder="Situation familiale" required onclick="saisie_champ()">            <span class="controle"></span><br>
             <datalist id="sitfam">
             <option value="Marié">
             <option value="Celibataire">
