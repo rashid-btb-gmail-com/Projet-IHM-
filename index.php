@@ -5,7 +5,7 @@
      <meta charset="UTF-8">
      <meta name="description" content="Un site de vente d'apartement, villa et studio pour la wilaya de tizi ouzou ">
      <meta name="keywords" content="tizi-ouzou,vente,appartement,maison,villa,algerie">
-     <meta name="viewport" content="width=width-device, initial-scale=1.0">
+     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
      <meta http-equiv="X-UA-Compatible" content="ie=edge">
      <!--le titre-->
      <title>Vilavie - Acceuil</title>
