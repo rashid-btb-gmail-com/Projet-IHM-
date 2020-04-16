@@ -37,7 +37,7 @@ photo
 
  ****************************************************************************************************** 
  *index (massilva)
-1- header
+1- header ===================================> fait [ y aura des modification corretif a fur et a musure]
 2 -bar de recherche 
 3- proposition
 4- footer
