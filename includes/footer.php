@@ -12,3 +12,4 @@
 </div>
 </div>
 </footer>
+<script src="./js/jquery"></script>
