@@ -11,23 +11,23 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','');
 ?>
 
 
-    <form action="" method="post" class="form_inscription">
-    <h2>Crée un compte Vilavie</h2><span class="controle" style="display:none"></span><br>
-    <input class="inp_insc" type="text" name="nom" placeholder="Nom" required onclick="saisie_champ()">                                  <span class="controle"></span><br>
-    <input class="inp_insc" type="text" name="prenom" placeholder="Prenom" required onclick="saisie_champ()">                            <span class="controle"></span><br>
-    <input class="inp_insc" type="text" name="username" placeholder="Pseudo" required onclick="saisie_champ()">                          <span class="controle"></span><br>
+    <form action="" method="post" class="form_inscription" onsubmit="return verifier_champs()">
+    <h2>Crée un compte Vilavie</h2>
+    <input class="inp_insc" type="text" name="nom" placeholder="Nom" required onchange="verifier_champs()">                                  <span class="controle" id="etat_nom" ></span><br>
+    <input class="inp_insc" type="text" name="prenom" placeholder="Prenom" required onchange="verifier_champs()">                            <span class="controle" id="etat_prenom" ></span><br>
+    <input class="inp_insc" type="text" name="username" placeholder="Pseudo" required onchange="verifier_champs()">                          <span class="controle" id="etat_username"></span><br>
     
-<input class="inp_insc" type="text" name="email" placeholder="E-mail" required onclick="saisie_champ()">                                 <span class="controle"></span><br>
+<input class="inp_insc" type="text" name="email" placeholder="E-mail" required onchange="verifier_champs()">                                 <span class="controle" id="etat_email"></span><br>
 
-    <input class="inp_insc" type="password" id="mdp" name="password" placeholder="Mot de passe" required onclick="saisie_champ()" >      <span class="controle"></span><br>
-    <input class="inp_insc" type="password" id="mdp2" name="confirm_password" placeholder="Confirmer mot de passe" required onchange="verifier_mdp()" onclick="saisie_champ()"><span class="controle"></span><br>
+    <input class="inp_insc" type="password"  name="password" placeholder="Mot de passe" required onchange="verifier_champs()" >              <span class="controle" id="etat_mdp"></span><br>
+    <input class="inp_insc" type="password"  name="confirm_password" placeholder="Confirmer mot de passe" required onchange="verifier_champs()"><span class="controle" id="etat_mdp2"></span><br>
     
-    <input class="inp_insc" type="tel" name="tel" placeholder="Numéro de telephone" required onclick="saisie_champ()">                   <span class="controle"></span><br>
-    <input class="inp_insc" list="sitfam" name="sit_fam" placeholder="Situation familiale" required onclick="saisie_champ()">            <span class="controle"></span><br>
+    <input class="inp_insc" type="tel" name="tel" placeholder="Numéro de telephone" required onchange="verifier_champs()">                   <span class="controle" id="etat_tel"></span><br>
+    <input class="inp_insc" list="sitfam" name="sit_fam" placeholder="Situation familiale" required onchange="verifier_champs()">            
             <datalist id="sitfam">
             <option value="Marié">
             <option value="Celibataire">
-            </datalist>
+            </datalist>                                                                                                                      <span class="controle" id="etat_sit_fam"></span><br>
     <input type="submit" value="S'inscrire" name="submit" class="btn_inscr"><br>
     <span id="msg"></span> 
 
