@@ -60,6 +60,7 @@
         </div>
         <!--rest a ameliorer  --> 
     </section>
+     <!--
      <footer>
          <div class="a_propos">
           <div class="contact">
@@ -77,7 +78,7 @@
              <a href=""title="notre chaine youtube"><i class="fab fa-youtube"></i></a>
          </div>
          </div>
-      </footer>
+      </footer> -->
       <!--Scriptes -->
       <script src="./js/jquery"></script>
         <script src="./js/jsscript.js"></script>
