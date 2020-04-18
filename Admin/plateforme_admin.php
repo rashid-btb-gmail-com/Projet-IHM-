@@ -239,6 +239,62 @@
                             </div>
                             <?php
                         } 
+                        //****************************  afficher toutes les demande d'annoces *************** */
+                        if($_GET["action"]=="confirmer_annonces"){
+                            $select=$db->query('SELECT * FROM demande_annonce');
+                            ?>
+                            <div class="form_admin">
+                            <h2>Liste des demande d'annoces :</h2>
+                            <table class="liste_biens" cellpadding="3" rules="all">
+                                <colgroup span="6" class="columns"></colgroup>
+                                <tr>
+                                    <th>Titre</th>
+                                    <th>Surface</th>
+                                    <th>Etages</th>
+                                    <th>Daïra</th>
+                                    <th>Commune</th>
+                                </tr>
+                                <?php
+                                
+                                while($donnees=$select->fetch()){
+                                    
+                                    ?>
+                                    <tr>
+                                        <td><?php echo $donnees["titre"] ?></td>
+                                        <td><?php echo $donnees["surface"] ?></td>
+                                        <td><?php echo $donnees["etage"] ?></td>
+                                        <td><?php echo $donnees["daira"] ?></td>
+                                        <td><?php echo $donnees["commune"] ?></td>
+                                        <td><a href="?action=confirmer_annonces&action2=accepter&id=<?php echo $donnees["id"]; ?>" title="Accepter l'annonce"class="icon_supprimer" style="color:green;"><i class="fas fa-check" ></i></a></td>
+                                        <td><a href="?action=confirmer_annonces&action2=supprimer&id=<?php echo $donnees["id"]; ?>" title="Refuser l'annoce"class="icon_supprimer "><i class="fas fa-times" ></i></a></td>
+                                        
+                                    </tr>
+
+                                    <?php
+                                }
+
+                                //********************  supprimer des demmande d'annoces    **************************** */
+                                
+                                if(isset($_GET["action2"])=="supprimer"){
+                                    $id=$_GET["id"];
+                                    $supprimer=$db->prepare("DELETE FROM demande_annonce WHERE id = $id");
+                                    $supprimer->execute();
+                                }
+
+
+                                //**************************    accepter l'annonce *********************** */
+                                if(isset($_GET["action2"])=="accepter"){
+                                    $id=$_GET["id"];
+                                    
+                                }
+                                
+                                ?>
+                                
+                                
+                            </table>
+                            </div>
+                            <?php
+                        } 
                         //*******************************afficher le formulaire ajouter des RDV************ */
                         if($_GET["action"]=="ajouter_rdv"){
                             ?>

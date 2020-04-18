@@ -141,7 +141,7 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','');
                 
                 
                 //   insertion dans la base de donnee
-                $insert=$db->prepare('INSERT INTO annonce VALUES(NULL,?,?,?,?,?,?)');
+                $insert=$db->prepare('INSERT INTO demande_annonce VALUES(NULL,?,?,?,?,?,?)');
                 $insert->execute(array($_POST["titre"],$_POST["description"],$_POST["daira"],$_POST["commune"],$_POST["surface"],$_POST["nbr_etages"]));
                 
             }

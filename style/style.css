@@ -6,7 +6,7 @@ html{
     overflow-x: hidden;
 }
 body{
-    font-family:'Times New Roman', Times, serif;
+    font-family:Tahoma;
 }
 /***********************************  header et navigation bar  *****************************************/
 header{
@@ -29,6 +29,7 @@ header{
 ul li{
     list-style: none;
     display: inline;
+    
 }
 a:hover{
     text-decoration: none;
@@ -41,8 +42,9 @@ li> a{
     
 }
 li :hover{
- background-color: #ff5722;
- color:white;
+    transition: 0.7s;
+    background-color: #ff5722;
+    color:white;
 }
 /************************************** recherche sure site landing *********************************************/
 .sec1{

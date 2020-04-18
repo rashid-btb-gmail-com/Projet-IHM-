@@ -60,24 +60,7 @@
         </div>
         <!--rest a ameliorer  --> 
     </section>
-     <footer>
-         <div class="a_propos">
-          <div class="contact">
-            <i class="fas fa-phone-square-alt"id="numero"><span>026200532</span></i><br>       
-            <i class="fas fa-map-marker-alt"id="adresse"></i><span class="adres">rue khoudja khaled 
-             batiment 5 tizi-ouzou</span>
-          </div> 
-          <span class="rej">rejoignez nous sur:</span>
-         <div class="social-button">
-           
-             <a href="" title="notre page facebook" class="fab fa-facebook-f"></i></a>
-             <a href=""title="twitter"><i class="fab fa-twitter"></i></a>
-             <a href="" title="notre instagram"> <i class="fab fa-instagram"></i></a>
-             <a href=""><i class="fab fa-linkedin"></i></a>
-             <a href=""title="notre chaine youtube"><i class="fab fa-youtube"></i></a>
-         </div>
-         </div>
-      </footer>
+    
       <!--Scriptes -->
       <script src="./js/jquery"></script>
         <script src="./js/jsscript.js"></script>
