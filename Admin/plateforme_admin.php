@@ -12,7 +12,8 @@
 <body>
     <?php
     session_start();
-    $db=new PDO('mysql:host=localhost;dbname=vilavie','root','');  
+    $db=new PDO('mysql:host=localhost;dbname=vilavie','root','');
+       $db2= new mysqli("localhost", "root", "", "vilavie");  
         if(($_SESSION["nom_admin"]!="user")||($_SESSION["psw_admin"]!="1234")){
             header("location: ./index.php");
         }
@@ -190,7 +191,7 @@
                             
                             <?php
                         }
-                        //****************************  afficher tout les biens de l'agence*************** */
+                        //****************************  afficher et gerer tout les biens de l'agence*************** */
                         if($_GET["action"]=="gerer_biens"){
                             $select=$db->query('SELECT * FROM biens');
                             ?>
@@ -216,21 +217,33 @@
                                         <td><?php echo $donnees["etage"] ?></td>
                                         <td><?php echo $donnees["daira"] ?></td>
                                         <td><?php echo $donnees["commune"] ?></td>
-                                        <td><a href="?action=gerer_biens&action2=modifier&id=<?php echo $donnees["id"]; ?>" title="Modifier le bien"class="icon_supprimer" style="color:green;"><i class="far fa-edit"></i></a></td>
-                                        <td><a href="?action=gerer_biens&action2=supprimer&id=<?php echo $donnees["id"]; ?>" title="Supprimer le bien"class="icon_supprimer "><i class="far fa-trash-alt"></i></a></td>
+                                        <td><a href="?action=gerer_biens&amp;action2=modifier&amp;id=<?php echo $donnees["id"]; ?>" title="Modifier le bien"class="icon_supprimer" style="color:green;"><i class="far fa-edit"></i></a></td>
+                                        <td><a href="?action=gerer_biens&amp;action2=supprimer&amp;id=<?php echo $donnees["id"]; ?>" title="Supprimer le bien"class="icon_supprimer "><i class="far fa-trash-alt"></i></a></td>
                                         
                                     </tr>
 
                                     <?php
                                 }
 
-                                //********************  supprimer des biens    **************************** */
                                 
-                                if(isset($_GET["action2"])=="supprimer"){
+                                
+                                
+                                //********************  supprimer ou modifier des biens    **************************** */
+                                
+                                if(isset($_GET["action2"])){
+                                    //supprimer
+                                    if($_GET["action2"]=="supprimer"){
                                     $id=$_GET["id"];
                                     $supprimer=$db->prepare("DELETE FROM biens WHERE id = $id");
                                     $supprimer->execute();
+                                    }
+                                    //modifier
+                                    if($_GET["action2"]=="modifier")
+                                     {
+                                    echo "modification";
+                                    }
                                 }
+                                
                                 
                                 ?>
                                 
@@ -239,7 +252,7 @@
                             </div>
                             <?php
                         } 
-                        //****************************  afficher toutes les demande d'annoces *************** */
+                        //****************************  afficher et gerer toutes les demande d'annoces *************** */
                         if($_GET["action"]=="confirmer_annonces"){
                             $select=$db->query('SELECT * FROM demande_annonce');
                             ?>
@@ -265,28 +278,35 @@
                                         <td><?php echo $donnees["etage"] ?></td>
                                         <td><?php echo $donnees["daira"] ?></td>
                                         <td><?php echo $donnees["commune"] ?></td>
-                                        <td><a href="?action=confirmer_annonces&action2=accepter&id=<?php echo $donnees["id"]; ?>" title="Accepter l'annonce"class="icon_supprimer" style="color:green;"><i class="fas fa-check" ></i></a></td>
-                                        <td><a href="?action=confirmer_annonces&action2=supprimer&id=<?php echo $donnees["id"]; ?>" title="Refuser l'annoce"class="icon_supprimer "><i class="fas fa-times" ></i></a></td>
+                                        <td><a href="?action=confirmer_annonces&amp;action2=accepter&amp;id=<?php echo $donnees["id"]; ?>" title="Accepter l'annonce"class="icon_supprimer" style="color:green;"><i class="fas fa-check" ></i></a></td>
+                                        <td><a href="?action=confirmer_annonces&amp;action2=supprimer&amp;id=<?php echo $donnees["id"]; ?>" title="Refuser l'annoce"class="icon_supprimer "><i class="fas fa-times" ></i></a></td>
                                         
                                     </tr>
 
                                     <?php
                                 }
 
-                                //********************  supprimer des demmande d'annoces    **************************** */
-                                
-                                if(isset($_GET["action2"])=="supprimer"){
-                                    $id=$_GET["id"];
-                                    $supprimer=$db->prepare("DELETE FROM demande_annonce WHERE id = $id");
-                                    $supprimer->execute();
-                                }
-
-
                                 //**************************    accepter l'annonce *********************** */
-                                if(isset($_GET["action2"])=="accepter"){
-                                    $id=$_GET["id"];
+                                if(isset($_GET["action2"])){
+                                    //accepter
+                                    if($_GET["action2"]=="accepter"){
+                                    
+                                    }
+                                    //supprimer
+                                    if($_GET["action2"]=="supprimer"){
+                                        $id=$_GET["id"];
+                                        $supprimer=$db->prepare("DELETE FROM demande_annonce WHERE id = $id");
+                                        $supprimer->execute();
+                                    }
+
                                     
                                 }
+                                //********************  supprimer des demmande d'annoces    **************************** */
+                                
+                                
+
+
+                                   
                                 
                                 ?>
                                 
@@ -417,8 +437,8 @@
                                         <td><?php echo $donnees["prenom"] ?></td>
                                         <td><?php echo $donnees["email"] ?></td>
                                         <td><?php echo $donnees["tel"] ?></td>
-                                        <td><a href="?action=clients&action2=modifier&id=<?php echo $donnees["id"]; ?>" title="Modifier le client" class="icon_supprimer" style="color:green;"><i class="far fa-edit"></i></a></td>
-                                        <td><a href="?action=clients&action2=supprimer&id=<?php echo $donnees["id"]; ?>" title="Supprimer le client" class="icon_supprimer"><i class="far fa-trash-alt"></i></a></td>
+                                        <td><a href="?action=clients&amp;action2=modifier&amp;id=<?php echo $donnees["id"]; ?>" title="Modifier le client" class="icon_supprimer" style="color:green;"><i class="far fa-edit"></i></a></td>
+                                        <td><a href="?action=clients&amp;action2=supprimer&amp;id=<?php echo $donnees["id"]; ?>" title="Supprimer le client" class="icon_supprimer"><i class="far fa-trash-alt"></i></a></td>
                                         
                                     </tr>
 
@@ -427,10 +447,16 @@
 
                                 //********************  supprimer des clients    **************************** */
                                 
-                                if(isset($_GET["action2"])=="supprimer"){
+                                if(isset($_GET["action2"])){
+                                    if($_GET["action2"]=="supprimer"){
                                     $id=$_GET["id"];
                                     $supprimer=$db->prepare("DELETE FROM clients WHERE id = $id");
                                     $supprimer->execute();
+                                    }
+                                    if($_GET["action2"]=="modifier"){
+                                        echo "modification";
+                                        }
+
                                 }
                                 
                                 ?>
