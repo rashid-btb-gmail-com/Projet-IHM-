@@ -1,17 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,700&family=EB+Garamond&family=Lobster&display=swap');
 /*********************  corps de la page  ********************************/
-html{
-    padding: 0;
-    margin: 0;
-    overflow-x: hidden;
+html,body{
+    
+        overflow-x: hidden;
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        background: #ffffff !important;
+        font-family:Tahoma;
 }
-body{
-    font-family:Tahoma;
-}
+  
+
 /***********************************  header et navigation bar  *****************************************/
 header{
     font-size: 1.15rem;
-    background-color: white;
+    background-color: #ecf0f1;
 }
 .navbar-right{
     margin-top: 20px;
@@ -31,6 +34,7 @@ ul li{
     display: inline;
     
 }
+
 a:hover{
     text-decoration: none;
     color:black;
@@ -69,7 +73,7 @@ li :hover{
     border: none;
     height: 50px;
     width:50px;
-    background-color: tomato;
+    background-color: #ff5722;
 }
 
 #tizisearch{
@@ -242,3 +246,65 @@ margin-top: 5px;
     border-radius: 50px;
     margin-bottom: 30px;
 }
+
+/*******************     page de connexion    ******************/
+
+   
+    .user_card {
+        height: 400px;
+        width: 350px;
+        margin-top: auto;
+        margin-bottom: auto;
+        background: #ecf0f1;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        padding: 10px;
+        box-shadow: 0 4px 8px 0 #ff8d6a, 0 6px 20px 0 #ff8d6a;
+        -webkit-box-shadow: 0 4px 8px 0 #ff8d6a, 0 6px 20px 0 #ff8d6a;
+        -moz-box-shadow: 0 4px 8px 0 #ff8d6a, 0 6px 20px 0 #ff8d6a;
+        border-radius: 5px;
+
+    }
+    
+    .brand_logo {
+        position: relative;
+        height: 100px;
+        width: 150px;
+        top:15px;
+        
+    }
+    .form_container {
+        margin-top: 10px;
+        
+    }
+    .titre_connexion{
+        text-align: center;
+    }
+    .login_btn {
+        width: 100%;
+        background: #ff5722;
+        color: white ;
+    }
+    .login_btn:focus {
+        box-shadow: none ;
+        outline: 0px ;
+    }
+    .login_container {
+        padding: 0 2rem;
+    }
+    .input-group-text {
+        background: #ff5722 ;
+        color: white ;
+        border: 0 ;
+        border-radius: 0.25rem 0 0 0.25rem ;
+    }
+    .input_user,
+    .input_pass:focus {
+        box-shadow: none ;
+        outline: 0px ;
+    }
+    .custom-checkbox .custom-control-input:checked~.custom-control-label::before {
+        background-color: #ff5722 ;
+    }
