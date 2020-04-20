@@ -22,7 +22,10 @@
 
   <body>
     <?php
-    include_once("../includes/header.html");
+	include_once("../includes/header.php");
+	
+	$db=new PDO('mysql:host=localhost;dbname=vilavie','root','');
+	
     ?>
         <div class="container h-100">
 		<div class="d-flex justify-content-center h-100">
@@ -34,18 +37,18 @@
                 </div>
                 <h4 class="titre_connexion">Se connecter</h4>
 				<div class="d-flex justify-content-center form_container">
-					<form>
+					<form action="" method="post">
 						<div class="input-group mb-3">
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="fas fa-user"></i></span>
 							</div>
-							<input type="text" name="" class="form-control input_user" value="" placeholder="username">
+							<input type="text" name="username" class="form-control input_user" value="" placeholder="Pseudo">
 						</div>
 						<div class="input-group mb-2">
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="fas fa-key"></i></span>
 							</div>
-							<input type="password" name="" class="form-control input_pass" value="" placeholder="password">
+							<input type="password" name="password" class="form-control input_pass" value="" placeholder="Mot de passe">
 						</div>
 						<div class="form-group">
 							<div class="custom-control custom-checkbox">
@@ -53,9 +56,28 @@
 								<label class="custom-control-label" for="customControlInline">Se souvenir de moi </label>
 							</div>
 						</div>
-							<div class="d-flex justify-content-center mt-3 login_container">
-				 	<button type="button" name="button" class="btn login_btn">Connexion</button>
-				   </div>
+						<div class="d-flex justify-content-center mt-3 login_container">
+				 		<button type="submit" name="submit" class="btn login_btn">Connexion</button>
+				   		</div>
+					<!--**************************** php ******************************-->
+					
+					
+					
+					<?php 
+					if(isset($_POST["submit"])){
+						$select=$db->query("SELECT username,password,nom,prenom FROM clients");
+						
+						while($donnees=$select->fetch()){
+							if(($_POST["username"]==$donnees["username"])&&($_POST["password"]==$donnees["password"])){
+								$_SESSION["username"]=$donnees["username"];
+								$_SESSION["password"]=$donnees["password"];
+								$_SESSION["nom"]=$donnees["nom"];
+								$_SESSION["prenom"]=$donnees["prenom"];
+								header('location:../index.php');
+							}
+						}
+					}
+					?>
 					</form>
 				</div>
 		
@@ -72,8 +94,8 @@
 	</div>
      
       <!--Scriptes -->
-      <script src="./js/jquery"></script>
-        <script src="./js/jsscript.js"></script>
+      <script src="../js/jquery.js"></script>
+      <script src="../js/js.js"></script>
      <!--ajouter a la fin pour que la page ce recharche plus rapidement-->
    </body>
 </html>

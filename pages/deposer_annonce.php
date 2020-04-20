@@ -22,7 +22,7 @@
        </head>
 <body>
 <?php
-include_once("../includes/header.html");
+include_once("../includes/header.php");
 //    connexion a la base de donnee  
 $db=new PDO('mysql:host=localhost;dbname=vilavie','root','');
 ?>

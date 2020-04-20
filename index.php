@@ -19,7 +19,9 @@
      <script src="https://kit.fontawesome.com/b811c1c09f.js" crossorigin="anonymous"></script>
      
  </head>
-
+<?php
+session_start();
+?>
   <body>
     <header>
      <!--Header du site -->
@@ -39,8 +41,20 @@
                   <li><a href="./pages/deposer_annonce.php">Vendre</a></li>
                   <li><a href="./pages/contact.php">Contact</a></li>
                   <li id="separateur"> </li> <!--un separateur -->
-                  <li><a href="./pages/connexion.php">Se Connecter</a></li>
+                  <?php
+                  if(isset($_SESSION["username"])){
+                      ?>
+                    <li><a href=""><?php echo $_SESSION["nom"]."  ".$_SESSION["prenom"];?></a></li>
+                    <?php
+                  }
+                  else{
+                      ?>
+                    <li><a href="./pages/connexion.php">Se Connecter</a></li>
                   <li><a href="./pages/inscription.php">S'inscrire</a></li>
+                  <?php
+                  }
+                  ?>
+                  
               </ul>
           </div>
          </div>

@@ -112,7 +112,10 @@ function verifier_champs(){
     
 }
 
-
+$(function($){
     
+      
+ 
+})(jQuery);
     
     

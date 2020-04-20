@@ -13,7 +13,7 @@
     <?php
     session_start();
     $db=new PDO('mysql:host=localhost;dbname=vilavie','root','');
-       $db2= new mysqli("localhost", "root", "", "vilavie");  
+         
         if(($_SESSION["nom_admin"]!="user")||($_SESSION["psw_admin"]!="1234")){
             header("location: ./index.php");
         }
@@ -290,7 +290,16 @@
                                 if(isset($_GET["action2"])){
                                     //accepter
                                     if($_GET["action2"]=="accepter"){
-                                    
+                                        
+                                    $id=$_GET["id"];
+                                    $select=$db->query("SELECT * FROM demande_annonce WHERE id=$id");
+                                    while($donnees=$select->fetch()){
+                                        $insert=$db->prepare('INSERT INTO biens VALUES(NULL,?,?,?,?,?,?)');
+                                        $insert->execute(array($donnees["titre"],$donnees["description"],$donnees["daira"],$donnees["commune"],$donnees["surface"],$donnees["etage"]));
+                                        $supprimer=$db->prepare("DELETE FROM demande_annonce WHERE id = $id");
+                                        $supprimer->execute();
+                                    }
+                        
                                     }
                                     //supprimer
                                     if($_GET["action2"]=="supprimer"){
