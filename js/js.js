@@ -15,11 +15,14 @@ function verifier_champs(){
     }
     for(i=0;i<nom.length;i++){
         if(!(((nom[i]>='A')&&(nom[i]<='Z'))||((nom[i]>='a')&&(nom[i]<='z')))){
-            document.getElementById("etat_nom").innerHTML=rouge+'<span style="color:red;font-size:25px;font-size:15px;position:relative;bottom:10px">Veuillez saisir que des lettres</span>';
-            controle=false;  
+            document.getElementById("etat_nom").innerHTML=rouge;
+            document.getElementsByName("nom")[0].style.borderRight=""
+            document.getElementById("msg_nom").innerHTML='<span style="color:red;font-size:25px;font-size:15px;position:relative;bottom:10px;right:35px">Veuillez saisir que des lettres</span>';
         }
         else{
             document.getElementById("etat_nom").innerHTML=vert;
+            document.getElementsByName("nom")[0].style.borderRight="5px green solid";
+            document.getElementById("msg_nom").innerHTML="";
         }
     }
 
@@ -31,11 +34,14 @@ function verifier_champs(){
     for(i=0;i<prenom.length;i++){
         
         if(!(((prenom[i]>='A')&&(prenom[i]<='Z'))||((prenom[i]>='a')&&(prenom[i]<='z')))){
-            document.getElementById("etat_prenom").innerHTML=rouge+'<span style="color:red;font-size:25px;font-size:15px;position:relative;bottom:10px">Veuillez saisir que des lettres</span>';
-            controle=false;  
+            document.getElementById("etat_prenom").innerHTML=rouge;
+            document.getElementsByName("prenom")[0].style.borderRight=""
+            document.getElementById("msg_prenom").innerHTML='<span style="color:red;font-size:25px;font-size:15px;position:relative;bottom:10px;right:35px">Veuillez saisir que des lettres</span>';  
         }
         else{
             document.getElementById("etat_prenom").innerHTML=vert;
+            document.getElementsByName("prenom")[0].style.borderRight="5px green solid";
+            document.getElementById("msg_prenom").innerHTML="";
         }
     }
 
@@ -46,6 +52,7 @@ function verifier_champs(){
     }
     else{
         document.getElementById("etat_username").innerHTML=vert;
+        document.getElementsByName("username")[0].style.borderRight="5px green solid";
     }
 
     //email
@@ -55,6 +62,7 @@ function verifier_champs(){
     }
     else{
         document.getElementById("etat_email").innerHTML=vert;
+        document.getElementsByName("email")[0].style.borderRight="5px green solid";
     }
     
 
@@ -66,6 +74,7 @@ function verifier_champs(){
     }
     else{
         document.getElementById("etat_mdp").innerHTML=vert;
+        document.getElementsByName("password")[0].style.borderRight="5px green solid";
     }
 
 
@@ -77,6 +86,7 @@ function verifier_champs(){
     }
     else{
         document.getElementById("etat_mdp2").innerHTML=vert;
+        document.getElementsByName("confirm_password")[0].style.borderRight="5px green solid";
     }
     
     //tel
@@ -87,11 +97,13 @@ function verifier_champs(){
     for(i=0;i<tel.length;i++){
         
         if(!((tel[i]>='0')&&(tel[i]<='9'))||(tel.length!=10)){
-            document.getElementById("etat_tel").innerHTML=rouge+'<span style="color:red;font-size:25px;font-size:15px;position:relative;bottom:10px">Numéro de téléphone invalide</span>';
-            controle=false;  
+            document.getElementById("etat_tel").innerHTML=rouge;
+            document.getElementById("msg_tel").innerHTML='<span style="color:red;font-size:25px;font-size:15px;position:relative;bottom:10px;right:35px">Numéro de téléphone invalide</span>';
         }
         else{
             document.getElementById("etat_tel").innerHTML=vert;
+            document.getElementsByName("tel")[0].style.borderRight="5px green solid";
+            document.getElementById("msg_tel").innerHTML="";
         }
     }
     
@@ -103,19 +115,24 @@ function verifier_champs(){
     }
     else{
         if(!((sit_fam=="Marié")||(sit_fam=="Celibataire"))){
-            document.getElementById("etat_sit_fam").innerHTML=rouge+'<span style="color:red;font-size:25px;font-size:15px;position:relative;bottom:10px">Veuillez choisir parmi les deux choix</span>';
+            document.getElementsByName("sit_fam")[0].style.borderRight="";
+            document.getElementById("msg_sit_fam").innerHTML='<span style="color:red;font-size:25px;font-size:15px;position:relative;bottom:10px;right:35px">Veuillez choisir parmi les deux choix</span>';
+            document.getElementById("etat_sit_fam").innerHTML=rouge;
         }
         else{
         document.getElementById("etat_sit_fam").innerHTML=vert;
+        document.getElementsByName("sit_fam")[0].style.borderRight="5px green solid";
+        document.getElementById("msg_sit_fam").innerHTML="";
         }
     }
     
 }
 
-$(function($){
+$(function(){
     
-      
+    
+     
  
-})(jQuery);
+});
     
     

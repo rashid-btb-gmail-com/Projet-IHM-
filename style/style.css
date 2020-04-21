@@ -177,42 +177,7 @@ margin-top: 5px;
 
 
 
-/**********************************   PAGE INSCRIPTION  ************************************/
-.form_inscription{
-    position: relative;
-    text-align: center;
-    border: solid 1px;
-    width: 450px;
-    margin-left: auto;
-    margin-right: auto;
-}
 
-.inp_insc{
-    width: 400px;
-    height: 0.8cm;
-    font-size: 20px;
-    padding: 8px 15px;
-    border:1px solid #d6dadb;
-    border-radius: 50px;
-    margin-bottom: 20px;
-    
-}
-
-
-
-.btn_inscr{
-    margin-bottom:20px;
-    width: 200px;
-    height: 0.8cm;
-    background-color: #e74c3c;
-    color: #ffffff;
-    font-size: 20px;
-    font-weight:500;
-    padding: 8px 15px ;
-    border: 1px solid #d6dadb;
-    border-radius: 50px;
-    margin-bottom: 30px;
-}
 
 
 /***********************  DEPOSER UNE ANNONCE ****************************************/
@@ -267,6 +232,10 @@ margin-top: 5px;
         border-radius: 5px;
 
     }
+    #user_card_insc{
+        height: 630px;
+        margin-top: 30px;
+    }
     
     .brand_logo {
         position: relative;
@@ -277,8 +246,17 @@ margin-top: 5px;
     }
     .form_container {
         margin-top: 10px;
+        text-align: center;
         
     }
+    #form_container_insc{
+        width: 290px;
+    }
+    .controle{
+        right: 10px;
+    }
+    
+
     .titre_connexion{
         text-align: center;
     }
@@ -286,6 +264,10 @@ margin-top: 5px;
         width: 100%;
         background: #ff5722;
         color: white ;
+    }
+    #login_btn_insc{
+        width: 80%;
+        
     }
     .login_btn:focus {
         box-shadow: none ;

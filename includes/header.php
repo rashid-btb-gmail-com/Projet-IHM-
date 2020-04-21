@@ -27,7 +27,10 @@
                  <?php
                  if(isset($_SESSION["username"])){
                      ?>
-                   <li><a href=""><?php echo $_SESSION["nom"]."  ".$_SESSION["prenom"];?></a></li>
+                   <li>
+                   <a href="" title="Mes favoris"><i class="far fa-heart"></i>    Mes favoris</a>
+                   <a href="" title="Mon profil"><i class="far fa-user"></i>   <?php echo $_SESSION["nom"]."  ".$_SESSION["prenom"];?></a>
+                   </li>
                    <?php
                  }
                  else{
