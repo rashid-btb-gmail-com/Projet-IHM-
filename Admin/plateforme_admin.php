@@ -64,7 +64,7 @@
                             ?>
 
                             
-                            <form action="" method="post" class="form_admin">
+                            <form action="" enctype="multipart/form-data" method="post" class="form_admin">
                                 <h2>Ajouter un bien :</h2>
                                 <input type="text" name="titre" class="inp_insc" placeholder="Titre" require><br>
                                 <textarea name="description" cols="35"  rows="10" class="inp_insc" style="height:150px; resize: none;" placeholder="Description du bien" require></textarea><br>
@@ -174,7 +174,34 @@
                                 <input type="submit" value="Enregister" class="btn_inscr" name="submit">
                                     <?php
                                         if(isset($_POST["submit"])){
-                                            //pas d'image pour l'instant-------------
+                                            
+                                            $dossier_upload = 'upload/'; // dossier où sera déplacé le fichier
+
+                                            $tmp_fichier = $_FILES['image_annonce']['tmp_name'];
+        
+                                            if( !is_uploaded_file($tmp_fichier) )
+                                            {
+                                                exit("Le fichier est introuvable");
+                                            }
+        
+                                            // on vérifie  l'extension
+        
+                                            //$type_file = $_FILES['fichier']['type'];
+        
+                                            //if( !strstr($type_file, 'jpg') && !strstr($type_file, 'jpeg') && !strstr($type_file, 'bmp') && !strstr($type_file, 'gif') )
+                                            //{
+                                            //    exit("Le fichier n'est pas une image");
+                                            //}
+        
+                                            // on copie le fichier dans le dossier de destination
+                                            $nom_fichier = $_FILES['image_annonce']['name'];
+        
+                                            if( !move_uploaded_file($tmp_fichier,"../".$dossier_upload . $nom_fichier) )
+                                            {
+                                                exit("Impossible de copier le fichier dans $dossier_upload");
+                                            }
+        
+                                            echo "Le fichier a bien été uploadé";
                                             
                                             
                                             //   insertion dans la base de donnee
@@ -372,48 +399,101 @@
                                 <input type="text" name="lieu_filtre" class="inp_insc" placeholder="lieu du rdv">
                                 <input type="date" name="date_filtre" class="inp_insc" >
                                 <input type="time" name="heure_filtre" class="inp_insc">
-                                <input type="button" value="filtrer" class="inp_insc">
-
+                                <input type="submit" name="filtrer" value="Filtrer" class="inp_insc">
+                                <?php
+                                if(isset($_POST["filtrer"])){
+                                        $select=$db->prepare("SELECT * FROM rdv_confirmer WHERE client=? AND lieu=? AND date_heure=?");
+                                        $date=$_POST["date_filtre"];
+                                        $heure=$_POST["heure_filtre"];
+                                        $select->execute(array($_POST["client_filtre"],$_POST["lieu_filtre"],$date.' '.$heure));
+                                        
+                                            ?>
+                                            <table class="liste_biens" cellpadding="3" rules="all">
+                                            <colgroup span="3" class="columns"></colgroup>
+                                            <tr>
+                                            <th>Client</th>
+                                            <th>Lieu</th>
+                                            <th>Date et Heure</th>
+                                            
+                                            </tr>
+                                        <?php
+                                        
+                                        while($donnees=$select->fetch()){
+                                            
+                                            ?>
+                                            <tr>
+                                                <td><?php echo $donnees["client"] ?></td>
+                                                <td><?php echo $donnees["lieu"] ?></td>
+                                                <td><?php echo $donnees["date_heure"] ?></td>
+                                                <td><a href="?action=gerer_rdv&action2=modifier&id=<?php echo $donnees["id"]; ?>" title="Modifier le rdv" class="icon_supprimer" style="color:green;"><i class="far fa-edit"></i></a></td>
+                                                <td><a href="?action=gerer_rdv&action2=supprimer&id=<?php echo $donnees["id"]; ?>" title="Supprimer le rdv" class="icon_supprimer"><i class="far fa-trash-alt"></i></a></td>
+                                                
+                                            </tr>
+        
+                                            <?php
+                                        }
+        
+                                        //********************  supprimer des rdv    **************************** */
+                                        
+                                        if(isset($_GET["action2"])=="supprimer"){
+                                            $id=$_GET["id"];
+                                            $supprimer=$db->prepare("DELETE FROM rdv_confirmer WHERE id = $id");
+                                            $supprimer->execute();
+                                        }
+                                        
+                                        ?>
+                                        
+                                        
+                                    </table>
+                                        <?php
+                                        
+                                }
+                                else{
+                                        ?>
+                                    <table class="liste_biens" cellpadding="3" rules="all">
+                                        <colgroup span="3" class="columns"></colgroup>
+                                        <tr>
+                                            <th>Client</th>
+                                            <th>Lieu</th>
+                                            <th>Date et Heure</th>
+                                            
+                                        </tr>
+                                        <?php
+                                        
+                                        while($donnees=$select->fetch()){
+                                            
+                                            ?>
+                                            <tr>
+                                                <td><?php echo $donnees["client"] ?></td>
+                                                <td><?php echo $donnees["lieu"] ?></td>
+                                                <td><?php echo $donnees["date_heure"] ?></td>
+                                                <td><a href="?action=gerer_rdv&action2=modifier&id=<?php echo $donnees["id"]; ?>" title="Modifier le rdv" class="icon_supprimer" style="color:green;"><i class="far fa-edit"></i></a></td>
+                                                <td><a href="?action=gerer_rdv&action2=supprimer&id=<?php echo $donnees["id"]; ?>" title="Supprimer le rdv" class="icon_supprimer"><i class="far fa-trash-alt"></i></a></td>
+                                                
+                                            </tr>
+        
+                                            <?php
+                                        }
+        
+                                        //********************  supprimer des rdv    **************************** */
+                                        
+                                        if(isset($_GET["action2"])=="supprimer"){
+                                            $id=$_GET["id"];
+                                            $supprimer=$db->prepare("DELETE FROM rdv_confirmer WHERE id = $id");
+                                            $supprimer->execute();
+                                        }
+                                        
+                                        ?>
+                                        
+                                        
+                                    </table>
+                                    <?php
+                                    }
+                                ?>
                             </form>
 
 
-                            <table class="liste_biens" cellpadding="3" rules="all">
-                                <colgroup span="3" class="columns"></colgroup>
-                                <tr>
-                                    <th>Client</th>
-                                    <th>Lieu</th>
-                                    <th>Date et Heure</th>
-                                    
-                                </tr>
-                                <?php
-                                
-                                while($donnees=$select->fetch()){
-                                    
-                                    ?>
-                                    <tr>
-                                        <td><?php echo $donnees["client"] ?></td>
-                                        <td><?php echo $donnees["lieu"] ?></td>
-                                        <td><?php echo $donnees["date_heure"] ?></td>
-                                        <td><a href="?action=gerer_rdv&action2=modifier&id=<?php echo $donnees["id"]; ?>" title="Modifier le rdv" class="icon_supprimer" style="color:green;"><i class="far fa-edit"></i></a></td>
-                                        <td><a href="?action=gerer_rdv&action2=supprimer&id=<?php echo $donnees["id"]; ?>" title="Supprimer le rdv" class="icon_supprimer"><i class="far fa-trash-alt"></i></a></td>
-                                        
-                                    </tr>
-
-                                    <?php
-                                }
-
-                                //********************  supprimer des rdv    **************************** */
-                                
-                                if(isset($_GET["action2"])=="supprimer"){
-                                    $id=$_GET["id"];
-                                    $supprimer=$db->prepare("DELETE FROM rdv_confirmer WHERE id = $id");
-                                    $supprimer->execute();
-                                }
-                                
-                                ?>
-                                
-                                
-                            </table>
+                           
 
 
                             

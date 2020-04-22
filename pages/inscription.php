@@ -28,7 +28,7 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','');
                 <h4 class="titre_connexion">Crée un compte Vilavie</h4>
 				<div class="d-flex justify-content-center form_container" >
 					
-                <form action="" method="post" onsubmit="return verifier_champs()" id="form_container_insc">
+            <form action="" method="post" onsubmit="return verifier_champs()" id="form_container_insc">
                 <!--nom-->
                     <div class="input-group mb-3">
                         <input class="form-control input_user" type="text" name="nom" placeholder="Nom" required onchange="verifier_champs()">                                  <span class="controle" id="etat_nom" ></span><br>
@@ -42,24 +42,39 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','');
                     </div>
                     <span id="msg_prenom" class="msg_err"></span>
 
+
+                <!--username-->
                     <div class="input-group mb-3">
                     <input class="form-control input_user" type="text" name="username" placeholder="Pseudo" required onchange="verifier_champs()">                          <span class="controle" id="etat_username"></span><br>
                     </div>
+
+
+                <!--email-->
                     <div class="input-group mb-3">
                     <input class="form-control input_user" type="text" name="email" placeholder="E-mail" required onchange="verifier_champs()">                                 <span class="controle" id="etat_email"></span><br>
                     </div>
+
+                <!--mot de passe-->
                     <div class="input-group mb-3">
                     <input class="form-control input_user" type="password"  name="password" placeholder="Mot de passe" required onchange="verifier_champs()" >              <span class="controle" id="etat_mdp"></span><br>
                     </div>
+
+
+                <!--confiremer mot de passe-->
                     <div class="input-group mb-3">
                     <input class="form-control input_user" type="password"  name="confirm_password" placeholder="Confirmer mot de passe" required onchange="verifier_champs()"><span class="controle" id="etat_mdp2"></span><br>
                     </div>
+                
+                
+                <!--tel-->
                     <div class="input-group mb-3">
                     <input class="form-control input_user" type="tel" name="tel" placeholder="Numéro de telephone" required onchange="verifier_champs()">                   <span class="controle" id="etat_tel"></span>
                     
                     </div>
                     <span id="msg_tel"></span>
 
+
+                <!--sit fam-->
                     <div class="input-group mb-3">
                     <input class="form-control input_user" list="sitfam" name="sit_fam" placeholder="Situation familiale" required onchange="verifier_champs()">            
                             <datalist id="sitfam">
@@ -72,32 +87,32 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','');
                     
                     <span id="msg"></span> 
 
-        <?php
-            if(isset($_POST["submit"])){
-                $select=$db->query('SELECT email FROM clients');
+                <?php
+                    if(isset($_POST["submit"])){
+                    $select=$db->query('SELECT email FROM clients');
                 
-                while($donnee=$select->fetch()){
+                    while($donnee=$select->fetch()){
                     if($_POST["email"]==$donnee["email"]){
                         exit("L'e-mail existe déja !!");
                     }
-                }
+                    }
             
-                if($_POST["password"]<>$_POST["confirm_password"]){
+                    if($_POST["password"]<>$_POST["confirm_password"]){
                     ?>
                     <h3>mot de passe incorect</h3>
                     <?php
-                }
-                else{
-                    //   insertion dans la base de donnee
-                $insert=$db->prepare('INSERT INTO clients VALUES(NULL,?,?,?,?,?,?,?)');
-                $insert->execute(array($_POST['nom'],$_POST['prenom'],$_POST['username'],$_POST['email'],$_POST['password'],$_POST['tel'],$_POST['sit_fam']));
-                }
-            }
+                    }
+                        else{
+                        //   insertion dans la base de donnee
+                        $insert=$db->prepare('INSERT INTO clients VALUES(NULL,?,?,?,?,?,?,?)');
+                        $insert->execute(array($_POST['nom'],$_POST['prenom'],$_POST['username'],$_POST['email'],$_POST['password'],$_POST['tel'],$_POST['sit_fam']));
+                        }
+                    }
 
 
-        ?>
+                ?>
     
-    </form>
+            </form>
 
 
 				</div>

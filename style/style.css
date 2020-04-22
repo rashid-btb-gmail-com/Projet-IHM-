@@ -192,7 +192,7 @@ margin-top: 5px;
     font-size: 20px;
     padding: 8px 15px;
     border:1px solid #d6dadb;
-    border-radius: 20px;
+    border-radius: 0.25rem 0 0 0.25rem ;
     margin-bottom: 20px;
     resize: none;
     
@@ -236,6 +236,13 @@ margin-top: 5px;
         height: 630px;
         margin-top: 30px;
     }
+    #user_card_annonce{
+        height: 900px;
+        width: 500px;
+        margin-top: 30px;
+
+    }
+
     
     .brand_logo {
         position: relative;
@@ -248,6 +255,9 @@ margin-top: 5px;
         margin-top: 10px;
         text-align: center;
         
+    }
+    .container_form{
+        height: 87%;
     }
     #form_container_insc{
         width: 290px;
@@ -264,6 +274,17 @@ margin-top: 5px;
         width: 100%;
         background: #ff5722;
         color: white ;
+        font-weight: bold;
+    }
+    .login_btn:hover{
+        
+        background: #ff8a67;
+        color: rgb(0, 0, 0) ;
+    }
+
+    #btn_image{
+        background-color: #d6dadb;
+        color: black;
     }
     #login_btn_insc{
         width: 80%;
