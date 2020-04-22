@@ -186,16 +186,18 @@
         
                                             // on vérifie  l'extension
         
-                                            //$type_file = $_FILES['fichier']['type'];
+                                            $type_file = $_FILES['fichier']['type'];
         
-                                            //if( !strstr($type_file, 'jpg') && !strstr($type_file, 'jpeg') && !strstr($type_file, 'bmp') && !strstr($type_file, 'gif') )
-                                            //{
-                                            //    exit("Le fichier n'est pas une image");
-                                            //}
+                                            if( !strstr($type_file, 'jpg') && !strstr($type_file, 'jpeg') && !strstr($type_file, 'bmp') && !strstr($type_file, 'gif') )
+                                            {
+                                                exit("Le fichier n'est pas une image");
+                                            }
         
                                             // on copie le fichier dans le dossier de destination
                                             $nom_fichier = $_FILES['image_annonce']['name'];
         
+                                            //recuperer le lien de l'image
+                                            $lien_img=$dossier_upload . $nom_fichier;
                                             if( !move_uploaded_file($tmp_fichier,"../".$dossier_upload . $nom_fichier) )
                                             {
                                                 exit("Impossible de copier le fichier dans $dossier_upload");
@@ -205,8 +207,8 @@
                                             
                                             
                                             //   insertion dans la base de donnee
-                                            $insert=$db->prepare('INSERT INTO biens VALUES(NULL,?,?,?,?,?,?)');
-                                            $insert->execute(array($_POST["titre"],$_POST["description"],$_POST["daira"],$_POST["commune"],$_POST["surface"],$_POST["nbr_etages"]));
+                                            $insert=$db->prepare('INSERT INTO biens VALUES(NULL,?,?,?,?,?,?,?)');
+                                            $insert->execute(array($_POST["titre"],$_POST["description"],$_POST["daira"],$_POST["commune"],$_POST["surface"],$_POST["nbr_etages"],$lien_img));
                                             
                                         }
 
@@ -321,8 +323,8 @@
                                     $id=$_GET["id"];
                                     $select=$db->query("SELECT * FROM demande_annonce WHERE id=$id");
                                     while($donnees=$select->fetch()){
-                                        $insert=$db->prepare('INSERT INTO biens VALUES(NULL,?,?,?,?,?,?)');
-                                        $insert->execute(array($donnees["titre"],$donnees["description"],$donnees["daira"],$donnees["commune"],$donnees["surface"],$donnees["etage"]));
+                                        $insert=$db->prepare('INSERT INTO biens VALUES(NULL,?,?,?,?,?,?,?)');
+                                        $insert->execute(array($donnees["titre"],$donnees["description"],$donnees["daira"],$donnees["commune"],$donnees["surface"],$donnees["etage"],$donnees["lien_img"]));
                                         $supprimer=$db->prepare("DELETE FROM demande_annonce WHERE id = $id");
                                         $supprimer->execute();
                                     }
