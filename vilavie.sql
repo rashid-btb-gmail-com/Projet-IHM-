@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  lun. 20 avr. 2020 à 21:51
+-- Généré le :  mer. 22 avr. 2020 à 22:17
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -37,18 +37,16 @@ CREATE TABLE IF NOT EXISTS `biens` (
   `commune` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `surface` int(11) NOT NULL,
   `etage` int(11) NOT NULL,
+  `lien_img` varchar(1024) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=51 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=53 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `biens`
 --
 
-INSERT INTO `biens` (`id`, `titre`, `description`, `daira`, `commune`, `surface`, `etage`) VALUES
-(50, 'grande maison', 'ekekekeke', 'LarbaÃ¢ Nath Irathen', 'AÃ¯t Mahmoud', 1000, 2),
-(48, 'maison 30', 'jhjhjhj', 'LarbaÃ¢ Nath Irathen', 'AÃ¯t Khellili', 123, 2),
-(47, 'maison 2eeleleel', 'leelele', 'Makouda', 'AÃ¯t Aggouacha', 123, 123),
-(49, 'grande maison', 'ekekekeke', 'LarbaÃ¢ Nath Irathen', 'AÃ¯t Mahmoud', 1000, 2);
+INSERT INTO `biens` (`id`, `titre`, `description`, `daira`, `commune`, `surface`, `etage`, `lien_img`) VALUES
+(52, 'maison 1', 'aaaaaaaaaaaaa', 'MÃ¢atkas', 'AÃ¯t Khellili', 123, 23, 'upload/maison.jpg');
 
 -- --------------------------------------------------------
 
@@ -96,8 +94,9 @@ CREATE TABLE IF NOT EXISTS `demande_annonce` (
   `commune` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `surface` bigint(20) NOT NULL,
   `etage` bigint(20) NOT NULL,
+  `lien_img` varchar(1024) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -112,16 +111,18 @@ CREATE TABLE IF NOT EXISTS `rdv_confirmer` (
   `lieu` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `date_heure` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `rdv_confirmer`
 --
 
 INSERT INTO `rdv_confirmer` (`id`, `client`, `lieu`, `date_heure`) VALUES
-(3, 'hocine  eazea', 'azeaze', '2020-04-18 02:56:00'),
-(4, 'hocine  eazea', 'azeaze', '2020-04-18 02:56:00'),
-(5, 'hohoh', 'agence', '2020-06-17 10:10:00');
+(9, 'lala', 'popo', '2020-04-26 10:00:00'),
+(8, 'dada', 'gogo', '2020-06-18 15:15:00'),
+(7, 'hoho fefe', 'tizi', '2020-04-25 00:00:00'),
+(6, 'hocine fedani', 'agence', '2020-04-01 12:10:00'),
+(10, 'hocine fedani', 'aaaa', '2020-04-09 00:00:00');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
