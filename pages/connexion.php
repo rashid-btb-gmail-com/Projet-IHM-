@@ -26,7 +26,7 @@
 	
 	$db=new PDO('mysql:host=localhost;dbname=vilavie','root','');
 	
-    ?>
+    ?> <div id="fullconnex">
         <div class="container h-100">
 		<div class="d-flex justify-content-center h-100">
 			<div class="user_card">
@@ -80,7 +80,7 @@
 					?>
 					</form>
 				</div>
-		
+				<div class="forgetconnex">
 				<div class="mt-4">
 					<div class="d-flex justify-content-center links">
                     Vous n'avez pas de compte ?<a href="#" class="ml-2">S'enregistrer</a>
@@ -89,10 +89,13 @@
 						<a href="#">Mot de passe oublié ? </a>
 					</div>
 				</div>
+			    </div>
+		
+				
 			</div>
 		</div>
-	</div>
-     
+	   </div>
+      </div>
       <!--Scriptes -->
       <script src="../js/jquery.js"></script>
       <script src="../js/js.js"></script>

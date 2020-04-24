@@ -14,7 +14,7 @@ html,body{
 /***********************************  header et navigation bar  *****************************************/
 header{
     font-size: 1.15rem;
-    background-color: #ecf0f1;
+    background-color: #ebf0f1;
 }
 .navbar-right{
     margin-top: 20px;
@@ -213,10 +213,19 @@ margin-top: 5px;
 }
 
 /**************************************     page de connexion    *******************************/
+    #fullconnex{
+   padding: 115px 0 115px 0;
+    background-image: url(../images/connex.jpg);
+    background-repeat: no-repeat;
+    background-size:cover; 
+    display: grid;
+    align-items: center;
+    }
 
     
     .user_card {
-        height: 400px;
+      
+        height: 425px;
         width: 350px;
         margin-top: auto;
         margin-bottom: auto;
@@ -226,10 +235,10 @@ margin-top: 5px;
         justify-content: center;
         flex-direction: column;
         padding: 10px;
-        box-shadow: 0 4px 8px 0 #ff8d6a, 0 6px 20px 0 #ff8d6a;
-        -webkit-box-shadow: 0 4px 8px 0 #ff8d6a, 0 6px 20px 0 #ff8d6a;
-        -moz-box-shadow: 0 4px 8px 0 #ff8d6a, 0 6px 20px 0 #ff8d6a;
-        border-radius: 5px;
+        box-shadow: 0 4px 8px 0 #000, 0 6px 20px 0 #000;
+        -webkit-box-shadow: 0 4px 8px 0 #000, 0 6px 20px 0 #000;
+        -moz-box-shadow: 0 4px 8px 0 #000, 0 6px 20px 0 #000;
+        border-radius: 5%;
 
     }
     #user_card_insc{
@@ -245,6 +254,7 @@ margin-top: 5px;
 
     
     .brand_logo {
+        
         position: relative;
         height: 100px;
         width: 150px;
@@ -304,11 +314,15 @@ margin-top: 5px;
         border: 0 ;
         border-radius: 0.25rem 0 0 0.25rem ;
     }
+    .forgetconnex{
+        padding-bottom: 20px;
+    }
     .input_user,
     .input_pass:focus {
         box-shadow: none ;
         outline: 0px ;
     }
+   
     .custom-checkbox .custom-control-input:checked~.custom-control-label::before {
         background-color: #ff5722 ;
     }
