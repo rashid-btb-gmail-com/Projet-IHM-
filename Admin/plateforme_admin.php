@@ -404,10 +404,31 @@
                                 <input type="submit" name="filtrer" value="Filtrer" class="inp_insc">
                                 <?php
                                 if(isset($_POST["filtrer"])){
-                                        $select=$db->prepare("SELECT * FROM rdv_confirmer WHERE client=? AND lieu=? AND date_heure=?");
-                                        $date=$_POST["date_filtre"];
-                                        $heure=$_POST["heure_filtre"];
-                                        $select->execute(array($_POST["client_filtre"],$_POST["lieu_filtre"],$date.' '.$heure));
+                                    //******************    filtre des rdv  ***************************** */
+                                        if(isset($_POST["client_filtre"])&&(isset($_POST["lieu_filtre"]))&&(isset($_POST["date_filtre"]))){
+                                            $select=$db->prepare("SELECT * FROM rdv_confirmer WHERE client=? AND lieu=? AND date_heure=?");
+                                            $date=$_POST["date_filtre"];
+                                            $heure=$_POST["heure_filtre"];
+                                            $select->execute(array($_POST["client_filtre"],$_POST["lieu_filtre"],$date.' '.$heure));
+                                        }
+                                        if(isset($_POST["client_filtre"])&&(isset($_POST["lieu_filtre"]))){
+                                            $select=$db->prepare("SELECT * FROM rdv_confirmer WHERE client=? AND lieu=?");                    
+                                            $select->execute(array($_POST["client_filtre"],$_POST["lieu_filtre"]));
+                                        }
+                                        if($_POST["lieu_filtre"]==null){
+                                            $select=$db->prepare("SELECT * FROM rdv_confirmer WHERE client=?");                    
+                                            $select->execute(array($_POST["client_filtre"]));
+                                        }
+                                        if($_POST["client_filtre"]==null){
+                                            $select=$db->prepare("SELECT * FROM rdv_confirmer WHERE lieu=?");                    
+                                            $select->execute(array($_POST["lieu_filtre"]));
+                                        }
+                                        if(($_POST["client_filtre"]==null)&&($_POST["lieu_filtre"]==null)&&(isset($_POST["date_filtre"]))){
+                                            $select=$db->prepare("SELECT * FROM rdv_confirmer WHERE date_heure=?"); 
+                                            $date=$_POST["date_filtre"];
+                                            $heure=$_POST["heure_filtre"];                   
+                                            $select->execute(array($date.' '.$heure));
+                                        }
                                         
                                             ?>
                                             <table class="liste_biens" cellpadding="3" rules="all">

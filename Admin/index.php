@@ -34,7 +34,7 @@
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="fas fa-user"></i></span>
 							</div>
-							<input type="text" name="nom_admin" class="form-control input_user"  placeholder="Pseudo">
+							<input type="text" name="nom_admin" class="form-control input_user"  placeholder="Nom de l'administrateur">
 						</div>
 						<div class="input-group mb-2">
 							<div class="input-group-append">

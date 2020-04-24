@@ -186,7 +186,10 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','');
                                     {
                                         exit("Le fichier n'est pas une image");
                                     }
-
+                                    $select=$db->prepare('SELECT TOP 1 * FROM biens ORDER BY id DESC');
+                                    $idd=$select->execute();
+                                    $id=$idd->id;
+                                    echo $id;
                                     // on copie le fichier dans le dossier de destination
                                     $nom_fichier = $_FILES['image_annonce']['name'];
                                     //recuperer le lien de l'image
