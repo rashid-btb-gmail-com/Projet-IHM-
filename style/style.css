@@ -79,14 +79,15 @@ li :hover{
     border: none;
     height: 55px;
     width:65px;
-    background-color: #ff5722;
+    background-color:white;
+    color:  #ff5722;
+    font-size:1.25rem;
     margin-left:-5px;
-    position: relative;
-    top:-1px;
+    
 }
 .btn_recherche :hover{
-    color:white;
-    font-size: 1.25rem;
+    color:#00adb5;
+    
 }
 #tizisearch{
     font-size: 1.25em;
