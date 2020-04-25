@@ -339,3 +339,11 @@ margin-top: 5px;
     .custom-checkbox .custom-control-input:checked~.custom-control-label::before {
         background-color: #ff5722 ;
     }
+    /************************   Style page connexion admin **********************************/
+    .fulladmin{
+        height:100%;
+        background-image: url(../images/connexadmin.jpg);
+        background-repeat: no-repeat;
+        background-size:cover; 
+    }
+   
