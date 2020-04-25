@@ -193,7 +193,7 @@
                                             {
                                                 exit("Le fichier n'est pas une image");
                                             }
-                                            $select=$db->query('SELECT MAX(id) FROM biens');
+                                            $select=$db->query('SELECT MAX(id) FROM demande_annonce');
 
                                         $id_img=$select->fetch();
 
