@@ -224,6 +224,27 @@ margin-top: 5px;
     border-radius: 50px;
     margin-bottom: 30px;
 }
+.fulldepose{
+    background-image: url(../images/depose.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+.deposeheader{
+    display:grid;
+    align-items: center;
+    justify-content: center ;
+    background-color: rgba(0, 0, 0, 0.8);
+    color:white;
+    margin-left:10%;
+    margin-right:10%;
+    margin-top: 40px;
+    border-radius: 0.4rem;
+    padding: 30px 20px 30px 20px;
+    font-family: 'Cormorant Garamond', serif;
+
+}
 
 /**************************************     page de connexion    *******************************/
     #fullconnex{
@@ -259,7 +280,7 @@ margin-top: 5px;
         margin-top: 30px;
     }
     #user_card_annonce{
-        height: 900px;
+        height: 1000px;
         width: 500px;
         margin-top: 30px;
 
