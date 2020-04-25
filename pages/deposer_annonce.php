@@ -193,11 +193,7 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
                                     $select=$db->query('SELECT MAX(id) FROM demande_annonce');
 
                                         $id_img=$select->fetch();
-
-                                   
-                                        echo $id_img[0];
-                                    
-
+                                        
                                     // on copie le fichier dans le dossier de destination
                                     $nom_fichier =$id_img[0].'_'.$_FILES['image_annonce']['name'];
                                     //recuperer le lien de l'image

@@ -64,7 +64,7 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
                     <div class="input-group mb-3">
                     <input class="form-control input_user" type="password"  name="confirm_password" placeholder="Confirmer mot de passe" required onchange="verifier_champs()"><span class="controle" id="etat_mdp2"></span><br>
                     </div>
-                
+                    <span id="msg_mdp2" class="msg_err"></span>
                 
                 <!--tel-->
                     <div class="input-group mb-3">

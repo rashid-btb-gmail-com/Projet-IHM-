@@ -118,6 +118,7 @@ body{
 /***********************************   Liste des biens ******************************************/
 .liste_biens{
     border: 1px solid black;
+    overflow-y: scroll;
 }
 
 .icon_supprimer{

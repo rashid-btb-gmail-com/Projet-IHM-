@@ -83,7 +83,7 @@
 				<div class="forgetconnex">
 				<div class="mt-4">
 					<div class="d-flex justify-content-center links">
-                    Vous n'avez pas de compte ?<a href="#" class="ml-2">S'enregistrer</a>
+                    Vous n'avez pas de compte ?<a href="./inscription.php" class="ml-2">S'enregistrer</a>
 					</div>
 					<div class="d-flex justify-content-center links">
 						<a href="#">Mot de passe oublié ? </a>
