@@ -26,8 +26,12 @@ include_once("../includes/header.php");
 //    connexion a la base de donnee  
 $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 ?>
-
+<div class="fulldepose" id="depose">
     <div class="container h-100">
+        <div class="deposeheader" >
+         <h1> Vous Souhaitez Vendre un Bien Immobilier</h1>
+         <h3>Remplissez ce Formualaire, Notre Agence s'en Occupera</h3>
+        </div>
 		<div class="d-flex justify-content-center h-100">
 			<div class="user_card" id="user_card_annonce">
 				<div class="d-flex justify-content-center">
@@ -207,7 +211,7 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
                                         exit("Impossible de copier le fichier dans $dossier_upload");
                                     }
 
-                                    echo "Le fichier a bien été uploadé";
+                                    echo "  Le fichier a bien été uploadé";
                                         
 
                                         
@@ -231,7 +235,7 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
 			</div>
 		</div>
 	</div>
-
+   </div>
 
 
 
