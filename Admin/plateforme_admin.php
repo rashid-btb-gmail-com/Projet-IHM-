@@ -12,7 +12,7 @@
 <body>
     <?php
     session_start();
-    $db=new PDO('mysql:host=localhost;dbname=vilavie','root','');
+    $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
          
         if(($_SESSION["nom_admin"]!="user")||($_SESSION["psw_admin"]!="1234")){
             header("location: ./index.php");
@@ -170,6 +170,7 @@
 
                                 <input type="number" name="surface" class="inp_insc" placeholder="Surface">
                                 <input type="number" name="nbr_etages" class="inp_insc" placeholder="Nombre d'étages">
+                                <input type="number" name="prix" class="inp_insc" placeholder="Prix du biens">
                                 <input type="file" name="image_annonce"  ><br>
                                 <input type="submit" value="Enregister" class="btn_inscr" name="submit">
                                     <?php
@@ -183,7 +184,7 @@
                                             {
                                                 exit("Le fichier est introuvable");
                                             }
-        
+                                            
                                             // on vérifie  l'extension
         
                                             $type_file = $_FILES['fichier']['type'];
@@ -192,9 +193,17 @@
                                             {
                                                 exit("Le fichier n'est pas une image");
                                             }
-        
+                                            $select=$db->query('SELECT MAX(id) FROM biens');
+
+                                        $id_img=$select->fetch();
+
+                                   
+                                        echo $id_img[0];
+                                    
+
                                             // on copie le fichier dans le dossier de destination
-                                            $nom_fichier = $_FILES['image_annonce']['name'];
+                                            $nom_fichier =$id_img[0].'_'.$_FILES['image_annonce']['name'];
+                                            
         
                                             //recuperer le lien de l'image
                                             $lien_img=$dossier_upload . $nom_fichier;
@@ -207,8 +216,8 @@
                                             
                                             
                                             //   insertion dans la base de donnee
-                                            $insert=$db->prepare('INSERT INTO biens VALUES(NULL,?,?,?,?,?,?,?)');
-                                            $insert->execute(array($_POST["titre"],$_POST["description"],$_POST["daira"],$_POST["commune"],$_POST["surface"],$_POST["nbr_etages"],$lien_img));
+                                            $insert=$db->prepare('INSERT INTO biens VALUES(NULL,?,?,?,?,?,?,?,?)');
+                                            $insert->execute(array($_POST["titre"],$_POST["description"],$_POST["daira"],$_POST["commune"],$_POST["surface"],$_POST["nbr_etages"],$_POST["prix"],$lien_img));
                                             
                                         }
 
@@ -323,8 +332,8 @@
                                     $id=$_GET["id"];
                                     $select=$db->query("SELECT * FROM demande_annonce WHERE id=$id");
                                     while($donnees=$select->fetch()){
-                                        $insert=$db->prepare('INSERT INTO biens VALUES(NULL,?,?,?,?,?,?,?)');
-                                        $insert->execute(array($donnees["titre"],$donnees["description"],$donnees["daira"],$donnees["commune"],$donnees["surface"],$donnees["etage"],$donnees["lien_img"]));
+                                        $insert=$db->prepare('INSERT INTO biens VALUES(NULL,?,?,?,?,?,?,?,?)');
+                                        $insert->execute(array($donnees["titre"],$donnees["description"],$donnees["daira"],$donnees["commune"],$donnees["surface"],$donnees["etage"],$donnees["prix"],$donnees["lien_img"]));
                                         $supprimer=$db->prepare("DELETE FROM demande_annonce WHERE id = $id");
                                         $supprimer->execute();
                                     }

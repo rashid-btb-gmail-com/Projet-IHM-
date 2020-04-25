@@ -24,7 +24,7 @@
 <?php
 include_once("../includes/header.php");
 //    connexion a la base de donnee  
-$db=new PDO('mysql:host=localhost;dbname=vilavie','root','');
+$db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 ?>
 
     <div class="container h-100">
@@ -158,6 +158,9 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','');
                         <input type="number" name="nbr_etages" class="form-control input_user" placeholder="Nombre d'étages">
                         </div>
                         <div class="input-group mb-3">
+                        <input type="number" name="prix" class="form-control input_user" placeholder="Prix du bien en DA">
+                        </div>
+                        <div class="input-group mb-3">
                         <input type="file" name="image_annonce" class="btn login_btn" id="btn_image" ><br>
                         </div>
                         <div class="input-group mb-3">
@@ -186,12 +189,17 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','');
                                     {
                                         exit("Le fichier n'est pas une image");
                                     }
-                                    $select=$db->prepare('SELECT TOP 1 * FROM biens ORDER BY id DESC');
-                                    $idd=$select->execute();
-                                    $id=$idd->id;
-                                    echo $id;
+                                    
+                                    $select=$db->query('SELECT MAX(id) FROM biens');
+
+                                        $id_img=$select->fetch();
+
+                                   
+                                        echo $id_img[0];
+                                    
+
                                     // on copie le fichier dans le dossier de destination
-                                    $nom_fichier = $_FILES['image_annonce']['name'];
+                                    $nom_fichier =$id_img[0].'_'.$_FILES['image_annonce']['name'];
                                     //recuperer le lien de l'image
                                     $lien_img=$dossier_upload . $nom_fichier;
                                     if( !move_uploaded_file($tmp_fichier,"../".$dossier_upload . $nom_fichier) )
@@ -205,8 +213,8 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','');
                                         
                                 
                                 //   insertion dans la base de donnee
-                                $insert=$db->prepare('INSERT INTO demande_annonce VALUES(NULL,?,?,?,?,?,?,?)');
-                                $insert->execute(array($_POST["titre"],$_POST["description"],$_POST["daira"],$_POST["commune"],$_POST["surface"],$_POST["nbr_etages"],$lien_img));
+                                $insert=$db->prepare('INSERT INTO demande_annonce VALUES(NULL,?,?,?,?,?,?,?,?)');
+                                $insert->execute(array($_POST["titre"],$_POST["description"],$_POST["daira"],$_POST["commune"],$_POST["surface"],$_POST["nbr_etages"],$_POST["prix"],$lien_img));
                                 
                             }
 
