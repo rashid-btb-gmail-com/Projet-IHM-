@@ -68,11 +68,13 @@ session_start();
     <section class="sec1">
         <div class="container searchbox">
         <!--text centrer -->
-         <h1>L'immobilier à Petit Prix Avec Vilavie</h1>
-         <h2>Chercher Des Biens Immobilier a Tizi-Ouzou</h2>
+         <h1>Avec "VILAVIE" L'immobilier à Petit Prix </h1>
+         <h3>Chercher Des Biens Immobilier Sur La Wilaya de Tizi-Ouzou</h3>
          <form action="" id="formsearch"> <!-- boutton de rechercche -->
-            <input type="search" name="tizisearch" id="tizisearch" placeholder="Chercher Un bien a Tizi Ouzou">
+            <div class="searchform">
+            <input type="search" name="tizisearch" id="tizisearch" placeholder="Nom De Daira ou Commune, Ex:Tizi-Ouzou">
             <button class="btn_recherche"><i class="fas fa-search"></i></button>
+            </div>
          </form>
         </div>
         <!--rest a ameliorer  --> 

@@ -63,27 +63,39 @@ li :hover{
 .searchbox{
     display:grid;
     justify-content: center;
+    align-items: center;
     background-color: #000000d6;
     padding-bottom: 50px;
     padding-top: 50px;
     font-family: 'Cormorant Garamond', serif;
 
 }
+.searchform{
+    margin-top: 50px;
+    margin-bottom: 20px;
+    
+}
 .btn_recherche{
     border: none;
-    height: 50px;
-    width:50px;
+    height: 55px;
+    width:65px;
     background-color: #ff5722;
+    margin-left:-5px;
+    position: relative;
+    top:-1px;
 }
-
+.btn_recherche :hover{
+    color:white;
+    font-size: 1.25rem;
+}
 #tizisearch{
-    font-size: 1.2em;
- height: 50px;
- width: 80%;
- margin-top: 50px;
- border: none; 
+    font-size: 1.25em;
+ height: 55px;
+ width:85%;
+ border: none;
+ 
  padding: 10px 20px 10px 20px;
- margin-bottom: 20px;
+ 
 }
 
 
