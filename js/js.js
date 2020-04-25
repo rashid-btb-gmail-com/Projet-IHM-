@@ -85,8 +85,17 @@ function verifier_champs(){
         document.getElementById("etat_mdp2").innerHTML=rouge;
     }
     else{
-        document.getElementById("etat_mdp2").innerHTML=vert;
-        document.getElementsByName("confirm_password")[0].style.borderRight="5px green solid";
+        
+        if(mdp2[0]!=mdp[0]){
+            document.getElementById("etat_mdp2").innerHTML=rouge;
+            document.getElementsByName("confirm_password")[0].style.borderRight=""
+            document.getElementById("msg_mdp2").innerHTML='<span style="color:red;font-size:25px;font-size:15px;position:relative;bottom:10px;right:35px">Veuillez confirmer le mot de passe</span>';
+        }
+        else{
+            document.getElementById("etat_mdp2").innerHTML=vert;
+            document.getElementsByName("confirm_password")[0].style.borderRight="5px green solid";
+            document.getElementById("msg_mdp2").innerHTML="";
+        }
     }
     
     //tel

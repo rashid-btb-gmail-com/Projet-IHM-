@@ -235,58 +235,60 @@
                             ?>
                             <div class="form_admin">
                             <h2>Liste des biens :</h2>
-                            <table class="liste_biens" cellpadding="3" rules="all">
-                                <colgroup span="6" class="columns"></colgroup>
-                                <tr>
-                                    <th>Titre</th>
-                                    <th>Surface</th>
-                                    <th>Etages</th>
-                                    <th>Daïra</th>
-                                    <th>Commune</th>
-                                </tr>
-                                <?php
-                                
-                                while($donnees=$select->fetch()){
+                            <div style="height: 250px; width: 650px; overflow: auto;">
+                                <table class="liste_biens" cellpadding="3" rules="all">
+                                    <colgroup span="6" class="columns"></colgroup>
+                                    <tr>
+                                        <th>Titre</th>
+                                        <th>Surface</th>
+                                        <th>Etages</th>
+                                        <th>Daïra</th>
+                                        <th>Commune</th>
+                                    </tr>
+                                    <?php
+                                    
+                                    while($donnees=$select->fetch()){
+                                        
+                                        ?>
+                                        <tr>
+                                            <td><?php echo $donnees["titre"] ?></td>
+                                            <td><?php echo $donnees["surface"] ?></td>
+                                            <td><?php echo $donnees["etage"] ?></td>
+                                            <td><?php echo $donnees["daira"] ?></td>
+                                            <td><?php echo $donnees["commune"] ?></td>
+                                            <td><a href="?action=gerer_biens&amp;action2=modifier&amp;id=<?php echo $donnees["id"]; ?>" title="Modifier le bien"class="icon_supprimer" style="color:green;"><i class="far fa-edit"></i></a></td>
+                                            <td><a href="?action=gerer_biens&amp;action2=supprimer&amp;id=<?php echo $donnees["id"]; ?>" title="Supprimer le bien"class="icon_supprimer "><i class="far fa-trash-alt"></i></a></td>
+                                            
+                                        </tr>
+
+                                        <?php
+                                    }
+
+                                    
+                                    
+                                    
+                                    //********************  supprimer ou modifier des biens    **************************** */
+                                    
+                                    if(isset($_GET["action2"])){
+                                        //supprimer
+                                        if($_GET["action2"]=="supprimer"){
+                                        $id=$_GET["id"];
+                                        $supprimer=$db->prepare("DELETE FROM biens WHERE id = $id");
+                                        $supprimer->execute();
+                                        }
+                                        //modifier
+                                        if($_GET["action2"]=="modifier")
+                                        {
+                                        echo "modification";
+                                        }
+                                    }
+                                    
                                     
                                     ?>
-                                    <tr>
-                                        <td><?php echo $donnees["titre"] ?></td>
-                                        <td><?php echo $donnees["surface"] ?></td>
-                                        <td><?php echo $donnees["etage"] ?></td>
-                                        <td><?php echo $donnees["daira"] ?></td>
-                                        <td><?php echo $donnees["commune"] ?></td>
-                                        <td><a href="?action=gerer_biens&amp;action2=modifier&amp;id=<?php echo $donnees["id"]; ?>" title="Modifier le bien"class="icon_supprimer" style="color:green;"><i class="far fa-edit"></i></a></td>
-                                        <td><a href="?action=gerer_biens&amp;action2=supprimer&amp;id=<?php echo $donnees["id"]; ?>" title="Supprimer le bien"class="icon_supprimer "><i class="far fa-trash-alt"></i></a></td>
-                                        
-                                    </tr>
+                                  
+                                </table>
+                            </div>
 
-                                    <?php
-                                }
-
-                                
-                                
-                                
-                                //********************  supprimer ou modifier des biens    **************************** */
-                                
-                                if(isset($_GET["action2"])){
-                                    //supprimer
-                                    if($_GET["action2"]=="supprimer"){
-                                    $id=$_GET["id"];
-                                    $supprimer=$db->prepare("DELETE FROM biens WHERE id = $id");
-                                    $supprimer->execute();
-                                    }
-                                    //modifier
-                                    if($_GET["action2"]=="modifier")
-                                     {
-                                    echo "modification";
-                                    }
-                                }
-                                
-                                
-                                ?>
-                                
-                                
-                            </table>
                             </div>
                             <?php
                         } 
@@ -296,69 +298,71 @@
                             ?>
                             <div class="form_admin">
                             <h2>Liste des demande d'annoces :</h2>
-                            <table class="liste_biens" cellpadding="3" rules="all">
-                                <colgroup span="6" class="columns"></colgroup>
-                                <tr>
-                                    <th>Titre</th>
-                                    <th>Surface</th>
-                                    <th>Etages</th>
-                                    <th>Daïra</th>
-                                    <th>Commune</th>
-                                </tr>
-                                <?php
-                                
-                                while($donnees=$select->fetch()){
-                                    
-                                    ?>
-                                    <tr>
-                                        <td><?php echo $donnees["titre"] ?></td>
-                                        <td><?php echo $donnees["surface"] ?></td>
-                                        <td><?php echo $donnees["etage"] ?></td>
-                                        <td><?php echo $donnees["daira"] ?></td>
-                                        <td><?php echo $donnees["commune"] ?></td>
-                                        <td><a href="?action=confirmer_annonces&amp;action2=accepter&amp;id=<?php echo $donnees["id"]; ?>" title="Accepter l'annonce"class="icon_supprimer" style="color:green;"><i class="fas fa-check" ></i></a></td>
-                                        <td><a href="?action=confirmer_annonces&amp;action2=supprimer&amp;id=<?php echo $donnees["id"]; ?>" title="Refuser l'annoce"class="icon_supprimer "><i class="fas fa-times" ></i></a></td>
+                                <div style="height: 400px; width: 650px; overflow: auto;">
+                                    <table class="liste_biens" cellpadding="3" rules="all">
+                                        <colgroup span="6" class="columns"></colgroup>
+                                        <tr>
+                                            <th>Titre</th>
+                                            <th>Surface</th>
+                                            <th>Etages</th>
+                                            <th>Daïra</th>
+                                            <th>Commune</th>
+                                        </tr>
+                                        <?php
                                         
-                                    </tr>
+                                        while($donnees=$select->fetch()){
+                                            
+                                            ?>
+                                            <tr>
+                                                <td><?php echo $donnees["titre"] ?></td>
+                                                <td><?php echo $donnees["surface"] ?></td>
+                                                <td><?php echo $donnees["etage"] ?></td>
+                                                <td><?php echo $donnees["daira"] ?></td>
+                                                <td><?php echo $donnees["commune"] ?></td>
+                                                <td><a href="?action=confirmer_annonces&amp;action2=accepter&amp;id=<?php echo $donnees["id"]; ?>" title="Accepter l'annonce"class="icon_supprimer" style="color:green;"><i class="fas fa-check" ></i></a></td>
+                                                <td><a href="?action=confirmer_annonces&amp;action2=supprimer&amp;id=<?php echo $donnees["id"]; ?>" title="Refuser l'annoce"class="icon_supprimer "><i class="fas fa-times" ></i></a></td>
+                                                
+                                            </tr>
 
-                                    <?php
-                                }
+                                            <?php
+                                        }
 
-                                //**************************    accepter l'annonce *********************** */
-                                if(isset($_GET["action2"])){
-                                    //accepter
-                                    if($_GET["action2"]=="accepter"){
+                                        //**************************    accepter l'annonce *********************** */
+                                        if(isset($_GET["action2"])){
+                                            //accepter
+                                            if($_GET["action2"]=="accepter"){
+                                                
+                                            $id=$_GET["id"];
+                                            $select=$db->query("SELECT * FROM demande_annonce WHERE id=$id");
+                                            while($donnees=$select->fetch()){
+                                                $insert=$db->prepare('INSERT INTO biens VALUES(NULL,?,?,?,?,?,?,?,?)');
+                                                $insert->execute(array($donnees["titre"],$donnees["description"],$donnees["daira"],$donnees["commune"],$donnees["surface"],$donnees["etage"],$donnees["prix"],$donnees["lien_img"]));
+                                                $supprimer=$db->prepare("DELETE FROM demande_annonce WHERE id = $id");
+                                                $supprimer->execute();
+                                            }
+                                
+                                            }
+                                            //supprimer
+                                            if($_GET["action2"]=="supprimer"){
+                                                $id=$_GET["id"];
+                                                $supprimer=$db->prepare("DELETE FROM demande_annonce WHERE id = $id");
+                                                $supprimer->execute();
+                                            }
+
+                                            
+                                        }
+                                        //********************  supprimer des demmande d'annoces    **************************** */
                                         
-                                    $id=$_GET["id"];
-                                    $select=$db->query("SELECT * FROM demande_annonce WHERE id=$id");
-                                    while($donnees=$select->fetch()){
-                                        $insert=$db->prepare('INSERT INTO biens VALUES(NULL,?,?,?,?,?,?,?,?)');
-                                        $insert->execute(array($donnees["titre"],$donnees["description"],$donnees["daira"],$donnees["commune"],$donnees["surface"],$donnees["etage"],$donnees["prix"],$donnees["lien_img"]));
-                                        $supprimer=$db->prepare("DELETE FROM demande_annonce WHERE id = $id");
-                                        $supprimer->execute();
-                                    }
-                        
-                                    }
-                                    //supprimer
-                                    if($_GET["action2"]=="supprimer"){
-                                        $id=$_GET["id"];
-                                        $supprimer=$db->prepare("DELETE FROM demande_annonce WHERE id = $id");
-                                        $supprimer->execute();
-                                    }
-
-                                    
-                                }
-                                //********************  supprimer des demmande d'annoces    **************************** */
-                                
-                                
+                                        
 
 
-                                   
-                                
-                                ?>
-                                
-                                
-                            </table>
+                                        
+                                        
+                                        ?>
+                                        
+                                        
+                                    </table>
+                                </div>
                             </div>
                             <?php
                         } 
@@ -440,6 +444,7 @@
                                         }
                                         
                                             ?>
+                                        <div style="height: 400px; width: 650px; overflow: auto;">
                                             <table class="liste_biens" cellpadding="3" rules="all">
                                             <colgroup span="3" class="columns"></colgroup>
                                             <tr>
@@ -476,7 +481,8 @@
                                         ?>
                                         
                                         
-                                    </table>
+                                        </table>
+                                    </div>
                                         <?php
                                         
                                 }
@@ -540,50 +546,52 @@
                             ?>
                             <div class="form_admin">
                             <h2>Liste des clients :</h2>
-                            <table class="liste_biens" cellpadding="3" rules="all">
-                                <colgroup span="4" class="columns"></colgroup>
-                                <tr>
-                                    <th>Nom</th>
-                                    <th>Prénom</th>
-                                    <th>E-mail</th>
-                                    <th>Tel</th>    
-                                </tr>
-                                <?php
-                                
-                                while($donnees=$select->fetch()){
+                            <div style="height: 400px; width: 650px; overflow: auto;">
+                                <table class="liste_biens" cellpadding="3" rules="all">
+                                    <colgroup span="4" class="columns"></colgroup>
+                                    <tr>
+                                        <th>Nom</th>
+                                        <th>Prénom</th>
+                                        <th>E-mail</th>
+                                        <th>Tel</th>    
+                                    </tr>
+                                    <?php
+                                    
+                                    while($donnees=$select->fetch()){
+                                        
+                                        ?>
+                                        <tr>
+                                            <td><?php echo $donnees["nom"] ?></td>
+                                            <td><?php echo $donnees["prenom"] ?></td>
+                                            <td><?php echo $donnees["email"] ?></td>
+                                            <td><?php echo $donnees["tel"] ?></td>
+                                            <td><a href="?action=clients&amp;action2=modifier&amp;id=<?php echo $donnees["id"]; ?>" title="Modifier le client" class="icon_supprimer" style="color:green;"><i class="far fa-edit"></i></a></td>
+                                            <td><a href="?action=clients&amp;action2=supprimer&amp;id=<?php echo $donnees["id"]; ?>" title="Supprimer le client" class="icon_supprimer"><i class="far fa-trash-alt"></i></a></td>
+                                            
+                                        </tr>
+
+                                        <?php
+                                    }
+
+                                    //********************  supprimer des clients    **************************** */
+                                    
+                                    if(isset($_GET["action2"])){
+                                        if($_GET["action2"]=="supprimer"){
+                                        $id=$_GET["id"];
+                                        $supprimer=$db->prepare("DELETE FROM clients WHERE id = $id");
+                                        $supprimer->execute();
+                                        }
+                                        if($_GET["action2"]=="modifier"){
+                                            echo "modification";
+                                            }
+
+                                    }
                                     
                                     ?>
-                                    <tr>
-                                        <td><?php echo $donnees["nom"] ?></td>
-                                        <td><?php echo $donnees["prenom"] ?></td>
-                                        <td><?php echo $donnees["email"] ?></td>
-                                        <td><?php echo $donnees["tel"] ?></td>
-                                        <td><a href="?action=clients&amp;action2=modifier&amp;id=<?php echo $donnees["id"]; ?>" title="Modifier le client" class="icon_supprimer" style="color:green;"><i class="far fa-edit"></i></a></td>
-                                        <td><a href="?action=clients&amp;action2=supprimer&amp;id=<?php echo $donnees["id"]; ?>" title="Supprimer le client" class="icon_supprimer"><i class="far fa-trash-alt"></i></a></td>
-                                        
-                                    </tr>
-
-                                    <?php
-                                }
-
-                                //********************  supprimer des clients    **************************** */
-                                
-                                if(isset($_GET["action2"])){
-                                    if($_GET["action2"]=="supprimer"){
-                                    $id=$_GET["id"];
-                                    $supprimer=$db->prepare("DELETE FROM clients WHERE id = $id");
-                                    $supprimer->execute();
-                                    }
-                                    if($_GET["action2"]=="modifier"){
-                                        echo "modification";
-                                        }
-
-                                }
-                                
-                                ?>
-                                
-                                
-                            </table>
+                                    
+                                    
+                                </table>
+                            </div>
                             </div>
                             <?php
                         } 
