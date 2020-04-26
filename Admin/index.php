@@ -18,7 +18,7 @@
 
 
     
-  <div class="fulladmin">
+<div class="fulladmin">
     <div class="container h-100">
 		<div class="d-flex justify-content-center h-100">
 			<div class="user_card">
@@ -48,10 +48,11 @@
 								<label class="custom-control-label" for="customControlInline">Se souvenir de moi </label>
 							</div>
 						</div>
-						<div class="d-flex justify-content-center mt-3 login_container">
-				 		<button type="submit" name="submit" class="btn login_btn">Connexion</button>
+						<div class="d-flex justify-content-center mt-3 login_container"> 
+					   <div  class="login_admin">
+				 		 <button type="submit" name="submit" class="login_btn btn">Connexion</button>
 				   		</div>
-                           
+                       </div>  
 					    <!--**************************** php ******************************-->
                         <?php  
         if(isset($_POST["submit"])){
@@ -73,6 +74,10 @@
 			</div>
 		</div>
 	</div>
-	<div>
+<div>
+	 <!--Scriptes -->
+	 <script src="../js/jquery.js"></script>
+      <script src="../js/js.js"></script>
+     <!--ajouter a la fin pour que la page ce recharche plus rapidement-->
 </body>
 </html>
