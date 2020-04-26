@@ -276,8 +276,11 @@ margin-top: 5px;
 
     }
     #user_card_insc{
-        height: 630px;
+        height: 830px;
+        width:400px;
+        padding-top:20px;
         margin-top: 30px;
+    
     }
     #user_card_annonce{
         height: 1000px;
@@ -359,6 +362,15 @@ margin-top: 5px;
    
     .custom-checkbox .custom-control-input:checked~.custom-control-label::before {
         background-color: #ff5722 ;
+    }
+    /***********************************  page d'inscription  *****************************************/
+    .fullinscri{
+        background-image: url(../images/inscript.jpg);
+        background-size: cover;
+        background-attachment: fixed;
+       padding-top: 100px;
+       padding-bottom: 500px;
+     
     }
     /************************   Style page connexion admin **********************************/
     .fulladmin{

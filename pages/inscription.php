@@ -16,8 +16,13 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
 
 
 
-
+  <div class="fullinscri" id="inscript">
     <div class="container h-100">
+       <div class="deposeheader" >
+         <h1> Inscrivez-Vous et Devenez Client</h1>
+         <h3> Pour beneficier de nos promotions immobiléres</h3>
+         <h3> Et Consultez la nos suggestions des Bien</h3>
+        </div>
 		<div class="d-flex justify-content-center h-100">
 			<div class="user_card" id="user_card_insc">
 				<div class="d-flex justify-content-center">
@@ -28,7 +33,7 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
                 <h4 class="titre_connexion">Crée un compte Vilavie</h4>
 				<div class="d-flex justify-content-center form_container" >
 					
-            <form action="" method="post" onsubmit="return verifier_champs()" id="form_container_insc">
+                <form action="" method="post" onsubmit="return verifier_champs()" id="form_container_insc">
                 <!--nom-->
                     <div class="input-group mb-3">
                         <input class="form-control input_user" type="text" name="nom" placeholder="Nom" required onchange="verifier_champs()">                                  <span class="controle" id="etat_nom" ></span><br>
@@ -112,15 +117,16 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
 
                 ?>
     
-            </form>
+               </form>
 
 
-				</div>
+            </div>
 		
 				
-			</div>
+			
 		</div>
 	</div>
+  </div>
     <script type="text/javascript" src="../js/js.js"> 
         
     </script>

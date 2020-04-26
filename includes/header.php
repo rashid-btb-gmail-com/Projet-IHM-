@@ -37,7 +37,7 @@
                   
                      ?>
                    <li><a href="../pages/connexion.php#fullconnex">Se Connecter</a></li>
-                 <li><a href="../pages/inscription.php">S'inscrire</a></li>
+                 <li><a href="../pages/inscription.php#inscript">S'inscrire</a></li>
                  <?php
                  }
                  ?>

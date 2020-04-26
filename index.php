@@ -38,7 +38,7 @@ session_start();
               <ul>
                   <li active><a href="./index.php" >Acceuil</a></li>
                   <li><a href="./pages/immobilier.php">Immobilier</a></li>
-                  <li><a href="./pages/deposer_annonce.php">Vendre</a></li>
+                  <li><a href="./pages/deposer_annonce.php#depose">Vendre</a></li>
                   <li><a href="./pages/contact.php">Contact</a></li>
                   <li id="separateur"> </li> <!--un separateur -->
                   <?php
@@ -53,7 +53,7 @@ session_start();
                   else{
                       ?>
                     <li><a href="./pages/connexion.php#fullconnex">Se Connecter</a></li>
-                  <li><a href="./pages/inscription.php">S'inscrire</a></li>
+                  <li><a href="./pages/inscription.php#inscript">S'inscrire</a></li>
                   <?php
                   }
                   ?>
