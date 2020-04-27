@@ -279,6 +279,9 @@
                                     
                                     $supprimer=$db->prepare("DELETE FROM biens WHERE id = $id");
                                     $supprimer->execute();
+                                    ?>
+                                    <meta http-equiv="refresh" content="0;url=./plateforme_admin.php?action=gerer_biens" />
+                                    <?php
                                     }
                                     
                                     
@@ -294,19 +297,31 @@
                                             <form action="" method="post">
                                                 <input list="champ_a_modifier" name="champ_modifier" placeholder="Champ à modifier" class="inp_insc" required">            
                                                     <datalist id="champ_a_modifier">
-                                                    <option value="Titre">
-                                                    <option value="Surface">
-                                                    <option value="Etages">
-                                                    <option value="Daïra">
-                                                    <option value="Commune">
-                                                    <option value="Prix">
+                                                    <option value="titre">
+                                                    <option value="surface">
+                                                    <option value="etage">
+                                                    <option value="daira">
+                                                    <option value="commune">
+                                                    <option value="prix">
                                                     </datalist> 
                                                 <br>
                                                 <input type="text" name="modification" placeholder="Modification" class="inp_insc" required><br>
                                                 <input type="submit" name="valider_modification" value="Valider">
 
                                                 <?php 
-                                                    
+                                                    if(isset($_POST["valider_modification"])){
+                                                        
+                                                        $champ_modifier=$_POST["champ_modifier"];
+                                                        $modification=$_POST['modification'];
+                                                        echo $champ_modifier;
+                                                        $modifier=$db->prepare("UPDATE biens SET $champ_modifier='$modification' WHERE id=$id");
+                                                        $modifier->execute();
+
+                                                        ?>
+                                                        <meta http-equiv="refresh" content="0;url=./plateforme_admin.php?action=gerer_biens" />
+                                                        <?php
+                                                        
+                                                    }
                                                 ?>
                                             </form>
                                         </div>
@@ -365,6 +380,9 @@
                                                 $insert->execute(array($donnees["titre"],$donnees["description"],$donnees["daira"],$donnees["commune"],$donnees["surface"],$donnees["etage"],$donnees["prix"],$donnees["lien_img"]));
                                                 $supprimer=$db->prepare("DELETE FROM demande_annonce WHERE id = $id");
                                                 $supprimer->execute();
+                                                ?>
+                                                <meta http-equiv="refresh" content="0;url=./plateforme_admin.php?action=confirmer_annonces" />
+                                                <?php
                                             }
                                 
                                             }
@@ -373,6 +391,9 @@
                                                 $id=$_GET["id"];
                                                 $supprimer=$db->prepare("DELETE FROM demande_annonce WHERE id = $id");
                                                 $supprimer->execute();
+                                                ?>
+                                                <meta http-equiv="refresh" content="0;url=./plateforme_admin.php?action=confirmer_annonces" />
+                                                <?php
                                             }
 
                                             
@@ -502,6 +523,10 @@
                                             $id=$_GET["id"];
                                             $supprimer=$db->prepare("DELETE FROM rdv_confirmer WHERE id = $id");
                                             $supprimer->execute();
+                                            ?>
+                                            <meta http-equiv="refresh" content="0;url=./plateforme_admin.php?action=gerer_rdv" />
+                                            <?php
+
                                         }
                                         
                                         ?>
