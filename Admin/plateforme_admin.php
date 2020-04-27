@@ -21,20 +21,23 @@
     
     <!--**************************************Menu administrateur **********************************-->
     <nav class="menu_admin">
+    <div class="profileadmin">
         <input type="image" src="../images/user.png" alt="photo de profile" class="photo_profil">
         <h2 class="nom_admin">NOM Prenom </h2>
-        <hr color="black">
+    </div>
+    <div class="menubien">
         <a href="?action=ajouter_bien" class="onglet_admin">Ajouter un bien</a>
         <a href="?action=gerer_biens" class="onglet_admin">Gerer les biens</a>
         <a href="?action=confirmer_annonces" class="onglet_admin" style="height:35px">Confirmer les annonces</a>
-        
-        <hr color="black">
+    </div> 
+    <div class="menurdv">
         <a href="?action=ajouter_rdv" class="onglet_admin onglet_rdv">Ajouter un RDV</a>
         <a href="?action=gerer_rdv" class="onglet_admin onglet_rdv">Gérer les RDV</a>
         <a href="" class="onglet_admin onglet_rdv">Confirmer les RDV</a>
-
-        <hr color="black">
+    </div>
+    <div class="menuclient">
         <a href="?action=clients" class="onglet_admin onglet_client">Clients</a>
+    </div>
         </nav>
 
 

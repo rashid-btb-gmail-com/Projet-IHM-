@@ -26,7 +26,8 @@
 	
 	$db=new PDO('mysql:host=localhost;dbname=vilavie','root','');
 	
-    ?> <div id="fullconnex">
+    ?> 
+	<div id="fullconnex">
         <div class="container h-100">
 		<div class="d-flex justify-content-center h-100">
 			<div class="user_card">
@@ -57,7 +58,7 @@
 							</div>
 						</div>
 						<div class="d-flex justify-content-center mt-3 login_container">
-				 		<button type="submit" name="submit" class="btn login_btn">Connexion</button>
+				 		 <button type="submit" name="submit" class="btn login_btn">Connexion</button>
 				   		</div>
 					<!--**************************** php ******************************-->
 					

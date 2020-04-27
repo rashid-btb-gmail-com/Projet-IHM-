@@ -6,11 +6,20 @@ body{
 /***********************  MENU ADMIN    ********************/
 .menu_admin{
     position: fixed;
-    background-color: #ecf0f1;
+    background: linear-gradient(90deg ,#FF5F6D,#FFC371);
     width: 240px;
     height: 100%;
     text-align: center;
-    border-right: solid black;
+}
+.profileadmin{
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+.menubien{
+    margin-bottom: 20px;
+}
+.menurdv{
+    margin-bottom: 20px;
 }
 
 .onglet_admin{
@@ -22,31 +31,30 @@ body{
     text-decoration: none;
     width: 180px;
     height: 30px;
-    background-color: #3498db;
+    background-color: #fa5c5c;
     font-size: 15px;
     font-weight: bold;
-    border: 1px solid black;
     color: black;
-    
+    padding:5px 0px 3px 0px;
 }
 
 .onglet_admin:hover{
-    background-color: #5dade2;
+    background-color: #f79090;
 }
 
 .onglet_rdv{
-    background-color: #e74c3c;
+    background-color:#ec6868;
 }
 .onglet_rdv:hover{
-    background-color: #fa6d5d;
+    background-color: #ff9d92;
 }
 
 .onglet_client{
-    background-color: #ffd000;
+    background-color: #e93c28;
 }
 
 .onglet_client:hover{
-    background-color: #f8e17c;
+    background-color: #fa6d5d;
 }
 .photo_profil{
     position: relative;
@@ -55,6 +63,7 @@ body{
     border: 2px solid black;
     border-radius: 200px;
     top: 10px;
+    margin-bottom: 10px;
 }
 /***********************           Page Admin             *****************/
 .container{
