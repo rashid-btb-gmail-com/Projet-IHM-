@@ -1,5 +1,6 @@
 
 <?php
+$titre_page="Inscription";
 include_once("../includes/header.php");
 //    connexion a la base de donnee  
 $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
@@ -83,31 +84,70 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
                             </datalist>                                                                                                                      <span class="controle" id="etat_sit_fam"></span><br>
                     </div>
                     <span id="msg_sit_fam"></span>
+                    
                     <input type="submit" value="S'inscrire" name="submit" class="btn login_btn" id="login_btn_insc"><br>
                     
                     <span id="msg"></span> 
-
+                    
                 <?php
                     if(isset($_POST["submit"])){
-                    $select=$db->query('SELECT email FROM clients');
+                    $controle=true;
+                    $select=$db->query('SELECT * FROM clients');
                 
                     while($donnee=$select->fetch()){
-                    if($_POST["email"]==$donnee["email"]){
-                        exit("L'e-mail existe déja !!");
+                        if($_POST["email"]==$donnee["email"]){
+                            ?>
+                            <span style="color:red;font-size:15px;">L'e-mail existe déja !!</span>
+                            <!--******************* pour actualiser la page automatiquement  *********************-->
+                            
+                            <meta http-equiv="refresh" content="5;url=./inscription.php" /> 
+                            <?php
+                            
+                            $controle=false;
+                        }
+                        if($_POST["tel"]==$donnee["tel"]){
+                            ?>
+                            <span style="color:red;font-size:15px;">Le numéro de téléphone est déjà utilisé !!</span>
+                            <!--******************* pour actualiser la page automatiquement  *********************-->
+                            
+                            <meta http-equiv="refresh" content="5;url=./inscription.php" /> 
+                            <?php
+                            
+                            $controle=false;
+                        }
+                        if($_POST["username"]==$donnee["username"]){
+                            
+                            ?>
+                            <span style="color:red;font-size:15px;">Le pseudo est déja utilisé !!</span>
+                            <!--******************* pour actualiser la page automatiquement  *********************-->
+                            
+                            <meta http-equiv="refresh" content="5;url=./inscription.php" /> 
+                            <?php
+                            
+                            $controle=false;
+                            
+                        }
                     }
+                    if($controle==false){
+
+                        
+                        ?>
+                        <span style="color:red;font-size:15px;">Echec d'enregistrement !! </span>
+                        <meta http-equiv="refresh" content="5;url=./inscription.php" /> 
+                        <?php
                     }
-            
-                    if($_POST["password"]<>$_POST["confirm_password"]){
-                    ?>
-                    <h3>mot de passe incorect</h3>
-                    <?php
-                    }
-                        else{
+                    else{
                         //   insertion dans la base de donnee
                         $insert=$db->prepare('INSERT INTO clients VALUES(NULL,?,?,?,?,?,?,?)');
                         $insert->execute(array($_POST['nom'],$_POST['prenom'],$_POST['username'],$_POST['email'],$_POST['password'],$_POST['tel'],$_POST['sit_fam']));
+                        echo("Votre compte a été créé avec succès");
                         }
                     }
+            
+                    
+                    
+                        
+                    
 
 
                 ?>
