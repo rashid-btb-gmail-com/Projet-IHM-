@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  sam. 25 avr. 2020 à 18:00
+-- Généré le :  lun. 27 avr. 2020 à 16:16
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `biens` (
   `prix` int(255) NOT NULL,
   `lien_img` varchar(1024) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=54 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=56 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `biens`
@@ -48,7 +48,9 @@ CREATE TABLE IF NOT EXISTS `biens` (
 
 INSERT INTO `biens` (`id`, `titre`, `description`, `daira`, `commune`, `surface`, `etage`, `prix`, `lien_img`) VALUES
 (52, 'maison 1', 'aaaaaaaaaaaaa', 'MÃ¢atkas', 'AÃ¯t Khellili', 123, 23, 0, 'upload/maison.jpg'),
-(53, 'kkkkk', 'kkkkkk', 'DraÃ¢ Ben Khedda', 'AÃ¯t Khellili', 12, 12, 0, 'upload/maison1.jpg');
+(53, 'kkkkk', 'kkkkkk', 'DraÃ¢ Ben Khedda', 'AÃ¯t Khellili', 12, 12, 0, 'upload/maison1.jpg'),
+(54, 'oooooooooo', 'lllkopokp', 'MÃ¢atkas', 'AÃ¯t Khellili', 122, 2, 1000, 'upload/46_plan-maison-plans.fr2_.jpg'),
+(55, 'maison 2', 'eeeeeeeeeeeeee', 'IferhounÃ¨ne', 'AÃ¯t Mahmoud', 120, 2, 1000, 'upload/_plan-maison-plans.fr2_.jpg');
 
 -- --------------------------------------------------------
 
@@ -67,19 +69,17 @@ CREATE TABLE IF NOT EXISTS `clients` (
   `tel` varchar(12) COLLATE utf8mb4_unicode_ci NOT NULL,
   `sit_fam` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=52 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `clients`
 --
 
 INSERT INTO `clients` (`id`, `nom`, `prenom`, `username`, `email`, `password`, `tel`, `sit_fam`) VALUES
-(30, 'fedani', 'test11', 'hoho', 'gogog', '1234', '02131', 'MariÃ©'),
-(25, 'fedani', 'hocine', 'hoho', 'hoho@gmail.com', '123', '055555555', 'MariÃ©'),
-(27, 'fedani', 'hocine', 'hoho', 'hhhhh', '1234', '02131', 'MariÃ©'),
-(28, 'fedani', 'aze', 'aze', 'eeee', '1234', '02135', 'MariÃ©'),
-(31, 'ho', 'ar', 'hoho', 'mmar', '123', '02135', 'Celibataire'),
-(32, 'fedani', 'hocine', 'toto', 'ererer', '1234', '0791913563', 'MariÃ©');
+(36, 'fedani', 'hocine', 'toto', 'ea', '1234', '0564231895', 'Celibataire'),
+(33, 'fedani', 'hocine', 'ho13', 'aaa@gmail.com', '1234', '0791913563', 'MariÃ©'),
+(51, 'fedani', 'hocine', 'aze', 'rrrrr', '1234', '1234567899', 'Celibataire'),
+(50, 'fedani', 'hocineaaa', 'totoaaa', 'hoho@gmail.com', '1', '0312654895', 'MariÃ©');
 
 -- --------------------------------------------------------
 
@@ -99,32 +99,22 @@ CREATE TABLE IF NOT EXISTS `demande_annonce` (
   `prix` int(255) NOT NULL,
   `lien_img` varchar(1024) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=46 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=47 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
 
 --
--- Déchargement des données de la table `demande_annonce`
+-- Structure de la table `demande_rdv`
 --
 
-INSERT INTO `demande_annonce` (`id`, `titre`, `description`, `daira`, `commune`, `surface`, `etage`, `prix`, `lien_img`) VALUES
-(36, 'popop', 'ertet', 'MÃ¢atkas', 'AÃ¯t Mahmoud', 10, 10, 10, 'upload/maison1.jpg'),
-(24, 'aze', 'azeae', 'IferhounÃ¨ne', 'AÃ¯t ChafÃ¢a', 12, 12, 0, 'upload/maison1.jpg'),
-(35, 'popop', 'ertet', 'MÃ¢atkas', 'AÃ¯t Mahmoud', 10, 10, 10, 'upload/maison1.jpg'),
-(33, 'popop', 'ertet', 'MÃ¢atkas', 'AÃ¯t Mahmoud', 10, 10, 10, 'upload/maison1.jpg'),
-(34, 'popop', 'ertet', 'MÃ¢atkas', 'AÃ¯t Mahmoud', 10, 10, 10, 'upload/maison1.jpg'),
-(28, 'mmm', 'aaaaaaaaaa', 'Azazga', 'AÃ¯t Boumahdi', 12, 21, 22, 'upload/maison1.jpg'),
-(29, 'mmm', 'aaaaaaaaaa', 'Azazga', 'AÃ¯t Boumahdi', 12, 21, 22, 'upload/maison1.jpg'),
-(30, 'popop', 'ertet', 'MÃ¢atkas', 'AÃ¯t Mahmoud', 10, 10, 10, 'upload/maison1.jpg'),
-(31, 'popop', 'ertet', 'MÃ¢atkas', 'AÃ¯t Mahmoud', 10, 10, 10, 'upload/maison1.jpg'),
-(32, 'popop', 'ertet', 'MÃ¢atkas', 'AÃ¯t Mahmoud', 10, 10, 10, 'upload/maison1.jpg'),
-(37, 'popop', 'ertet', 'MÃ¢atkas', 'AÃ¯t Mahmoud', 10, 10, 10, 'upload/maison1.jpg'),
-(38, 'popop', 'ertet', 'MÃ¢atkas', 'AÃ¯t Mahmoud', 10, 10, 10, 'upload/maison1.jpg'),
-(39, 'popop', 'ertet', 'MÃ¢atkas', 'AÃ¯t Mahmoud', 10, 10, 10, 'upload/maison1.jpg'),
-(40, 'popop', 'ertet', 'MÃ¢atkas', 'AÃ¯t Mahmoud', 10, 10, 10, 'upload/maison1.jpg'),
-(41, 'oooooooooo', 'tututu', 'Azazga', 'AÃ¯t Boumahdi', 123, 123, 123, 'upload/maison1.jpgArray'),
-(42, 'oooooooooo', 'tututu', 'Azazga', 'AÃ¯t Boumahdi', 123, 123, 123, 'upload/maison1.jpg53'),
-(43, 'oooooooooo', 'tututu', 'Azazga', 'AÃ¯t Boumahdi', 123, 123, 123, 'upload/53maison1.jpg'),
-(44, 'oooooooooo', 'tututu', 'Azazga', 'AÃ¯t Boumahdi', 123, 123, 123, 'upload/53_maison1.jpg'),
-(45, 'oooooooooo', 'tututu', 'Azazga', 'AÃ¯t Boumahdi', 123, 123, 123, 'upload/44_maison1.jpg');
+DROP TABLE IF EXISTS `demande_rdv`;
+CREATE TABLE IF NOT EXISTS `demande_rdv` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `client` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `lieu` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `date_heure` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -139,7 +129,7 @@ CREATE TABLE IF NOT EXISTS `rdv_confirmer` (
   `lieu` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `date_heure` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `rdv_confirmer`
@@ -154,7 +144,8 @@ INSERT INTO `rdv_confirmer` (`id`, `client`, `lieu`, `date_heure`) VALUES
 (11, 'hocine', 'agence', '2020-09-18 10:10:00'),
 (12, 'oooo', 'papapa', '2020-04-23 10:10:00'),
 (13, 'pppp', 'aaaa', '2020-04-23 10:10:00'),
-(14, 'btbt', 'agence', '2020-04-23 10:10:00');
+(14, 'btbt', 'agence', '2020-04-23 10:10:00'),
+(15, 'hohoh', 'aaaa', '2020-04-08 05:05:00');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
