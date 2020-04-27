@@ -187,27 +187,22 @@
                                             {
                                                 exit("Le fichier est introuvable");
                                             }
-                                            
+        
                                             // on vérifie  l'extension
         
-                                            $type_file = $_FILES['fichier']['type'];
+                                            $type_file = $_FILES['image_annonce']['type'];
         
                                             if( !strstr($type_file, 'jpg') && !strstr($type_file, 'jpeg') && !strstr($type_file, 'bmp') && !strstr($type_file, 'gif') )
                                             {
                                                 exit("Le fichier n'est pas une image");
                                             }
+                                            
                                             $select=$db->query('SELECT MAX(id) FROM demande_annonce');
-
-                                        $id_img=$select->fetch();
-
-                                   
-                                        echo $id_img[0];
-                                    
-
+        
+                                                $id_img=$select->fetch();
+                                                
                                             // on copie le fichier dans le dossier de destination
                                             $nom_fichier =$id_img[0].'_'.$_FILES['image_annonce']['name'];
-                                            
-        
                                             //recuperer le lien de l'image
                                             $lien_img=$dossier_upload . $nom_fichier;
                                             if( !move_uploaded_file($tmp_fichier,"../".$dossier_upload . $nom_fichier) )
@@ -215,7 +210,7 @@
                                                 exit("Impossible de copier le fichier dans $dossier_upload");
                                             }
         
-                                            echo "Le fichier a bien été uploadé";
+                                            echo "  Le fichier a bien été uploadé";
                                             
                                             
                                             //   insertion dans la base de donnee
