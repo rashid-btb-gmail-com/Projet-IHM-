@@ -133,3 +133,15 @@ body{
 .icon_supprimer{
     color: red;
 }
+
+/*************************************   form modification  **************************************/
+
+.modifier_bien{
+    position: absolute;
+    top: 50px;
+    width: 400px;
+    left: 685px;
+    border: 1px solid black;
+    background-color: #ecf0f1;
+    padding: 10px;
+}

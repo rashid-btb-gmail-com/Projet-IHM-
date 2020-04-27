@@ -233,61 +233,89 @@
                             ?>
                             <div class="form_admin">
                             <h2>Liste des biens :</h2>
-                            <div style="height: 250px; width: 650px; overflow: auto;">
-                                <table class="liste_biens" cellpadding="3" rules="all">
-                                    <colgroup span="6" class="columns"></colgroup>
-                                    <tr>
-                                        <th>Titre</th>
-                                        <th>Surface</th>
-                                        <th>Etages</th>
-                                        <th>Daïra</th>
-                                        <th>Commune</th>
-                                    </tr>
-                                    <?php
-                                    
-                                    while($donnees=$select->fetch()){
-                                        
-                                        ?>
+                                <div style="height: 250px; width: 650px; overflow: auto;">
+                                    <table class="liste_biens" cellpadding="3" rules="all">
+                                        <colgroup span="6" class="columns"></colgroup>
                                         <tr>
-                                            <td><?php echo $donnees["titre"] ?></td>
-                                            <td><?php echo $donnees["surface"] ?></td>
-                                            <td><?php echo $donnees["etage"] ?></td>
-                                            <td><?php echo $donnees["daira"] ?></td>
-                                            <td><?php echo $donnees["commune"] ?></td>
-                                            <td><a href="?action=gerer_biens&amp;action2=modifier&amp;id=<?php echo $donnees["id"]; ?>" title="Modifier le bien"class="icon_supprimer" style="color:green;"><i class="far fa-edit"></i></a></td>
-                                            <td><a href="?action=gerer_biens&amp;action2=supprimer&amp;id=<?php echo $donnees["id"]; ?>" title="Supprimer le bien"class="icon_supprimer "><i class="far fa-trash-alt"></i></a></td>
-                                            
+                                            <th>Titre</th>
+                                            <th>Surface</th>
+                                            <th>Etages</th>
+                                            <th>Daïra</th>
+                                            <th>Commune</th>
+                                            <th>Prix</th>
                                         </tr>
-
                                         <?php
-                                    }
+                                        
+                                        while($donnees=$select->fetch()){
+                                            
+                                            ?>
+                                            <tr>
+                                                <td><?php echo $donnees["titre"] ?></td>
+                                                <td><?php echo $donnees["surface"] ?></td>
+                                                <td><?php echo $donnees["etage"] ?></td>
+                                                <td><?php echo $donnees["daira"] ?></td>
+                                                <td><?php echo $donnees["commune"] ?></td>
+                                                <td><?php echo $donnees["prix"] ?> DA</td>
+                                                <td><a href="?action=gerer_biens&amp;action2=modifier&amp;id=<?php echo $donnees["id"]; ?>" title="Modifier le bien"class="icon_supprimer" style="color:green;"><i class="far fa-edit"></i></a></td>
+                                                <td><a href="?action=gerer_biens&amp;action2=supprimer&amp;id=<?php echo $donnees["id"]; ?>" title="Supprimer le bien"class="icon_supprimer "><i class="far fa-trash-alt"></i></a></td>
+                                                
+                                            </tr>
 
-                                    
-                                    
-                                    
-                                    //********************  supprimer ou modifier des biens    **************************** */
-                                    
-                                    if(isset($_GET["action2"])){
-                                        //supprimer
-                                        if($_GET["action2"]=="supprimer"){
-                                        $id=$_GET["id"];
-                                        $supprimer=$db->prepare("DELETE FROM biens WHERE id = $id");
-                                        $supprimer->execute();
+                                            <?php
                                         }
-                                        //modifier
-                                        if($_GET["action2"]=="modifier")
-                                        {
-                                        echo "modification";
-                                        }
+
+                                        ?>
+                                    
+                                    </table>
+                                </div>
+                                       
+                            </div>
+                            <?php 
+                                //********************  supprimer ou modifier des biens    **************************** */
+                                if(isset($_GET["action2"])){
+                                    $id=$_GET["id"];
+                                    //supprimer
+                                    if($_GET["action2"]=="supprimer"){
+                                    
+                                    $supprimer=$db->prepare("DELETE FROM biens WHERE id = $id");
+                                    $supprimer->execute();
                                     }
                                     
                                     
+                                    //***************************modifier ************************//
+                                    if($_GET["action2"]=="modifier"){
+                                    
+
+                                        $select=$db->query("SELECT titre FROM biens WHERE id=$id");
+                                        $donnees=$select->fetch();
                                     ?>
-                                  
-                                </table>
-                            </div>
+                                        <div class="modifier_bien">
+                                            <h3>Modification du bien : <?php echo $donnees[0]; ?></h3><br>
+                                            <form action="" method="post">
+                                                <input list="champ_a_modifier" name="champ_modifier" placeholder="Champ à modifier" class="inp_insc" required">            
+                                                    <datalist id="champ_a_modifier">
+                                                    <option value="Titre">
+                                                    <option value="Surface">
+                                                    <option value="Etages">
+                                                    <option value="Daïra">
+                                                    <option value="Commune">
+                                                    <option value="Prix">
+                                                    </datalist> 
+                                                <br>
+                                                <input type="text" name="modification" placeholder="Modification" class="inp_insc" required><br>
+                                                <input type="submit" name="valider_modification" value="Valider">
 
-                            </div>
+                                                <?php 
+                                                    
+                                                ?>
+                                            </form>
+                                        </div>
+                                    <?php
+                                    }
+                                }
+                            ?>               
+
+
                             <?php
                         } 
                         //****************************  afficher et gerer toutes les demande d'annoces *************** */
