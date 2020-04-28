@@ -77,6 +77,10 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
           </div>
          <!--ici mettre titre photo et lieu du bien cliqué dessu-->
          <div class="bienrdv">
+         <h3 class="titre_connexion">Le Bien selectioner</h3>
+             <?php
+
+             ?>
          </div>
          </div>
          </div>
