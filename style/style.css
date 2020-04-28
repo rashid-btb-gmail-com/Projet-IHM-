@@ -113,7 +113,6 @@ footer{
     right: 20px;
 display: inline;
     margin-right:40px;
-    margin-top:45px;
 }
 .contact{
 	
@@ -394,3 +393,36 @@ margin-top: 5px;
         font-weight:bold;
         color:white;
     }
+    /********************************** demande visite rdv***********************************/
+    .demanderdv{
+        background-image: url(../images/rdvdemande.jpg);
+        background-size: cover;
+        background-attachment: fixed;
+       height:100%;
+       padding-top:3px;
+       padding-bottom: 500px;
+       margin-top: -10px;
+    }
+    .blockformrdv{
+        display: flexbox;
+       
+    }
+    .rdvform{
+        margin-top: 40px;
+        padding-bottom: 20px;
+        background-color: rgba(0, 0, 0, 0.9);
+        width:400px;
+        color: white;
+    }
+    .bienrdv{
+        background-color: rgba(212, 212, 212, 0.9);
+        width:400px;
+        height:384px;
+        justify-self: right;
+        margin-top: 40px;
+    }
+    .date{
+        width: 200px;
+    }
+    
+    

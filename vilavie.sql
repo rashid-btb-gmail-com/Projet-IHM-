@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  lun. 27 avr. 2020 à 16:16
+-- Généré le :  mar. 28 avr. 2020 à 01:56
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -112,9 +112,17 @@ CREATE TABLE IF NOT EXISTS `demande_rdv` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `client` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `lieu` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `date_heure` datetime NOT NULL,
+  `date` date NOT NULL,
+  `time` time NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `demande_rdv`
+--
+
+INSERT INTO `demande_rdv` (`id`, `client`, `lieu`, `date`, `time`) VALUES
+(1, 'jhhuhuhb', 'jh', '2020-04-17', '05:02:00');
 
 -- --------------------------------------------------------
 
