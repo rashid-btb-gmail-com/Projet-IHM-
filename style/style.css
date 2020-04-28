@@ -426,4 +426,72 @@ margin-top: 5px;
         width: 200px;
     }
     
-    
+    /*********************************STYLE CONTACT*************************************************/
+   .canard{
+    display: inline-block;
+       }
+      
+    .conatainer_general{
+        margin-top:2cm;
+        padding-top:0.6cm; 
+        display: inline-block;
+     margin-left: 6cm;
+    border-top-right-radius:20px;
+      border-top-left-radius:20px;
+     background-color:rgb(0,0,0,0.6);
+     height: 10cm;
+color:white;
+width:800px;
+    }
+    .writeus{
+
+        position: relative;
+        font-weight:bold;
+        margin-left: 5cm;
+        font-size:26px;
+     background-color: rgba(0, 0, 0, 0.6);
+    font-family: 'Cormorant Garamond', serif;
+    border-radius: 20px;
+    opacity: 0.8;
+    color:white;
+width:800px;
+margin-left:6cm;
+padding-left: 2cm;
+    }
+ .form_contact{
+display: block;
+border-radius: 20px;
+margin-left: 1cm;
+    }
+.form_contact2{
+display:block;
+position: relative;
+bottom:6.5cm;
+margin-left:7cm;
+border-radius: 20px;
+    }
+
+.corps{
+  background-size: cover;
+        background-attachment: fixed;
+        background-image:url(../images/contact.jpg);
+    }
+    .map_adr{
+ margin-left: 6cm;
+     border-bottom-right-radius:20px;
+      border-bottom-left-radius:20px;
+     background-color:rgb(0,0,0,0.6);
+color:white;
+width:800px;
+    }
+    .map{
+        border-radius: 20px;
+        margin-left:1cm;
+
+    }
+    .info{
+        font-weight: bold;
+         font-family: 'Cormorant Garamond', serif;
+        margin-left:1cm;
+        font-size:26px;
+    }
