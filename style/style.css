@@ -276,9 +276,9 @@ margin-top: 5px;
 
     }
     #user_card_insc{
-        height: 830px;
+        height: 790px;
         width:400px;
-        padding-top:20px;
+        
         margin-top: 30px;
     
     }
@@ -334,8 +334,8 @@ margin-top: 5px;
         color: black;
     }
     #login_btn_insc{
-        width: 80%;
-        
+        width: 70%;
+        margin-left:-16%;
     }
     
     .login_btn:focus {
@@ -368,7 +368,7 @@ margin-top: 5px;
         background-image: url(../images/inscript.jpg);
         background-size: cover;
         background-attachment: fixed;
-       padding-top: 100px;
+       padding-top: 5px;
        padding-bottom: 500px;
      
     }
