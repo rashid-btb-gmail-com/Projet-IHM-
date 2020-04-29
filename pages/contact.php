@@ -21,6 +21,7 @@
  </head>
  <body class="corps">
 <?php include_once("../includes/header.php");
+$bdd = new PDO('mysql:host=localhost;dbname=vilavie;charset=utf8','root','',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 ?>
 <div class="corps">
 	<br>
@@ -29,25 +30,40 @@ Une remarque ?, un renseignement?,plus d'information ?.Ecrivez-nous!:
 	</div>
 <div class="conatainer_general">
 <img src="../images/logo.png" style="  margin-left: 7cm;">
-<form method="post" action="traitement.php">
+<form method="post" action="contact.php" style="height=:5cm;";>
 <label class="form_contact">Votre nom(obligatoire)</label>
-<input class="form_contact" type="text">
+<input class="form_contact" type="text" name="nom">
 <label class="form_contact">Votre prenom(bligatoire)</label>
-<input class="form_contact" type="text">
-<label class="form_contact">Email(obligatoire)</label>
-<input class="form_contact" type="text">
+<input class="form_contact" type="text" name=" prenom">
+<label class="form_contact" >Email(obligatoire)</label>
+<input class="form_contact" type="text" name="email" >
 <label class="form_contact">Sujet</label>
-<input class="form_contact" type="text">
+<input class="form_contact" type="text"name="sujet">
+<input type="submit" value="envoyer" class="env" onclick="alert('votre message a bien été anvoyé')"name="submit">
 <label class="form_contact2" id="msg">Votre message:</label>
-<textarea class="form_contact2"id="msg" name="message"  size="100" style="width:13cm;height:5.5cm" ></textarea>
+<textarea id="msg" class="form_contact2" name="message"  size="100" style="width:13cm;height:5.5cm;resize:none;" ></textarea>
 </form>
-</div>
-<div class="map_adr">
+<?php
+ if(isset($_POST['submit'])){
+$req=$bdd->prepare('INSERT INTO contact_msg (id,nom,prenom,email,sujet,message)
+ VALUES( NULL,:nom,:prenom,:email,:sujet,:message)');
+
+$req->execute(array(
+'nom'=>$_POST['nom'],
+'prenom'=>$_POST['prenom'],
+'email'=>$_POST['email'],
+'sujet'=>$_POST['sujet'],
+'message'=>$_POST['message']
+));
+}
+ ?>
 <iframe class="map"src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3198.538685657088!2d4.0403188174318965!3d36.709621884673716!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x128dc876da728cc3%3A0x41f7373e93892146!2sBoulevard%20Khaled%20Khodja%2C%20Tizi%20Ouzou!5e0!3m2!1sfr!2sdz!4v1588045443248!5m2!1sfr!2sdz" width="700" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0" ></iframe>
-<p class="info">TEL:0 26 21 20 20 </p>
-	<p class="info">FAX:026 20 21 21</P>
-	<p class="info">ADRESSE: RUE KHOUDJA KHALED ..FDS.F.DSF........</p>
+<p class="info" >TEL:0 26 21 20 20 </p>
+     <p class="info">FAX:026 20 21 21</P>
+     <p class="info">ADRESSE: RUE KHOUDJA KHALED ..FDS.F.DSF........</p>
+     
 </div>
+
 </div>
 </body>
 </html>
