@@ -52,7 +52,7 @@ un dans meme daira et un autre meme type
 -faire un deffilement de photo et un bonne plae pour la description * c un script php *
 - a toi de voir comment
 ******************************************************************************************
-contact (fodil )====>(partiellement fait il reste la bdd et php)
+contact (fodil )====>fait
 formulaire pour nous contacter
 avec quelque information sure ou on ce situe
  **************************************************************************************
