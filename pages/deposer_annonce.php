@@ -53,103 +53,38 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
                         <!--*********   liste des dairas de tizi ouzou   **********-->
                         
                         <div class="input-group mb-3">
-                        <input list="daira" name="daira" class="form-control input_user" placeholder="Daïra" require>
+                        <input list="daira" name="daira" class="form-control input_user" placeholder="Daïra" onchange="filtre_commune()" require>
                             <datalist id="daira">
-                                <option value="Ain El Hammam">
-                                <option value="Azazga">
-                                <option value="Azeffoun ">
-                                <option value="Beni Douala">
-                                <option value="Beni Yenni">
-                                <option value="Boghni">
-                                <option value="Bouzguen">
-                                <option value="Draâ Ben Khedda">
-                                <option value="Draâ El Mizan">
-                                <option value="Iferhounène">
-                                <option value="Larbaâ Nath Irathen">
-                                <option value="Mâatkas">
-                                <option value="Makouda">
-                                <option value="Mekla">
-                                <option value="Ouacif">
-                                <option value="Ouadhia">
-                                <option value="Ouaguenoun">
-                                <option value="Tigzirt ">
-                                <option value="Tizi Gheniff">
-                                <option value="Tizi Ouzou">
-                                <option value=" Tizi Rached">
+                                <option value="01-Ain El Hammam">
+                                <option value="02-Azazga">
+                                <option value="03-Azeffoun ">
+                                <option value="04-Beni Douala">
+                                <option value="05-Beni Yenni">
+                                <option value="06-Boghni">
+                                <option value="07-Bouzguen">
+                                <option value="08-Draâ Ben Khedda">
+                                <option value="09-Draâ El Mizan">
+                                <option value="10-Iferhounène">
+                                <option value="11-Larbaâ Nath Irathen">
+                                <option value="12-Mâatkas">
+                                <option value="13-Makouda">
+                                <option value="14-Mekla">
+                                <option value="15-Ouacif">
+                                <option value="16-Ouadhia">
+                                <option value="17-Ouaguenoun">
+                                <option value="18-Tigzirt">
+                                <option value="19-Tizi Gheniff">
+                                <option value="20-Tizi Ouzou">
+                                <option value="21-Tizi Rached">
                             </datalist>
                             
                         <!--*********   liste des communes de tizi ouzou   **********-->
                         </div>
-                        <div class="input-group mb-3">
+                        <div class="input-group mb-3"> 
                         <input list="commune" name="commune" class="form-control input_user" placeholder="Commune" require>
                             <datalist id="commune">
-                                <option value="Abi Youcef">
-                                <option value="Aghribs">
-                                <option value="Agouni Gueghrane">
-                                <option value="Ain El Hammam">
-                                <option value="Aïn Zaouia">
-                                <option value="Aït Aggouacha">
-                                <option value="Aït Aïssa Mimoun">
-                                <option value="Aït Bouaddou">
-                                <option value="Aït Boumahdi">
-                                <option value="Aït Chafâa">
-                                <option value="Aït Khellili">
-                                <option value="Aït Mahmoud">
-                                <option value="Aït Ouacif">
-                                <option value="Aït Oumalou">
-                                <option value="Aït Toudert">
-                                <option value="Aït Yahia">
-                                <option value="Aït Yahia Moussa">
-                                <option value="Aït Yenni">
-                                <option value="Aït Zmenzer">
-                                <option value="Akbil">
-                                <option value="Akerrou">
-                                <option value="Assi Youcef">
-                                <option value="Ath Zikki">
-                                <option value="Azazga">
-                                <option value="Azeffoun">
-                                <option value="Beni Aïssi">
-                                <option value="Beni Douala">
-                                <option value="Boghni">
-                                <option value="Boudjima">
-                                <option value="Bounouh">
-                                <option value="Bouzeguène">
-                                <option value="Draâ Ben Khedda">
-                                <option value="Draâ El Mizan">
-                                <option value="Freha">
-                                <option value="Frikat">
-                                <option value="Iboudraren">
-                                <option value="Idjeur">
-                                <option value="Iferhounène">
-                                <option value="Ifigha">
-                                <option value="Iflissen">
-                                <option value="Illilten">
-                                <option value="Illoula Oumalou">
-                                <option value="Imkiren">
-                                <option value="Imsouhel">
-                                <option value="Irdjen">
-                                <option value="Larbaâ Nath Irathen">
-                                <option value="Mâatkas">
-                                <option value="Makouda">
-                                <option value="Mechtras">
-                                <option value="Mekla">
-                                <option value="Mizrana">
-                                <option value="Ouadhia">
-                                <option value="Ouaguenoun">
-                                <option value="Sidi Namane">
-                                <option value="Souamaâ">
-                                <option value="Souk El Thenine">
-                                <option value="Tadmaït">
-                                <option value="Tigzirt">
-                                <option value="Timizart">
-                                <option value="Tirmitine">
-                                <option value="Tizi Gheniff">
-                                <option value="Tizi N'Tleta">
-                                <option value="Tizi Ouzou">
-                                <option value="Tizi Rached">
-                                <option value="Yakouren">
-                                <option value="Yatafen">
-                                <option value="Zekri">
+                                
+                                
                             
                             </datalist>
 
@@ -233,12 +168,6 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
 	</div>
    </div>
 
-
-
-
-
-    
-
-    
+<script src="../js/js.js"></script>
 </body>
 </html>

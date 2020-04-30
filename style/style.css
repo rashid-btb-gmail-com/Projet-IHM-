@@ -50,6 +50,9 @@ li :hover{
     background-color: #ff5722;
     color:white;
 }
+/***************************       page d'index        *********************************/
+
+
 /************************************** recherche sure site landing *********************************************/
 .sec1{
     background-image: url(../images/landing.jpg);
@@ -98,8 +101,67 @@ li :hover{
  padding: 10px 20px 10px 20px;
  
 }
-
-
+/*****************   suggestions    **********************/
+.sec2{
+    margin:auto;
+    padding-top: 40px;
+    height:700px;
+    background:#fff;
+}
+.headsug{
+    margin-top: 20px;
+    margin-bottom:30px;
+    border-radius:0.25rem;
+    background-color: rgba(0, 0, 0, 0.9);
+    color:white;
+    font-family: 'Cormorant Garamond', serif;
+    padding:20px 0 20px 0;
+}
+.biensugbox{
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.biensug{
+    height: 400px;
+    width: 225px;
+    margin: 20px;
+    background-color: rgba(0, 0, 0, 0.9);
+     border-radius: 1rem;
+     color:white;
+}
+.imgbien{
+    width: inherit;
+    height:250px;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+.infobien{
+    height:110px;
+    padding: 10px;
+   
+}
+.linkdetail{
+    background-color: rgba(255,255,255,0.4);
+    height:40px;
+    display: flex;
+    justify-content: center;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    width:inherit;
+}
+.linkdetail>a{
+    color:#000;
+    font-weight: 500;
+    font-size: 1.2em;
+    padding-top:5px;
+}
+.linkdetail :hover{
+    background-color:#ff5722;
+    font-size: 1.3rem;
+    padding-top: 3px;
+    width:inherit;
+    color:white;
+}
 /**************************************   FOOTER   *************************************/
 footer{
     background-color: #e74c3c;
@@ -276,9 +338,9 @@ margin-top: 5px;
 
     }
     #user_card_insc{
-        height: 830px;
+        height: 790px;
         width:400px;
-        padding-top:20px;
+        
         margin-top: 30px;
     
     }
@@ -334,8 +396,8 @@ margin-top: 5px;
         color: black;
     }
     #login_btn_insc{
-        width: 80%;
-        
+        width: 70%;
+        margin-left:-16%;
     }
     
     .login_btn:focus {
@@ -368,7 +430,7 @@ margin-top: 5px;
         background-image: url(../images/inscript.jpg);
         background-size: cover;
         background-attachment: fixed;
-       padding-top: 100px;
+       padding-top: 5px;
        padding-bottom: 500px;
      
     }
@@ -440,7 +502,7 @@ margin-top: 5px;
     border-top-right-radius:20px;
       border-top-left-radius:20px;
      background-color:rgb(0,0,0,0.6);
-     height: 10cm;
+     height: 27cm;
 color:white;
 width:800px;
     }
@@ -461,15 +523,13 @@ padding-left: 2cm;
     }
  .form_contact{
 display: block;
-border-radius: 20px;
 margin-left: 1cm;
     }
 .form_contact2{
 display:block;
-position: relative;
-bottom:6.5cm;
+position:relative;
 margin-left:7cm;
-border-radius: 20px;
+bottom: 7.9cm;
     }
 
 .corps{
@@ -486,13 +546,28 @@ color:white;
 width:800px;
     }
     .map{
+
+        position: relative;
         border-radius: 20px;
         margin-left:1cm;
-
+bottom: 5cm;
     }
     .info{
         font-weight: bold;
          font-family: 'Cormorant Garamond', serif;
         margin-left:1cm;
         font-size:26px;
+        position: relative;
+        bottom:3.5cm;
+    }
+    .env{
+        margin-top: 0.5cm;
+        margin-left: 7cm;
+        width: 5cm;
+       background-color: rgb(181, 87, 6);
+       border-color:rgb(181,87,6);
+       color:white;
+    }
+    .env:hover{
+        border-color:rgb(0,0,0,0.6);
     }

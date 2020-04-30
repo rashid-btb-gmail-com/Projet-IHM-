@@ -21,6 +21,7 @@
  </head>
 <?php
 session_start();
+$db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 ?>
   <body>
     <header>
@@ -77,8 +78,36 @@ session_start();
             </div>
          </form>
         </div>
-        <!--rest a ameliorer  --> 
-    </section>
+        <!-- section des suggestions --> 
+     </section>
+     <section class="sec2">
+      <div class="container">
+        <div class="headsug">
+          <h1 class="text-center text-uppercase font-weight-bold " >Nos suggestions</h1>
+       </div>
+       <div class="d-flex flex-wrap justify-content-center biensugbox ">
+       <?php 
+       $bienrep = $db->query('SELECT titre, daira, commune, lien_img FROM biens ORDER BY id LIMIT 0,8');
+       while ($donne= $bienrep->fetch()){
+       
+         echo('<div class="biensug" >
+           <img src="./'.$donne['lien_img'].'" class="imgbien" alt="l\'image du bien" >
+           <div class="infobien">
+           <h4>'.$donne['titre'].'</h4>
+           <p>Lieu:'.$donne['commune'].','.$donne['daira'].'</p>
+          </div>
+           <div class="linkdetail">
+            <a href="#detail" class="linkdetail">Voir Detail</a>
+            </div>
+         </div>');}
+         $bienrep->closeCursor();
+         ?>
+          
+
+                    
+         </div>
+      </div>             
+     </section>
      <!--
      <footer>
          <div class="a_propos">
