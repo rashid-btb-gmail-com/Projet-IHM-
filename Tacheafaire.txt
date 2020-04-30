@@ -39,7 +39,7 @@ photo
  *index (massilva)
 1- header ===================================> fait [ y aura des modification corretif a fur et a musure]
 2 -bar de recherche ==============> (fait) reste bdd et php
-3- proposition
+3- proposition===================>(fait)
 - avis
 4- footer
 ******************************************************************************************************
