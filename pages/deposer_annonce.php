@@ -49,44 +49,44 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
                         <input type="text" name="titre" class="form-control input_user" placeholder="Titre" require><br>
                         </div>
 
-                        <textarea name="description" cols="35"  rows="10" class="discription_annonce" placeholder="Description du bien" require></textarea><br>
+                        <textarea name="description" cols="35"  rows="10" class="discription_annonce" placeholder="Description du bien" required></textarea><br>
                         <!--*********   liste des dairas de tizi ouzou   **********-->
                         
                         <div class="input-group mb-3">
-                        <input list="daira" name="daira" class="form-control input_user" placeholder="Daïra" onchange="filtre_commune()" require>
-                            <datalist id="daira">
-                                <option value="01-Ain El Hammam">
-                                <option value="02-Azazga">
-                                <option value="03-Azeffoun ">
-                                <option value="04-Beni Douala">
-                                <option value="05-Beni Yenni">
-                                <option value="06-Boghni">
-                                <option value="07-Bouzguen">
-                                <option value="08-Draâ Ben Khedda">
-                                <option value="09-Draâ El Mizan">
-                                <option value="10-Iferhounène">
-                                <option value="11-Larbaâ Nath Irathen">
-                                <option value="12-Mâatkas">
-                                <option value="13-Makouda">
-                                <option value="14-Mekla">
-                                <option value="15-Ouacif">
-                                <option value="16-Ouadhia">
-                                <option value="17-Ouaguenoun">
-                                <option value="18-Tigzirt">
-                                <option value="19-Tizi Gheniff">
-                                <option value="20-Tizi Ouzou">
-                                <option value="21-Tizi Rached">
-                            </datalist>
+                        <span>Daïra :  </span>
+                            <SELECT id="daira" name="daira" class="form-control input_user" onchange="filtre_commune()" required>
+                                <option value="01-Ain El Hammam">01-Ain El Hammam</option>
+                                <option value="02-Azazga">02-Azazga</option>
+                                <option value="03-Azeffoun ">03-Azeffoun</option>
+                                <option value="04-Beni Douala">04-Beni Douala</option>
+                                <option value="05-Beni Yenni">05-Beni Yenni</option>
+                                <option value="06-Boghni">06-Boghni</option>
+                                <option value="07-Bouzguen">07-Bouzguen</option>
+                                <option value="08-Draâ Ben Khedda">08-Draâ Ben Khedda</option>
+                                <option value="09-Draâ El Mizan">09-Draâ El Mizan</option>
+                                <option value="10-Iferhounène">10-Iferhounène</option>
+                                <option value="11-Larbaâ Nath Irathen">11-Larbaâ Nath Irathen</option>
+                                <option value="12-Mâatkas">12-Mâatkas</option>
+                                <option value="13-Makouda">13-Makouda</option>
+                                <option value="14-Mekla">14-Mekla</option>
+                                <option value="15-Ouacif">15-Ouacif</option>
+                                <option value="16-Ouadhia">16-Ouadhia</option>
+                                <option value="17-Ouaguenoun">17-Ouaguenoun</option>
+                                <option value="18-Tigzirt">18-Tigzirt</option>
+                                <option value="19-Tizi Gheniff">19-Tizi Gheniff</option>
+                                <option value="20-Tizi Ouzou">20-Tizi Ouzou</option>
+                                <option value="21-Tizi Rached">21-Tizi Rached</option>
+                            </SELECT>
                             
                         <!--*********   liste des communes de tizi ouzou   **********-->
                         </div>
                         <div class="input-group mb-3"> 
-                        <input list="commune" name="commune" class="form-control input_user" placeholder="Commune" require>
-                            <datalist id="commune">
+                            <span>Commune :  </span>
+                            <SELECT id="commune"  name="commune" class="form-control input_user"required>
                                 
                                 
                             
-                            </datalist>
+                            </SELECT>
 
 
                         </div>
