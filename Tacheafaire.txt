@@ -9,7 +9,7 @@ language utilisé : jquery et bootstrap coours disponible sure open classeroom
 *General :
   - Index 
   -page admin
-  -deposer annonce
+  -deposer annonce 
   -inscription 
   -contact (formulaire de contact)
   -a propos de nous
@@ -38,8 +38,9 @@ photo
  ****************************************************************************************************** 
  *index (massilva)
 1- header ===================================> fait [ y aura des modification corretif a fur et a musure]
-2 -bar de recherche 
+2 -bar de recherche ==============> (fait) reste bdd et php
 3- proposition
+- avis
 4- footer
 ******************************************************************************************************
 *immobilier (pipou)
