@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mar. 28 avr. 2020 à 01:56
+-- Généré le :  jeu. 30 avr. 2020 à 02:22
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -47,8 +47,8 @@ CREATE TABLE IF NOT EXISTS `biens` (
 --
 
 INSERT INTO `biens` (`id`, `titre`, `description`, `daira`, `commune`, `surface`, `etage`, `prix`, `lien_img`) VALUES
-(52, 'maison 1', 'aaaaaaaaaaaaa', 'MÃ¢atkas', 'AÃ¯t Khellili', 123, 23, 0, 'upload/maison.jpg'),
-(53, 'kkkkk', 'kkkkkk', 'DraÃ¢ Ben Khedda', 'AÃ¯t Khellili', 12, 12, 0, 'upload/maison1.jpg'),
+(52, 'maison au bord da la mer', 'aaaaaaaaaaaaa', 'Azzefoun', 'Azzefoun', 123, 23, 25555, 'upload/maison.jpg'),
+(53, 'kkkkk', 'kkkkkk', 'DraÃ¢ Ben Khedda', 'AÃ¯t Khellili', 12, 12, 0, 'upload/_maison1.jpg'),
 (54, 'oooooooooo', 'lllkopokp', 'MÃ¢atkas', 'AÃ¯t Khellili', 122, 2, 1000, 'upload/46_plan-maison-plans.fr2_.jpg'),
 (55, 'maison 2', 'eeeeeeeeeeeeee', 'IferhounÃ¨ne', 'AÃ¯t Mahmoud', 120, 2, 1000, 'upload/_plan-maison-plans.fr2_.jpg');
 
