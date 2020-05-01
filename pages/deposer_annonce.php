@@ -53,8 +53,9 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
                         <!--*********   liste des dairas de tizi ouzou   **********-->
                         
                         <div class="input-group mb-3">
-                        <span>Daïra :  </span>
+                        <span></span>
                             <SELECT id="daira" name="daira" class="form-control input_user" onchange="filtre_commune()" required>
+                                <option value="" disabled selected> Daïra</option>
                                 <option value="01-Ain El Hammam">01-Ain El Hammam</option>
                                 <option value="02-Azazga">02-Azazga</option>
                                 <option value="03-Azeffoun ">03-Azeffoun</option>
@@ -81,10 +82,9 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
                         <!--*********   liste des communes de tizi ouzou   **********-->
                         </div>
                         <div class="input-group mb-3"> 
-                            <span>Commune :  </span>
+                            <span></span>
                             <SELECT id="commune"  name="commune" class="form-control input_user"required>
-                                
-                                
+                                <option value="" disabled selected>Commune</option>
                             
                             </SELECT>
 
