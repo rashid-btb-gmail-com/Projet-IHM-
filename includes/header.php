@@ -9,7 +9,7 @@
   
   ?>
     <!--Header du site -->
-       <div class="container">
+       <div class="container borderhr">
        <nav>
        <!--la barre de navigation -->
         <div class="navbar navbar-default">

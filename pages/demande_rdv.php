@@ -87,6 +87,8 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
        </div>
 	</div>
 </div>
-       
+<?php
+  include_once("../includes/footer.php");
+   ?>    
 </body>
 </html>
