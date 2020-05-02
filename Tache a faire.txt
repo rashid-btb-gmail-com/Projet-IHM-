@@ -1,4 +1,4 @@
-[chacun va nous dire ce qu'il va faire] on ajoutera des pages et des commentaire a fur et a musur
+﻿[chacun va nous dire ce qu'il va faire] on ajoutera des pages et des commentaire a fur et a musur
 a chaque nouvelle idé ecrire prenom et decrire idéé dans le fichier idéé
 a chaque changement dans specifié
 language utilisé : jquery et bootstrap coours disponible sure open classeroom
@@ -17,22 +17,13 @@ language utilisé : jquery et bootstrap coours disponible sure open classeroom
   -detail
 
 *deposer annonce: (hocine)
-lieu-adresse ============>(fait)
-voisinage
-vis a vis
-prix
-photo
+
 
 * page administrateur (admin) hocine-squelette 
-1 -autentification admin =====================================>fait       [pour l'instant :nom de l'admin=user 
+     									    [pour l'instant :nom de l'admin=user 
                                                                             mot de passe =1234]
-2  - entrer pltform: 
-   >menu (side bar) : annonce [ajout , gestion] Rdv client; fixe========>(fait) 
-   >ajouter un rdv==========>(fait)
-   >coté nouveau : demande de rdv [] demande d'annonce de vente [tablea de donné neessaire ] 
 
 
-3-modifier une annonce 
 4-system de gestion de rdv
 
  ****************************************************************************************************** 

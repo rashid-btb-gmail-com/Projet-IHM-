@@ -21,42 +21,37 @@
     
     <!--**************************************Menu administrateur **********************************-->
     <nav class="menu_admin">
+    <img src="../images/logo.png" alt="logo_agence">
     <div class="profileadmin">
         <input type="image" src="../images/user.png" alt="photo de profile" class="photo_profil">
         <h2 class="nom_admin">NOM Prenom </h2>
     </div>
     <div class="menubien">
-        <a href="?action=ajouter_bien" class="onglet_admin">Ajouter un bien</a>
-        <a href="?action=gerer_biens" class="onglet_admin">Gerer les biens</a>
-        <a href="?action=confirmer_annonces" class="onglet_admin" style="height:35px">Confirmer les annonces</a>
+        <a href="?action=ajouter_bien" class="onglet_admin" id="onglet1" onclick="style_onglet_admin()">Ajouter un bien</a>
+        <a href="?action=gerer_biens" class="onglet_admin" id="onglet2" onclick="">Gerer les biens</a>
+        <a href="?action=confirmer_annonces" class="onglet_admin" id="onglet3" onclick="">Confirmer les annonces</a>
     </div> 
     <div class="menurdv">
-        <a href="?action=ajouter_rdv" class="onglet_admin onglet_rdv">Ajouter un RDV</a>
-        <a href="?action=gerer_rdv" class="onglet_admin onglet_rdv">Gérer les RDV</a>
-        <a href="" class="onglet_admin onglet_rdv">Confirmer les RDV</a>
+        <a href="?action=ajouter_rdv" class="onglet_admin " id="onglet4" onclick="">Ajouter un RDV</a>
+        <a href="?action=gerer_rdv" class="onglet_admin " id="onglet5" onclick="">Gérer les RDV</a>
+        <a href="?action=confirmer_rdv" class="onglet_admin " id="onglet6" onclick="">Confirmer les RDV</a>
     </div>
     <div class="menuclient">
-        <a href="?action=clients" class="onglet_admin onglet_client">Clients</a>
+        <a href="?action=clients" class="onglet_admin " id="onglet7" onclick="">Clients</a>
     </div>
         </nav>
-
-
-
-
-
-
 
 
         <div class="container">
             <!--**********************     header    *************************-->
             <header class="header_admin">
-            <h1 class="titre_plfrm">Plateforme Administrateur</h1>
-            <div class="container_icon">
-                <a href=""class="icon_header" title="Messages"><i class="fas fa-comments"></i></a>
-                <a href="../index.php"class="icon_header" title="Acceuil"><i class="fas fa-home"></i></a>
-                <a href="" class="icon_header" title="Déconnexion"><i class="fas fa-sign-out-alt"></i></a>
+                <h1 class="titre_plfrm">Plateforme Administrateur</h1>
+                <div class="container_icon">
+                    <a href=""class="icon_header" title="Messages"><i class="fas fa-comments"></i></a>
+                    <a href="../index.php"class="icon_header" title="Acceuil"><i class="fas fa-home"></i></a>
+                    <a href="" class="icon_header" title="Déconnexion"><i class="fas fa-sign-out-alt"></i></a>
 
-            </div>
+                </div>
             </header>
             <!--*****************************************Page admin*******************************************-->
             <div class="page_admin">
@@ -368,7 +363,7 @@
                                             <?php
                                         }
 
-                                        //**************************    accepter l'annonce *********************** */
+                                        //**************************    accepter et supprimerl'annonce *********************** */
                                         if(isset($_GET["action2"])){
                                             //accepter
                                             if($_GET["action2"]=="accepter"){
@@ -398,12 +393,6 @@
 
                                             
                                         }
-                                        //********************  supprimer des demmande d'annoces    **************************** */
-                                        
-                                        
-
-
-                                        
                                         
                                         ?>
                                         
@@ -570,6 +559,9 @@
                                             $id=$_GET["id"];
                                             $supprimer=$db->prepare("DELETE FROM rdv_confirmer WHERE id = $id");
                                             $supprimer->execute();
+                                            ?>
+                                            <meta http-equiv="refresh" content="0;url=./plateforme_admin.php?action=gerer_rdv" />
+                                            <?php
                                         }
                                         
                                         ?>
@@ -582,12 +574,79 @@
                             </form>
 
 
-                           
+                            </div>
+                            <?php
+                        }
+                        //****************************  afficher et gerer toutes les demande de RDV *************** */
+                        if($_GET["action"]=="confirmer_rdv"){
+                            $select=$db->query('SELECT * FROM demande_rdv');
+                            ?>
+                            <div class="form_admin">
+                            <h2>Liste des demande de rdv :</h2>
+                                <div style="height: 400px; width: 650px; overflow: auto;">
+                                    <table class="liste_biens" cellpadding="3" rules="all">
+                                        <colgroup span="6" class="columns"></colgroup>
+                                        <tr>
+                                            <th>Client</th>
+                                            <th>Lieu</th>
+                                            <th>Date</th>
+                                            <th>Heure</th>
+                                        </tr>
+                                        <?php
+                                        
+                                        while($donnees=$select->fetch()){
+                                            
+                                            ?>
+                                            <tr>
+                                                <td><?php echo $donnees["client"] ?></td>
+                                                <td><?php echo $donnees["lieu"] ?></td>
+                                                <td><?php echo $donnees["date"] ?></td>
+                                                <td><?php echo $donnees["time"] ?></td>
+                                                
+                                                <td><a href="?action=confirmer_rdv&amp;action2=accepter&amp;id=<?php echo $donnees["id"]; ?>" title="Accepter l'annonce"class="icon_supprimer" style="color:green;"><i class="fas fa-check" ></i></a></td>
+                                                <td><a href="?action=confirmer_rdv&amp;action2=supprimer&amp;id=<?php echo $donnees["id"]; ?>" title="Refuser l'annoce"class="icon_supprimer "><i class="fas fa-times" ></i></a></td>
+                                                
+                                            </tr>
 
+                                            <?php
+                                        }
 
-                            
+                                        //**************************    accepter et supprimerl'annonce *********************** */
+                                        if(isset($_GET["action2"])){
+                                            //accepter
+                                            if($_GET["action2"]=="accepter"){
+                                                
+                                            $id=$_GET["id"];
+                                            $select=$db->query("SELECT * FROM demande_rdv WHERE id=$id");
+                                            while($donnees=$select->fetch()){
+                                                $insert=$db->prepare('INSERT INTO rdv_confirmer VALUES(NULL,?,?,?)');
+                                                $insert->execute(array($donnees["client"],$donnees["lieu"],$donnees["date"]." ".$donnees["time"]));
+                                                $supprimer=$db->prepare("DELETE FROM demande_rdv WHERE id = $id");
+                                                $supprimer->execute();
+                                                ?>
+                                                <meta http-equiv="refresh" content="0;url=./plateforme_admin.php?action=confirmer_rdv" />
+                                                <?php
+                                            }
+                                
+                                            }
+                                            //supprimer
+                                            if($_GET["action2"]=="supprimer"){
+                                                $id=$_GET["id"];
+                                                $supprimer=$db->prepare("DELETE FROM demande_rdv WHERE id = $id");
+                                                $supprimer->execute();
+                                                ?>
+                                                <meta http-equiv="refresh" content="0;url=./plateforme_admin.php?action=confirmer_rdv" />
+                                                <?php
+                                            }
 
-
+                                            
+                                        }
+                                        
+                                        ?>
+                                        
+                                        
+                                    </table>
+                                </div>
                             </div>
                             <?php
                         } 
@@ -631,6 +690,9 @@
                                         $id=$_GET["id"];
                                         $supprimer=$db->prepare("DELETE FROM clients WHERE id = $id");
                                         $supprimer->execute();
+                                        ?>
+                                        <meta http-equiv="refresh" content="0;url=./plateforme_admin.php?action=clients" />
+                                        <?php
                                         }
                                         if($_GET["action2"]=="modifier"){
                                             echo "modification";
@@ -652,6 +714,6 @@
             </div>
 
         </div>
-        
+<script src="../js/js.js"></script>
 </body>
 </html>

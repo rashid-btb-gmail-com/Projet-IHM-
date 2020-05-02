@@ -48,14 +48,14 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
                         
                         
                         <div class="input-group mb-3">
-                        <input type="text" name="client" class="form-control input_user" placeholder="Votre Pseudo" require><br>
+                        <input type="text" name="client" class="form-control input_user" placeholder="Votre Nom et Prénom" required><br>
                         </div> 
                         <div class="input-group mb-3">
-                        <input type="text" name="lieu" class="form-control input_user" placeholder="Adress du Rdv" require><br>
+                        <input type="text" name="lieu" class="form-control input_user" placeholder="Adress du Rdv" required><br>
                         </div>                                            
                         <div class="input-group mb-3 datetime">
-                        <input type="date" name="date" class="form-control input_user date"  require><br>
-                        <input type="time" name="time" class="form-control input_user"  require><br>
+                        <input type="date" name="date" class="form-control input_user date"  required><br>
+                        <input type="time" name="time" class="form-control input_user"  required><br>
                         </div>
                         
                         <div class="input-group mb-3">

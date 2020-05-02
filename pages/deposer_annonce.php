@@ -46,7 +46,7 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
                         
                         
                         <div class="input-group mb-3">
-                        <input type="text" name="titre" class="form-control input_user" placeholder="Titre" require><br>
+                        <input type="text" name="titre" class="form-control input_user" placeholder="Titre" required><br>
                         </div>
 
                         <textarea name="description" cols="35"  rows="10" class="discription_annonce" placeholder="Description du bien" required></textarea><br>
@@ -81,7 +81,7 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
                         <!--*********   liste des communes de tizi ouzou   **********-->
                         </div>
                         <div class="input-group mb-3"> 
-                            <span>Commune :  </span>
+                            <span>Commune :</span>
                             <SELECT id="commune"  name="commune" class="form-control input_user"required>
                                 
                                 
@@ -91,19 +91,19 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
 
                         </div>
                         <div class="input-group mb-3">
-                        <input type="number" name="surface" class="form-control input_user" placeholder="Surface">
+                        <input type="number" name="surface" class="form-control input_user" placeholder="Surface" required>
                         </div>
                         <div class="input-group mb-3">
-                        <input type="number" name="nbr_etages" class="form-control input_user" placeholder="Nombre d'étages">
+                        <input type="number" name="nbr_etages" class="form-control input_user" placeholder="Nombre d'étages" required>
                         </div>
                         <div class="input-group mb-3">
-                        <input type="number" name="prix" class="form-control input_user" placeholder="Prix du bien en DA">
+                        <input type="number" name="prix" class="form-control input_user" placeholder="Prix du bien en DA" required>
                         </div>
                         <div class="input-group mb-3">
-                        <input type="file" name="image_annonce" class="btn login_btn" id="btn_image" ><br>
+                        <input type="file" name="image_annonce" class="btn login_btn" id="btn_image" required><br>
                         </div>
                         <div class="input-group mb-3">
-                        <input type="submit" value="Envoyer" class="btn login_btn" name="submit">
+                        <input type="submit" value="Envoyer" class="btn login_btn" name="submit" >
                         </div>
                         
                         <?php

@@ -179,5 +179,13 @@ function filtre_commune(){
             currentDiv.insertAdjacentHTML('afterbegin','<option class="commune_daira">'+daira[num_daira][i]+'</option>');
     }
 }
+
+
+function style_onglet_admin() {
+    var url=window.location.href;
+    if(url=="http://127.0.0.1/Projet-IHM-/admin/plateforme_admin.php?action=ajouter_bien"){
+        
+    }
+}
     
-    
+
