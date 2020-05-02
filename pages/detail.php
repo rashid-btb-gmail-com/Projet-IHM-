@@ -25,7 +25,7 @@ $detail_bien = $db->query('SELECT * FROM biens Where id="'.$_GET['id'].'"');
 $choisie = $detail_bien->fetch();
 ?>
 <div class="container-fluid d-flex justify-content-between fulldetail ">
-<div class="suggestdetail d-flexbox flex-row">
+<div class="suggestdetail d-flexbox flex-row" id="dairasugg">
 <h3> Suggestions des biens </h3>
 <h5> Sure La Daira de "<?php echo($choisie['daira']) ?>"</h5>
 <!-- suggestion par regions-->
@@ -68,7 +68,7 @@ $detail_bien->closeCursor();
 </div>
 </div>
 <!-- suggestion par prix-->
-<div class="suggestdetail d-flexbox flex-row ">
+<div class="suggestdetail d-flexbox flex-row " id="prixsugg">
 <h3> Suggestions des biens </h3>
 <h5> Avec un Prix proche de <?php echo($choisie['prix']) ?>DA</h5>
 <div class="lesbienssugg" >
