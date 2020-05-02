@@ -87,7 +87,7 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
        </div>
        <div class="d-flex flex-wrap justify-content-center biensugbox ">
        <?php 
-       $bienrep = $db->query('SELECT titre, daira, commune, lien_img FROM biens ORDER BY id desc LIMIT 0,8');
+       $bienrep = $db->query('SELECT id,titre, daira, commune, lien_img FROM biens ORDER BY id desc LIMIT 0,8');
        while ($donne= $bienrep->fetch()){
        //affichage des biens les plus recents       
          echo('<div class="biensug" >
@@ -97,7 +97,7 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
            <p>Lieu:'.$donne['commune'].','.$donne['daira'].'</p>
           </div>
            <div class="linkdetail">
-            <a href="#detail" class="linkdetail">Voir Detail</a> 
+            <a href="./pages/detail.php?id='.$donne['id'].'" class="linkdetail">Voir Detail</a> 
             </div>
          </div>');}
          $bienrep->closeCursor();

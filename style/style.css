@@ -444,11 +444,19 @@ color:black;
         justify-self: right;
         margin-top: 40px;
         padding: 20px 10px 20px 10px;
+
     }
     .date{
         width: 200px;
     }
-    
+    .titre_connexion{
+        margin-bottom: 15px;
+    }
+    .imgrdv{
+        width:250px;
+        height: 45%;
+        border-radius: 2rem;
+    }
     /*********************************STYLE CONTACT*************************************************/
    .canard{
     display: inline-block;
@@ -531,3 +539,80 @@ bottom: 5cm;
     .env:hover{
         border-color:rgb(0,0,0,0.6);
     }
+    /************************************   page detail  *************************************************/
+    .imgdetail{
+        width:400px;
+    }
+    .fulldetail{
+        margin-top: 20px ;
+        margin-bottom: 20px;
+        font-family: initial;
+        height:100%;
+        align-items: center;
+    }
+    .lesbienssugg{
+        margin-top: 30px;
+        margin-bottom: 20px;
+
+    }
+    .suggestdetail{
+        width:230px;
+        background-color: rgba(0, 0, 0, 0.7);
+        color:white;
+        padding:20px;
+        border-radius:1rem;
+        height:550px
+
+    }
+    .infobox{
+        border:1px solid silver;
+        margin-top: 20px;
+    }
+    .pointdetail{
+        padding:30px;
+        font-family: inherit;
+        
+    }
+    .suggcontainer{
+        margin-bottom: 7px; 
+        width:100%;
+    }
+    .infosugg>a{
+        color:#ff5722;
+    }
+    .infosugg>a:hover{
+        color:#00adb5;
+        font-family: 1.2rem;
+    }
+    .infosugg{
+        padding:3px 5px  0 5px;
+    }
+    .imgsuggestdetail{
+        width:60px;
+        border-top-left-radius:1rem;
+        border-bottom-left-radius:1rem;
+    }
+    .titrebien{
+        border: 1px solid silver;
+        border-radius: 2rem;
+        margin-bottom:50px;
+        padding:5px;
+    }
+    .liendemanderdv{
+        background-color:#ff5722 ;
+        margin-top:40px;
+        padding: 7px;
+        border-radius: 0.5rem;
+    }
+    .rdvdmdbien{
+        color:white ;
+        font-size:1.2rem;
+        padding: 7px;
+    }
+    .rdvdmdbien:hover{
+        background-color: white;
+        padding: 7px;
+        border-radius: 0.25rem;
+        color:#ff5722;
+    }
+
