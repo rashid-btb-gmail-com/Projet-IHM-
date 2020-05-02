@@ -27,3 +27,8 @@ include_once('../includes/header.php');
 <div>
 <a href="./demande_rdv.php#rdvdem" style="font-size:3rem; border:1px solid black; "> demande de rdv</a>
 </div>
+<?php
+  include_once("../includes/footer.php");
+   ?>
+</body>
+</html>

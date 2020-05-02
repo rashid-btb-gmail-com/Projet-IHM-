@@ -97,8 +97,9 @@
 		</div>
 	   </div>
       </div>
-      <!--Scriptes -->
-      <script src="../js/jquery.js"></script>
+      <?php
+  include_once("../includes/footer.php");
+   ?>
       <script src="../js/js.js"></script>
      <!--ajouter a la fin pour que la page ce recharche plus rapidement-->
    </body>

@@ -9,7 +9,7 @@
          <meta name="viewport" content="width=width-device, initial-scale=1.0">
          <meta http-equiv="X-UA-Compatible" content="ie=edge">
          <!--le titre-->
-         <title>Vilavie- Deposer une annonce  </title>
+         <title>Vilavie- demande RDV  </title>
          <!--icon du site-->
          <link rel="icon" href="../images/icon/favicon.ico">
          <!--feuilles de style-->
@@ -43,7 +43,7 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
                 </div>
                 <h2 class="titre_connexion">Demande de visit</h2>
 			  <div class="d-flex justify-content-center form_container">
-					
+					<!--formulaire de demande de visit-->
                 <form enctype="multipart/form-data" action="" method="post" class="form_inscription">
                         
                         
@@ -75,11 +75,22 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
 		 
          
           </div>
-         <!--ici mettre titre photo et lieu du bien cliqué dessu-->
+         <!--titre photo et lieu du bien cliqué dessu-->
          <div class="bienrdv">
          <h3 class="titre_connexion">Le Bien selectioner</h3>
              <?php
-
+             $detail_bien = $db->query('SELECT titre,commune,daira,lien_img FROM biens Where id="'.$_GET['id'].'"');
+             $choisie = $detail_bien->fetch();
+             echo('
+             <div class="d-flex justify-content-center"> 
+             <img class="imgrdv"src="../'. $choisie['lien_img'].'" alt="image du bien">
+             </div>
+             <div class="pointdetail">
+             <h3>'.$choisie['titre'].'</h3>
+             <p><b> Lieux : </b>'.$choisie['commune'].', '.$choisie['daira'].'</p>
+             </div>
+             ');
+             $detail_bien->closeCursor();
              ?>
          </div>
          </div>
@@ -87,6 +98,8 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
        </div>
 	</div>
 </div>
-       
+<?php
+  include_once("../includes/footer.php");
+   ?>    
 </body>
 </html>

@@ -26,7 +26,7 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
   <body>
     <header>
      <!--Header du site -->
-        <div class="container">
+        <div class="container borderhr">
         <nav>
         <!--la barre de navigation -->
          <div class="navbar navbar-default">
@@ -87,9 +87,9 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
        </div>
        <div class="d-flex flex-wrap justify-content-center biensugbox ">
        <?php 
-       $bienrep = $db->query('SELECT titre, daira, commune, lien_img FROM biens ORDER BY id LIMIT 0,8');
+       $bienrep = $db->query('SELECT id,titre, daira, commune, lien_img FROM biens ORDER BY id desc LIMIT 0,8');
        while ($donne= $bienrep->fetch()){
-       
+       //affichage des biens les plus recents       
          echo('<div class="biensug" >
            <img src="./'.$donne['lien_img'].'" class="imgbien" alt="l\'image du bien" >
            <div class="infobien">
@@ -97,36 +97,53 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
            <p>Lieu:'.$donne['commune'].','.$donne['daira'].'</p>
           </div>
            <div class="linkdetail">
-            <a href="#detail" class="linkdetail">Voir Detail</a>
+            <a href="./pages/detail.php?id='.$donne['id'].'" class="linkdetail">Voir Detail</a> 
             </div>
          </div>');}
          $bienrep->closeCursor();
          ?>
-          
-
-                    
+                              
          </div>
       </div>             
      </section>
-     <!--
-     <footer>
-         <div class="a_propos">
-          <div class="contact">
-            <i class="fas fa-phone-square-alt"id="numero"><span>026200532</span></i><br>       
+     <!--Le footer-->
+     <footer> 
+       <div class="container ">
+        <div class="foot d-flex justify-content-between">
+         <a href="./index.php" ><img class="logo-foot float-left" src="./images/logo.png" alt="le logo"></a>
+            <div class="d-flex justify-content-between">
+              <!-- les liens du footer-->
+              <div class="onelinkfoot">
+              <h5 class="titrelink">Les biens</h5>
+              <a href="./pages/immobilier.php">Consulter un bien</a>
+              <a href="./pages/deposer_annonce.php">vendre un bien</a>
+              </div>
+              <div class="onelinkfoot">
+              <h5 class="titrelink"> Devenez client</h5>
+              <a href="./pages/inscription.php">Inscrivez-Vous</a>
+              </div>
+              <div class="onelinkfoot">
+              <h5 class="titrelink">Des questions!</h5>
+              <a href="./pages/contact.php">Contactez-Nous</a>
+              </div>
+            </div>
+            <!--Les reseignement-->
+           <div class="reseign ">
+            <i class="fas fa-phone-square-alt"id="numero"></i><span>026200532</span><br>       
             <i class="fas fa-map-marker-alt"id="adresse"></i><span class="adres">rue khoudja khaled 
              batiment 5 tizi-ouzou</span>
-          </div> 
-          <span class="rej">rejoignez nous sur:</span>
-         <div class="social-button">
-           
-             <a href="" title="notre page facebook" class="fab fa-facebook-f"></i></a>
-             <a href=""title="twitter"><i class="fab fa-twitter"></i></a>
-             <a href="" title="notre instagram"> <i class="fab fa-instagram"></i></a>
-             <a href=""><i class="fab fa-linkedin"></i></a>
-             <a href=""title="notre chaine youtube"><i class="fab fa-youtube"></i></a>
-         </div>
-         </div>
-      </footer> -->
+             <div class="social"> <!--Les reseau sociaux-->
+             <h5>rejoignez nous sur<h5>
+             <a href="" title="Notre page facebook" id="fb"class="sns fab fa-facebook-f"></a>
+             <a href=""title="Notre twitter" class="sns fab fa-twitter"></a>
+             <a href="" title="Notre instagram" class="sns fab fa-instagram"></a>
+             <a href="" title="Notre Linked-in" class="sns fab fa-linkedin"></a>
+           </div>
+       </div>
+        </div>
+        
+       </div>
+     </footer> 
       <!--Scriptes -->
       <script src="./js/jquery.js"></script>
       <script src="./js/js.js"></script>
