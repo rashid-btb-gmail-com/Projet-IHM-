@@ -109,7 +109,6 @@ li :hover{
 .sec2{
     margin:auto;
     padding-top: 40px;
-    height:700px;
     background:#fff;
 }
 .headsug{
@@ -556,13 +555,17 @@ bottom: 5cm;
         margin-bottom: 20px;
 
     }
+    #dairasugg{
+        border-right: 1px solid silver;
+    }
+    #prixsugg{
+        border-left: 1px solid silver;
+    }
     .suggestdetail{
         width:230px;
-        background-color: rgba(0, 0, 0, 0.7);
-        color:white;
         padding:20px;
-        border-radius:1rem;
-        height:550px
+        height:470px;
+        margin-top:10%;
 
     }
     .infobox{
