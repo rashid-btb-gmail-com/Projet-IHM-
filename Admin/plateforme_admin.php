@@ -27,7 +27,7 @@
         <h2 class="nom_admin">NOM Prenom </h2>
     </div>
     <div class="menubien">
-        <a href="?action=ajouter_bien" class="onglet_admin" id="onglet1" onclick="style_onglet_admin()">Ajouter un bien</a>
+        <a href="?action=ajouter_bien" class="onglet_admin" id="onglet1">Ajouter un bien</a>
         <a href="?action=gerer_biens" class="onglet_admin" id="onglet2" onclick="">Gerer les biens</a>
         <a href="?action=confirmer_annonces" class="onglet_admin" id="onglet3" onclick="">Confirmer les annonces</a>
     </div> 
@@ -45,7 +45,7 @@
         <div class="container">
             <!--**********************     header    *************************-->
             <header class="header_admin">
-                <h1 class="titre_plfrm">Plateforme Administrateur</h1>
+                <h1>Plateforme Administrateur</h1>
                 <div class="container_icon">
                     <a href=""class="icon_header" title="Messages"><i class="fas fa-comments"></i></a>
                     <a href="../index.php"class="icon_header" title="Acceuil"><i class="fas fa-home"></i></a>
@@ -714,6 +714,15 @@
             </div>
 
         </div>
-<script src="../js/js.js"></script>
+
+<script src="../js/js.js">
+
+</script>
+
+<script type="text/javascript">
+ window.onload = style_onglet_admin();
+ </script> 
+
+
 </body>
 </html>

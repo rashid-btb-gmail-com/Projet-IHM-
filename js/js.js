@@ -1,6 +1,6 @@
 function verifier_champs(){
-    const vert='<i class="fas fa-check" style="color:green;font-size:23px;"></i>';
-    const rouge='<i class="fas fa-times" style="color:red;font-size:23px;"></i>';
+    const vert='<i class="fas fa-check" style="color:green;font-size:23px;position:relative;left:10px;top:7px"></i>';
+    const rouge='<i class="fas fa-times" style="color:red;font-size:23px;position:relative;left:10px;top:7px"></i>';
     var i;//indice i pour la boucle for
     
 
@@ -17,7 +17,7 @@ function verifier_champs(){
         if(!(((nom[i]>='A')&&(nom[i]<='Z'))||((nom[i]>='a')&&(nom[i]<='z')))){
             document.getElementById("etat_nom").innerHTML=rouge;
             document.getElementsByName("nom")[0].style.borderRight=""
-            document.getElementById("msg_nom").innerHTML='<span style="color:red;font-size:25px;font-size:15px;position:relative;bottom:10px;right:35px">Veuillez saisir que des lettres</span>';
+            document.getElementById("msg_nom").innerHTML='<span style="color:red;font-size:25px;font-size:15px;position:relative;bottom:10px;">Veuillez saisir que des lettres</span>';
         }
         else{
             document.getElementById("etat_nom").innerHTML=vert;
@@ -36,7 +36,7 @@ function verifier_champs(){
         if(!(((prenom[i]>='A')&&(prenom[i]<='Z'))||((prenom[i]>='a')&&(prenom[i]<='z')))){
             document.getElementById("etat_prenom").innerHTML=rouge;
             document.getElementsByName("prenom")[0].style.borderRight=""
-            document.getElementById("msg_prenom").innerHTML='<span style="color:red;font-size:25px;font-size:15px;position:relative;bottom:10px;right:35px">Veuillez saisir que des lettres</span>';  
+            document.getElementById("msg_prenom").innerHTML='<span style="color:red;font-size:25px;font-size:15px;position:relative;bottom:10px;">Veuillez saisir que des lettres</span>';  
         }
         else{
             document.getElementById("etat_prenom").innerHTML=vert;
@@ -89,7 +89,7 @@ function verifier_champs(){
         if(mdp2[0]!=mdp[0]){
             document.getElementById("etat_mdp2").innerHTML=rouge;
             document.getElementsByName("confirm_password")[0].style.borderRight=""
-            document.getElementById("msg_mdp2").innerHTML='<span style="color:red;font-size:25px;font-size:15px;position:relative;bottom:10px;right:35px">Veuillez confirmer le mot de passe</span>';
+            document.getElementById("msg_mdp2").innerHTML='<span style="color:red;font-size:25px;font-size:15px;position:relative;bottom:10px;">Veuillez confirmer le mot de passe</span>';
         }
         else{
             document.getElementById("etat_mdp2").innerHTML=vert;
@@ -107,7 +107,7 @@ function verifier_champs(){
         
         if(!((tel[i]>='0')&&(tel[i]<='9'))||(tel.length!=10)){
             document.getElementById("etat_tel").innerHTML=rouge;
-            document.getElementById("msg_tel").innerHTML='<span style="color:red;font-size:25px;font-size:15px;position:relative;bottom:10px;right:35px">Numéro de téléphone invalide</span>';
+            document.getElementById("msg_tel").innerHTML='<span style="color:red;font-size:25px;font-size:15px;position:relative;bottom:10px;">Numéro de téléphone invalide</span>';
         }
         else{
             document.getElementById("etat_tel").innerHTML=vert;
@@ -125,7 +125,7 @@ function verifier_champs(){
     else{
         if(!((sit_fam=="Marié")||(sit_fam=="Celibataire"))){
             document.getElementsByName("sit_fam")[0].style.borderRight="";
-            document.getElementById("msg_sit_fam").innerHTML='<span style="color:red;font-size:25px;font-size:15px;position:relative;bottom:10px;right:35px">Veuillez choisir parmi les deux choix</span>';
+            document.getElementById("msg_sit_fam").innerHTML='<span style="color:red;font-size:25px;font-size:15px;position:relative;bottom:10px;">Veuillez choisir parmi les deux choix</span>';
             document.getElementById("etat_sit_fam").innerHTML=rouge;
         }
         else{
@@ -183,8 +183,41 @@ function filtre_commune(){
 
 function style_onglet_admin() {
     var url=window.location.href;
+    
     if(url=="http://127.0.0.1/Projet-IHM-/admin/plateforme_admin.php?action=ajouter_bien"){
-        
+        document.getElementById("onglet1").style.borderLeft="17px #fa6014 solid";
+        document.getElementById("onglet1").style.color="#fa6014";
+        document.getElementById("onglet1").style.backgroundColor="#313131";
+    }
+    if(url=="http://127.0.0.1/Projet-IHM-/admin/plateforme_admin.php?action=gerer_biens"){
+        document.getElementById("onglet2").style.borderLeft="17px #fa6014 solid";
+        document.getElementById("onglet2").style.color="#fa6014";
+        document.getElementById("onglet2").style.backgroundColor="#313131";
+    }
+    if(url=="http://127.0.0.1/Projet-IHM-/admin/plateforme_admin.php?action=confirmer_annonces"){
+        document.getElementById("onglet3").style.borderLeft="17px #fa6014 solid";
+        document.getElementById("onglet3").style.color="#fa6014";
+        document.getElementById("onglet3").style.backgroundColor="#313131";
+    }
+    if(url=="http://127.0.0.1/Projet-IHM-/admin/plateforme_admin.php?action=ajouter_rdv"){
+        document.getElementById("onglet4").style.borderLeft="17px #fa6014 solid";
+        document.getElementById("onglet4").style.color="#fa6014";
+        document.getElementById("onglet4").style.backgroundColor="#313131";
+    }
+    if(url=="http://127.0.0.1/Projet-IHM-/admin/plateforme_admin.php?action=gerer_rdv"){
+        document.getElementById("onglet5").style.borderLeft="17px #fa6014 solid";
+        document.getElementById("onglet5").style.color="#fa6014";
+        document.getElementById("onglet5").style.backgroundColor="#313131";
+    }
+    if(url=="http://127.0.0.1/Projet-IHM-/admin/plateforme_admin.php?action=confirmer_rdv"){
+        document.getElementById("onglet6").style.borderLeft="17px #fa6014 solid";
+        document.getElementById("onglet6").style.color="#fa6014";
+        document.getElementById("onglet6").style.backgroundColor="#313131";
+    }
+    if(url=="http://127.0.0.1/Projet-IHM-/admin/plateforme_admin.php?action=clients"){
+        document.getElementById("onglet7").style.borderLeft="17px #fa6014 solid";
+        document.getElementById("onglet7").style.color="#fa6014";
+        document.getElementById("onglet7").style.backgroundColor="#313131";
     }
 }
     

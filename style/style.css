@@ -38,6 +38,7 @@ ul li{
     
 }
 
+
 a:hover{
     text-decoration: none;
     color:black;
@@ -355,7 +356,7 @@ color:black;
     }
     #login_btn_insc{
         width: 70%;
-        margin-left:-16%;
+        
     }
     
     .login_btn:focus {
