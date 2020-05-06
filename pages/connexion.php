@@ -22,7 +22,8 @@
 
   <body>
     <?php
-	include_once("../includes/header.php");
+	require '../includes/header.php';
+	//include_once("../includes/header.php");
 	
 	$db=new PDO('mysql:host=localhost;dbname=vilavie','root','');
 	

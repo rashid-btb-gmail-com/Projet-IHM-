@@ -70,7 +70,7 @@ $detail_bien->closeCursor();
 <!-- suggestion par prix-->
 <div class="suggestdetail d-flexbox flex-row " id="prixsugg">
 <h3> Suggestions des biens </h3>
-<h5> Avec un Prix proche de <?php echo($choisie['prix']) ?>DA</h5>
+<h5> Avec un Prix moins de <?php echo($choisie['prix']) ?>DA</h5>
 <div class="lesbienssugg" >
 <?php $bienprix = $db->query('SELECT id,titre, lien_img FROM biens Where prix <'.$choisie['prix'].' LIMIT 0,4');
        while ($aproxis= $bienprix->fetch()){

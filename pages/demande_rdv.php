@@ -25,6 +25,10 @@
 include_once("../includes/header.php");
 //    connexion a la base de donnee  
 $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+if(!isset($_SESSION["username"])){
+    header("location: ./connexion.php#fullconnex");
+}
+$nompre=$_SESSION["nom"].' '.$_SESSION["prenom"];
 ?>
 <div class="demanderdv" id="rdvdem" >
     <div class="container h-100">
@@ -47,11 +51,17 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
                 <form enctype="multipart/form-data" action="" method="post" class="form_inscription">
                         
                         
-                        <div class="input-group mb-3">
-                        <input type="text" name="client" class="form-control input_user" placeholder="Votre Nom et Prénom" required><br>
+                        <div class="input-group mb-3 d-flex justify-content-center">
+                        <h4 class="titre_connexion "><?php echo($nompre)?></h4>
+                        <br>
                         </div> 
                         <div class="input-group mb-3">
-                        <input type="text" name="lieu" class="form-control input_user" placeholder="Adress du Rdv" required><br>
+                        <SELECT name="lieu" class="form-control input_user" placeholder="Adress du Rdv" required>
+                                <option value="" disabled selected> Adress du RDV</option>
+                                <option value="A l'agence ">A l'agence de vilavie</option>
+                                <option value="A proximité du bien">A proximité du bien</option>
+                        </SELECT>
+                        <br>
                         </div>                                            
                         <div class="input-group mb-3 datetime">
                         <input type="date" name="date" class="form-control input_user date"  required><br>
@@ -65,7 +75,7 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
                          if(isset($_POST["submit"])){
                              //insersion dans la base de donné
                              $insert=$db->prepare('INSERT INTO demande_rdv VALUES(NULL,?,?,?,?)');
-                             $insert->execute(array($_POST["client"],$_POST["lieu"],$_POST["date"],$_POST["time"]));
+                             $insert->execute(array($nompre,$_POST["lieu"],$_POST["date"],$_POST["time"]));
                          }
                          ?>
                 </form>
