@@ -45,11 +45,27 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
                   <?php
                   if(isset($_SESSION["username"])){
                       ?>
-                    <li>
-                    
-                    <a href="" title="Mon profil"><i class="far fa-user"></i>  <?php echo $_SESSION["nom"]."  ".$_SESSION["prenom"];?></a>  
-                    </li>
+                      
+                        <li>        
+                        <a href="#" title="Mon profil" onmouseover="onglet_mon_profil_af()"><i class="far fa-user"></i>  <?php echo $_SESSION["nom"]."  ".$_SESSION["prenom"];?></a> 
+                        </li>
+                        <div class="menu_profil">
+                          <ul>
+                            <li id="onglet_mon_profil">
+                            
+                            
+                            </li>
+                          </ul>                 
+                        </div>
                     <?php
+                    if(isset($_GET["action"])){
+                        if($_GET["action"]="deco"){
+                          $_SESSION["username"]=null;
+                          ?>
+                          <meta http-equiv="refresh" content="0">
+                          <?php
+                        }
+                    }
                   }
                   else{
                       ?>
@@ -79,8 +95,8 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
          </form>
         </div>
         <!-- section des suggestions --> 
-     </section>
-     <section class="sec2">
+    </section>
+    <section class="sec2">
       <div class="container">
         <div class="headsug">
           <h1 class="text-center text-uppercase font-weight-bold " >Nos suggestions</h1>
@@ -105,9 +121,9 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
                               
          </div>
       </div>             
-     </section>
+    </section>
      <!--Le footer-->
-     <footer> 
+    <footer> 
        <div class="container ">
         <div class="foot d-flex justify-content-between">
          <a href="./index.php" ><img class="logo-foot float-left" src="./images/logo.png" alt="le logo"></a>
@@ -143,7 +159,7 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
         </div>
         
        </div>
-     </footer> 
+    </footer> 
       <!--Scriptes -->
       <script src="./js/jquery.js"></script>
       <script src="./js/js.js"></script>

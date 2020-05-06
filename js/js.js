@@ -220,5 +220,21 @@ function style_onglet_admin() {
         document.getElementById("onglet7").style.backgroundColor="#313131";
     }
 }
+
+function onglet_mon_profil_af(){
+    var url=window.location.href;
+    if(url=="http://127.0.0.1/Projet-IHM-/index.php"){
+    document.getElementById("onglet_mon_profil").innerHTML='<a href="?action=deco" onmouseout="onglet_mon_profil_ef()">deconnexion</a>';
     
+    }
+    else{
+        document.getElementById("onglet_mon_profil").innerHTML='<a href="?action=deco" onmouseout="onglet_mon_profil_ef()">deconnexion</a>';
+        
+    }
+}
+function onglet_mon_profil_ef(){
+    
+    document.getElementById("onglet_mon_profil").innerHTML='';
+
+}
 

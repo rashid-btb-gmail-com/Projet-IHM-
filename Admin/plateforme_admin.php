@@ -47,7 +47,7 @@
             <header class="header_admin">
                 <h1>Plateforme Administrateur</h1>
                 <div class="container_icon">
-                    <a href=""class="icon_header" title="Messages"><i class="fas fa-comments"></i></a>
+                    <a href="?action=msg"class="icon_header" title="Messages"><i class="fas fa-envelope"></i></a>
                     <a href="../index.php"class="icon_header" title="Acceuil"><i class="fas fa-home"></i></a>
                     <a href="" class="icon_header" title="Déconnexion"><i class="fas fa-sign-out-alt"></i></a>
 
@@ -286,7 +286,7 @@
 
                                         $select=$db->query("SELECT titre FROM biens WHERE id=$id");
                                         $donnees=$select->fetch();
-                                    ?>
+                                        ?>
                                         <div class="modifier_bien">
                                             <h3>Modification du bien : <?php echo $donnees[0]; ?></h3><br>
                                             <form action="" method="post">
@@ -320,7 +320,7 @@
                                                 ?>
                                             </form>
                                         </div>
-                                    <?php
+                                        <?php
                                     }
                                 }
                             ?>               
@@ -708,6 +708,76 @@
                             </div>
                             <?php
                         } 
+                        //******************************    afficher les messages  *************************** */
+                        if($_GET["action"]=="msg"){
+                            $select=$db->query('SELECT * FROM contact_msg');
+                            ?>
+                            <div class="form_admin">
+                            <h2>Messages :</h2>
+                            <div style="height: 400px; width: 650px; overflow: auto;">
+                                <table class="liste_biens" cellpadding="3" rules="all">
+                                    <colgroup span="4" class="columns"></colgroup>
+                                    <tr>
+                                        <th>Nom</th>
+                                        <th>Prénom</th>
+                                        <th>E-mail</th>
+                                        <th>Sujet</th> 
+                                        <th>Message</th>   
+                                    </tr>
+                                    <?php
+                                    
+                                    while($donnees=$select->fetch()){
+                                        
+                                        ?>
+                                        <tr>
+                                            <td><?php echo $donnees["nom"] ?></td>
+                                            <td><?php echo $donnees["prenom"] ?></td>
+                                            <td><?php echo $donnees["email"] ?></td>
+                                            <td><?php echo $donnees["sujet"] ?></td>
+                                            <td><a href="?action=msg&amp;action2=afficher_msg&amp;id=<?php echo $donnees["id"]; ?>">Afficher le message</a></td>                                    
+                                            <td><a href="?action=msg&amp;action2=supprimer&amp;id=<?php echo $donnees["id"]; ?>" title="Supprimer le client" class="icon_supprimer"><i class="far fa-trash-alt"></i></a></td>
+                                            
+                                        </tr>
+
+                                        <?php
+                                    }
+
+                                    //********************  supprimer des messages    **************************** */
+                                    
+                                    if(isset($_GET["action2"])){
+                                        if($_GET["action2"]=="supprimer"){
+                                        $id=$_GET["id"];
+                                        $supprimer=$db->prepare("DELETE FROM contact_msg WHERE id = $id");
+                                        $supprimer->execute();
+                                        ?>
+                                        <meta http-equiv="refresh" content="0;url=./plateforme_admin.php?action=msg" />
+                                        <?php
+                                        }
+                                        
+                                        if($_GET["action2"]=="afficher_msg"){
+                                    
+                                            $id=$_GET["id"];
+                                            $select=$db->query("SELECT nom,prenom,message FROM contact_msg WHERE id=$id");
+                                            $donnees=$select->fetch();
+                                            ?>
+                                            <div class="modifier_bien">
+                                                <h3>Message de : <?php echo $donnees[0]."  ".$donnees[1]; ?></h3><br>
+                                                <p><?php echo $donnees[2]?></p>
+                                            </div>
+                                            <?php
+                                        }
+
+                                    }
+                                    
+                                    ?>
+                                    
+                                    
+                                </table>
+                            </div>
+                            </div>
+                            <?php
+                        } 
+                    
 
                     }
                 ?>   

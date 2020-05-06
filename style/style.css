@@ -32,10 +32,11 @@ header{
     padding-bottom: 5px;
     margin-right: 5px;
  }
-ul li{
+ul li,ul{
     list-style: none;
     display: inline;
-    
+    padding: 0;
+    text-align: center;
 }
 
 a:hover{
@@ -52,6 +53,16 @@ li :hover{
     transition: 0.7s;
     background-color: #ff5722;
     color:white;
+}
+.menu_profil {
+    position: absolute;
+    width: 160.72px;
+    top: 83px;
+    right: 0px;
+    /* background-color: white; */
+}
+.menu_profil li{
+    text-align: center;
 }
 /***************************       page d'index        *********************************/
 
@@ -357,7 +368,7 @@ color:black;
     }
     #login_btn_insc{
         width: 70%;
-        margin-left:-16%;
+    
     }
     
     .login_btn:focus {

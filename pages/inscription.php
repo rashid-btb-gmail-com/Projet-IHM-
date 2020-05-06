@@ -146,6 +146,14 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
                         $insert=$db->prepare('INSERT INTO clients VALUES(NULL,?,?,?,?,?,?,?)');
                         $insert->execute(array($_POST['nom'],$_POST['prenom'],$_POST['username'],$_POST['email'],$_POST['password'],$_POST['tel'],$_POST['sit_fam']));
                         echo("Votre compte a été créé avec succès");
+                        $_SESSION["username"]=$_POST["username"];
+                        $_SESSION["nom"]=$_POST["nom"];
+                        $_SESSION["prenom"]=$_POST["prenom"];
+
+                        ?>
+                        
+                        <meta http-equiv="refresh" content="3;url=../index.php" /> 
+                        <?php
                         }
                     }
             

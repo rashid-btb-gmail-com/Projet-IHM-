@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html >
+<html > 
  <head>
      <!--les metas necessaire-->
-     <meta charset="UTF-8">
+     
      <meta name="description" content="Un site de vente d'apartement, villa et studio pour la wilaya de tizi ouzou ">
      <meta name="keywords" content="tizi-ouzou,vente,appartement,maison,villa,algerie">
      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
