@@ -46,7 +46,7 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
                   if(isset($_SESSION["username"])){
                       ?>
                     <li>
-                    <a href="" title="Mes favoris" id="onglet_profil"><i class="far fa-heart"></i>Mes favoris</a>
+                    
                     <a href="" title="Mon profil"><i class="far fa-user"></i>  <?php echo $_SESSION["nom"]."  ".$_SESSION["prenom"];?></a>  
                     </li>
                     <?php
