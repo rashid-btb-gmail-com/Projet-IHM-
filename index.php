@@ -68,6 +68,9 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
                     }
                   }
                   else{
+                    
+                    $_SESSION["url_prec"]=$_SERVER['PHP_SELF'];
+                    
                       ?>
                     <li><a href="./pages/connexion.php#fullconnex">Se Connecter</a></li>
                   <li><a href="./pages/inscription.php#inscript">S'inscrire</a></li>

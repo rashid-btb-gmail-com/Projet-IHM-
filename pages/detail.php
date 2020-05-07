@@ -62,6 +62,7 @@ $choisie = $detail_bien->fetch();
 <a href="./demande_rdv.php?id='.$choisie['id'].'" class="rdvdmdbien">Demander Un Rendez-Vous de Visite</a> 
 </div>
 '); 
+$_SESSION["url_prec"]="./demande_rdv.php?id=".$choisie['id'];
 $detail_bien->closeCursor();
  ?>
  </div>

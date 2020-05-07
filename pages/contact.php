@@ -21,6 +21,7 @@
  </head>
  <body class="corps">
 <?php include_once("../includes/header.php");
+$_SESSION["url_prec"]=$_SERVER['PHP_SELF'];
 $bdd = new PDO('mysql:host=localhost;dbname=vilavie;charset=utf8','root','',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 ?>
 <div class="corps">

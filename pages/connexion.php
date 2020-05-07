@@ -66,6 +66,7 @@
 					
 					
 					<?php 
+					echo $_SESSION["url_prec"];
 					if(isset($_POST["submit"])){
 						$select=$db->query("SELECT username,password,nom,prenom FROM clients");
 						
@@ -75,9 +76,14 @@
 								$_SESSION["password"]=$donnees["password"];
 								$_SESSION["nom"]=$donnees["nom"];
 								$_SESSION["prenom"]=$donnees["prenom"];
-								?>
-								<meta http-equiv="refresh" content="0;url=../index.php" />
-								<?php
+
+								//redirection vers le lien			
+								
+									?>
+									<meta http-equiv="refresh" content="0;url=<?php echo $_SESSION["url_prec"]; ?>" />
+									<?php	
+								
+								
 							}
 						}
 					}
