@@ -66,7 +66,7 @@
 					
 					
 					<?php 
-					echo $_SESSION["url_prec"];
+					$_SESSION["url_prec"];
 					if(isset($_POST["submit"])){
 						$select=$db->query("SELECT username,password,nom,prenom FROM clients");
 						

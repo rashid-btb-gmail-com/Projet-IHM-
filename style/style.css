@@ -13,14 +13,16 @@ html,body{
 
 /***********************************  header et navigation bar  *****************************************/
 header{
+    
     font-size: 1.15rem;
     background-color: white;
 }
 .borderhr{
+    padding-bottom:13px;
     border-bottom:1px solid silver;
 }
 .navbar-right{
-    margin-top: 20px;
+    margin-top: 7px;
 }
 .logo{
     width: 200px;
@@ -63,6 +65,7 @@ li :hover{
 }
 .menu_profil li{
     text-align: center;
+    z-index:2000;
 }
 /***************************       page d'index        *********************************/
 

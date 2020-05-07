@@ -34,5 +34,6 @@
         
        </div>
      </footer> 
-<script src="./js/jquery"></script>
+<script src="../js/jquery"></script>
+<script src="../js/js.js"></script>
 
