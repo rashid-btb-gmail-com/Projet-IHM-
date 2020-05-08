@@ -49,14 +49,9 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
                         <li>        
                         <a href="#" title="Mon profil" onmouseover="onglet_mon_profil_af()"><i class="far fa-user"></i>  <?php echo $_SESSION["nom"]."  ".$_SESSION["prenom"];?></a> 
                         </li>
-                        <div class="menu_profil">
-                          <ul>
-                            <li id="onglet_mon_profil">
-                            
-                            
-                            </li>
-                          </ul>                 
-                        </div>
+                        <li>
+                        <a href="?action=deco" title="Déconnexion"><i class="fas fa-sign-out-alt"></i></a>
+                        </li>
                     <?php
                     if(isset($_GET["action"])){
                         if($_GET["action"]="deco"){
