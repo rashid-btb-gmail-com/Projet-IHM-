@@ -19,7 +19,9 @@
          <link rel="stylesheet" href="../style/style.css">
          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
-        
+         <!--Scriptes-->
+         <script type="text/javascript" src="./js/jQuery.js"></script>
+         <script src="./js/jsscript.js"></script>
        </head>
 <body>
 <?php
@@ -36,45 +38,45 @@ include_once('../includes/header.php');
 
 <div class="fullimmo" id="immo">
            <div class="container h-100">
-            <div class="d-flex justify-content-center h-100">
+            <div class="d-flex-justify-content-center-h-100">
                
             <div class="text-center">
                               
                                         
                       <div class="row hidden-xs" id="recherche" style="margin-top: 15px;">                                                                 
-                                  <img src="../images/logo.png" style="  margin-left: 12.16cm;">          
+                                  <img src="../images/logo.png" style="  margin-left: 11.6cm;">          
                           
                           <div class="noo-text-block" style="padding-left: 143px; margin-top: 27px;">
-                          <form enctype="multipart/form-data" id="id_form" action="" method="post">
+                                <form enctype="multipart/form-data" id="id_form" action="" method="post">
                                   <div class="row">
                                   <div class="form-group  col-sm-2 ">  
                                             <div class="form-group ">
                                               <label for="type_dairas" style="color: white;"><b>Daïras</b> </label>
                                               <select class="form-control" id="daira" name="daira">                                                                                                                     
                                               <option>Daïras</option>
-                                                <option value="1">Ain El Hammam</option>
-                                                <option value="2">Azazga</option>
-                                                <option value="Azzefoun">Azeffoun</option>
-                                                <option value="4">Beni Douala</option>
-                                                <option value="5">Beni Yenni</option>
-                                                <option value="6">Boghni</option>
-                                                <option value="7">Bouzguen</option>
-                                                <option value="8">Draâ Ben Khedda</option>
-                                                <option value="9">Draâ El Mizan</option>
-                                                <option value="10">Iferhounène</option>
-                                                <option value="11">Larbaâ Nath Irathen</option>
-                                                <option value="12">Mâatkas</option>
-                                                <option value="13">Makouda</option>
-                                                <option value="14">Mekla</option>
-                                                <option value="15">Ouacif</option>
-                                                <option value="16">Ouadhia</option>
-                                                <option value="17">Ouaguenoun</option>
-                                                <option value="18">Tigzirt</option>
-                                                <option value="19">Tizi Gheniff</option>
-                                                <option value="20">Tizi Ouzou</option>
-                                                <option value="21">Tizi Rached</option>
+                         <option value="Ain El Hammam">Ain El Hammam</option>
+                         <option value="Azazga">Azazga</option>
+                         <option value="Azeffoun">Azeffoun</option>
+                         <option value="Beni Douala">Beni Douala</option>
+                         <option value="Beni Yenni">Beni Yenni</option>
+                         <option value="Boghni">Boghni</option>
+                         <option value="Bouzguen">Bouzguen</option>
+                         <option value="Draâ Ben Khedda">Draâ Ben Khedda</option>
+                         <option value="Draâ El Mizan">Draâ El Mizan</option>
+                         <option value="Iferhounène">Iferhounène</option>
+                         <option value="Larbaâ Nath Irathen">Larbaâ Nath Irathen</option>
+                         <option value="Mâatkas">Mâatkas</option>
+                         <option value="Makouda">Makouda</option>
+                         <option value="Mekla">Mekla</option>
+                         <option value="Ouacif">Ouacif</option>
+                         <option value="Ouadhia">Ouadhia</option>
+                         <option value="Ouaguenoun">Ouaguenoun</option>
+                         <option value="Tigzirt">Tigzirt</option>
+                         <option value="Tizi Gheniff">Tizi Gheniff</option>
+                         <option value="Tizi Ouzou">Tizi Ouzou</option>
+                         <option value="Tizi Rached">Tizi Rached</option>
                                               
-                                              </select>
+                                     </select>
                                             </div>
                                 </div>
                                 
@@ -82,7 +84,7 @@ include_once('../includes/header.php');
                       <div class="input-group"> 
                         <div class="form-group">
                         <label for="type_prix" style="color: white;"><b>Prix</b> </label>
-                        <input id="prix" name="prix" type="number" class="form-control" onchange="valider('','')" placeholder="Prix max">
+                        <input id="prix" name="prix" type="number" class="form-control" onchange="valider('','')" placeholder="Prix " value="" >
                         <span class="input-group-addon">DA</span>
                     </div>
                     </div>
@@ -93,8 +95,8 @@ include_once('../includes/header.php');
                       <div class="input-group"> 
                         <div class="form-group">
                             <label for="type_surface" style="color: white;"><b>Surface</b> </label>
-                        <input id="surface" type="number" name="surface" class="form-control" onchange="valider('','')" placeholder="Surface min" value="">
-                        <span class="input-group-addon1">m<sup>2</sup></span>
+                        <input id="surface" type="number" name="surface" class="form-control" onchange="valider('','')" placeholder="Surface" value="">
+                        <span class="input-group-addon1">M<sup>2</sup></span>
                         </div>
                     </div>  
                     </div>   
@@ -108,74 +110,74 @@ include_once('../includes/header.php');
                                             <label for="liste_commune" style="color: white;"><b>Commune</b> </label>
                                             <select class="form-control" id="commune" name="commune" >
                                              
-                                                <option>Commune</option>
-                                              <option value="1">Abi Youcef</option>
-                                              <option value="2">Aghribs</option>
-                                              <option value="3">Agouni Gueghrane</option>
-                                              <option value="4">Ain El Hammam</option>
-                                              <option value="5">Aïn Zaouia</option>
-                                              <option value="6">Aït Aggouacha</option>
-                                              <option value="7">Aït Aïssa Mimoun</option>
-                                              <option value="8">Aït Bouaddou</option>
-                                              <option value="9">Aït Boumahdi</option>
-                                              <option value="10">Aït Chafâa</option>
-                                              <option value="11">Aït Khellili</option>
-                                              <option value="12">Aït Mahmoud</option>
-                                              <option value="13">Aït Ouacif</option>
-                                              <option value="14">Aït Oumalou</option>
-                                              <option value="15">Aït Toudert</option>
-                                              <option value="16">Aït Yahia</option>
-                                              <option value="17">Aït Yahia Moussa</option>
-                                              <option value="18">Aït Yenni</option>
-                                              <option value="19">Aït Zmenzer</option>
-                                              <option value="20">Akbil</option>
-                                              <option value="21">Akerrou</option>
-                                              <option value="22">Assi Youcef</option>
-                                              <option value="23">Ath Zikki</option>
-                                              <option value="24">Azazga</option>
-                                              <option value="25">Azeffoun</option>
-                                              <option value="26">Beni Aïssi</option>
-                                              <option value="27">Beni Douala</option>
-                                              <option value="28">Boghni</option>
-                                              <option value="29">Boudjima</option>
-                                              <option value="30">3Bounouh</option>
-                                              <option value="31">Bouzeguène</option>
-                                              <option value="32">Draâ Ben Khedda</option>
-                                              <option value="33">Draâ El Mizan</option>
-                                              <option value="34">Freha</option>
-                                              <option value="35">Frikats</option>
-                                              <option value="36">Iboudraren</option>
-                                              <option value="37">Idjeur</option>
-                                              <option value="38">Iferhounène</option>
-                                              <option value="39">Ifigha</option>
-                                              <option value="40">Iflissen</option>
-                                              <option value="41">Illilten</option>
-                                              <option value="42">Illoula Oumalou</option>
-                                              <option value="43">Imkiren</option>
-                                              <option value="44">Imsouhel</option>
-                                              <option value="45">Irdjen</option>
-                                              <option value="46">Larbaâ Nath Irathen</option>
-                                              <option value="47">Mâatkas</option>
-                                              <option value="48">Makouda</option>
-                                              <option value="49">Mechtras</option>
-                                              <option value="50">Mekla</option>
-                                              <option value="51">Mizrana</option>
-                                              <option value="52">Ouadhia</option>
-                                              <option value="53">Ouaguenoun</option>
-                                              <option value="54">Sidi Namane</option>
-                                              <option value="55">Souamaâ</option>
-                                              <option value="56">Souk El Thenine</option>
-                                              <option value="57">Tadmaït</option>
-                                              <option value="58">Tigzirt</option>
-                                              <option value="59">Timizart</option>
-                                              <option value="60">Tirmitine</option>
-                                              <option value="61">Tizi Gheniff</option>
-                                              <option value="62">Tizi N'Tleta</option>
-                                              <option value="63">Tizi Ouzou</option>
-                                              <option value="64">Tizi Rached</option>
-                                              <option value="65">Yakouren</option>
-                                              <option value="66">Yatafen</option>
-                                              <option value="67">Zekri</option>
+                                              <option>Commune</option>
+                                             <option value="Abi Youcef">Abi Youcef</option>
+                                             <option value="Aghribs">Aghribs</option>
+                                             <option value="Agouni Gueghrane">Agouni Gueghrane</option>
+                                             <option value="Ain El Hammam">Ain El Hammam</option>
+                                             <option value="Aïn Zaouia">Aïn Zaouia</option>
+                                             <option value="Aït Aggouacha">Aït Aggouacha</option>
+                                             <option value="Aït Aïssa Mimoun">Aït Aïssa Mimoun</option>
+                                             <option value="Aït Bouaddou">Aït Bouaddou</option>
+                                             <option value="Aït Boumahdi">Aït Boumahdi</option>
+                                             <option value="Aït Chafâa">Aït Chafâa</option>
+                                             <option value="Aït Khellili">Aït Khellili</option>
+                                             <option value="Aït Mahmoud">Aït Mahmoud</option>
+                                             <option value="Aït Ouacif">Aït Ouacif</option>
+                                             <option value="Aït Oumalou">Aït Oumalou</option>
+                                             <option value="Aït Toudert">Aït Toudert</option>
+                                             <option value="Aït Yahia">Aït Yahia</option>
+                                             <option value="Aït Yahia Moussa">Aït Yahia Moussa</option>
+                                             <option value="Aït Yenni">Aït Yenni</option>
+                                             <option value="Aït Zmenzer">Aït Zmenzer</option>
+                                             <option value="Akbil">Akbil</option>
+                                             <option value="Akerrou">Akerrou</option>
+                                             <option value="Assi Youcef">Assi Youcef</option>
+                                             <option value="Ath Zikki">Ath Zikki</option>
+                                             <option value="Azazga">Azazga</option>
+                                             <option value="Azeffoun">Azeffoun</option>
+                                             <option value="Beni Aïssi">Beni Aïssi</option>
+                                             <option value="Beni Douala">Beni Douala</option>
+                                             <option value="Boghni">Boghni</option>
+                                             <option value="Boudjima">Boudjima</option>
+                                             <option value="3Bounouh">3Bounouh</option>
+                                             <option value="Bouzeguène">Bouzeguène</option>
+                                             <option value="Draâ Ben Khedda">Draâ Ben Khedda</option>
+                                             <option value="Draâ El Mizan">Draâ El Mizan</option>
+                                             <option value="Freha">Freha</option>
+                                             <option value="Frikats">Frikats</option>
+                                             <option value="Iboudraren">Iboudraren</option>
+                                             <option value="Idjeur">Idjeur</option>
+                                             <option value="Iferhounène">Iferhounène</option>
+                                             <option value="Ifigha">Ifigha</option>
+                                             <option value="Iflissen">Iflissen</option>
+                                             <option value="Illilten">Illilten</option>
+                                             <option value="Illoula Oumalou">Illoula Oumalou</option>
+                                             <option value="Imkiren">Imkiren</option>
+                                             <option value="Imsouhel">Imsouhel</option>
+                                             <option value="Irdjen">Irdjen</option>
+                                             <option value="Larbaâ Nath Irathen">Larbaâ Nath Irathen</option>
+                                             <option value="Mâatkas">Mâatkas</option>
+                                             <option value="Makouda">Makouda</option>
+                                             <option value="Mechtras">Mechtras</option>
+                                             <option value="Mekla">Mekla</option>
+                                             <option value="Mizrana">Mizrana</option>
+                                             <option value="Ouadhia">Ouadhia</option>
+                                             <option value="Ouaguenoun">Ouaguenoun</option>
+                                             <option value="Sidi Namane">Sidi Namane</option>
+                                             <option value="Souamaâ">Souamaâ</option>
+                                             <option value="Souk El Thenine">Souk El Thenine</option>
+                                             <option value="Tadmaït">Tadmaït</option>
+                                             <option value="Tigzirt">Tigzirt</option>
+                                             <option value="Timizart">Timizart</option>
+                                             <option value="Tirmitine">Tirmitine</option>
+                                             <option value="Tizi Gheniff">Tizi Gheniff</option>
+                                             <option value="Tizi N'Tleta">Tizi N'Tleta</option>
+                                             <option value="Tizi Ouzou">Tizi Ouzou</option>
+                                             <option value="Tizi Rached">Tizi Rached</option>
+                                             <option value="Yakouren">Yakouren</option>
+                                             <option value="Yatafen">Yatafen</option>
+                                             <option value="Zekri">Zekri</option>
 
                                         </select>
 
@@ -184,9 +186,8 @@ include_once('../includes/header.php');
 
                                 <div class="form-group col-sm-2">
                                 <div class="form-group ">
-
-                                   <input type="submit" value="Rechercher"class="btn1" name="formsend">
                                     
+                                    <input class="btn1" type="submit" name="formsend" value="Recherche">
 
                                 </div>
                                                               
@@ -218,11 +219,104 @@ include_once('../includes/header.php');
        <?php 
        
 
-       if (isset($_POST['formsend'])) {
-          
+            //filtre a 4 cases
 
-          $req=$db->prepare('SELECT * FROM biens where daira = ?');
-          $req->execute(array($_POST['daira']));
+
+       if (isset($_POST['formsend'])) {
+        
+            if (isset($_POST['daira']) && (isset($_POST['commune'])) && (isset($_POST['prix'])) && (isset($_POST['surface']))) {
+                $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens where daira = ? and commune = ? and prix = ? and surface = ? ');
+          $req->execute(array(
+            $_POST['daira'],
+            $_POST['commune'],
+            $_POST['prix'],
+            $_POST['surface']
+
+          )
+          );
+            }
+
+            // filtre a 3 cases
+
+        if ($_POST['daira']=='Daïras' && (isset($_POST['commune'])) && (isset($_POST['prix'])) && (isset($_POST['surface'])) ) {
+             $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens WHERE commune=? AND prix=? AND surface=?');
+             $req->execute(array($_POST['commune'],$_POST['prix'],$_POST['surface']));
+        }
+
+        if ($_POST['commune']=='Commune' && (isset($_POST['daira'])) && (isset($_POST['prix'])) && (isset($_POST['surface'])) ) {
+             $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens WHERE daira=? AND prix=? AND surface=?');
+             $req->execute(array($_POST['daira'],$_POST['prix'],$_POST['surface']));
+        }
+
+        if ($_POST['prix']==null && (isset($_POST['daira'])) && (isset($_POST['commune'])) && (isset($_POST['surface'])) ) {
+             $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens WHERE daira=? AND commune=? AND surface=?');
+             $req->execute(array($_POST['daira'],$_POST['commune'],$_POST['surface']));
+        }
+        
+        if ($_POST['surface']==null && (isset($_POST['daira'])) && (isset($_POST['commune'])) && (isset($_POST['prix'])) ) {
+             $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens WHERE daira=? AND commune=? AND prix=?');
+             $req->execute(array($_POST['daira'],$_POST['commune'],$_POST['prix']));
+        }
+
+
+        //filtre a 2 cases
+
+          if(($_POST['daira']=='Daïras')&&($_POST['prix']==null)&& (isset($_POST['commune']))&&(isset($_POST['surface']))){
+                                            $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens WHERE commune=? AND surface=?');                    
+                                            $req->execute(array($_POST['commune'],$_POST['surface']));
+                                        }
+
+
+            if(($_POST['daira']=='Daïras')&&($_POST['commune']=='Commune')&&(isset($_POST['prix'])) && (isset($_POST['surface'])) ){
+                                            $req=$db->prepare("SELECT id,titre,daira,commune,lien_img FROM biens WHERE  prix=? and surface=?"); 
+                                                               
+                                            $req->execute(array($_POST['prix'],$_POST['surface']));
+                                        } 
+
+            if(($_POST['daira']=='Daïras')&&($_POST['surface']==null)&& (isset($_POST['commune']))&&(isset($_POST['prix']))){
+                                            $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens WHERE commune=? AND prix=?');                    
+                                            $req->execute(array($_POST['commune'],$_POST['prix']));
+                                        }
+
+            if(($_POST['surface']==null)&&($_POST['prix']==null)&& (isset($_POST['commune']))&&(isset($_POST['daira']))){
+                                            $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens WHERE daira=? AND commune=?');                    
+                                            $req->execute(array($_POST['commune'],$_POST['daira']));
+                                        }
+
+            if(($_POST['commune']=='Commune')&&($_POST['prix']==null)&& (isset($_POST['surface']))&&(isset($_POST['daira']))){
+                                            $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens WHERE daira=? AND surface=?');                    
+                                            $req->execute(array($_POST['surface'],$_POST['daira']));
+                                        } 
+
+
+            if(($_POST['surface']==null)&&($_POST['commune']=='Commune')&& (isset($_POST['prix']))&&(isset($_POST['daira']))){
+                                            $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens WHERE daira=? AND prix=?');                    
+                                            $req->execute(array($_POST['prix'],$_POST['daira']));
+                                        }  
+
+
+
+        //filtre a 1 case
+
+
+            if (isset($_POST['daira']) && (isset($_POST['commune'])) && (isset($_POST['prix'])) && (isset($_POST['surface']))) {
+                $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens where daira = ? or commune = ? or prix = ? or surface = ? ');
+          $req->execute(array(
+            $_POST['daira'],
+            $_POST['commune'],
+            $_POST['prix'],
+            $_POST['surface']
+
+          )
+          );
+            }
+
+                                        
+
+
+            
+
+
           
 
           while ($donne= $req->fetch()){
@@ -239,18 +333,18 @@ include_once('../includes/header.php');
          </div>');
             }
 
-         
-
-          }
 
 
+         $req->closeCursor();
 
-
+        
+        
+        }
 
       else {
           
       
-       $req = $db->query('SELECT id,titre, daira, commune, lien_img FROM biens ORDER BY id desc LIMIT 0,8');
+       $req = $db->query('SELECT id,titre, daira, commune, lien_img FROM biens ORDER BY id desc LIMIT 0,12');
        while ($donne= $req->fetch()){
        //affichage des biens les plus recents       
          echo('<div class="biensug" >
@@ -263,7 +357,7 @@ include_once('../includes/header.php');
             <a href="../pages/detail.php?id='.$donne['id'].'" class="linkdetail">Voir Detail</a> 
             </div>
          </div>');}
-        
+         $req->closeCursor();
 
      }
          ?>
