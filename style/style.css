@@ -13,16 +13,14 @@ html,body{
 
 /***********************************  header et navigation bar  *****************************************/
 header{
-    
     font-size: 1.15rem;
     background-color: white;
 }
 .borderhr{
-    padding-bottom:13px;
     border-bottom:1px solid silver;
 }
 .navbar-right{
-    margin-top: 7px;
+    margin-top: 20px;
 }
 .logo{
     width: 200px;
@@ -34,11 +32,10 @@ header{
     padding-bottom: 5px;
     margin-right: 5px;
  }
-ul li,ul{
+ul li{
     list-style: none;
     display: inline;
-    padding: 0;
-    text-align: center;
+    
 }
 
 a:hover{
@@ -55,17 +52,6 @@ li :hover{
     transition: 0.7s;
     background-color: #ff5722;
     color:white;
-}
-.menu_profil {
-    position: absolute;
-    width: 160.72px;
-    top: 83px;
-    right: 0px;
-    /* background-color: white; */
-}
-.menu_profil li{
-    text-align: center;
-    z-index:2000;
 }
 /***************************       page d'index        *********************************/
 
@@ -371,7 +357,7 @@ color:black;
     }
     #login_btn_insc{
         width: 70%;
-    
+        margin-left:-16%;
     }
     
     .login_btn:focus {
@@ -480,12 +466,12 @@ color:black;
       
     .conatainer_general{
         margin-top:2cm;
-        padding-top:0.8cm; 
+        padding-top:0.6cm; 
         display: inline-block;
-     margin-left: 7cm;
+     margin-left: 6cm;
     border-top-right-radius:20px;
       border-top-left-radius:20px;
-     background-color:rgb(0,0,0,0.9);
+     background-color:rgb(0,0,0,0.6);
      height: 27cm;
 color:white;
 width:800px;
@@ -496,15 +482,13 @@ width:800px;
         font-weight:bold;
         margin-left: 5cm;
         font-size:26px;
-     background-color: rgba(0, 0, 0, 0.9);
+     background-color: rgba(0, 0, 0, 0.6);
     font-family: 'Cormorant Garamond', serif;
     border-radius: 20px;
     opacity: 0.8;
     color:white;
 width:800px;
-padding-top:5px;
-padding-bottom:5px;
-margin-left:7cm;
+margin-left:6cm;
 padding-left: 2cm;
     }
  .form_contact{
@@ -547,19 +531,15 @@ bottom: 5cm;
         bottom:3.5cm;
     }
     .env{
-        border:none;
-        border-radius:0.25rem;
         margin-top: 0.5cm;
         margin-left: 7cm;
-        padding:3px 0 3px 0 ;
-        width: 7cm;
-       background-color: #ff5722;
+        width: 5cm;
+       background-color: rgb(181, 87, 6);
+       border-color:rgb(181,87,6);
        color:white;
     }
     .env:hover{
-        background-color: #ff825c;
-        color:black;
-        font-weight:bold;
+        border-color:rgb(0,0,0,0.6);
     }
     /************************************   page detail  *************************************************/
     .imgdetail{
@@ -579,11 +559,11 @@ bottom: 5cm;
     }
     .suggestdetail{
         width:230px;
-        
+        background-color: rgba(0, 0, 0, 0.7);
+        color:white;
         padding:20px;
-    
-        height:470px;
-        margin-top:10%;
+        border-radius:1rem;
+        height:550px
 
     }
     .infobox{
@@ -637,39 +617,36 @@ bottom: 5cm;
         border-radius: 0.25rem;
         color:#ff5722;
     }
-    #dairasugg{
-        border-right: 1px solid silver;
-    }
-    #prixsugg{
-        border-left: 1px solid silver;
-    }
 
 
-/******************IMMOBILIER**********************/
+/*******************************************************IMMOBILIER*****************************************************/
 
 .input-group-addon{
     
     position: relative;
-    bottom:  29px;
+    bottom:  30px;
     left: 50px;
-    color: #979595;
-
+    color:#979595;
+    border: 1px solid black;
+    background-color: rgba(0, 0, 0, 0.9);
+     padding:9px 3.5px 7.9px 5px;
+     font-size: 1.05em;
 }
 
 .input-group-addon1{
     position: relative;
     bottom:  30.7px;
-    left: 55px;
+    left: 52px;
     color: #979595;
-    
-
-
-
+    border: 1px solid black;
+    background-color: rgba(0, 0, 0, 0.9);
+     padding:7.9px 3px 8.5px 4px;
+     font-size: 1.05em;
     
 }
 
 .btn1{
-    color: #424242;
+    color: #8E8888;
     background: none;
     width: 140px;
     height: 42px;
@@ -694,22 +671,34 @@ color:white;
 
 }
 .fullimmo{
-    background:url(../images/n.jpg);
+    background:url(../images/immobilier.jpg);
     opacity: 0.95;
-    background-size: cover;
-    
+    background-size: cover; 
     padding-top: 40px;
     padding-bottom: 100px;
     font-weight:bold;
 }
 
 .yep{
+
     margin-top: 20px;
     margin-bottom:30px;
     border-radius:0.25rem;
-    background:url(../images/n.jpg);
+    background-color: rgba(0, 0, 0, 0.9);
     color:white;
     font-family: 'Cormorant Garamond', serif;
     padding:20px 0 20px 0;
 }
 
+.d-flex-justify-content-center-h-100 {
+    display:grid;
+    align-items: center;
+    justify-content: center ;
+    background-color: rgba(0, 0, 0, 0.6);
+    color:white;
+    margin-left:0;
+    margin-right:0;
+    margin-top: 45px;
+    border-radius: 0.4rem;
+    padding: 30px 20px 30px 20px;
+}
