@@ -32,11 +32,10 @@ header{
     padding-bottom: 5px;
     margin-right: 5px;
  }
-ul li,ul{
+ul li{
     list-style: none;
     display: inline;
-    padding: 0;
-    text-align: center;
+    
 }
 
 a:hover{
@@ -53,16 +52,6 @@ li :hover{
     transition: 0.7s;
     background-color: #ff5722;
     color:white;
-}
-.menu_profil {
-    position: absolute;
-    width: 160.72px;
-    top: 83px;
-    right: 0px;
-    /* background-color: white; */
-}
-.menu_profil li{
-    text-align: center;
 }
 /***************************       page d'index        *********************************/
 
@@ -368,7 +357,7 @@ color:black;
     }
     #login_btn_insc{
         width: 70%;
-    
+        margin-left:-16%;
     }
     
     .login_btn:focus {
@@ -630,31 +619,34 @@ bottom: 5cm;
     }
 
 
-/******************IMMOBILIER**********************/
+/*******************************************************IMMOBILIER*****************************************************/
 
 .input-group-addon{
     
     position: relative;
-    bottom:  29px;
+    bottom:  30px;
     left: 50px;
-    color: #979595;
-
+    color:#979595;
+    border: 1px solid black;
+    background-color: rgba(0, 0, 0, 0.9);
+     padding:9px 3.5px 7.9px 5px;
+     font-size: 1.05em;
 }
 
 .input-group-addon1{
     position: relative;
     bottom:  30.7px;
-    left: 55px;
+    left: 52px;
     color: #979595;
-    
-
-
-
+    border: 1px solid black;
+    background-color: rgba(0, 0, 0, 0.9);
+     padding:7.9px 3px 8.5px 4px;
+     font-size: 1.05em;
     
 }
 
 .btn1{
-    color: #424242;
+    color: #8E8888;
     background: none;
     width: 140px;
     height: 42px;
@@ -679,22 +671,34 @@ color:white;
 
 }
 .fullimmo{
-    background:url(../images/n.jpg);
+    background:url(../images/immobilier.jpg);
     opacity: 0.95;
-    background-size: cover;
-    
+    background-size: cover; 
     padding-top: 40px;
     padding-bottom: 100px;
     font-weight:bold;
 }
 
 .yep{
+
     margin-top: 20px;
     margin-bottom:30px;
     border-radius:0.25rem;
-    background:url(../images/n.jpg);
+    background-color: rgba(0, 0, 0, 0.9);
     color:white;
     font-family: 'Cormorant Garamond', serif;
     padding:20px 0 20px 0;
 }
 
+.d-flex-justify-content-center-h-100 {
+    display:grid;
+    align-items: center;
+    justify-content: center ;
+    background-color: rgba(0, 0, 0, 0.6);
+    color:white;
+    margin-left:0;
+    margin-right:0;
+    margin-top: 45px;
+    border-radius: 0.4rem;
+    padding: 30px 20px 30px 20px;
+}

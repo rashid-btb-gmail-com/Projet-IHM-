@@ -30,11 +30,11 @@ $bdd = new PDO('mysql:host=localhost;dbname=vilavie;charset=utf8','root','',arra
 Une remarque ?, un renseignement?,plus d'information ?.Ecrivez-nous!:
 	</div>
 <div class="conatainer_general">
-<img src="../images/logo.png" style="  margin-left: 7cm;">
+<img src="../images/logo.png" style="  margin-left: 8cm;">
 <form method="post" action="contact.php" style="height=:5cm;";>
 <label class="form_contact">Votre nom(obligatoire)</label>
 <input class="form_contact" type="text" name="nom">
-<label class="form_contact">Votre prenom(bligatoire)</label>
+<label class="form_contact">Votre prenom(obligatoire)</label>
 <input class="form_contact" type="text" name=" prenom">
 <label class="form_contact" >Email(obligatoire)</label>
 <input class="form_contact" type="text" name="email" >
