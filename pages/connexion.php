@@ -72,8 +72,7 @@
 						
 						while($donnees=$select->fetch()){
 							if(($_POST["username"]==$donnees["username"])&&($_POST["password"]==$donnees["password"])){
-								$_SESSION["username"]=$donnees["username"];
-								$_SESSION["password"]=$donnees["password"];
+								$_SESSION["username"]=$donnees["username"];								
 								$_SESSION["nom"]=$donnees["nom"];
 								$_SESSION["prenom"]=$donnees["prenom"];
 

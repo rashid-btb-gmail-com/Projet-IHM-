@@ -53,59 +53,34 @@ include_once('../includes/header.php');
                                             <div class="form-group ">
                                               <label for="type_dairas" style="color: white;"><b>Daïras</b> </label>
                                               <select class="form-control" id="daira" name="daira">                                                                                                                     
-                                              <option>Daïras</option>
-                         <option value="Ain El Hammam">Ain El Hammam</option>
-                         <option value="Azazga">Azazga</option>
-                         <option value="Azeffoun">Azeffoun</option>
-                         <option value="Beni Douala">Beni Douala</option>
-                         <option value="Beni Yenni">Beni Yenni</option>
-                         <option value="Boghni">Boghni</option>
-                         <option value="Bouzguen">Bouzguen</option>
-                         <option value="Draâ Ben Khedda">Draâ Ben Khedda</option>
-                         <option value="Draâ El Mizan">Draâ El Mizan</option>
-                         <option value="Iferhounène">Iferhounène</option>
-                         <option value="Larbaâ Nath Irathen">Larbaâ Nath Irathen</option>
-                         <option value="Mâatkas">Mâatkas</option>
-                         <option value="Makouda">Makouda</option>
-                         <option value="Mekla">Mekla</option>
-                         <option value="Ouacif">Ouacif</option>
-                         <option value="Ouadhia">Ouadhia</option>
-                         <option value="Ouaguenoun">Ouaguenoun</option>
-                         <option value="Tigzirt">Tigzirt</option>
-                         <option value="Tizi Gheniff">Tizi Gheniff</option>
-                         <option value="Tizi Ouzou">Tizi Ouzou</option>
-                         <option value="Tizi Rached">Tizi Rached</option>
+                                                  <option>Daïras</option>
+                                                  <option value="Ain El Hammam">Ain El Hammam</option>
+                                                  <option value="Azazga">Azazga</option>
+                                                  <option value="Azeffoun">Azeffoun</option>
+                                                  <option value="Beni Douala">Beni Douala</option>
+                                                  <option value="Beni Yenni">Beni Yenni</option>
+                                                  <option value="Boghni">Boghni</option>
+                                                  <option value="Bouzguen">Bouzguen</option>
+                                                  <option value="Draâ Ben Khedda">Draâ Ben Khedda</option>
+                                                  <option value="Draâ El Mizan">Draâ El Mizan</option>
+                                                  <option value="Iferhounène">Iferhounène</option>
+                                                  <option value="Larbaâ Nath Irathen">Larbaâ Nath Irathen</option>
+                                                  <option value="Mâatkas">Mâatkas</option>
+                                                  <option value="Makouda">Makouda</option>
+                                                  <option value="Mekla">Mekla</option>
+                                                  <option value="Ouacif">Ouacif</option>
+                                                  <option value="Ouadhia">Ouadhia</option>
+                                                  <option value="Ouaguenoun">Ouaguenoun</option>
+                                                  <option value="Tigzirt">Tigzirt</option>
+                                                  <option value="Tizi Gheniff">Tizi Gheniff</option>
+                                                  <option value="Tizi Ouzou">Tizi Ouzou</option>
+                                                  <option value="Tizi Rached">Tizi Rached</option>
                                               
-                                     </select>
+                                              </select>
                                             </div>
                                 </div>
-                                
-                                <div class="form-group  col-sm-2">                  
-                      <div class="input-group"> 
-                        <div class="form-group">
-                        <label for="type_prix" style="color: white;"><b>Prix</b> </label>
-                        <input id="prix" name="prix" type="number" class="form-control" onchange="valider('','')" placeholder="Prix " value="" >
-                        <span class="input-group-addon">DA</span>
-                    </div>
-                    </div>
-                </div>
-                           
 
-                        <div class="form-group col-sm-2">
-                      <div class="input-group"> 
-                        <div class="form-group">
-                            <label for="type_surface" style="color: white;"><b>Surface</b> </label>
-                        <input id="surface" type="number" name="surface" class="form-control" onchange="valider('','')" placeholder="Surface" value="">
-                        <span class="input-group-addon1">M<sup>2</sup></span>
-                        </div>
-                    </div>  
-                    </div>   
-
-
-
-
-                                
-                                 <div class="form-group  col-sm-2">                    
+                                <div class="form-group  col-sm-2">                    
                                     <div class="form-group"> 
                                             <label for="liste_commune" style="color: white;"><b>Commune</b> </label>
                                             <select class="form-control" id="commune" name="commune" >
@@ -183,6 +158,33 @@ include_once('../includes/header.php');
 
                                     </div>
                                 </div>
+                                
+                                <div class="form-group  col-sm-2">                  
+                      <div class="input-group"> 
+                        <div class="form-group">
+                        <label for="type_prix" style="color: white;"><b>Prix</b> </label>
+                        <input id="prix" name="prix" type="number" class="form-control" onchange="valider('','')" placeholder="Prix " value="" >
+                        <span class="input-group-addon">DA</span>
+                    </div>
+                    </div>
+                </div>
+                           
+
+                        <div class="form-group col-sm-2">
+                      <div class="input-group"> 
+                        <div class="form-group">
+                            <label for="type_surface" style="color: white;"><b>Surface</b> </label>
+                        <input id="surface" type="number" name="surface" class="form-control" onchange="valider('','')" placeholder="Surface" value="">
+                        <span class="input-group-addon1">M<sup>2</sup></span>
+                        </div>
+                    </div>  
+                    </div>   
+
+
+
+
+                                
+                                 
 
                                 <div class="form-group col-sm-2">
                                 <div class="form-group ">

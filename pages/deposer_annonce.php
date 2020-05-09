@@ -22,6 +22,11 @@
 include_once("../includes/header.php");
 //    connexion a la base de donnee  
 $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+if(!isset($_SESSION["username"])){
+    
+    header("location:./connexion.php");
+}
+else{
 ?>
 <div class="fulldepose" id="depose">
     <div class="container h-100">
@@ -39,7 +44,7 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
                 <h2 class="titre_connexion">Déposer une annonce </h2>
 				<div class="d-flex justify-content-center form_container">
 					
-                <form enctype="multipart/form-data" action="" method="post" class="form_inscription">
+                <form enctype="multipart/form-data" action="" method="post" class="form_inscription" submit="alert('Votre annonce sera vérifiée et publiée');">
                         
                         
                         <div class="input-group mb-3">
@@ -139,14 +144,15 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
                                         exit("Impossible de copier le fichier dans $dossier_upload");
                                     }
 
-                                    echo "  Le fichier a bien été uploadé";
+                                    echo "Votre annonce sera vérifiée et publiée ";
                                         
 
                                         
                                 
                                 //   insertion dans la base de donnee
-                                $insert=$db->prepare('INSERT INTO demande_annonce VALUES(NULL,?,?,?,?,?,?,?,?)');
-                                $insert->execute(array($_POST["titre"],$_POST["description"],$_POST["daira"],$_POST["commune"],$_POST["surface"],$_POST["nbr_etages"],$_POST["prix"],$lien_img));
+                                $proprio=$_SESSION["nom"].' '.$_SESSION["prenom"]; 
+                                $insert=$db->prepare('INSERT INTO demande_annonce VALUES(NULL,?,?,?,?,?,?,?,?,?)');
+                                $insert->execute(array($_POST["titre"],$_POST["description"],$_POST["daira"],$_POST["commune"],$_POST["surface"],$_POST["nbr_etages"],$_POST["prix"],$lien_img,$proprio));
                                 
                             }
 
@@ -165,6 +171,8 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
 	</div>
    </div>
    <?php
+}
+
   include_once("../includes/footer.php");
    ?>
 

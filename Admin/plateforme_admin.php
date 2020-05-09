@@ -169,6 +169,7 @@
                                 <input type="number" name="surface" class="inp_insc" placeholder="Surface">
                                 <input type="number" name="nbr_etages" class="inp_insc" placeholder="Nombre d'étages">
                                 <input type="number" name="prix" class="inp_insc" placeholder="Prix du biens">
+                                <input type="text" name="proprio" class="inp_insc" placeholder="Propriétaire">
                                 <input type="file" name="image_annonce"  ><br>
                                 <input type="submit" value="Enregister" class="btn_inscr" name="submit">
                                     <?php
@@ -209,8 +210,8 @@
                                             
                                             
                                             //   insertion dans la base de donnee
-                                            $insert=$db->prepare('INSERT INTO biens VALUES(NULL,?,?,?,?,?,?,?,?)');
-                                            $insert->execute(array($_POST["titre"],$_POST["description"],$_POST["daira"],$_POST["commune"],$_POST["surface"],$_POST["nbr_etages"],$_POST["prix"],$lien_img));
+                                            $insert=$db->prepare('INSERT INTO biens VALUES(NULL,?,?,?,?,?,?,?,?,?)');
+                                            $insert->execute(array($_POST["titre"],$_POST["description"],$_POST["daira"],$_POST["commune"],$_POST["surface"],$_POST["nbr_etages"],$_POST["prix"],$lien_img,$_POST["proprio"]));
                                             
                                         }
 
@@ -238,6 +239,7 @@
                                             <th>Daïra</th>
                                             <th>Commune</th>
                                             <th>Prix</th>
+                                            <th>Propriétaire</th>
                                         </tr>
                                         <?php
                                         
@@ -251,6 +253,7 @@
                                                 <td><?php echo $donnees["daira"] ?></td>
                                                 <td><?php echo $donnees["commune"] ?></td>
                                                 <td><?php echo $donnees["prix"] ?> DA</td>
+                                                <td><?php echo $donnees["proprietaire"] ?></td>
                                                 <td><a href="?action=gerer_biens&amp;action2=modifier&amp;id=<?php echo $donnees["id"]; ?>" title="Modifier le bien"class="icon_supprimer" style="color:green;"><i class="far fa-edit"></i></a></td>
                                                 <td><a href="?action=gerer_biens&amp;action2=supprimer&amp;id=<?php echo $donnees["id"]; ?>" title="Supprimer le bien"class="icon_supprimer "><i class="far fa-trash-alt"></i></a></td>
                                                 
@@ -298,6 +301,7 @@
                                                     <option value="daira">
                                                     <option value="commune">
                                                     <option value="prix">
+                                                    <option value="proprietaire">
                                                     </datalist> 
                                                 <br>
                                                 <input type="text" name="modification" placeholder="Modification" class="inp_insc" required><br>
@@ -343,6 +347,7 @@
                                             <th>Etages</th>
                                             <th>Daïra</th>
                                             <th>Commune</th>
+                                            <th>Propriétaire</th>
                                         </tr>
                                         <?php
                                         
@@ -355,6 +360,7 @@
                                                 <td><?php echo $donnees["etage"] ?></td>
                                                 <td><?php echo $donnees["daira"] ?></td>
                                                 <td><?php echo $donnees["commune"] ?></td>
+                                                <td><?php echo $donnees["proprietaire"] ?></td>
                                                 <td><a href="?action=confirmer_annonces&amp;action2=accepter&amp;id=<?php echo $donnees["id"]; ?>" title="Accepter l'annonce"class="icon_supprimer" style="color:green;"><i class="fas fa-check" ></i></a></td>
                                                 <td><a href="?action=confirmer_annonces&amp;action2=supprimer&amp;id=<?php echo $donnees["id"]; ?>" title="Refuser l'annoce"class="icon_supprimer "><i class="fas fa-times" ></i></a></td>
                                                 
@@ -371,8 +377,8 @@
                                             $id=$_GET["id"];
                                             $select=$db->query("SELECT * FROM demande_annonce WHERE id=$id");
                                             while($donnees=$select->fetch()){
-                                                $insert=$db->prepare('INSERT INTO biens VALUES(NULL,?,?,?,?,?,?,?,?)');
-                                                $insert->execute(array($donnees["titre"],$donnees["description"],$donnees["daira"],$donnees["commune"],$donnees["surface"],$donnees["etage"],$donnees["prix"],$donnees["lien_img"]));
+                                                $insert=$db->prepare('INSERT INTO biens VALUES(NULL,?,?,?,?,?,?,?,?,?)');
+                                                $insert->execute(array($donnees["titre"],$donnees["description"],$donnees["daira"],$donnees["commune"],$donnees["surface"],$donnees["etage"],$donnees["prix"],$donnees["lien_img"],$donnees["proprietaire"]));
                                                 $supprimer=$db->prepare("DELETE FROM demande_annonce WHERE id = $id");
                                                 $supprimer->execute();
                                                 ?>
@@ -412,19 +418,18 @@
                                 <input type="text" name="client" class="inp_insc" placeholder="Client" ><br>
                                 <input type="text" name="lieu" class="inp_insc" placeholder="Lieu du rendez-vous"><br>
                                 <span>Date du rendez-vous :</span>
-                                <input type="date" name="date_rdv" class="inp_insc">
-                                <span>Heure du rendez-vous :</span>
-                                <input type="time" name="heure_rdv" class="inp_insc" ><br>
+                                <input type="date" name="date_rdv" class="inp_insc"><br>
+                                
                                 
                                 <input type="submit" value="Enregister" class="btn_inscr" name="submit">
                                     <?php
                                         if(isset($_POST["submit"])){
                                             $date=$_POST["date_rdv"];
-                                            $heure=$_POST["heure_rdv"];
+                                            
 
                                             //   insertion dans la base de donnee
                                             $insert=$db->prepare('INSERT INTO rdv_confirmer VALUES(NULL,?,?,?)');
-                                            $insert->execute(array($_POST["client"],$_POST["lieu"],$date.' '.$heure));
+                                            $insert->execute(array($_POST["client"],$_POST["lieu"],$date));
                                             
                                         }
 
@@ -449,16 +454,16 @@
                                 <input type="text" name="client_filtre" class="inp_insc" placeholder="Nom du client">
                                 <input type="text" name="lieu_filtre" class="inp_insc" placeholder="lieu du rdv">
                                 <input type="date" name="date_filtre" class="inp_insc" >
-                                <input type="time" name="heure_filtre" class="inp_insc">
+                                
                                 <input type="submit" name="filtrer" value="Filtrer" class="inp_insc">
                                 <?php
                                 if(isset($_POST["filtrer"])){
                                     //******************    filtre des rdv  ***************************** */
                                         if(isset($_POST["client_filtre"])&&(isset($_POST["lieu_filtre"]))&&(isset($_POST["date_filtre"]))){
-                                            $select=$db->prepare("SELECT * FROM rdv_confirmer WHERE client=? AND lieu=? AND date_heure=?");
+                                            $select=$db->prepare("SELECT * FROM rdv_confirmer WHERE client=? AND lieu=? AND date=?");
                                             $date=$_POST["date_filtre"];
-                                            $heure=$_POST["heure_filtre"];
-                                            $select->execute(array($_POST["client_filtre"],$_POST["lieu_filtre"],$date.' '.$heure));
+                                            
+                                            $select->execute(array($_POST["client_filtre"],$_POST["lieu_filtre"],$date));
                                         }
                                         if(isset($_POST["client_filtre"])&&(isset($_POST["lieu_filtre"]))){
                                             $select=$db->prepare("SELECT * FROM rdv_confirmer WHERE client=? AND lieu=?");                    
@@ -473,10 +478,10 @@
                                             $select->execute(array($_POST["lieu_filtre"]));
                                         }
                                         if(($_POST["client_filtre"]==null)&&($_POST["lieu_filtre"]==null)&&(isset($_POST["date_filtre"]))){
-                                            $select=$db->prepare("SELECT * FROM rdv_confirmer WHERE date_heure=?"); 
+                                            $select=$db->prepare("SELECT * FROM rdv_confirmer WHERE date=?"); 
                                             $date=$_POST["date_filtre"];
-                                            $heure=$_POST["heure_filtre"];                   
-                                            $select->execute(array($date.' '.$heure));
+                                                            
+                                            $select->execute(array($date));
                                         }
                                         
                                             ?>
@@ -497,7 +502,7 @@
                                             <tr>
                                                 <td><?php echo $donnees["client"] ?></td>
                                                 <td><?php echo $donnees["lieu"] ?></td>
-                                                <td><?php echo $donnees["date_heure"] ?></td>
+                                                <td><?php echo $donnees["date"] ?></td>
                                                 <td><a href="?action=gerer_rdv&action2=modifier&id=<?php echo $donnees["id"]; ?>" title="Modifier le rdv" class="icon_supprimer" style="color:green;"><i class="far fa-edit"></i></a></td>
                                                 <td><a href="?action=gerer_rdv&action2=supprimer&id=<?php echo $donnees["id"]; ?>" title="Supprimer le rdv" class="icon_supprimer"><i class="far fa-trash-alt"></i></a></td>
                                                 
@@ -544,7 +549,7 @@
                                             <tr>
                                                 <td><?php echo $donnees["client"] ?></td>
                                                 <td><?php echo $donnees["lieu"] ?></td>
-                                                <td><?php echo $donnees["date_heure"] ?></td>
+                                                <td><?php echo $donnees["date"] ?></td>
                                                 <td><a href="?action=gerer_rdv&action2=modifier&id=<?php echo $donnees["id"]; ?>" title="Modifier le rdv" class="icon_supprimer" style="color:green;"><i class="far fa-edit"></i></a></td>
                                                 <td><a href="?action=gerer_rdv&action2=supprimer&id=<?php echo $donnees["id"]; ?>" title="Supprimer le rdv" class="icon_supprimer"><i class="far fa-trash-alt"></i></a></td>
                                                 
@@ -674,8 +679,7 @@
                                             <td><?php echo $donnees["nom"] ?></td>
                                             <td><?php echo $donnees["prenom"] ?></td>
                                             <td><?php echo $donnees["email"] ?></td>
-                                            <td><?php echo $donnees["tel"] ?></td>
-                                            <td><a href="?action=clients&amp;action2=modifier&amp;id=<?php echo $donnees["id"]; ?>" title="Modifier le client" class="icon_supprimer" style="color:green;"><i class="far fa-edit"></i></a></td>
+                                            <td><?php echo $donnees["tel"] ?></td>                                            
                                             <td><a href="?action=clients&amp;action2=supprimer&amp;id=<?php echo $donnees["id"]; ?>" title="Supprimer le client" class="icon_supprimer"><i class="far fa-trash-alt"></i></a></td>
                                             
                                         </tr>
@@ -694,9 +698,7 @@
                                         <meta http-equiv="refresh" content="0;url=./plateforme_admin.php?action=clients" />
                                         <?php
                                         }
-                                        if($_GET["action2"]=="modifier"){
-                                            echo "modification";
-                                            }
+                                        
 
                                     }
                                     
