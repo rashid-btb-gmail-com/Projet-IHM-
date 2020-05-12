@@ -90,21 +90,21 @@ include_once('../includes/header.php');
                                              <option value="Aghribs">Aghribs</option>
                                              <option value="Agouni Gueghrane">Agouni Gueghrane</option>
                                              <option value="Ain El Hammam">Ain El Hammam</option>
-                                             <option value="Aïn Zaouia">Aïn Zaouia</option>
-                                             <option value="Aït Aggouacha">Aït Aggouacha</option>
-                                             <option value="Aït Aïssa Mimoun">Aït Aïssa Mimoun</option>
-                                             <option value="Aït Bouaddou">Aït Bouaddou</option>
-                                             <option value="Aït Boumahdi">Aït Boumahdi</option>
-                                             <option value="Aït Chafâa">Aït Chafâa</option>
-                                             <option value="Aït Khellili">Aït Khellili</option>
-                                             <option value="Aït Mahmoud">Aït Mahmoud</option>
-                                             <option value="Aït Ouacif">Aït Ouacif</option>
-                                             <option value="Aït Oumalou">Aït Oumalou</option>
-                                             <option value="Aït Toudert">Aït Toudert</option>
-                                             <option value="Aït Yahia">Aït Yahia</option>
-                                             <option value="Aït Yahia Moussa">Aït Yahia Moussa</option>
-                                             <option value="Aït Yenni">Aït Yenni</option>
-                                             <option value="Aït Zmenzer">Aït Zmenzer</option>
+                                             <option value="Ain Zaouia">Aïn Zaouia</option>
+                                             <option value="Ait Aggouacha">Aït Aggouacha</option>
+                                             <option value="Mimoun">Aït Aïssa Mimoun</option>
+                                             <option value="Ait Bouaddou">Aït Bouaddou</option>
+                                             <option value="Ait Boumahdi">Aït Boumahdi</option>
+                                             <option value="Ait Chafâa">Aït Chafâa</option>
+                                             <option value="Ait Khellili">Aït Khellili</option>
+                                             <option value="Ait Mahmoud">Aït Mahmoud</option>
+                                             <option value="Ait Ouacif">Aït Ouacif</option>
+                                             <option value="Ait Oumalou">Aït Oumalou</option>
+                                             <option value="Ait Toudert">Aït Toudert</option>
+                                             <option value="Ait Yahia">Aït Yahia</option>
+                                             <option value="Ait Yahia Moussa">Aït Yahia Moussa</option>
+                                             <option value="Ait Yenni">Aït Yenni</option>
+                                             <option value="Ait Zmenzer">Aït Zmenzer</option>
                                              <option value="Akbil">Akbil</option>
                                              <option value="Akerrou">Akerrou</option>
                                              <option value="Assi Youcef">Assi Youcef</option>
@@ -115,7 +115,7 @@ include_once('../includes/header.php');
                                              <option value="Beni Douala">Beni Douala</option>
                                              <option value="Boghni">Boghni</option>
                                              <option value="Boudjima">Boudjima</option>
-                                             <option value="3Bounouh">3Bounouh</option>
+                                             <option value="Bounouh">Bounouh</option>
                                              <option value="Bouzeguène">Bouzeguène</option>
                                              <option value="Draâ Ben Khedda">Draâ Ben Khedda</option>
                                              <option value="Draâ El Mizan">Draâ El Mizan</option>
@@ -227,7 +227,7 @@ include_once('../includes/header.php');
        if (isset($_POST['formsend'])) {
         
             if (isset($_POST['daira']) && (isset($_POST['commune'])) && (isset($_POST['prix'])) && (isset($_POST['surface']))) {
-                $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens where daira = ? and commune = ? and prix = ? and surface = ? ');
+                $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens where daira = ? and commune = ? and prix = ? and surface = ? Order by prix ');
           $req->execute(array(
             $_POST['daira'],
             $_POST['commune'],
@@ -240,22 +240,22 @@ include_once('../includes/header.php');
 
             // filtre a 3 cases
 
-        if ($_POST['daira']=='Daïras' && (isset($_POST['commune'])) && (isset($_POST['prix'])) && (isset($_POST['surface'])) ) {
-             $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens WHERE commune=? AND prix=? AND surface=?');
+        if (($_POST['daira']=='Daïras') && (isset($_POST['commune'])) && (isset($_POST['prix'])) && (isset($_POST['surface'])) ) {
+             $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens WHERE commune=? AND prix= ? AND surface= ?');
              $req->execute(array($_POST['commune'],$_POST['prix'],$_POST['surface']));
         }
 
-        if ($_POST['commune']=='Commune' && (isset($_POST['daira'])) && (isset($_POST['prix'])) && (isset($_POST['surface'])) ) {
+        if (($_POST['commune']=='Commune') && (isset($_POST['daira'])) && (isset($_POST['prix'])) && (isset($_POST['surface'])) ) {
              $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens WHERE daira=? AND prix=? AND surface=?');
              $req->execute(array($_POST['daira'],$_POST['prix'],$_POST['surface']));
         }
 
-        if ($_POST['prix']==null && (isset($_POST['daira'])) && (isset($_POST['commune'])) && (isset($_POST['surface'])) ) {
+        if (($_POST['prix']==null) && (isset($_POST['daira'])) && (isset($_POST['commune'])) && (isset($_POST['surface'])) ) {
              $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens WHERE daira=? AND commune=? AND surface=?');
              $req->execute(array($_POST['daira'],$_POST['commune'],$_POST['surface']));
         }
         
-        if ($_POST['surface']==null && (isset($_POST['daira'])) && (isset($_POST['commune'])) && (isset($_POST['prix'])) ) {
+        if (($_POST['surface']==null) && (isset($_POST['daira'])) && (isset($_POST['commune'])) && (isset($_POST['prix'])) ) {
              $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens WHERE daira=? AND commune=? AND prix=?');
              $req->execute(array($_POST['daira'],$_POST['commune'],$_POST['prix']));
         }
@@ -281,18 +281,18 @@ include_once('../includes/header.php');
                                         }
 
             if(($_POST['surface']==null)&&($_POST['prix']==null)&& (isset($_POST['commune']))&&(isset($_POST['daira']))){
-                                            $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens WHERE daira=? AND commune=?');                    
+                                            $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens WHERE commune=? AND daira=?');                    
                                             $req->execute(array($_POST['commune'],$_POST['daira']));
                                         }
 
             if(($_POST['commune']=='Commune')&&($_POST['prix']==null)&& (isset($_POST['surface']))&&(isset($_POST['daira']))){
-                                            $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens WHERE daira=? AND surface=?');                    
+                                            $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens WHERE surface=? AND daira=?');                    
                                             $req->execute(array($_POST['surface'],$_POST['daira']));
                                         } 
 
 
             if(($_POST['surface']==null)&&($_POST['commune']=='Commune')&& (isset($_POST['prix']))&&(isset($_POST['daira']))){
-                                            $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens WHERE daira=? AND prix=?');                    
+                                            $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens WHERE prix=? AND daira=?');                    
                                             $req->execute(array($_POST['prix'],$_POST['daira']));
                                         }  
 
@@ -301,23 +301,30 @@ include_once('../includes/header.php');
         //filtre a 1 case
 
 
-            if (isset($_POST['daira']) && (isset($_POST['commune'])) && (isset($_POST['prix'])) && (isset($_POST['surface']))) {
-                $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens where daira = ? or commune = ? or prix = ? or surface = ? ');
-          $req->execute(array(
-            $_POST['daira'],
-            $_POST['commune'],
-            $_POST['prix'],
-            $_POST['surface']
-
-          )
-          );
-            }
+            if(($_POST['surface']==null)&&($_POST['commune']=='Commune')&& ($_POST['prix']==null)&&(isset($_POST['daira']))){
+                                            $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens WHERE  daira=?');                    
+                                            $req->execute(array($_POST['daira']));
+                                        }
+            
 
                                         
 
-
+            if(($_POST['surface']==null)&&($_POST['daira']=='Daïras')&& ($_POST['prix']==null)&&(isset($_POST['commune']))){
+                                            $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens WHERE  commune=?');                    
+                                            $req->execute(array($_POST['commune']));
+                                        }
             
 
+            if(($_POST['surface']==null)&&($_POST['daira']=='Daïras')&& ($_POST['commune']=='Commune')&&(isset($_POST['prix']))){
+                                            $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens WHERE  prix=?');                    
+                                            $req->execute(array($_POST['prix']));
+                                        }
+
+
+            if(($_POST['commune']=='Commune')&&($_POST['daira']=='Daïras')&& ($_POST['prix']==null)&&(isset($_POST['surface']))){
+                                            $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens WHERE  surface=?');                    
+                                            $req->execute(array($_POST['surface']));
+                                        }
 
           
 
@@ -339,7 +346,7 @@ include_once('../includes/header.php');
 
          $req->closeCursor();
 
-        
+   
         
         }
 
