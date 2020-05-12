@@ -227,7 +227,7 @@ include_once('../includes/header.php');
        if (isset($_POST['formsend'])) {
         
             if (isset($_POST['daira']) && (isset($_POST['commune'])) && (isset($_POST['prix'])) && (isset($_POST['surface']))) {
-                $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens where daira = ? and commune = ? and prix = ? and surface = ? Order by prix ');
+                $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens where daira = ? and commune = ? and prix = ? and surface = ?');
           $req->execute(array(
             $_POST['daira'],
             $_POST['commune'],
