@@ -85,7 +85,7 @@ include_once('../includes/header.php');
                                             <label for="liste_commune" style="color: white;"><b>Commune</b> </label>
                                             <select class="form-control" id="commune" name="commune" >
                                              
-                                              <option>Commune</option>
+                                            <option>Commune</option>
                                              <option value="Abi Youcef">Abi Youcef</option>
                                              <option value="Aghribs">Aghribs</option>
                                              <option value="Agouni Gueghrane">Agouni Gueghrane</option>
@@ -212,7 +212,7 @@ include_once('../includes/header.php');
 </div>
                     <!--*********   exposition des biens   ***********-->
 
-        <section class="sec2">
+        <section class="sec2" id="search">
         <div class="container">
         <div class="yep">
           <h1 class="text-center text-uppercase font-weight-bold " >Nos Biens</h1>
@@ -325,7 +325,9 @@ include_once('../includes/header.php');
                                             $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens WHERE  surface=?');                    
                                             $req->execute(array($_POST['surface']));
                                         }
+            
 
+            
           
 
           while ($donne= $req->fetch()){
@@ -351,9 +353,14 @@ include_once('../includes/header.php');
         }
 
       else {
-          
+        
       
        $req = $db->query('SELECT id,titre, daira, commune, lien_img FROM biens ORDER BY id desc LIMIT 0,12');
+       if(isset($_GET["search"])){
+        $req = $db->prepare('SELECT * FROM biens WHERE commune LIKE ? ');
+        $req->execute(array($_GET["search"]));
+        
+      }
        while ($donne= $req->fetch()){
        //affichage des biens les plus recents       
          echo('<div class="biensug" >
