@@ -94,7 +94,7 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
                       if(isset($_POST["btn_search"])){
                         
                         
-                        echo "aaaaa";
+                        
                         ?>
                         <meta http-equiv="refresh" content="0;url=./pages/immobilier.php?search=<?php echo $_POST["search"]?>#search" />
                         <?php

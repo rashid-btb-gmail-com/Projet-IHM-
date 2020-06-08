@@ -40,8 +40,9 @@ ul li{
 
 a:hover{
     text-decoration: none;
-    color:black;
+    color:silver;
 }
+
 li> a{
     text-decoration: none;
     color: black;
@@ -357,7 +358,7 @@ color:black;
     }
     #login_btn_insc{
         width: 70%;
-        margin-left:-16%;
+        /* margin-left:-16%; */
     }
     
     .login_btn:focus {

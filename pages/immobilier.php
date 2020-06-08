@@ -163,7 +163,7 @@ include_once('../includes/header.php');
                       <div class="input-group"> 
                         <div class="form-group">
                         <label for="type_prix" style="color: white;"><b>Prix</b> </label>
-                        <input id="prix" name="prix" type="number" class="form-control" onchange="valider('','')" placeholder="Prix " value="" >
+                        <input id="prix" name="prix" type="number" class="form-control" onchange="valider('','')" placeholder="Prix MAX" value="" >
                         <span class="input-group-addon">DA</span>
                     </div>
                     </div>
@@ -174,7 +174,7 @@ include_once('../includes/header.php');
                       <div class="input-group"> 
                         <div class="form-group">
                             <label for="type_surface" style="color: white;"><b>Surface</b> </label>
-                        <input id="surface" type="number" name="surface" class="form-control" onchange="valider('','')" placeholder="Surface" value="">
+                        <input id="surface" type="number" name="surface" class="form-control" onchange="valider('','')" placeholder="Surface MAX" value="">
                         <span class="input-group-addon1">M<sup>2</sup></span>
                         </div>
                     </div>  
@@ -227,7 +227,7 @@ include_once('../includes/header.php');
        if (isset($_POST['formsend'])) {
         
             if (isset($_POST['daira']) && (isset($_POST['commune'])) && (isset($_POST['prix'])) && (isset($_POST['surface']))) {
-                $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens where daira = ? and commune = ? and prix = ? and surface = ?');
+                $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens where daira = ? and commune = ? and prix <= ? and surface <= ?');
           $req->execute(array(
             $_POST['daira'],
             $_POST['commune'],
@@ -241,22 +241,22 @@ include_once('../includes/header.php');
             // filtre a 3 cases
 
         if (($_POST['daira']=='Daïras') && (isset($_POST['commune'])) && (isset($_POST['prix'])) && (isset($_POST['surface'])) ) {
-             $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens WHERE commune=? AND prix= ? AND surface= ?');
+             $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens WHERE commune=? AND prix<= ? AND surface<= ?');
              $req->execute(array($_POST['commune'],$_POST['prix'],$_POST['surface']));
         }
 
         if (($_POST['commune']=='Commune') && (isset($_POST['daira'])) && (isset($_POST['prix'])) && (isset($_POST['surface'])) ) {
-             $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens WHERE daira=? AND prix=? AND surface=?');
+             $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens WHERE daira=? AND prix<=? AND surface<=?');
              $req->execute(array($_POST['daira'],$_POST['prix'],$_POST['surface']));
         }
 
         if (($_POST['prix']==null) && (isset($_POST['daira'])) && (isset($_POST['commune'])) && (isset($_POST['surface'])) ) {
-             $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens WHERE daira=? AND commune=? AND surface=?');
+             $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens WHERE daira=? AND commune=? AND surface<=?');
              $req->execute(array($_POST['daira'],$_POST['commune'],$_POST['surface']));
         }
         
         if (($_POST['surface']==null) && (isset($_POST['daira'])) && (isset($_POST['commune'])) && (isset($_POST['prix'])) ) {
-             $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens WHERE daira=? AND commune=? AND prix=?');
+             $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens WHERE daira=? AND commune=? AND prix<=?');
              $req->execute(array($_POST['daira'],$_POST['commune'],$_POST['prix']));
         }
 
@@ -264,19 +264,19 @@ include_once('../includes/header.php');
         //filtre a 2 cases
 
           if(($_POST['daira']=='Daïras')&&($_POST['prix']==null)&& (isset($_POST['commune']))&&(isset($_POST['surface']))){
-                                            $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens WHERE commune=? AND surface=?');                    
+                                            $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens WHERE commune<=? AND surface<=?');                    
                                             $req->execute(array($_POST['commune'],$_POST['surface']));
                                         }
 
 
             if(($_POST['daira']=='Daïras')&&($_POST['commune']=='Commune')&&(isset($_POST['prix'])) && (isset($_POST['surface'])) ){
-                                            $req=$db->prepare("SELECT id,titre,daira,commune,lien_img FROM biens WHERE  prix=? and surface=?"); 
+                                            $req=$db->prepare("SELECT id,titre,daira,commune,lien_img FROM biens WHERE  prix<=? and surface<=?"); 
                                                                
                                             $req->execute(array($_POST['prix'],$_POST['surface']));
                                         } 
 
             if(($_POST['daira']=='Daïras')&&($_POST['surface']==null)&& (isset($_POST['commune']))&&(isset($_POST['prix']))){
-                                            $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens WHERE commune=? AND prix=?');                    
+                                            $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens WHERE commune=? AND prix<=?');                    
                                             $req->execute(array($_POST['commune'],$_POST['prix']));
                                         }
 
@@ -286,13 +286,13 @@ include_once('../includes/header.php');
                                         }
 
             if(($_POST['commune']=='Commune')&&($_POST['prix']==null)&& (isset($_POST['surface']))&&(isset($_POST['daira']))){
-                                            $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens WHERE surface=? AND daira=?');                    
+                                            $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens WHERE surface<=? AND daira=?');                    
                                             $req->execute(array($_POST['surface'],$_POST['daira']));
                                         } 
 
 
             if(($_POST['surface']==null)&&($_POST['commune']=='Commune')&& (isset($_POST['prix']))&&(isset($_POST['daira']))){
-                                            $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens WHERE prix=? AND daira=?');                    
+                                            $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens WHERE prix<=? AND daira=?');                    
                                             $req->execute(array($_POST['prix'],$_POST['daira']));
                                         }  
 
@@ -316,13 +316,13 @@ include_once('../includes/header.php');
             
 
             if(($_POST['surface']==null)&&($_POST['daira']=='Daïras')&& ($_POST['commune']=='Commune')&&(isset($_POST['prix']))){
-                                            $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens WHERE  prix=?');                    
+                                            $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens WHERE  prix<=?');                    
                                             $req->execute(array($_POST['prix']));
                                         }
 
 
             if(($_POST['commune']=='Commune')&&($_POST['daira']=='Daïras')&& ($_POST['prix']==null)&&(isset($_POST['surface']))){
-                                            $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens WHERE  surface=?');                    
+                                            $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens WHERE  surface<=?');                    
                                             $req->execute(array($_POST['surface']));
                                         }
             
@@ -332,22 +332,25 @@ include_once('../includes/header.php');
 
           while ($donne= $req->fetch()){
              //affichage des biens aprés recherche
-         echo('<div class="biensug" >
-           <img src="../'.$donne['lien_img'].'" class="imgbien" alt="l\'image du bien" >
-           <div class="infobien">
-           <h4>'.$donne['titre'].'</h4>
-           <p>Lieu:'.$donne['commune'].','.$donne['daira'].'</p>
-          </div>
-           <div class="linkdetail">
-            <a href="../pages/detail.php?id='.$donne['id'].'" class="linkdetail">Voir Detail</a> 
-            </div>
-         </div>');
+             if($donne['id']==null){
+               echo "eeeee";
+             }
+         echo(' <div class="biensug" >
+                <img src="../'.$donne['lien_img'].'" class="imgbien" alt="l\'image du bien" >
+                <div class="infobien">
+                <h4>'.$donne['titre'].'</h4>
+                <p>Lieu:'.$donne['commune'].','.$donne['daira'].'</p>
+                </div>
+                <div class="linkdetail">
+                <a href="../pages/detail.php?id='.$donne['id'].'" class="linkdetail">Voir Detail</a> 
+                </div>
+                </div>');
             }
 
 
 
          $req->closeCursor();
-
+            
    
         
         }

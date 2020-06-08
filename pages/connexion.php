@@ -55,7 +55,7 @@
 						<div class="form-group">
 							<div class="custom-control custom-checkbox">
 								<input type="checkbox" class="custom-control-input" id="customControlInline">
-								<label class="custom-control-label" for="customControlInline">Se souvenir de moi </label>
+								
 							</div>
 						</div>
 						<div class="d-flex justify-content-center mt-3 login_container">
@@ -92,11 +92,9 @@
 				<div class="forgetconnex">
 				<div class="mt-4">
 					<div class="d-flex justify-content-center links">
-                    Vous n'avez pas de compte ?<a href="./inscription.php" class="ml-2">S'enregistrer</a>
+                    Vous n'avez pas de compte ?<a href="./inscription.php" class="ml-2">S'inscrire</a>
 					</div>
-					<div class="d-flex justify-content-center links">
-						<a href="#">Mot de passe oublié ? </a>
-					</div>
+					
 				</div>
 			    </div>
 		
