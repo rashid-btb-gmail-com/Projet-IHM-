@@ -345,8 +345,6 @@ include_once('../includes/header.php');
 
          $req->closeCursor();
             
-   
-        
         }
 
       else {
@@ -374,9 +372,7 @@ include_once('../includes/header.php');
 
      }
          ?>
-             
-
-
+           
          </div>
       </div>
       </section>   
@@ -385,7 +381,7 @@ include_once('../includes/header.php');
   include_once("../includes/footer.php");
    ?>
 
-<script src="../js/js.js"></script>
+
 </body>
 </html>
 

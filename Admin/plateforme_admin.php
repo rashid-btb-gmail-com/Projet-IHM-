@@ -2,6 +2,7 @@
 <html lang="fr">
 <head>
     <link rel="stylesheet" href="../style/style_admin.css">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -49,7 +50,7 @@
                 <div class="container_icon">
                     <a href="?action=msg"class="icon_header" title="Messages"><i class="fas fa-envelope"></i></a>
                     <a href="../index.php"class="icon_header" title="Acceuil"><i class="fas fa-home"></i></a>
-                    <a href="" class="icon_header" title="Déconnexion"><i class="fas fa-sign-out-alt"></i></a>
+                    <a href="./index.php" class="icon_header" title="Déconnexion"><i class="fas fa-sign-out-alt"></i></a>
 
                 </div>
             </header>
@@ -67,109 +68,42 @@
                                 <input type="text" name="titre" class="inp_insc" placeholder="Titre" require><br>
                                 <textarea name="description" cols="35"  rows="10" class="inp_insc" style="height:150px; resize: none;" placeholder="Description du bien" require></textarea><br>
                                 <!--*********   liste des dairas de tizi ouzou   **********-->
-                                <input list="daira" name="daira" class="inp_insc" placeholder="Daïra" require>
-                                    <datalist id="daira">
-                                        <option value="Ain El Hammam">   
-                                        <option value="Azazga">
-                                        <option value="Azeffoun ">
-                                        <option value="Beni Douala">
-                                        <option value="Beni Yenni">
-                                        <option value="Boghni">
-                                        <option value="Bouzguen">
-                                        <option value="Draâ Ben Khedda">
-                                        <option value="Draâ El Mizan">
-                                        <option value="Iferhounène">
-                                        <option value="Larbaâ Nath Irathen">
-                                        <option value="Mâatkas">
-                                        <option value="Makouda">
-                                        <option value="Mekla">
-                                        <option value="Ouacif">
-                                        <option value="Ouadhia">
-                                        <option value="Ouaguenoun">
-                                        <option value="Tigzirt ">
-                                        <option value="Tizi Gheniff">
-                                        <option value="Tizi Ouzou">
-                                        <option value=" Tizi Rached">
-                                    </datalist>
+                                <SELECT id="daira" name="daira" class="inp_insc" onchange="filtre_commune()" required>
+                                <option value="" disabled selected> Daïra</option>
+                                <option value="01-Ain El Hammam">01-Ain El Hammam</option>
+                                <option value="02-Azazga">02-Azazga</option>
+                                <option value="03-Azeffoun ">03-Azeffoun</option>
+                                <option value="04-Beni Douala">04-Beni Douala</option>
+                                <option value="05-Beni Yenni">05-Beni Yenni</option>
+                                <option value="06-Boghni">06-Boghni</option>
+                                <option value="07-Bouzguen">07-Bouzguen</option>
+                                <option value="08-Draâ Ben Khedda">08-Draâ Ben Khedda</option>
+                                <option value="09-Draâ El Mizan">09-Draâ El Mizan</option>
+                                <option value="10-Iferhounène">10-Iferhounène</option>
+                                <option value="11-Larbaâ Nath Irathen">11-Larbaâ Nath Irathen</option>
+                                <option value="12-Mâatkas">12-Mâatkas</option>
+                                <option value="13-Makouda">13-Makouda</option>
+                                <option value="14-Mekla">14-Mekla</option>
+                                <option value="15-Ouacif">15-Ouacif</option>
+                                <option value="16-Ouadhia">16-Ouadhia</option>
+                                <option value="17-Ouaguenoun">17-Ouaguenoun</option>
+                                <option value="18-Tigzirt">18-Tigzirt</option>
+                                <option value="19-Tizi Gheniff">19-Tizi Gheniff</option>
+                                <option value="20-Tizi Ouzou">20-Tizi Ouzou</option>
+                                <option value="21-Tizi Rached">21-Tizi Rached</option>
+                            </SELECT>
                                     
                                 <!--*********   liste des communes de tizi ouzou   **********-->
-                                <input list="commune" name="commune" class="inp_insc" placeholder="Commune" require><br>
-                                    <datalist id="commune">
-                                        <option value="Abi Youcef">
-                                        <option value="Aghribs">
-                                        <option value="Agouni Gueghrane">
-                                        <option value="Ain El Hammam">
-                                        <option value="Aïn Zaouia">
-                                        <option value="Aït Aggouacha">
-                                        <option value="Aït Aïssa Mimoun">
-                                        <option value="Aït Bouaddou">
-                                        <option value="Aït Boumahdi">
-                                        <option value="Aït Chafâa">
-                                        <option value="Aït Khellili">
-                                        <option value="Aït Mahmoud">
-                                        <option value="Aït Ouacif">
-                                        <option value="Aït Oumalou">
-                                        <option value="Aït Toudert">
-                                        <option value="Aït Yahia">
-                                        <option value="Aït Yahia Moussa">
-                                        <option value="Aït Yenni">
-                                        <option value="Aït Zmenzer">
-                                        <option value="Akbil">
-                                        <option value="Akerrou">
-                                        <option value="Assi Youcef">
-                                        <option value="Ath Zikki">
-                                        <option value="Azazga">
-                                        <option value="Azeffoun">
-                                        <option value="Beni Aïssi">
-                                        <option value="Beni Douala">
-                                        <option value="Boghni">
-                                        <option value="Boudjima">
-                                        <option value="Bounouh">
-                                        <option value="Bouzeguène">
-                                        <option value="Draâ Ben Khedda">
-                                        <option value="Draâ El Mizan">
-                                        <option value="Freha">
-                                        <option value="Frikat">
-                                        <option value="Iboudraren">
-                                        <option value="Idjeur">
-                                        <option value="Iferhounène">
-                                        <option value="Ifigha">
-                                        <option value="Iflissen">
-                                        <option value="Illilten">
-                                        <option value="Illoula Oumalou">
-                                        <option value="Imkiren">
-                                        <option value="Imsouhel">
-                                        <option value="Irdjen">
-                                        <option value="Larbaâ Nath Irathen">
-                                        <option value="Mâatkas">
-                                        <option value="Makouda">
-                                        <option value="Mechtras">
-                                        <option value="Mekla">
-                                        <option value="Mizrana">
-                                        <option value="Ouadhia">
-                                        <option value="Ouaguenoun">
-                                        <option value="Sidi Namane">
-                                        <option value="Souamaâ">
-                                        <option value="Souk El Thenine">
-                                        <option value="Tadmaït">
-                                        <option value="Tigzirt">
-                                        <option value="Timizart">
-                                        <option value="Tirmitine">
-                                        <option value="Tizi Gheniff">
-                                        <option value="Tizi N'Tleta">
-                                        <option value="Tizi Ouzou">
-                                        <option value="Tizi Rached">
-                                        <option value="Yakouren">
-                                        <option value="Yatafen">
-                                        <option value="Zekri">
-                                    
-                                    </datalist>
+                                <SELECT id="commune"  name="commune" class="inp_insc"required>
+                                <option value="" disabled selected>Commune</option>
+                            
+                            </SELECT><br>
 
 
-                                <input type="number" name="surface" class="inp_insc" placeholder="Surface">
-                                <input type="number" name="nbr_etages" class="inp_insc" placeholder="Nombre d'étages">
-                                <input type="number" name="prix" class="inp_insc" placeholder="Prix du biens">
-                                <input type="text" name="proprio" class="inp_insc" placeholder="Propriétaire">
+                                <input type="number" name="surface" class="inp_insc" placeholder="Surface"><br>
+                                <input type="number" name="nbr_etages" class="inp_insc" placeholder="Nombre d'étages"><br>
+                                <input type="number" name="prix" class="inp_insc" placeholder="Prix du biens"><br>
+                                <input type="text" name="proprio" class="inp_insc" placeholder="Propriétaire"><br>
                                 <input type="file" name="image_annonce"  ><br>
                                 <input type="submit" value="Enregister" class="btn_inscr" name="submit">
                                     <?php
@@ -229,7 +163,7 @@
                             ?>
                             <div class="form_admin">
                             <h2>Liste des biens :</h2>
-                                <div style="height: 250px; width: 650px; overflow: auto;">
+                                <div style="height: 250px; width: 700px; overflow: auto;">
                                     <table class="liste_biens" cellpadding="3" rules="all">
                                         <colgroup span="6" class="columns"></colgroup>
                                         <tr>
