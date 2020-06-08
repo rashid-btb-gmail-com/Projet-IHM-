@@ -550,13 +550,13 @@ bottom: 5cm;
     }
     /************************************   page detail  *************************************************/
     .imgdetail{
-        width:400px;
+        width:1000px;
     }
     .fulldetail{
         margin-top: 20px ;
         margin-bottom: 20px;
         font-family: initial;
-        height:100%;
+        height:700px;
         align-items: center;
     }
     .lesbienssugg{
@@ -574,6 +574,7 @@ bottom: 5cm;
     .infobox{
         border:1px solid silver;
         margin-top: 20px;
+        width:800px;
     }
     #dairasugg{
         border-right: 1px solid silver;
