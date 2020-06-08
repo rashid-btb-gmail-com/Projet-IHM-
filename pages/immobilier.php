@@ -329,12 +329,10 @@ include_once('../includes/header.php');
 
             
           
-
+            
           while ($donne= $req->fetch()){
              //affichage des biens aprés recherche
-             if($donne['id']==null){
-               echo "eeeee";
-             }
+             
          echo(' <div class="biensug" >
                 <img src="../'.$donne['lien_img'].'" class="imgbien" alt="l\'image du bien" >
                 <div class="infobien">
@@ -345,10 +343,11 @@ include_once('../includes/header.php');
                 <a href="../pages/detail.php?id='.$donne['id'].'" class="linkdetail">Voir Detail</a> 
                 </div>
                 </div>');
-            }
-
-
-
+            
+          
+           }
+           
+           
          $req->closeCursor();
             
    
