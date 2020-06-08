@@ -98,7 +98,7 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
         </div>
         <!-- section des suggestions --> 
     </section>
-    <section class="sec2">
+    <section class="sec2" id="suggestions">
       <div class="container">
         <div class="headsug">
           <h1 class="text-center text-uppercase font-weight-bold " >Nos suggestions</h1>
@@ -111,6 +111,9 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
             $search=$_POST["search"];
             $bienrep = $db->prepare('SELECT * FROM biens WHERE commune LIKE ? ');
             $bienrep->execute(array($_POST["search"]));
+            ?>
+            <meta http-equiv="" content="0;url=./index.php#suggestions" />
+            <?php
             
           }
 
