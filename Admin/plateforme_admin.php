@@ -461,7 +461,7 @@
                                     //******************    filtre des rdv  ***************************** */
                                         if(isset($_POST["client_filtre"])&&(isset($_POST["lieu_filtre"]))&&(isset($_POST["date_filtre"]))){
                                             $select=$db->prepare("SELECT * FROM rdv_confirmer WHERE client=? AND lieu=? AND date=?");
-                                            $date=$_POST["date_filtre"];
+                                            $date=$_POST["date_filtre"]; 
                                             
                                             $select->execute(array($_POST["client_filtre"],$_POST["lieu_filtre"],$date));
                                         }

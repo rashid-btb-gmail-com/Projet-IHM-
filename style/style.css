@@ -73,7 +73,7 @@ li :hover{
     background-color: #000000d6;
     padding-bottom: 50px;
     padding-top: 50px;
-    font-family: 'Cormorant Garamond', serif;
+    font-family: serif;
 
 }
 .searchform{
@@ -83,13 +83,13 @@ li :hover{
 }
 .btn_recherche{
     border: none;
-    height: 55px;
-    width:65px;
-    background-color:white;
+    height: 54.5px;
+    width: 64px;
+    padding: 12.5px;
+    background-color: white;
     color:  #ff5722;
     font-size:1.25rem;
-    margin-left:-5px;
-    
+    margin-left: -4px;
 }
 .btn_recherche :hover{
     color:#00adb5;

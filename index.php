@@ -85,10 +85,14 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
         <!--text centrer -->
          <h1>Avec "VILAVIE" L'immobilier à Petit Prix </h1>
          <h3>Chercher Des Biens Immobilier Sur La Wilaya de Tizi-Ouzou</h3>
-         <form action="" id="formsearch"> <!-- boutton de rechercche -->
+         <form action="" id="formsearch" method="post" > <!-- boutton de rechercche -->
             <div class="searchform">
-            <input type="search" name="tizisearch" id="tizisearch" placeholder="Nom De Daira ou Commune, Ex:Tizi-Ouzou">
-            <button class="btn_recherche"><i class="fas fa-search"></i></button>
+            <input type="search" name="search" id="tizisearch" placeholder="Nom De Daira ou Commune, Ex:Tizi-Ouzou">
+            <button type="submit" name="btn_search" class="btn_recherche"><i class="fas fa-search"></i></button>
+                  <?php 
+                      
+                  
+                  ?>
             </div>
          </form>
         </div>
@@ -102,6 +106,14 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
        <div class="d-flex flex-wrap justify-content-center biensugbox ">
        <?php 
        $bienrep = $db->query('SELECT id,titre, daira, commune, lien_img FROM biens ORDER BY id desc LIMIT 0,8');
+          //    barre de recherche        
+          if(isset($_POST["btn_search"])){
+            $search=$_POST["search"];
+            $bienrep = $db->prepare('SELECT * FROM biens WHERE commune LIKE ? ');
+            $bienrep->execute(array($_POST["search"]));
+            
+          }
+
        while ($donne= $bienrep->fetch()){
        //affichage des biens les plus recents       
          echo('<div class="biensug" >
