@@ -52,31 +52,30 @@ include_once('../includes/header.php');
                                   <div class="form-group  col-sm-2 ">  
                                             <div class="form-group ">
                                               <label for="type_dairas" style="color: white;"><b>Daïras</b> </label>
-                                              <select class="form-control" id="daira" name="daira">                                                                                                                     
-                                                  <option>Daïras</option>
-                                                  <option value="Ain El Hammam">Ain El Hammam</option>
-                                                  <option value="Azazga">Azazga</option>
-                                                  <option value="Azeffoun">Azeffoun</option>
-                                                  <option value="Beni Douala">Beni Douala</option>
-                                                  <option value="Beni Yenni">Beni Yenni</option>
-                                                  <option value="Boghni">Boghni</option>
-                                                  <option value="Bouzguen">Bouzguen</option>
-                                                  <option value="Draâ Ben Khedda">Draâ Ben Khedda</option>
-                                                  <option value="Draâ El Mizan">Draâ El Mizan</option>
-                                                  <option value="Iferhounène">Iferhounène</option>
-                                                  <option value="Larbaâ Nath Irathen">Larbaâ Nath Irathen</option>
-                                                  <option value="Mâatkas">Mâatkas</option>
-                                                  <option value="Makouda">Makouda</option>
-                                                  <option value="Mekla">Mekla</option>
-                                                  <option value="Ouacif">Ouacif</option>
-                                                  <option value="Ouadhia">Ouadhia</option>
-                                                  <option value="Ouaguenoun">Ouaguenoun</option>
-                                                  <option value="Tigzirt">Tigzirt</option>
-                                                  <option value="Tizi Gheniff">Tizi Gheniff</option>
-                                                  <option value="Tizi Ouzou">Tizi Ouzou</option>
-                                                  <option value="Tizi Rached">Tizi Rached</option>
-                                              
-                                              </select>
+                                              <SELECT id="daira" name="daira" class="form-control input_user" onchange="filtre_commune()" required>
+                                                <option value="" disabled selected> Daïra</option>
+                                                <option value="01-Ain El Hammam">01-Ain El Hammam</option>
+                                                <option value="02-Azazga">02-Azazga</option>
+                                                <option value="03-Azeffoun ">03-Azeffoun</option>
+                                                <option value="04-Beni Douala">04-Beni Douala</option>
+                                                <option value="05-Beni Yenni">05-Beni Yenni</option>
+                                                <option value="06-Boghni">06-Boghni</option>
+                                                <option value="07-Bouzguen">07-Bouzguen</option>
+                                                <option value="08-Draâ Ben Khedda">08-Draâ Ben Khedda</option>
+                                                <option value="09-Draâ El Mizan">09-Draâ El Mizan</option>
+                                                <option value="10-Iferhounène">10-Iferhounène</option>
+                                                <option value="11-Larbaâ Nath Irathen">11-Larbaâ Nath Irathen</option>
+                                                <option value="12-Mâatkas">12-Mâatkas</option>
+                                                <option value="13-Makouda">13-Makouda</option>
+                                                <option value="14-Mekla">14-Mekla</option>
+                                                <option value="15-Ouacif">15-Ouacif</option>
+                                                <option value="16-Ouadhia">16-Ouadhia</option>
+                                                <option value="17-Ouaguenoun">17-Ouaguenoun</option>
+                                                <option value="18-Tigzirt">18-Tigzirt</option>
+                                                <option value="19-Tizi Gheniff">19-Tizi Gheniff</option>
+                                                <option value="20-Tizi Ouzou">20-Tizi Ouzou</option>
+                                                <option value="21-Tizi Rached">21-Tizi Rached</option>
+                                              </SELECT>
                                             </div>
                                 </div>
 
@@ -180,11 +179,6 @@ include_once('../includes/header.php');
                     </div>  
                     </div>   
 
-
-
-
-                                
-                                 
 
                                 <div class="form-group col-sm-2">
                                 <div class="form-group ">
@@ -390,6 +384,7 @@ include_once('../includes/header.php');
   include_once("../includes/footer.php");
    ?>
 
+<script src="../js/js.js"></script>
 </body>
 </html>
 
