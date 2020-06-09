@@ -550,13 +550,12 @@ bottom: 5cm;
     }
     /************************************   page detail  *************************************************/
     .imgdetail{
-        width:900px;
+        width:50%;
     }
     .fulldetail{
         margin-top: 20px ;
         margin-bottom: 20px;
         font-family: initial;
-        height:700px;
         align-items: center;
     }
     .lesbienssugg{
@@ -573,8 +572,8 @@ bottom: 5cm;
     }
     .infobox{
         border:1px solid silver;
-        margin-top: 20px;
-        width:800px;
+        margin: 30px;
+        
     }
     #dairasugg{
         border-right: 1px solid silver;
@@ -585,7 +584,7 @@ bottom: 5cm;
     .pointdetail{
         padding:30px;
         font-family: inherit;
-        
+        width:50%;
     }
     .suggcontainer{
         margin-bottom: 7px; 
