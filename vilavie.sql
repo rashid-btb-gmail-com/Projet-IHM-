@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  sam. 09 mai 2020 à 23:25
+-- Généré le :  lun. 08 juin 2020 à 21:01
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -41,17 +41,16 @@ CREATE TABLE IF NOT EXISTS `biens` (
   `lien_img` varchar(1024) COLLATE utf8mb4_unicode_ci NOT NULL,
   `proprietaire` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=67 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=70 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `biens`
 --
 
 INSERT INTO `biens` (`id`, `titre`, `description`, `daira`, `commune`, `surface`, `etage`, `prix`, `lien_img`, `proprietaire`) VALUES
-(63, 'maison 2', 'azeoapzeoapo', 'LarbaÃ¢ Nath Irathen', 'AÃ¯t Ouacif', 123, 3, 3000500, 'upload/55_plan-maison-plans.fr2_.jpg', 'hohoho'),
-(64, 'maison 1', 'pepepzaÃªa^zepÃ¢zpeppepepz', '18-Tigzirt', 'Tigzirt', 123, 2, 300000000, 'upload/52_maison1.jpg', 'uyuyuy'),
-(65, 'maison 23', 'zpeeeeeeeeeeeeezzz', '17-Ouaguenoun', 'AÃ¯t Aissa Mimoun', 123, 12, 20000000, 'upload/52_sejour-dun-appartement-neuf-renove_6112350.jpg', 'fedani hocine'),
-(66, 'mmmm', 'aaaaaze', '07-Bouzguen', 'Beni Ziki', 22, 2, 322233, 'upload/56_images.jpg', 'fedani hocine');
+(68, 'Appartement bliha', 'un appartement au centre de la ville, bien Ã©quipÃ© et bien fini, dans un bÃ¢timent de 5 Ã©tages, appartement situÃ© au 3eme Ã©tage, 4 chambres et une cuisine amÃ©ricaine ouverte avec salon, avec 2 balcon.  ', '02-Azazga', 'Azazga', 100, 0, 1200000, 'upload/_maisonazzaga.jpg', 'Aissou Nadir'),
+(67, 'Maison dans la montagne', 'une maison en haut d\'une montagne, bien Ã©quipÃ© et bien fini, 30m entre chaque maison de voisin, Villa a 2 Ã©tages, 7 chambres et une cuisine spacieuse, et salon amÃ©ricain ouvert, avec un jardin immense, vue sure les montagnes.  ', '01-Ain El Hammam', 'Abi Youcef', 320, 2, 2000000, 'upload/_unnamed.jpg', 'Aissou Nadir'),
+(69, 'belle villa', 'une villa 2 Ã©tages, trÃ¨s spacieuse, a 5 chambres, une cuisine et une grande terrasse, avec un beau jardin avec piscine', '03-Azeffoun ', 'Akerrou', 450, 2, 1000000, 'upload/_belle.jpg', 'Boutiab Massilva');
 
 -- --------------------------------------------------------
 
@@ -70,20 +69,17 @@ CREATE TABLE IF NOT EXISTS `clients` (
   `tel` varchar(12) COLLATE utf8mb4_unicode_ci NOT NULL,
   `sit_fam` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=57 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=61 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `clients`
 --
 
 INSERT INTO `clients` (`id`, `nom`, `prenom`, `username`, `email`, `password`, `tel`, `sit_fam`) VALUES
-(33, 'fedani', 'hocine', 'ho13', 'aaa@gmail.com', '1234', '0791913563', 'MariÃ©'),
-(52, 'TEST', 'test', 'toto', 'horereho@gmail.com', '1234', '1234567896', 'MariÃ©'),
-(50, 'fedani', 'hocineaaa', 'totoaaa', 'hoho@gmail.com', '1', '0312654895', 'MariÃ©'),
-(53, 'test', 'hocine', 'hoho', 'hoezerho@gmail.com', '1234', '3216549755', 'MariÃ©'),
-(54, 'fedani', 'aze', 'h6666', 'azeazeae@ejeje.com', '1234', '1236523658', 'Celibataire'),
-(55, 'aze', 'aze', 'aze', 'azeazeaze', '1234', '1362514975', 'Celibataire'),
-(56, 'bobobobo', 'kakakk', 'kakak', 'hohzzzzzo@gmail.com', '1234', '1234567890', 'Celibataire');
+(60, 'Aissou', 'Nadir', 'AisNad', 'aissounad@gmail.com', 'nadnad', '0558585956', 'Celibataire'),
+(59, 'Ouguemat', 'Fodil', 'OugFod', 'fodlidof@gmail.com', 'fodfod', '0235689752', 'Celibataire'),
+(58, 'Fedani', 'Hocine', 'FedHoc', 'hohoho@gmail.com', 'hochoc', '0752545458', 'MariÃ©'),
+(57, 'Boutiab', 'Massilva', 'BouMas', 'rashid.btb@gmail.com', 'massmass', '0652526152', 'Celibataire');
 
 -- --------------------------------------------------------
 
@@ -101,13 +97,6 @@ CREATE TABLE IF NOT EXISTS `contact_msg` (
   `message` text NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4;
-
---
--- Déchargement des données de la table `contact_msg`
---
-
-INSERT INTO `contact_msg` (`id`, `nom`, `prenom`, `email`, `sujet`, `message`) VALUES
-(17, 'azeaez', 'azeaze', 'azeaze', 'azeazea', 'Le Costa neoClassica est un navire de croisière construit en 1991 par les chantiers navals Fincantieri de Gênes pour la compagnie italienne Costa Croisières, dont il est le premier navire construit spécifiquement pour la croisière et, au moment de sa mise en service, le plus gros navire de la compagnie. Mis en service en décembre 1991 sous le nom de Costa Classica, il fait l’objet d’une importante rénovation à l’hiver 2014. Il intègre dès lors la neoCollection et voit son nom légèrement modifié, devenant le Costa neoClassica.');
 
 -- --------------------------------------------------------
 
@@ -128,15 +117,7 @@ CREATE TABLE IF NOT EXISTS `demande_annonce` (
   `lien_img` varchar(1024) COLLATE utf8mb4_unicode_ci NOT NULL,
   `proprietaire` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=59 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Déchargement des données de la table `demande_annonce`
---
-
-INSERT INTO `demande_annonce` (`id`, `titre`, `description`, `daira`, `commune`, `surface`, `etage`, `prix`, `lien_img`, `proprietaire`) VALUES
-(52, 'appartement2', 'papzeeeeeeeeeeeeeeeeeeeeoeozeooooooooooooooooooooooooooopzÃªzp^pazoeÃ¢zpoeÃ¢pozÃªapozeÃ¢po', '17-Ouaguenoun', 'AÃ¯t Aissa Mimoun', 100, 1, 3000000, 'upload/_images.jpg', ''),
-(58, 'oooooooooo', 'opzrotpeorit', '01-Ain El Hammam', 'Abi Youcef', 5555, 555, 5555555, 'upload/57_sejour-dun-appartement-neuf-renove_6112350.jpg', 'fedani hocine');
+) ENGINE=MyISAM AUTO_INCREMENT=62 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -168,23 +149,6 @@ CREATE TABLE IF NOT EXISTS `rdv_confirmer` (
   `date` date NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Déchargement des données de la table `rdv_confirmer`
---
-
-INSERT INTO `rdv_confirmer` (`id`, `client`, `lieu`, `date`) VALUES
-(8, 'dada', 'gogo', '2020-06-18'),
-(7, 'hoho fefe', 'tizi', '2020-04-25'),
-(6, 'hocine fedani', 'agence', '2020-04-01'),
-(10, 'hocine fedani', 'aaaa', '2020-04-09'),
-(11, 'hocine', 'agence', '2020-09-18'),
-(12, 'oooo', 'papapa', '2020-04-23'),
-(13, 'pppp', 'aaaa', '2020-04-23'),
-(14, 'btbt', 'agence', '2020-04-23'),
-(15, 'hohoh', 'aaaa', '2020-04-08'),
-(16, 'jhhuhuhb', 'jh', '2020-04-17'),
-(17, 'hocine fedani', 'tizi', '2020-05-20');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

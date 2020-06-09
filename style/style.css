@@ -137,12 +137,12 @@ li :hover{
 }
 .imgbien{
     width: inherit;
-    height:250px;
+    height:200px;
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
 }
 .infobien{
-    height:110px;
+    height:160px;
     padding: 10px;
    
 }
@@ -550,13 +550,13 @@ bottom: 5cm;
     }
     /************************************   page detail  *************************************************/
     .imgdetail{
-        width:400px;
+        width:900px;
     }
     .fulldetail{
         margin-top: 20px ;
         margin-bottom: 20px;
         font-family: initial;
-        height:100%;
+        height:700px;
         align-items: center;
     }
     .lesbienssugg{
@@ -574,6 +574,7 @@ bottom: 5cm;
     .infobox{
         border:1px solid silver;
         margin-top: 20px;
+        width:800px;
     }
     #dairasugg{
         border-right: 1px solid silver;
