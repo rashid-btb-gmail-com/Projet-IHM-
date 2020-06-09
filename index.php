@@ -84,7 +84,7 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
         <div class="container searchbox">
         <!--text centrer -->
          <h1>Avec "VILAVIE" L'immobilier à Petit Prix </h1>
-         <h3>Chercher Des Biens Immobilier Sur La Wilaya de Tizi-Ouzou</h3>
+         <h3>Chercher Des Biens Immobiliers Sur La Wilaya de Tizi-Ouzou</h3>
          <form action="" id="formsearch" method="post" > <!-- boutton de rechercche -->
             <div class="searchform">
             <input type="search" name="search" id="tizisearch" placeholder="Nom De Daira ou Commune, Ex:Tizi-Ouzou">
