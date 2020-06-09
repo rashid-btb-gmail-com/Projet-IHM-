@@ -51,9 +51,9 @@ include_once('../includes/header.php');
                                   <div class="row">
                                   <div class="form-group  col-sm-2 ">  
                                             <div class="form-group ">
-                                              <label for="type_dairas" style="color: white;"><b>Daïras</b> </label>
+                                            <label for="type_dairas" style="color: white;"><b>Daïras</b> </label>
                                               <SELECT id="daira" name="daira" class="form-control input_user" onchange="filtre_commune()" required>
-                                                <option value="Daïras" disabled selected> Daïras</option>
+                                                <option value="Daïras"  selected> Daïras</option>
                                                 <option value="01-Ain El Hammam">01-Ain El Hammam</option>
                                                 <option value="02-Azazga">02-Azazga</option>
                                                 <option value="03-Azeffoun ">03-Azeffoun</option>
@@ -77,7 +77,7 @@ include_once('../includes/header.php');
                                                 <option value="21-Tizi Rached">21-Tizi Rached</option>
                                               </SELECT>
                                             </div>
-                                </div>
+                                    </div>
 
                                 <div class="form-group  col-sm-2">                    
                                     <div class="form-group"> 
@@ -258,7 +258,7 @@ include_once('../includes/header.php');
         //filtre a 2 cases
         if(isset($_POST['daira'])){  
           if(($_POST['daira']=='Daïras')&&($_POST['prix']==null)&& (isset($_POST['commune']))&&(isset($_POST['surface']))){
-                                            $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens WHERE commune<=? AND surface<=?');                    
+                                            $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens WHERE commune=? AND surface<=?');                    
                                             $req->execute(array($_POST['commune'],$_POST['surface']));
                                         }
 
@@ -304,19 +304,19 @@ include_once('../includes/header.php');
                                         
 
             if(($_POST['surface']==null)&&($_POST['daira']=='Daïras')&& ($_POST['prix']==null)&&(isset($_POST['commune']))){
-                                            $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens WHERE  commune=?');                    
+                                            $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens WHERE  commune =?');                    
                                             $req->execute(array($_POST['commune']));
                                         }
             
 
             if(($_POST['surface']==null)&&($_POST['daira']=='Daïras')&& ($_POST['commune']=='Commune')&&(isset($_POST['prix']))){
-                                            $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens WHERE  prix<=?');                    
+                                            $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens WHERE  prix <= ?');                    
                                             $req->execute(array($_POST['prix']));
                                         }
 
 
             if(($_POST['commune']=='Commune')&&($_POST['daira']=='Daïras')&& ($_POST['prix']==null)&&(isset($_POST['surface']))){
-                                            $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens WHERE  surface<=?');                    
+                                            $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens WHERE  surface <=?');                    
                                             $req->execute(array($_POST['surface']));
                                         }
                                       }

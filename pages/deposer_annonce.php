@@ -44,7 +44,7 @@ else{
                 <h2 class="titre_connexion">Déposer une annonce </h2>
 				<div class="d-flex justify-content-center form_container">
 					
-                <form enctype="multipart/form-data" action="" method="post" class="form_inscription" submit="alert('Votre annonce sera vérifiée et publiée');">
+                <form enctype="multipart/form-data" action="" method="post" class="form_inscription" >
                         
                         
                         <div class="input-group mb-3">
@@ -105,7 +105,7 @@ else{
                         <input type="file" name="image_annonce" class="btn login_btn" id="btn_image" required><br>
                         </div>
                         <div class="input-group mb-3">
-                        <input type="submit" value="Envoyer" class="btn login_btn" name="submit" >
+                        <input type="submit" value="Envoyer" class="btn login_btn" name="submit" onclick="alert('Votre annonce sera vérifiée et publiée');">
                         </div>
                         
                         <?php
@@ -175,6 +175,7 @@ else{
 
   include_once("../includes/footer.php");
    ?>
+
 
 
 </body>
