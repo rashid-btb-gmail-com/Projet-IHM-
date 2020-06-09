@@ -550,13 +550,12 @@ bottom: 5cm;
     }
     /************************************   page detail  *************************************************/
     .imgdetail{
-        width:900px;
+        width:50%;
     }
     .fulldetail{
         margin-top: 20px ;
         margin-bottom: 20px;
         font-family: initial;
-        height:700px;
         align-items: center;
     }
     .lesbienssugg{
