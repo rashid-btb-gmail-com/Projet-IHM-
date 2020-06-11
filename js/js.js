@@ -221,5 +221,15 @@ function style_onglet_admin() {
     }
 }
 
-
+function afficher_formulaire(){
+    if(document.getElementById("vendre").checked){
+        document.getElementById("form_louer").style="display:none";
+        document.getElementById("form_vendre").style="display:block";
+    }
+    if(document.getElementById("louer").checked){
+        document.getElementById("form_vendre").style="display:none"
+        document.getElementById("form_louer").style="display:block";
+    }
+    
+}
 

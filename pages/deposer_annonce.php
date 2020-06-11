@@ -31,8 +31,8 @@ else{
 <div class="fulldepose" id="depose">
     <div class="container h-100">
         <div class="deposeheader" >
-         <h1> Vous Souhaitez Vendre un Bien Immobilier</h1>
-         <h3>Remplissez ce Formualaire, Notre Agence s'en Occupera</h3>
+         <h1> Vous Souhaitez Vendre ou Louer un Bien Immobilier</h1>
+         <h1>Remplissez ce Formualaire, Notre Agence s'en Occupera</h1>
         </div>
 		<div class="d-flex justify-content-center h-100">
 			<div class="user_card" id="user_card_annonce">
@@ -42,126 +42,302 @@ else{
 					
                 </div>
                 <h2 class="titre_connexion">Déposer une annonce </h2>
-				<div class="d-flex justify-content-center form_container">
-					
-                <form enctype="multipart/form-data" action="" method="post" class="form_inscription" >
-                        
-                        
-                        <div class="input-group mb-3">
-                        <input type="text" name="titre" class="form-control input_user" placeholder="Titre" required><br>
-                        </div>
 
-                        <textarea name="description" cols="35"  rows="10" class="discription_annonce" placeholder="Description du bien" required></textarea><br>
-                        <!--*********   liste des dairas de tizi ouzou   **********-->
-                        
-                        <div class="input-group mb-3">
-                        <span></span>
-                            <SELECT id="daira" name="daira" class="form-control input_user" onchange="filtre_commune()" required>
-                                <option value="" disabled selected> Daïra</option>
-                                <option value="01-Ain El Hammam">01-Ain El Hammam</option>
-                                <option value="02-Azazga">02-Azazga</option>
-                                <option value="03-Azeffoun ">03-Azeffoun</option>
-                                <option value="04-Beni Douala">04-Beni Douala</option>
-                                <option value="05-Beni Yenni">05-Beni Yenni</option>
-                                <option value="06-Boghni">06-Boghni</option>
-                                <option value="07-Bouzguen">07-Bouzguen</option>
-                                <option value="08-Draâ Ben Khedda">08-Draâ Ben Khedda</option>
-                                <option value="09-Draâ El Mizan">09-Draâ El Mizan</option>
-                                <option value="10-Iferhounène">10-Iferhounène</option>
-                                <option value="11-Larbaâ Nath Irathen">11-Larbaâ Nath Irathen</option>
-                                <option value="12-Mâatkas">12-Mâatkas</option>
-                                <option value="13-Makouda">13-Makouda</option>
-                                <option value="14-Mekla">14-Mekla</option>
-                                <option value="15-Ouacif">15-Ouacif</option>
-                                <option value="16-Ouadhia">16-Ouadhia</option>
-                                <option value="17-Ouaguenoun">17-Ouaguenoun</option>
-                                <option value="18-Tigzirt">18-Tigzirt</option>
-                                <option value="19-Tizi Gheniff">19-Tizi Gheniff</option>
-                                <option value="20-Tizi Ouzou">20-Tizi Ouzou</option>
-                                <option value="21-Tizi Rached">21-Tizi Rached</option>
-                            </SELECT>
+                <!--   radio vendre louer    -->
+                <div class="radio_vendre_louer">
+                    <div class="radio_vendre">
+                        <input type="radio" name="vendre_louer" id="vendre" value="Vendre" class="input_radio" checked onclick="afficher_formulaire()">
+                        <label for="vendre" class="label_radio">Vendre</label>
+                    </div>
+                    <div class="radio_louer">
+                        <input type="radio" name="vendre_louer" id="louer" value="Louer"  class="input_radio" onclick="afficher_formulaire()">
+                        <label for="louer" class="label_radio">Louer</label>
+                    </div>
+                </div>
+
+
+
+				<div class="d-flex justify-content-center form_container" id="form_vendre_louer">
+
+
+                    <!-- formulaire de vente  -->	
+                    
+                    <form enctype="multipart/form-data" action="" method="post" class="form_inscription" id="form_vendre">
+                            <h3>Vendre un bien</h3>  
+                            <span class="span_deposer_annonce">Titre de l'annonce</span>
+                            <div class="input-group mb-3">
+                            <input type="text" name="titre" class="form-control input_user" placeholder="Titre de l'annonce" required><br>
+                            </div>
+
                             
-                        <!--*********   liste des communes de tizi ouzou   **********-->
-                        </div>
-                        <div class="input-group mb-3"> 
+                            <!--*********   liste des dairas de tizi ouzou   **********-->
+                            <span class="span_deposer_annonce">Localisation du bien</span>
+                            <div class="input-group mb-3">
                             <span></span>
-                            <SELECT id="commune"  name="commune" class="form-control input_user"required>
-                                <option value="" disabled selected>Commune</option>
+                                <SELECT id="daira" name="daira" class="form-control input_user" onchange="filtre_commune()" required>
+                                    <option value="" disabled selected> Daïra</option>
+                                    <option value="01-Ain El Hammam">01-Ain El Hammam</option>
+                                    <option value="02-Azazga">02-Azazga</option>
+                                    <option value="03-Azeffoun ">03-Azeffoun</option>
+                                    <option value="04-Beni Douala">04-Beni Douala</option>
+                                    <option value="05-Beni Yenni">05-Beni Yenni</option>
+                                    <option value="06-Boghni">06-Boghni</option>
+                                    <option value="07-Bouzguen">07-Bouzguen</option>
+                                    <option value="08-Draâ Ben Khedda">08-Draâ Ben Khedda</option>
+                                    <option value="09-Draâ El Mizan">09-Draâ El Mizan</option>
+                                    <option value="10-Iferhounène">10-Iferhounène</option>
+                                    <option value="11-Larbaâ Nath Irathen">11-Larbaâ Nath Irathen</option>
+                                    <option value="12-Mâatkas">12-Mâatkas</option>
+                                    <option value="13-Makouda">13-Makouda</option>
+                                    <option value="14-Mekla">14-Mekla</option>
+                                    <option value="15-Ouacif">15-Ouacif</option>
+                                    <option value="16-Ouadhia">16-Ouadhia</option>
+                                    <option value="17-Ouaguenoun">17-Ouaguenoun</option>
+                                    <option value="18-Tigzirt">18-Tigzirt</option>
+                                    <option value="19-Tizi Gheniff">19-Tizi Gheniff</option>
+                                    <option value="20-Tizi Ouzou">20-Tizi Ouzou</option>
+                                    <option value="21-Tizi Rached">21-Tizi Rached</option>
+                                </SELECT>
+                                
+                            <!--*********   liste des communes de tizi ouzou   **********-->
+                            </div>
+                            <div class="input-group mb-3"> 
+                                <span></span>
+                                <SELECT id="commune"  name="commune" class="form-control input_user"required>
+                                    <option value="" disabled selected>Commune</option>
+                                
+                                </SELECT>
+
+
+                            </div>
+                            <div class="input-group mb-3">
+                            <input type="text" name="Adresse" class="form-control input_user" placeholder="Adresse" required>
+                            </div>
+                            <span class="span_deposer_annonce">Caractéristiques du bien</span>
+
+                            <div class="input-group mb-3">
+                            <input type="text" name="type_bien" class="form-control input_user" placeholder="Type du bien" required>
+                            </div>
                             
-                            </SELECT>
+                            <div class="input-group mb-3">
+                            <input type="number" name="surface" class="form-control input_user" placeholder="Surface en m²" required>
+                            </div>
 
+                            <div class="input-group mb-3">
+                            <input type="number" name="nbr_etages" class="form-control input_user" placeholder="Nombre d'étages" required>
+                            </div>
 
-                        </div>
-                        <div class="input-group mb-3">
-                        <input type="number" name="surface" class="form-control input_user" placeholder="Surface" required>
-                        </div>
-                        <div class="input-group mb-3">
-                        <input type="number" name="nbr_etages" class="form-control input_user" placeholder="Nombre d'étages" required>
-                        </div>
-                        <div class="input-group mb-3">
-                        <input type="number" name="prix" class="form-control input_user" placeholder="Prix du bien en DA" required>
-                        </div>
-                        <div class="input-group mb-3">
-                        <input type="file" name="image_annonce" class="btn login_btn" id="btn_image" required><br>
-                        </div>
-                        <div class="input-group mb-3">
-                        <input type="submit" value="Envoyer" class="btn login_btn" name="submit" onclick="alert('Votre annonce sera vérifiée et publiée');">
-                        </div>
-                        
-                        <?php
-                            if(isset($_POST["submit"])){
-                                
-                                
-                                
-                                    $dossier_upload = 'upload/'; // dossier où sera déplacé le fichier
+                            <div class="input-group mb-3">
+                            <input type="number" name="nbr_pieces" class="form-control input_user" placeholder="Nombre de piéces" required>
+                            </div>
+                           
+                            <span class="span_deposer_annonce">Description de votre bien</span>
+                            <textarea name="description" cols="35"  rows="10" class="discription_annonce" placeholder="Description du bien" required></textarea><br>
+                            <span class="span_deposer_annonce">Photos du bien</span>
+                            <div class="input-group mb-3">
 
-                                    $tmp_fichier = $_FILES['image_annonce']['tmp_name'];
+                            <input type="file" name="image_annonce" class="btn login_btn" id="btn_image" required><br>
+                            </div>
+                            <span class="span_deposer_annonce">Prix du bien</span>
+                            <div class="input-group mb-3">
+                            <input type="number" name="prix" class="form-control input_user" placeholder="Prix du bien en DA" required>
+                            </div>
 
-                                    if( !is_uploaded_file($tmp_fichier) )
-                                    {
-                                        exit("Le fichier est introuvable");
-                                    }
-
-                                    // on vérifie  l'extension
-
-                                    $type_file = $_FILES['image_annonce']['type'];
-
-                                    if( !strstr($type_file, 'jpg') && !strstr($type_file, 'jpeg') && !strstr($type_file, 'bmp') && !strstr($type_file, 'gif') )
-                                    {
-                                        exit("Le fichier n'est pas une image");
-                                    }
+                            <div class="input-group mb-3">
+                            <input type="submit" value="Envoyer" class="btn login_btn" name="submit" onclick="alert('Votre annonce sera vérifiée et publiée');">
+                            </div>
+                            
+                            <?php
+                                if(isset($_POST["submit"])){
                                     
-                                    $select=$db->query('SELECT MAX(id) FROM demande_annonce');
+                                    
+                                    
+                                        $dossier_upload = 'upload/'; // dossier où sera déplacé le fichier
 
-                                        $id_img=$select->fetch();
-                                        
-                                    // on copie le fichier dans le dossier de destination
-                                    $nom_fichier =$id_img[0].'_'.$_FILES['image_annonce']['name'];
-                                    //recuperer le lien de l'image
-                                    $lien_img=$dossier_upload . $nom_fichier;
-                                    if( !move_uploaded_file($tmp_fichier,"../".$dossier_upload . $nom_fichier) )
-                                    {
-                                        exit("Impossible de copier le fichier dans $dossier_upload");
-                                    }
+                                        $tmp_fichier = $_FILES['image_annonce']['tmp_name'];
 
-                                    echo "Votre annonce sera vérifiée et publiée ";
-                                        
+                                        if( !is_uploaded_file($tmp_fichier) )
+                                        {
+                                            exit("Le fichier est introuvable");
+                                        }
 
+                                        // on vérifie  l'extension
+
+                                        $type_file = $_FILES['image_annonce']['type'];
+
+                                        if( !strstr($type_file, 'jpg') && !strstr($type_file, 'jpeg') && !strstr($type_file, 'bmp') && !strstr($type_file, 'gif') )
+                                        {
+                                            exit("Le fichier n'est pas une image");
+                                        }
                                         
+                                        $select=$db->query('SELECT MAX(id) FROM demande_annonce');
+
+                                            $id_img=$select->fetch();
+                                            
+                                        // on copie le fichier dans le dossier de destination
+                                        $nom_fichier =$id_img[0].'_'.$_FILES['image_annonce']['name'];
+                                        //recuperer le lien de l'image
+                                        $lien_img=$dossier_upload . $nom_fichier;
+                                        if( !move_uploaded_file($tmp_fichier,"../".$dossier_upload . $nom_fichier) )
+                                        {
+                                            exit("Impossible de copier le fichier dans $dossier_upload");
+                                        }
+
+                                        echo "Votre annonce sera vérifiée et publiée ";
+                                            
+
+                                            
+                                    
+                                    //   insertion dans la base de donnee
+                                    $proprio=$_SESSION["nom"].' '.$_SESSION["prenom"]; 
+                                    $insert=$db->prepare('INSERT INTO demande_annonce VALUES(NULL,?,?,?,?,?,?,?,?,?)');
+                                    $insert->execute(array($_POST["titre"],$_POST["description"],$_POST["daira"],$_POST["commune"],$_POST["surface"],$_POST["nbr_etages"],$_POST["prix"],$lien_img,$proprio));
+                                    
+                                }
+
+
+                            ?>
+
+                    </form>
+
+                    <!-- formulaire de location  -->	
+                    <form enctype="multipart/form-data" action="" method="post" class="form_inscription" id="form_louer">
+                            <h3>Louer un bien</h3>  
+                            <span class="span_deposer_annonce">Titre de l'annonce</span>
+                            <div class="input-group mb-3">
+                            <input type="text" name="titre" class="form-control input_user" placeholder="Titre de l'annonce" required><br>
+                            </div>
+
+                            
+                            <!--*********   liste des dairas de tizi ouzou   **********-->
+                            <span class="span_deposer_annonce">Localisation du bien</span>
+                            <div class="input-group mb-3">
+                            <span></span>
+                                <SELECT id="daira" name="daira" class="form-control input_user" onchange="filtre_commune()" required>
+                                    <option value="" disabled selected> Daïra</option>
+                                    <option value="01-Ain El Hammam">01-Ain El Hammam</option>
+                                    <option value="02-Azazga">02-Azazga</option>
+                                    <option value="03-Azeffoun ">03-Azeffoun</option>
+                                    <option value="04-Beni Douala">04-Beni Douala</option>
+                                    <option value="05-Beni Yenni">05-Beni Yenni</option>
+                                    <option value="06-Boghni">06-Boghni</option>
+                                    <option value="07-Bouzguen">07-Bouzguen</option>
+                                    <option value="08-Draâ Ben Khedda">08-Draâ Ben Khedda</option>
+                                    <option value="09-Draâ El Mizan">09-Draâ El Mizan</option>
+                                    <option value="10-Iferhounène">10-Iferhounène</option>
+                                    <option value="11-Larbaâ Nath Irathen">11-Larbaâ Nath Irathen</option>
+                                    <option value="12-Mâatkas">12-Mâatkas</option>
+                                    <option value="13-Makouda">13-Makouda</option>
+                                    <option value="14-Mekla">14-Mekla</option>
+                                    <option value="15-Ouacif">15-Ouacif</option>
+                                    <option value="16-Ouadhia">16-Ouadhia</option>
+                                    <option value="17-Ouaguenoun">17-Ouaguenoun</option>
+                                    <option value="18-Tigzirt">18-Tigzirt</option>
+                                    <option value="19-Tizi Gheniff">19-Tizi Gheniff</option>
+                                    <option value="20-Tizi Ouzou">20-Tizi Ouzou</option>
+                                    <option value="21-Tizi Rached">21-Tizi Rached</option>
+                                </SELECT>
                                 
-                                //   insertion dans la base de donnee
-                                $proprio=$_SESSION["nom"].' '.$_SESSION["prenom"]; 
-                                $insert=$db->prepare('INSERT INTO demande_annonce VALUES(NULL,?,?,?,?,?,?,?,?,?)');
-                                $insert->execute(array($_POST["titre"],$_POST["description"],$_POST["daira"],$_POST["commune"],$_POST["surface"],$_POST["nbr_etages"],$_POST["prix"],$lien_img,$proprio));
+                            <!--*********   liste des communes de tizi ouzou   **********-->
+                            </div>
+                            <div class="input-group mb-3"> 
+                                <span></span>
+                                <SELECT id="commune"  name="commune" class="form-control input_user"required>
+                                    <option value="" disabled selected>Commune</option>
                                 
-                            }
+                                </SELECT>
 
 
-                        ?>
+                            </div>
+                            <div class="input-group mb-3">
+                            <input type="text" name="Adresse" class="form-control input_user" placeholder="Adresse" required>
+                            </div>
+                            <span class="span_deposer_annonce">Caractéristiques du bien</span>
 
-                </form>
+                            <div class="input-group mb-3">
+                            <input type="text" name="type_bien" class="form-control input_user" placeholder="Type du bien" required>
+                            </div>
+                            
+                            <div class="input-group mb-3">
+                            <input type="number" name="surface" class="form-control input_user" placeholder="Surface en m²" required>
+                            </div>
+
+                            <div class="input-group mb-3">
+                            <input type="number" name="nbr_etages" class="form-control input_user" placeholder="Nombre d'étages" required>
+                            </div>
+
+                            <div class="input-group mb-3">
+                            <input type="number" name="nbr_pieces" class="form-control input_user" placeholder="Nombre de piéces" required>
+                            </div>
+                           
+                            <span class="span_deposer_annonce">Description de votre bien</span>
+                            <textarea name="description" cols="35"  rows="10" class="discription_annonce" placeholder="Description du bien" required></textarea><br>
+                            <span class="span_deposer_annonce">Photos du bien</span>
+                            <div class="input-group mb-3">
+
+                            <input type="file" name="image_annonce" class="btn login_btn" id="btn_image" required><br>
+                            </div>
+                            <span class="span_deposer_annonce">Loyer/mois</span>
+                            <div class="input-group mb-3">
+                            <input type="number" name="prix" class="form-control input_user" placeholder="Loyer/mois en DA" required>
+                            </div>
+
+                            <div class="input-group mb-3">
+                            <input type="submit" value="Envoyer" class="btn login_btn" name="submit" onclick="alert('Votre annonce sera vérifiée et publiée');">
+                            </div>
+                            
+                            <?php
+                                if(isset($_POST["submit"])){
+                                    
+                                    
+                                    
+                                        $dossier_upload = 'upload/'; // dossier où sera déplacé le fichier
+
+                                        $tmp_fichier = $_FILES['image_annonce']['tmp_name'];
+
+                                        if( !is_uploaded_file($tmp_fichier) )
+                                        {
+                                            exit("Le fichier est introuvable");
+                                        }
+
+                                        // on vérifie  l'extension
+
+                                        $type_file = $_FILES['image_annonce']['type'];
+
+                                        if( !strstr($type_file, 'jpg') && !strstr($type_file, 'jpeg') && !strstr($type_file, 'bmp') && !strstr($type_file, 'gif') )
+                                        {
+                                            exit("Le fichier n'est pas une image");
+                                        }
+                                        
+                                        $select=$db->query('SELECT MAX(id) FROM demande_annonce');
+
+                                            $id_img=$select->fetch();
+                                            
+                                        // on copie le fichier dans le dossier de destination
+                                        $nom_fichier =$id_img[0].'_'.$_FILES['image_annonce']['name'];
+                                        //recuperer le lien de l'image
+                                        $lien_img=$dossier_upload . $nom_fichier;
+                                        if( !move_uploaded_file($tmp_fichier,"../".$dossier_upload . $nom_fichier) )
+                                        {
+                                            exit("Impossible de copier le fichier dans $dossier_upload");
+                                        }
+
+                                        echo "Votre annonce sera vérifiée et publiée ";
+                                            
+
+                                            
+                                    
+                                    //   insertion dans la base de donnee
+                                    $proprio=$_SESSION["nom"].' '.$_SESSION["prenom"]; 
+                                    $insert=$db->prepare('INSERT INTO demande_annonce VALUES(NULL,?,?,?,?,?,?,?,?,?)');
+                                    $insert->execute(array($_POST["titre"],$_POST["description"],$_POST["daira"],$_POST["commune"],$_POST["surface"],$_POST["nbr_etages"],$_POST["prix"],$lien_img,$proprio));
+                                    
+                                }
 
 
+                            ?>
+
+                    </form>       
 
 				</div>
 		
@@ -175,7 +351,9 @@ else{
 
   include_once("../includes/footer.php");
    ?>
-
+<script type="text/javascript">
+ window.onload = afficher_formulaire();
+ </script> 
 
 
 </body>
