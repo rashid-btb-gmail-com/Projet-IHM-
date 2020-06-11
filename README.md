@@ -1,6 +1,6 @@
-# projet_ihm
+# projet_PFE
 vente des biens immobiliere a Tizi Ouzou,
-projet d'interface homme machine et projet fin d'etude L3
+projet fin d'etudes L3
 groupe :
 Massilva 
 Hocine 
