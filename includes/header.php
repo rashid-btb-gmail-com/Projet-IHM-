@@ -20,9 +20,9 @@
          <!--les menu de navigation a droite  -->
          <div class="navbar-right"> 
              <ul>
-                 <li active><a href="../index.php" >Acceuil</a></li>
-                 <li><a href="../pages/immobilier.php">Immobilier</a></li>
-                 <li><a href="../pages/deposer_annonce.php#depose">Vendre</a></li>
+                  <li><a href="#">Locations</a></li>                  
+                  <li><a href="../pages/immobilier.php">Vente</a></li>
+                  <li><a href="../pages/deposer_annonce.php#depose">Déposer une annonce</a></li> 
                  <li><a href="../pages/contact.php">Contact</a></li>
                  <li id="separateur"> </li> <!--un separateur -->
                  <?php
