@@ -80,6 +80,48 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
     </div>
     </header>
     <!--photo de maison pour rechercher des bien a tizi ouzou -->
+    <section class="sec">
+     <div id="carouselControls" class="carousel slide" data-ride="carousel">
+       <div class="carousel-inner">
+         <div class="carousel-item active " style="background:url(./images/bg1.jpg); background-size:cover;">
+            <div class="d-block w-100 d-flex justify-content-center align-items-center imgsize ">
+              <div class="carouselstyle">
+              <h1>L'agence immobiliere VILAVIE</h1> <br>
+              <h3>Vous fait visiter la kabylie a travers l'immobilier </h3> <br><br><br>
+              <a href="./pages/contact.php" class="pubbtn">A propos de nous</a>
+              </div>
+            </div>
+         </div>
+         <div class="carousel-item" style="background:url(./images/bg2.jpg); background-size:cover;">
+          <div class="d-block w-100 d-flex justify-content-center align-items-center imgsize ">
+          <div class="carouselstyle">
+              <h1>Vous connaisez la kabyle </h1> <br>
+              <h3> et vous chercher un bien dans une region specifique </h3> <br><br><br>
+              <a href="./index.php#sec1" class="pubbtn">Recherchez un bien</a>
+          </div>
+
+            </div>
+         </div>
+         <div class="carousel-item" style="background:url(./images/bg3.jpg); background-size:cover;" >
+           <div class="d-block w-100 d-flex justify-content-center align-items-center imgsize ">
+           <div class="carouselstyle">
+              <h1>Vous ne cherchez pas une region specifique </h1> <br>
+              <h3> et bien on vous suggere les meilleur bien dans les milleurs region de la kabylie </h3> <br><br><br>
+              <a href="./index.php#suggestions" class="pubbtn">Nos suggestions</a>
+          </div>
+            </div>
+         </div>
+       </div>
+       <a class="carousel-control-prev" href="#carouselControls" role="button" data-slide="prev">
+         <i class="fa fa-caret-left sizerile"></i>
+         <span class="sr-only">Précédent</span>
+       </a>
+       <a class="carousel-control-next" href="#carouselControls" role="button" data-slide="next">
+       <i class="fa fa-caret-right sizerile"></i>
+          <span class="sr-only">Suivant</span>
+        </a>
+     </div>
+    </section>
     <section class="sec1" id="sec1">
         <div class="container searchbox">
         <!--text centrer -->
@@ -176,6 +218,9 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
       <!--Scriptes -->
       <script src="./js/jquery.js"></script>
       <script src="./js/js.js"></script>
+      <script src="./js/bootstrap.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
      <!--ajouter a la fin pour que la page ce recharche plus rapidement-->
    </body>
 </html>

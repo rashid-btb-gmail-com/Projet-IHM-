@@ -55,8 +55,27 @@ li :hover{
     color:white;
 }
 /***************************       page d'index        *********************************/
-
-
+/******************************* carousel ********************************/
+.imgsize{
+height:550px;
+}
+.sizerile{
+    font-size:2.5rem;
+    
+}
+.carouselstyle{
+    background-color:rgba(0, 0, 0, 0.6);
+    color:white;
+    padding:50px;
+    border-radius:0.25rem;
+}
+.pubbtn{
+    color:white;
+    background-color:orangered;
+    padding:10px;
+    border:1px solid white;
+    border-radius: 0.25rem;
+}
 /************************************** recherche sure site landing *********************************************/
 .sec1{
     background-image: url(../images/landing.jpg);
