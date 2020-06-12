@@ -80,7 +80,7 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
         </nav>
     </div>
     </header>
-    <!--photo de maison pour rechercher des bien a tizi ouzou -->
+    <!--carousel pour pub et guide -->
     <section class="sec">
      <div id="carouselControls" class="carousel slide" data-ride="carousel">
        <div class="carousel-inner">
@@ -89,7 +89,7 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
               <div class="carouselstyle">
               <h1>L'agence immobiliere VILAVIE</h1> <br>
               <h3>Vous fait visiter la kabylie a travers l'immobilier </h3> <br><br><br>
-              <a href="./pages/contact.php" class="pubbtn">A propos de nous</a>
+              <div class="pubbtnhover"><a href="./pages/contact.php" class="pubbtn">A propos de nous</a></div>
               </div>
             </div>
          </div>
@@ -98,7 +98,7 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
           <div class="carouselstyle">
               <h1>Vous connaisez la kabyle </h1> <br>
               <h3> et vous chercher un bien dans une region specifique </h3> <br><br><br>
-              <a href="./index.php#sec1" class="pubbtn">Recherchez un bien</a>
+              <div class="pubbtnhover"><a href="./index.php#sec1" class="pubbtn">Recherchez un bien</a></div>
           </div>
 
             </div>
@@ -108,7 +108,7 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
            <div class="carouselstyle">
               <h1>Vous ne cherchez pas une region specifique </h1> <br>
               <h3> et bien on vous suggere les meilleur bien dans les milleurs region de la kabylie </h3> <br><br><br>
-              <a href="./index.php#suggestions" class="pubbtn">Nos suggestions</a>
+              <div class="pubbtnhover"><a href="./index.php#suggestions" class="pubbtn">Nos suggestions</a></div>
           </div>
             </div>
          </div>
@@ -123,6 +123,7 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
         </a>
      </div>
     </section>
+    <!--recherche-->
     <section class="sec1" id="sec1">
         <div class="container searchbox">
         <!--text centrer -->

@@ -68,14 +68,21 @@ height:550px;
     background-color:rgba(0, 0, 0, 0.6);
     color:white;
     padding:50px;
-    border-radius:0.25rem;
+    border-radius:0.3rem;
+    font-family: initial;
 }
 .pubbtn{
-    color:white;
-    background-color:orangered;
+    color:#fff;
+    font-weight: 500px;
+    font-size: 1.2rem;
     padding:10px;
-    border:1px solid white;
+    border:2px  solid #ff5722 ;
     border-radius: 0.25rem;
+}
+.pubbtnhover :hover{
+    background-color: #ff5722 ;
+    color: white ; 
+    border-color: #ff5722;
 }
 /************************************** recherche sure site landing *********************************************/
 .sec1{
