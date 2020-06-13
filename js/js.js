@@ -179,7 +179,48 @@ function filtre_commune(){
             currentDiv.insertAdjacentHTML('afterbegin','<option class="commune_daira">'+daira[num_daira][i]+'</option>');
     }
 }
+function filtre_commune_louer(){
+    var daira = [   d1=["Abi Youcef","Ain El Hammam","Aït Yahia","Akbil"],
+                    d2=["Azazga","Freha","Ifigha","Yakouren ","Zekri"],
+                    d3=["Aghribs","Aït Chafâa ","Akerrou","Azeffoun"],
+                    d4=["Aït Mahmoud","Beni Aissi","Beni Douala","Beni Zmenzer"],
+                    d5=["Beni Yenni","Iboudraren","Yatafen"],
+                    d6=["Assi Youcef","Boghni","Bounouh","Mechtras"],
+                    d7=["Beni Ziki","Bouzguen","Idjeur","Illoula Oumalou"],
+                    d8=["Draâ Ben Khedda","Sidi Namane","Tadmaït","Tirmitine"],
+                    d9=["Aïn Zaouia","Aït Yahia Moussa","Draâ El Mizan","Frikat"],
+                    d10=["Iferhounène","Illilten","Imsouhel"],
+                    d11=["Aït Aggouacha","Irdjen","Larbaâ Nath Irathen"],
+                    d12=["Mâatkas","Souk El Thenine"],
+                    d13=["Boudjima","Makouda"],
+                    d14=["Aït Khellili","Mekla","Souamaâ"],
+                    d15=["Aït Boumahdi","Aït Toudert","Ouacif"],
+                    d16=["Agouni Gueghrane","Aït Bouaddou","Tizi N'Tleta","Ouadhia"],
+                    d17=["Aït Aissa Mimoun","Ouaguenoun","Timizart"],
+                    d18=["Iflissen","Mizrana","Tigzirt"],    
+                    d19=["M'Kira","Tizi Gheniff"],
+                    d20=["Tizi Ouzou","Boukhalfa"],
+                    d21=["Aït Oumalou","Tizi Rached"],
+                            
+                            ];
+              
+    var daira_select=document.getElementsByName("daira_loc")[0].value;   //recuperer la daira
+    var num_daira=parseInt(daira_select[0]+daira_select[1],10)-1;                   //recuperer le num de la daira                     
+    
+    
+    
+        
+        
+        var currentDiv = document.getElementsByName('commune_loc')[0];  
+            
+            currentDiv.innerHTML="";
 
+    for(var i=0;i<daira[num_daira].length;i++){
+        
+        
+            currentDiv.insertAdjacentHTML('afterbegin','<option class="commune_daira">'+daira[num_daira][i]+'</option>');
+    }
+}
 
 function style_onglet_admin() {
     var url=window.location.href;
