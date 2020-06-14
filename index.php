@@ -127,17 +127,18 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
     <section class="sec1" id="sec1">
         <div class="container " id="syletab">
         <!--text centrer -->
-        <ul class="nav nav-pills">
-          <li class=" active"><a href="#accueil" data-toggle="tab">Accueil</a></li>
-          <li ><a href="#livres" data-toggle="tab">Livres</a></li>
-          <li ><a href="#temoignages" data-toggle="tab">Témoignages</a></li>
-       </ul>
+        <ul class="nav nav-tabs">
+          <li class=" nav-item active"><a class=" nav-link active" href="#location" data-toggle="tab">Location</a></li>
+          <li class=" nav-item" ><a  class=" nav-link" href="#achat" data-toggle="tab">Achat</a></li>
+        </ul>
        <div class="tab-content searchbox ">
-          <div class="tab-pane active" id="accueil">
+          <div class="tab-pane active" id="location">
           
           <form action="" id="formsearch" method="post" > <!-- boutton de rechercche -->
-            <div class="searchform">
-            <input type="search" name="search" id="tizisearch" placeholder="Nom De Daira ou Commune, Ex:Tizi-Ouzou">
+            <div class="div-recherche-estime">
+            <h3>Vouz-chercher a louer dans la kabylie</h3>
+            <h5>Faite une recherhes des bien que on dispose dans la region que vous desiriez </h5>
+            <input type="search" name="search" class="tizisearch" placeholder="wilaya, Daira, Commune, Ex:Tizi-Ouzou">
             <button type="submit" name="btn_search" class="btn_recherche"><i class="fas fa-search"></i></button>
                   <?php 
                       //    barre de recherche        
@@ -156,8 +157,30 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
          </form>
           
           </div>
-          <div class="tab-pane" id="livres">Tous les livres</div>
-          <div class="tab-pane" id="temoignages">Tous les temoignages</div>
+          <div class="tab-pane" id="achat">
+          <form action="" id="formsearch" method="post" > <!-- boutton de rechercche -->
+            <div class="div-recherche-estime" >
+            <h3>Vouz-chercher a acheter dans la kabylie</h3>
+            <h5>Faite une recherhes des bien que on dispose dans la region que vous desiriez </h5>
+            <input type="search" name="search" class="tizisearch" placeholder="wilaya, Daira, Commune, Ex:Tizi-Ouzou">
+            <button type="submit" name="btn_search" class="btn_recherche"><i class="fas fa-search"></i></button>
+                  <?php 
+                      //    barre de recherche        
+                      if(isset($_POST["btn_search"])){
+                        
+                        
+                        
+                        ?>
+                        <meta http-equiv="refresh" content="0;url=./pages/location.php?search=<?php echo $_POST["search"]?>#search" />
+                        <?php
+                        
+                      }
+                  
+                  ?>
+            </div>
+         </form>
+          </div>
+         
        </div>
             
         </div>

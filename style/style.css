@@ -106,7 +106,7 @@ height:550px;
     padding-bottom: 50px;
     padding-top: 50px;
     font-family: serif;
-    height:200px;
+    height:300px;
 
 }
 .searchform{
@@ -128,14 +128,18 @@ height:550px;
     color:#00adb5;
     
 }
-#tizisearch{
+.tizisearch{
     font-size: 1.25em;
  height: 55px;
- width:85%;
+ width:500px;
  border: none;
  
  padding: 10px 20px 10px 20px;
  
+}
+.linktab :active{
+    background-color:#ff5722;
+    color:white;
 }
 /*****************   suggestions    **********************/
 .sec2{
