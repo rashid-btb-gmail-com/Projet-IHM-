@@ -94,6 +94,10 @@ height:550px;
     color: white;
     align-items: center;
 }
+#styletab{
+    width: 600px;
+}
+
 .searchbox{
     display:grid;
     justify-content: center;
@@ -102,6 +106,7 @@ height:550px;
     padding-bottom: 50px;
     padding-top: 50px;
     font-family: serif;
+    height:200px;
 
 }
 .searchform{

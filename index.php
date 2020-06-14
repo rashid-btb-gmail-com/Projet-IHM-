@@ -125,11 +125,17 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
     </section>
     <!--recherche-->
     <section class="sec1" id="sec1">
-        <div class="container searchbox">
+        <div class="container " id="syletab">
         <!--text centrer -->
-         <h1>Avec "VILAVIE" L'immobilier à Petit Prix </h1>
-         <h3>Chercher Des Biens Immobiliers Sur La Wilaya de Tizi-Ouzou</h3>
-         <form action="" id="formsearch" method="post" > <!-- boutton de rechercche -->
+        <ul class="nav nav-pills">
+          <li class=" active"><a href="#accueil" data-toggle="tab">Accueil</a></li>
+          <li ><a href="#livres" data-toggle="tab">Livres</a></li>
+          <li ><a href="#temoignages" data-toggle="tab">Témoignages</a></li>
+       </ul>
+       <div class="tab-content searchbox ">
+          <div class="tab-pane active" id="accueil">
+          
+          <form action="" id="formsearch" method="post" > <!-- boutton de rechercche -->
             <div class="searchform">
             <input type="search" name="search" id="tizisearch" placeholder="Nom De Daira ou Commune, Ex:Tizi-Ouzou">
             <button type="submit" name="btn_search" class="btn_recherche"><i class="fas fa-search"></i></button>
@@ -148,6 +154,12 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
                   ?>
             </div>
          </form>
+          
+          </div>
+          <div class="tab-pane" id="livres">Tous les livres</div>
+          <div class="tab-pane" id="temoignages">Tous les temoignages</div>
+       </div>
+            
         </div>
         <!-- section des suggestions --> 
     </section>
