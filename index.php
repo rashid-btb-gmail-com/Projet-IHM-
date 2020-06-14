@@ -128,8 +128,8 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
         <div class="container " id="syletab">
         <!--text centrer -->
         <ul class="nav nav-tabs">
-          <li class=" nav-item active"><a class=" nav-link active" href="#location" data-toggle="tab">Location</a></li>
-          <li class=" nav-item" ><a  class=" nav-link" href="#achat" data-toggle="tab">Achat</a></li>
+          <li class=" nav-item active"  ><a class=" nav-link active" style="font-weight: 600;"  href="#location" data-toggle="tab">Location</a></li>
+          <li class=" nav-item"><a  class=" nav-link"  style="font-weight: 600;" href="#achat" data-toggle="tab">Achat</a></li>
         </ul>
        <div class="tab-content searchbox ">
           <div class="tab-pane active" id="location">
@@ -147,7 +147,7 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
                         
                         
                         ?>
-                        <meta http-equiv="refresh" content="0;url=./pages/immobilier.php?search=<?php echo $_POST["search"]?>#search" />
+                        <meta http-equiv="refresh" content="0;url=./pages/location.php?search=<?php echo $_POST["search"]?>#search" />
                         <?php
                         
                       }
@@ -171,7 +171,7 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
                         
                         
                         ?>
-                        <meta http-equiv="refresh" content="0;url=./pages/location.php?search=<?php echo $_POST["search"]?>#search" />
+                        <meta http-equiv="refresh" content="0;url=./pages/immobilier.php?search=<?php echo $_POST["search"]?>#search" />
                         <?php
                         
                       }
