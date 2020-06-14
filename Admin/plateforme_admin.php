@@ -69,28 +69,28 @@
                                 <textarea name="description" cols="35"  rows="10" class="inp_insc" style="height:150px; resize: none;" placeholder="Description du bien" require></textarea><br>
                                 <!--*********   liste des dairas de tizi ouzou   **********-->
                                 <SELECT id="daira" name="daira" class="inp_insc" onchange="filtre_commune()" required>
-                                <option value="" disabled selected> Daïra</option>
-                                <option value="01-Ain El Hammam">01-Ain El Hammam</option>
-                                <option value="02-Azazga">02-Azazga</option>
-                                <option value="03-Azeffoun ">03-Azeffoun</option>
-                                <option value="04-Beni Douala">04-Beni Douala</option>
-                                <option value="05-Beni Yenni">05-Beni Yenni</option>
-                                <option value="06-Boghni">06-Boghni</option>
-                                <option value="07-Bouzguen">07-Bouzguen</option>
-                                <option value="08-Draâ Ben Khedda">08-Draâ Ben Khedda</option>
-                                <option value="09-Draâ El Mizan">09-Draâ El Mizan</option>
-                                <option value="10-Iferhounène">10-Iferhounène</option>
-                                <option value="11-Larbaâ Nath Irathen">11-Larbaâ Nath Irathen</option>
-                                <option value="12-Mâatkas">12-Mâatkas</option>
-                                <option value="13-Makouda">13-Makouda</option>
-                                <option value="14-Mekla">14-Mekla</option>
-                                <option value="15-Ouacif">15-Ouacif</option>
-                                <option value="16-Ouadhia">16-Ouadhia</option>
-                                <option value="17-Ouaguenoun">17-Ouaguenoun</option>
-                                <option value="18-Tigzirt">18-Tigzirt</option>
-                                <option value="19-Tizi Gheniff">19-Tizi Gheniff</option>
-                                <option value="20-Tizi Ouzou">20-Tizi Ouzou</option>
-                                <option value="21-Tizi Rached">21-Tizi Rached</option>
+                                    <option value="" disabled selected> Daïra</option>
+                                    <option value="01-Ain El Hammam">01-Ain El Hammam</option>
+                                    <option value="02-Azazga">02-Azazga</option>
+                                    <option value="03-Azeffoun ">03-Azeffoun</option>
+                                    <option value="04-Beni Douala">04-Beni Douala</option>
+                                    <option value="05-Beni Yenni">05-Beni Yenni</option>
+                                    <option value="06-Boghni">06-Boghni</option>
+                                    <option value="07-Bouzguen">07-Bouzguen</option>
+                                    <option value="08-Draâ Ben Khedda">08-Draâ Ben Khedda</option>
+                                    <option value="09-Draâ El Mizan">09-Draâ El Mizan</option>
+                                    <option value="10-Iferhounène">10-Iferhounène</option>
+                                    <option value="11-Larbaâ Nath Irathen">11-Larbaâ Nath Irathen</option>
+                                    <option value="12-Mâatkas">12-Mâatkas</option>
+                                    <option value="13-Makouda">13-Makouda</option>
+                                    <option value="14-Mekla">14-Mekla</option>
+                                    <option value="15-Ouacif">15-Ouacif</option>
+                                    <option value="16-Ouadhia">16-Ouadhia</option>
+                                    <option value="17-Ouaguenoun">17-Ouaguenoun</option>
+                                    <option value="18-Tigzirt">18-Tigzirt</option>
+                                    <option value="19-Tizi Gheniff">19-Tizi Gheniff</option>
+                                    <option value="20-Tizi Ouzou">20-Tizi Ouzou</option>
+                                    <option value="21-Tizi Rached">21-Tizi Rached</option>
                             </SELECT>
                                     
                                 <!--*********   liste des communes de tizi ouzou   **********-->
@@ -277,8 +277,7 @@
                                         <colgroup span="6" class="columns"></colgroup>
                                         <tr>
                                             <th>Titre</th>
-                                            <th>Surface</th>
-                                            <th>Etages</th>
+                                            <th>Type du bien</th>
                                             <th>Daïra</th>
                                             <th>Commune</th>
                                             <th>Propriétaire</th>
@@ -290,13 +289,14 @@
                                             ?>
                                             <tr>
                                                 <td><?php echo $donnees["titre"] ?></td>
-                                                <td><?php echo $donnees["surface"] ?></td>
-                                                <td><?php echo $donnees["etage"] ?></td>
+                                                <td><?php echo $donnees["type_bien"] ?></td>
                                                 <td><?php echo $donnees["daira"] ?></td>
                                                 <td><?php echo $donnees["commune"] ?></td>
                                                 <td><?php echo $donnees["proprietaire"] ?></td>
+                                                <td><a href="?action=confirmer_annonces&amp;action2=voir_plus&amp;id=<?php echo $donnees["id"]; ?>" title="Refuser l'annoce" class="voir_plus">Plus de détails</a></td>
                                                 <td><a href="?action=confirmer_annonces&amp;action2=accepter&amp;id=<?php echo $donnees["id"]; ?>" title="Accepter l'annonce"class="icon_supprimer" style="color:green;"><i class="fas fa-check" ></i></a></td>
                                                 <td><a href="?action=confirmer_annonces&amp;action2=supprimer&amp;id=<?php echo $donnees["id"]; ?>" title="Refuser l'annoce"class="icon_supprimer "><i class="fas fa-times" ></i></a></td>
+                                                
                                                 
                                             </tr>
 
@@ -311,8 +311,8 @@
                                             $id=$_GET["id"];
                                             $select=$db->query("SELECT * FROM demande_annonce WHERE id=$id");
                                             while($donnees=$select->fetch()){
-                                                $insert=$db->prepare('INSERT INTO biens VALUES(NULL,?,?,?,?,?,?,?,?,?)');
-                                                $insert->execute(array($donnees["titre"],$donnees["description"],$donnees["daira"],$donnees["commune"],$donnees["surface"],$donnees["etage"],$donnees["prix"],$donnees["lien_img"],$donnees["proprietaire"]));
+                                                $insert=$db->prepare('INSERT INTO biens VALUES(NULL,?,?,?,?,?,?,?,?,?,?,?,?)');
+                                                $insert->execute(array($donnees["titre"],$donnees["description"],$donnees["daira"],$donnees["commune"],$donnees["adresse"],$donnees["type_bien"],$donnees["surface"],$donnees["etage"],$donnees["pieces"],$donnees["prix"],$donnees["lien_img"],$donnees["proprietaire"]));
                                                 $supprimer=$db->prepare("DELETE FROM demande_annonce WHERE id = $id");
                                                 $supprimer->execute();
                                                 ?>

@@ -142,6 +142,10 @@ h2.nom_admin {
     color: red;
 }
 
+.voir_plus{
+    text-decoration: none;
+    color: #000ed3;
+}
 /*************************************   form modification  **************************************/
 
 .modifier_bien{

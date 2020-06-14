@@ -111,20 +111,29 @@ else{
 
                             </div>
                             <div class="input-group mb-3">
-                            <input type="text" name="Adresse" class="form-control input_user" placeholder="Adresse" required>
+                            <input type="text" name="adresse" class="form-control input_user" placeholder="Adresse" required>
                             </div>
                             <span class="span_deposer_annonce">Caractéristiques du bien</span>
 
                             <div class="input-group mb-3">
-                            <input type="text" name="type_bien" class="form-control input_user" placeholder="Type du bien" required>
+                            <SELECT id="daira" name="type_bien" class="form-control input_user" required>
+                                    <option value="" disabled selected>Type du bien</option>
+                                    <option value="appartement">Appartement</option>
+                                    <option value="studio">Studio</option>
+                                    <option value="villa">Villa</option>
+                                    <option value="niveau de villa">Niveau de villa</option>
+                                    <option value="Local">Local</option>
+                                    <option value="duplex">Duplex</option>
+                                   
+                                </SELECT>
                             </div>
                             
                             <div class="input-group mb-3">
-                            <input type="number" name="surface" class="form-control input_user" placeholder="Surface en m²" required>
+                            <input type="number" name="surface" class="form-control input_user" placeholder="Surface en m²"  required>
                             </div>
 
                             <div class="input-group mb-3">
-                            <input type="number" name="nbr_etages" class="form-control input_user" placeholder="Nombre d'étages" required>
+                            <input type="number" name="nbr_etages" class="form-control input_user" placeholder="Etage(s)" required>
                             </div>
 
                             <div class="input-group mb-3">
@@ -140,7 +149,7 @@ else{
                             </div>
                             <span class="span_deposer_annonce">Prix du bien</span>
                             <div class="input-group mb-3">
-                            <input type="number" name="prix" class="form-control input_user" placeholder="Prix du bien en DA" required>
+                            <input type="number" name="prix" class="form-control input_user" placeholder="Prix du bien en DA" step="100000" required>
                             </div>
 
                             <div class="input-group mb-3">
@@ -190,22 +199,24 @@ else{
                                     
                                     //   insertion dans la base de donnee
                                     $proprio=$_SESSION["nom"].' '.$_SESSION["prenom"]; 
-                                    $insert=$db->prepare('INSERT INTO demande_annonce VALUES(NULL,?,?,?,?,?,?,?,?,?)');
-                                    $insert->execute(array($_POST["titre"],$_POST["description"],$_POST["daira"],$_POST["commune"],$_POST["surface"],$_POST["nbr_etages"],$_POST["prix"],$lien_img,$proprio));
-                                    
+                                    $insert=$db->prepare('INSERT INTO demande_annonce VALUES(NULL,?,?,?,?,?,?,?,?,?,?,?,?)');
+                                    $insert->execute(array($_POST["titre"],$_POST["description"],$_POST["daira"],$_POST["commune"],$_POST["adresse"],$_POST["type_bien"],$_POST["surface"],$_POST["nbr_etages"],$_POST["nbr_pieces"],$_POST["prix"],$lien_img,$proprio));
+                                    ?>
+                                    <meta http-equiv="refresh" content="0;url=./deposer_annonce.php" />
+                                    <?php
                                 }
 
 
                             ?>
 
                     </form>
-
+<!--*******************************************************************************************************************************************************************************************-->
                     <!-- formulaire de location  -->	
                     <form enctype="multipart/form-data" action="" method="post" class="form_inscription" id="form_louer">
                             <h3>Louer un bien</h3>  
                             <span class="span_deposer_annonce">Titre de l'annonce</span>
                             <div class="input-group mb-3">
-                            <input type="text" name="titre" class="form-control input_user" placeholder="Titre de l'annonce" required><br>
+                            <input type="text" name="titre_loc" class="form-control input_user" placeholder="Titre de l'annonce" required><br>
                             </div>
 
                             
@@ -213,7 +224,7 @@ else{
                             <span class="span_deposer_annonce">Localisation du bien</span>
                             <div class="input-group mb-3">
                             <span></span>
-                                <SELECT id="daira" name="daira" class="form-control input_user" onchange="filtre_commune()" required>
+                                <SELECT id="daira" name="daira_loc" class="form-control input_user" onchange="filtre_commune_louer()" required>
                                     <option value="" disabled selected> Daïra</option>
                                     <option value="01-Ain El Hammam">01-Ain El Hammam</option>
                                     <option value="02-Azazga">02-Azazga</option>
@@ -242,7 +253,7 @@ else{
                             </div>
                             <div class="input-group mb-3"> 
                                 <span></span>
-                                <SELECT id="commune"  name="commune" class="form-control input_user"required>
+                                <SELECT id="commune"  name="commune_loc" class="form-control input_user"required>
                                     <option value="" disabled selected>Commune</option>
                                 
                                 </SELECT>
@@ -250,50 +261,59 @@ else{
 
                             </div>
                             <div class="input-group mb-3">
-                            <input type="text" name="Adresse" class="form-control input_user" placeholder="Adresse" required>
+                            <input type="text" name="adresse_loc" class="form-control input_user" placeholder="Adresse" required>
                             </div>
                             <span class="span_deposer_annonce">Caractéristiques du bien</span>
 
                             <div class="input-group mb-3">
-                            <input type="text" name="type_bien" class="form-control input_user" placeholder="Type du bien" required>
+                            <SELECT id="daira" name="type_bien_loc" class="form-control input_user" required>
+                                    <option value="" disabled selected>Type du bien</option>
+                                    <option value="appartement">Appartement</option>
+                                    <option value="studio">Studio</option>
+                                    <option value="villa">Villa</option>
+                                    <option value="niveau de villa">Niveau de villa</option>
+                                    <option value="Local">Local</option>
+                                    <option value="duplex">Duplex</option>
+                                   
+                                </SELECT>
                             </div>
                             
                             <div class="input-group mb-3">
-                            <input type="number" name="surface" class="form-control input_user" placeholder="Surface en m²" required>
+                            <input type="number" name="surface_loc" class="form-control input_user" placeholder="Surface en m²"  required>
                             </div>
 
                             <div class="input-group mb-3">
-                            <input type="number" name="nbr_etages" class="form-control input_user" placeholder="Nombre d'étages" required>
+                            <input type="number" name="nbr_etages_loc" class="form-control input_user" placeholder="Etage(s)" required>
                             </div>
 
                             <div class="input-group mb-3">
-                            <input type="number" name="nbr_pieces" class="form-control input_user" placeholder="Nombre de piéces" required>
+                            <input type="number" name="nbr_pieces_loc" class="form-control input_user" placeholder="Nombre de piéces" required>
                             </div>
                            
                             <span class="span_deposer_annonce">Description de votre bien</span>
-                            <textarea name="description" cols="35"  rows="10" class="discription_annonce" placeholder="Description du bien" required></textarea><br>
+                            <textarea name="description_loc" cols="35"  rows="10" class="discription_annonce" placeholder="Description du bien" required></textarea><br>
                             <span class="span_deposer_annonce">Photos du bien</span>
                             <div class="input-group mb-3">
 
-                            <input type="file" name="image_annonce" class="btn login_btn" id="btn_image" required><br>
+                            <input type="file" name="image_annonce_loc" class="btn login_btn" id="btn_image" required><br>
                             </div>
-                            <span class="span_deposer_annonce">Loyer/mois</span>
+                            <span class="span_deposer_annonce">Prix du bien</span>
                             <div class="input-group mb-3">
-                            <input type="number" name="prix" class="form-control input_user" placeholder="Loyer/mois en DA" required>
+                            <input type="number" name="prix_loc" class="form-control input_user" placeholder="Loyer/mois en DA" step="1000" required>
                             </div>
 
                             <div class="input-group mb-3">
-                            <input type="submit" value="Envoyer" class="btn login_btn" name="submit" onclick="alert('Votre annonce sera vérifiée et publiée');">
+                            <input type="submit" value="Envoyer" class="btn login_btn" name="submit_loc" onclick="alert('Votre annonce sera vérifiée et publiée');">
                             </div>
                             
                             <?php
-                                if(isset($_POST["submit"])){
+                                if(isset($_POST["submit_loc"])){
                                     
                                     
                                     
                                         $dossier_upload = 'upload/'; // dossier où sera déplacé le fichier
 
-                                        $tmp_fichier = $_FILES['image_annonce']['tmp_name'];
+                                        $tmp_fichier = $_FILES['image_annonce_loc']['tmp_name'];
 
                                         if( !is_uploaded_file($tmp_fichier) )
                                         {
@@ -302,7 +322,7 @@ else{
 
                                         // on vérifie  l'extension
 
-                                        $type_file = $_FILES['image_annonce']['type'];
+                                        $type_file = $_FILES['image_annonce_loc']['type'];
 
                                         if( !strstr($type_file, 'jpg') && !strstr($type_file, 'jpeg') && !strstr($type_file, 'bmp') && !strstr($type_file, 'gif') )
                                         {
@@ -314,7 +334,7 @@ else{
                                             $id_img=$select->fetch();
                                             
                                         // on copie le fichier dans le dossier de destination
-                                        $nom_fichier =$id_img[0].'_'.$_FILES['image_annonce']['name'];
+                                        $nom_fichier =$id_img[0].'_'.$_FILES['image_annonce_loc']['name'];
                                         //recuperer le lien de l'image
                                         $lien_img=$dossier_upload . $nom_fichier;
                                         if( !move_uploaded_file($tmp_fichier,"../".$dossier_upload . $nom_fichier) )
@@ -329,15 +349,17 @@ else{
                                     
                                     //   insertion dans la base de donnee
                                     $proprio=$_SESSION["nom"].' '.$_SESSION["prenom"]; 
-                                    $insert=$db->prepare('INSERT INTO demande_annonce VALUES(NULL,?,?,?,?,?,?,?,?,?)');
-                                    $insert->execute(array($_POST["titre"],$_POST["description"],$_POST["daira"],$_POST["commune"],$_POST["surface"],$_POST["nbr_etages"],$_POST["prix"],$lien_img,$proprio));
-                                    
+                                    $insert=$db->prepare('INSERT INTO demande_annonce_location VALUES(NULL,?,?,?,?,?,?,?,?,?,?,?,?)');
+                                    $insert->execute(array($_POST["titre_loc"],$_POST["description_loc"],$_POST["daira_loc"],$_POST["commune_loc"],$_POST["adresse_loc"],$_POST["type_bien_loc"],$_POST["surface_loc"],$_POST["nbr_etages_loc"],$_POST["nbr_pieces_loc"],$_POST["prix_loc"],$lien_img,$proprio));
+                                    ?>
+                                    <meta http-equiv="refresh" content="0;url=./deposer_annonce.php" />
+                                    <?php
                                 }
 
 
                             ?>
 
-                    </form>       
+                    </form>    
 
 				</div>
 		
