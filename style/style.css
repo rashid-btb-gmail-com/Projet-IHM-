@@ -52,8 +52,8 @@ li> a{
 }
 li :hover{
     transition: 0.7s;
-    background-color: #ff5722;
-    color:white;
+    background-color: #ff5722 ;
+    color:white ;
 }
 /***************************       page d'index        *********************************/
 /******************************* carousel ********************************/
@@ -108,6 +108,11 @@ height:550px;
     font-family: serif;
     height:300px;
 
+}
+.nonselect{
+    border-top-left-radius: 0.25rem;
+   border-top-right-radius: 0.25rem;
+   background-color: rgba(255, 255, 255, 0.4);
 }
 .searchform{
     margin-top: 50px;
