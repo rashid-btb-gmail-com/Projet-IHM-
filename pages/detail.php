@@ -37,6 +37,7 @@ $choisie = $detail_bien->fetch();
            <div class="infosugg">
            <p>'.$donne['titre'].'</p>
             <a href="../pages/detail.php?id='.$donne['id'].'">Voir Detail</a> 
+
             </div>
          </div>');}
          $bienrep->closeCursor();
@@ -59,9 +60,13 @@ $choisie = $detail_bien->fetch();
 <p><b> Description:</b> <br/>'.$choisie['description'].' </p>
 <h5> Prix = '.$choisie['prix'].' DA Negociable </h5> 
 <div class=" liendemanderdv">
-<a href="./demande_rdv.php?id='.$choisie['id'].'" class="rdvdmdbien">Demander Un Rendez-Vous de Visite</a> 
+<a href="./demande_rdv.php?id='.$choisie['id'].'" class="rdvdmdbien">Demander Un Rendez-Vous de Visite</a>
 </div>
+
+<a href="action.php?t=1&id= '.$choisie['id'].'"> fav </a>
+
 '); 
+
 $_SESSION["url_prec"]="./demande_rdv.php?id=".$choisie['id'];
 $detail_bien->closeCursor();
  ?>
