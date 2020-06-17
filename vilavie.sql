@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mar. 09 juin 2020 à 20:36
+-- Généré le :  mer. 17 juin 2020 à 19:18
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -159,8 +159,17 @@ CREATE TABLE IF NOT EXISTS `rdv_confirmer` (
   `client` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `lieu` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `date` date NOT NULL,
+  `heur` time NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `rdv_confirmer`
+--
+
+INSERT INTO `rdv_confirmer` (`id`, `client`, `lieu`, `date`, `heur`) VALUES
+(20, 'massi', 'a proximitÃ© ', '2020-06-18', '05:02:00'),
+(21, ' ', 'A l\'agence ', '2020-06-27', '12:00:00');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
