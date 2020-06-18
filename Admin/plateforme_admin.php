@@ -21,14 +21,14 @@
     ?>
     
     <!--**************************************Menu administrateur **********************************-->
-    <nav class="menu_admin">
+<nav class="menu_admin">
     <img src="../images/logo.png" alt="logo_agence">
     <div class="profileadmin">
         <input type="image" src="../images/user.png" alt="photo de profile" class="photo_profil">
         <h2 class="nom_admin">NOM Prenom </h2>
     </div>
     <div class="menubien">
-        <a href="?action=ajouter_bien" class="onglet_admin" id="onglet1">Ajouter un bien</a>
+        <a href="?action=ajouter_bien" class="onglet_admin" id="onglet1" >Ajouter un bien</a>
         <a href="?action=gerer_biens" class="onglet_admin" id="onglet2" onclick="">Gerer les biens</a>
         <a href="?action=confirmer_annonces" class="onglet_admin" id="onglet3" onclick="">Confirmer les annonces</a>
     </div> 
@@ -40,7 +40,7 @@
     <div class="menuclient">
         <a href="?action=clients" class="onglet_admin " id="onglet7" onclick="">Clients</a>
     </div>
-        </nav>
+</nav>
 
 
         <div class="container">
@@ -69,28 +69,28 @@
                                 <textarea name="description" cols="35"  rows="10" class="inp_insc" style="height:150px; resize: none;" placeholder="Description du bien" require></textarea><br>
                                 <!--*********   liste des dairas de tizi ouzou   **********-->
                                 <SELECT id="daira" name="daira" class="inp_insc" onchange="filtre_commune()" required>
-                                    <option value="" disabled selected> Daïra</option>
-                                    <option value="01-Ain El Hammam">01-Ain El Hammam</option>
-                                    <option value="02-Azazga">02-Azazga</option>
-                                    <option value="03-Azeffoun ">03-Azeffoun</option>
-                                    <option value="04-Beni Douala">04-Beni Douala</option>
-                                    <option value="05-Beni Yenni">05-Beni Yenni</option>
-                                    <option value="06-Boghni">06-Boghni</option>
-                                    <option value="07-Bouzguen">07-Bouzguen</option>
-                                    <option value="08-Draâ Ben Khedda">08-Draâ Ben Khedda</option>
-                                    <option value="09-Draâ El Mizan">09-Draâ El Mizan</option>
-                                    <option value="10-Iferhounène">10-Iferhounène</option>
-                                    <option value="11-Larbaâ Nath Irathen">11-Larbaâ Nath Irathen</option>
-                                    <option value="12-Mâatkas">12-Mâatkas</option>
-                                    <option value="13-Makouda">13-Makouda</option>
-                                    <option value="14-Mekla">14-Mekla</option>
-                                    <option value="15-Ouacif">15-Ouacif</option>
-                                    <option value="16-Ouadhia">16-Ouadhia</option>
-                                    <option value="17-Ouaguenoun">17-Ouaguenoun</option>
-                                    <option value="18-Tigzirt">18-Tigzirt</option>
-                                    <option value="19-Tizi Gheniff">19-Tizi Gheniff</option>
-                                    <option value="20-Tizi Ouzou">20-Tizi Ouzou</option>
-                                    <option value="21-Tizi Rached">21-Tizi Rached</option>
+                                <option value="" disabled selected> Daïra</option>
+                                <option value="01-Ain El Hammam">01-Ain El Hammam</option>
+                                <option value="02-Azazga">02-Azazga</option>
+                                <option value="03-Azeffoun ">03-Azeffoun</option>
+                                <option value="04-Beni Douala">04-Beni Douala</option>
+                                <option value="05-Beni Yenni">05-Beni Yenni</option>
+                                <option value="06-Boghni">06-Boghni</option>
+                                <option value="07-Bouzguen">07-Bouzguen</option>
+                                <option value="08-Draâ Ben Khedda">08-Draâ Ben Khedda</option>
+                                <option value="09-Draâ El Mizan">09-Draâ El Mizan</option>
+                                <option value="10-Iferhounène">10-Iferhounène</option>
+                                <option value="11-Larbaâ Nath Irathen">11-Larbaâ Nath Irathen</option>
+                                <option value="12-Mâatkas">12-Mâatkas</option>
+                                <option value="13-Makouda">13-Makouda</option>
+                                <option value="14-Mekla">14-Mekla</option>
+                                <option value="15-Ouacif">15-Ouacif</option>
+                                <option value="16-Ouadhia">16-Ouadhia</option>
+                                <option value="17-Ouaguenoun">17-Ouaguenoun</option>
+                                <option value="18-Tigzirt">18-Tigzirt</option>
+                                <option value="19-Tizi Gheniff">19-Tizi Gheniff</option>
+                                <option value="20-Tizi Ouzou">20-Tizi Ouzou</option>
+                                <option value="21-Tizi Rached">21-Tizi Rached</option>
                             </SELECT>
                                     
                                 <!--*********   liste des communes de tizi ouzou   **********-->
@@ -140,7 +140,9 @@
                                                 exit("Impossible de copier le fichier dans $dossier_upload");
                                             }
         
-                                            echo "  Le fichier a bien été uploadé";
+                                            echo "  <script>
+                                            alert(\"Le bien a été Ajouté\");
+                                            </script> ";
                                             
                                             
                                             //   insertion dans la base de donnee
@@ -163,7 +165,7 @@
                             ?>
                             <div class="form_admin">
                             <h2>Liste des biens :</h2>
-                                <div style="height: 250px; width: 700px; overflow: auto;">
+                                <div style="height: 400px; width: 800px; overflow: auto;">
                                     <table class="liste_biens" cellpadding="3" rules="all">
                                         <colgroup span="6" class="columns"></colgroup>
                                         <tr>
@@ -212,6 +214,9 @@
                                     $supprimer=$db->prepare("DELETE FROM biens WHERE id = $id");
                                     $supprimer->execute();
                                     ?>
+                                    <script>
+                                    alert("Le bien a été Supprimer");
+                                    </script>
                                     <meta http-equiv="refresh" content="0;url=./plateforme_admin.php?action=gerer_biens" />
                                     <?php
                                     }
@@ -251,6 +256,7 @@
                                                         $modifier->execute();
 
                                                         ?>
+                                                        <script> alert("Le bien a été Modifié"); </script>
                                                         <meta http-equiv="refresh" content="0;url=./plateforme_admin.php?action=gerer_biens" />
                                                         <?php
                                                         
@@ -277,7 +283,8 @@
                                         <colgroup span="6" class="columns"></colgroup>
                                         <tr>
                                             <th>Titre</th>
-                                            <th>Type du bien</th>
+                                            <th>Surface</th>
+                                            <th>Etages</th>
                                             <th>Daïra</th>
                                             <th>Commune</th>
                                             <th>Propriétaire</th>
@@ -289,14 +296,13 @@
                                             ?>
                                             <tr>
                                                 <td><?php echo $donnees["titre"] ?></td>
-                                                <td><?php echo $donnees["type_bien"] ?></td>
+                                                <td><?php echo $donnees["surface"] ?></td>
+                                                <td><?php echo $donnees["etage"] ?></td>
                                                 <td><?php echo $donnees["daira"] ?></td>
                                                 <td><?php echo $donnees["commune"] ?></td>
                                                 <td><?php echo $donnees["proprietaire"] ?></td>
-                                                <td><a href="?action=confirmer_annonces&amp;action2=voir_plus&amp;id=<?php echo $donnees["id"]; ?>" title="Refuser l'annoce" class="voir_plus">Plus de détails</a></td>
                                                 <td><a href="?action=confirmer_annonces&amp;action2=accepter&amp;id=<?php echo $donnees["id"]; ?>" title="Accepter l'annonce"class="icon_supprimer" style="color:green;"><i class="fas fa-check" ></i></a></td>
                                                 <td><a href="?action=confirmer_annonces&amp;action2=supprimer&amp;id=<?php echo $donnees["id"]; ?>" title="Refuser l'annoce"class="icon_supprimer "><i class="fas fa-times" ></i></a></td>
-                                                
                                                 
                                             </tr>
 
@@ -311,12 +317,13 @@
                                             $id=$_GET["id"];
                                             $select=$db->query("SELECT * FROM demande_annonce WHERE id=$id");
                                             while($donnees=$select->fetch()){
-                                                $insert=$db->prepare('INSERT INTO biens VALUES(NULL,?,?,?,?,?,?,?,?,?,?,?,?)');
-                                                $insert->execute(array($donnees["titre"],$donnees["description"],$donnees["daira"],$donnees["commune"],$donnees["adresse"],$donnees["type_bien"],$donnees["surface"],$donnees["etage"],$donnees["pieces"],$donnees["prix"],$donnees["lien_img"],$donnees["proprietaire"]));
+                                                $insert=$db->prepare('INSERT INTO biens VALUES(NULL,?,?,?,?,?,?,?,?,?)');
+                                                $insert->execute(array($donnees["titre"],$donnees["description"],$donnees["daira"],$donnees["commune"],$donnees["surface"],$donnees["etage"],$donnees["prix"],$donnees["lien_img"],$donnees["proprietaire"]));
                                                 $supprimer=$db->prepare("DELETE FROM demande_annonce WHERE id = $id");
                                                 $supprimer->execute();
                                                 ?>
                                                 <meta http-equiv="refresh" content="0;url=./plateforme_admin.php?action=confirmer_annonces" />
+                                                <script> alert("La demande d'annonce a été Accepter");  </script>
                                                 <?php
                                             }
                                 
@@ -327,6 +334,7 @@
                                                 $supprimer=$db->prepare("DELETE FROM demande_annonce WHERE id = $id");
                                                 $supprimer->execute();
                                                 ?>
+                                                <script> alert("La demande d'annonce a été Refuser");  </script>
                                                 <meta http-equiv="refresh" content="0;url=./plateforme_admin.php?action=confirmer_annonces" />
                                                 <?php
                                             }
@@ -351,20 +359,21 @@
                                 <h2>Ajouter un rendez-vous :</h2>
                                 <input type="text" name="client" class="inp_insc" placeholder="Client" ><br>
                                 <input type="text" name="lieu" class="inp_insc" placeholder="Lieu du rendez-vous"><br>
-                                <span>Date du rendez-vous :</span>
-                                <input type="date" name="date_rdv" class="inp_insc"><br>
+                                <span>Date et temps du rendez-vous :</span>
+                                <input type="date" name="date_rdv" class="inp_insc">
+                                <input type="time" name="time_rdv" class="inp_insc"><br>
                                 
                                 
                                 <input type="submit" value="Enregister" class="btn_inscr" name="submit">
                                     <?php
                                         if(isset($_POST["submit"])){
                                             $date=$_POST["date_rdv"];
-                                            
+                                            $timerdv=$_POST["time_rdv"];
 
                                             //   insertion dans la base de donnee
-                                            $insert=$db->prepare('INSERT INTO rdv_confirmer VALUES(NULL,?,?,?)');
-                                            $insert->execute(array($_POST["client"],$_POST["lieu"],$date));
-                                            
+                                            $insert=$db->prepare('INSERT INTO rdv_confirmer VALUES(NULL,?,?,?,?)');
+                                            $insert->execute(array($_POST["client"],$_POST["lieu"],$date,$timerdv));
+                                            echo("<script> alert(\"Le RDV a été Enregistrer\");  </script>");
                                         }
 
 
@@ -418,102 +427,97 @@
                                             $select->execute(array($date));
                                         }
                                         
-                                            ?>
-                                        <div style="height: 400px; width: 650px; overflow: auto;">
-                                            <table class="liste_biens" cellpadding="3" rules="all">
-                                            <colgroup span="3" class="columns"></colgroup>
-                                            <tr>
-                                            <th>Client</th>
-                                            <th>Lieu</th>
-                                            <th>Date et Heure</th>
-                                            
-                                            </tr>
-                                        <?php
-                                        
-                                        while($donnees=$select->fetch()){
-                                            
-                                            ?>
-                                            <tr>
-                                                <td><?php echo $donnees["client"] ?></td>
-                                                <td><?php echo $donnees["lieu"] ?></td>
-                                                <td><?php echo $donnees["date"] ?></td>
-                                                <td><a href="?action=gerer_rdv&action2=modifier&id=<?php echo $donnees["id"]; ?>" title="Modifier le rdv" class="icon_supprimer" style="color:green;"><i class="far fa-edit"></i></a></td>
-                                                <td><a href="?action=gerer_rdv&action2=supprimer&id=<?php echo $donnees["id"]; ?>" title="Supprimer le rdv" class="icon_supprimer"><i class="far fa-trash-alt"></i></a></td>
-                                                
-                                            </tr>
-        
-                                            <?php
-                                        }
-        
-                                        //********************  supprimer des rdv    **************************** */
-                                        
-                                        if(isset($_GET["action2"])=="supprimer"){
-                                            $id=$_GET["id"];
-                                            $supprimer=$db->prepare("DELETE FROM rdv_confirmer WHERE id = $id");
-                                            $supprimer->execute();
-                                            ?>
-                                            <meta http-equiv="refresh" content="0;url=./plateforme_admin.php?action=gerer_rdv" />
-                                            <?php
-
-                                        }
-                                        
-                                        ?>
-                                        
-                                        
-                                        </table>
-                                    </div>
-                                        <?php
-                                        
-                                }
-                                else{
-                                        ?>
+                                     } ?>
+                                     <div style="height: 400px; width: 700px; overflow: auto;">
                                     <table class="liste_biens" cellpadding="3" rules="all">
-                                        <colgroup span="3" class="columns"></colgroup>
-                                        <tr>
+                                            <colgroup span="4" class="columns"></colgroup>
+                                            <tr>
                                             <th>Client</th>
                                             <th>Lieu</th>
-                                            <th>Date et Heure</th>
+                                            <th>Date</th>
+                                            <th>heur</th>
                                             
-                                        </tr>
-                                        <?php
+                                            </tr>
+                                          <?php
                                         
-                                        while($donnees=$select->fetch()){
+                                         while($donnees=$select->fetch()){
                                             
                                             ?>
                                             <tr>
                                                 <td><?php echo $donnees["client"] ?></td>
                                                 <td><?php echo $donnees["lieu"] ?></td>
                                                 <td><?php echo $donnees["date"] ?></td>
+                                                <td><?php echo $donnees["heur"] ?></td>
                                                 <td><a href="?action=gerer_rdv&action2=modifier&id=<?php echo $donnees["id"]; ?>" title="Modifier le rdv" class="icon_supprimer" style="color:green;"><i class="far fa-edit"></i></a></td>
                                                 <td><a href="?action=gerer_rdv&action2=supprimer&id=<?php echo $donnees["id"]; ?>" title="Supprimer le rdv" class="icon_supprimer"><i class="far fa-trash-alt"></i></a></td>
                                                 
                                             </tr>
+                                            
         
                                             <?php
                                         }
-        
+                                        ?>
+                                        </table>
+                               
+                               </div>
+                               </form>
+                               <?php
+                                
                                         //********************  supprimer des rdv    **************************** */
-                                        
-                                        if(isset($_GET["action2"])=="supprimer"){
-                                            $id=$_GET["id"];
+                                if(isset($_GET["action2"])){ 
+                                    $id=$_GET["id"];
+                                        if($_GET["action2"]=="supprimer"){
+                                           
                                             $supprimer=$db->prepare("DELETE FROM rdv_confirmer WHERE id = $id");
                                             $supprimer->execute();
                                             ?>
+                                            <script> alert("Le RDV a été Supprimer");  </script>
                                             <meta http-equiv="refresh" content="0;url=./plateforme_admin.php?action=gerer_rdv" />
                                             <?php
+
                                         }
+                                        //***************************modifier RDV ************************//
+                                    if($_GET["action2"]=="modifier"){
                                         
+                                        $select=$db->query("SELECT client FROM rdv_confirmer WHERE id=$id");
+                                        $donnees=$select->fetch();
                                         ?>
-                                        
-                                        
-                                    </table>
-                                    <?php
-                                    }
-                                ?>
-                            </form>
+                                        <div class="modifier_bien">
+                                            <h3>Modification du RDV de : <?php echo $donnees[0]; ?></h3><br>
+                                            <form action="" method="post">
+                                                <input list="champ_a_modifier2" name="champ_modifier2" placeholder="Champ à modifier" class="inp_insc" required>            
+                                                    <datalist id="champ_a_modifier2">
+                                                    <option value="lieu">
+                                                    <option value="date">
+                                                    <option value="heur">
+                                                    </datalist> 
+                                                <br>
+                                                <input type="text" name="modification2" placeholder="Modification" class="inp_insc" required><br>
+                                                <input type="submit" name="valider_modification" value="Valider">
+
+                                                <?php 
+                                                    if(isset($_POST["valider_modification"])){
+                                                        
+                                                        $champ_modifier=$_POST["champ_modifier2"];
+                                                        $modification=$_POST['modification2'];
+                                                        echo $champ_modifier;
+                                                        $modifier=$db->prepare("UPDATE rdv_confirmer SET $champ_modifier='$modification' WHERE id=$id");
+                                                        $modifier->execute();
+
+                                                        ?>
+                                                        <script> alert("Le RDV a été Modifié"); </script>
+                                                        <meta http-equiv="refresh" content="0;url=./plateforme_admin.php?action=gerer_rdv" />
+                                                        <?php
+                                                        
+                                                    } ?>
+                                               
 
 
-                            </div>
+                                             </div>
+                            <?php   }            
+                        }
+                               ?>      
+                            
                             <?php
                         }
                         //****************************  afficher et gerer toutes les demande de RDV *************** */
@@ -553,27 +557,29 @@
                                         //**************************    accepter et supprimerl'annonce *********************** */
                                         if(isset($_GET["action2"])){
                                             //accepter
-                                            if($_GET["action2"]=="accepter"){
+                                         if($_GET["action2"]=="accepter"){
                                                 
                                             $id=$_GET["id"];
                                             $select=$db->query("SELECT * FROM demande_rdv WHERE id=$id");
                                             while($donnees=$select->fetch()){
-                                                $insert=$db->prepare('INSERT INTO rdv_confirmer VALUES(NULL,?,?,?)');
-                                                $insert->execute(array($donnees["client"],$donnees["lieu"],$donnees["date"]." ".$donnees["time"]));
+                                                $insert=$db->prepare('INSERT INTO rdv_confirmer VALUES(NULL,?,?,?,?)');
+                                                $insert->execute(array($donnees["client"],$donnees["lieu"],$donnees["date"],$donnees["time"]));
                                                 $supprimer=$db->prepare("DELETE FROM demande_rdv WHERE id = $id");
                                                 $supprimer->execute();
                                                 ?>
+                                                <script> alert("La demande de RDV a été Accepter");  </script>
                                                 <meta http-equiv="refresh" content="0;url=./plateforme_admin.php?action=confirmer_rdv" />
                                                 <?php
                                             }
                                 
-                                            }
+                                         }
                                             //supprimer
                                             if($_GET["action2"]=="supprimer"){
                                                 $id=$_GET["id"];
                                                 $supprimer=$db->prepare("DELETE FROM demande_rdv WHERE id = $id");
                                                 $supprimer->execute();
                                                 ?>
+                                                <script> alert("La demande de RDV a été Refusé");  </script>
                                                 <meta http-equiv="refresh" content="0;url=./plateforme_admin.php?action=confirmer_rdv" />
                                                 <?php
                                             }
@@ -629,6 +635,7 @@
                                         $supprimer=$db->prepare("DELETE FROM clients WHERE id = $id");
                                         $supprimer->execute();
                                         ?>
+                                        <script> alert("Le client a été Supprimer de la liste");  </script>
                                         <meta http-equiv="refresh" content="0;url=./plateforme_admin.php?action=clients" />
                                         <?php
                                         }
@@ -686,6 +693,7 @@
                                         $supprimer=$db->prepare("DELETE FROM contact_msg WHERE id = $id");
                                         $supprimer->execute();
                                         ?>
+                                        <script> alert("Le message a été Supprimer");  </script>
                                         <meta http-equiv="refresh" content="0;url=./plateforme_admin.php?action=msg" />
                                         <?php
                                         }

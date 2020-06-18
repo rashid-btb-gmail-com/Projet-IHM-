@@ -142,17 +142,13 @@ h2.nom_admin {
     color: red;
 }
 
-.voir_plus{
-    text-decoration: none;
-    color: #000ed3;
-}
 /*************************************   form modification  **************************************/
 
 .modifier_bien{
     position: absolute;
-    top: 50px;
-    width: 378px;
-    left: 715px;
+    top: 130px;
+    width: 260px;
+    left: 820px;
     border: 1px solid black;
     background-color: #ecf0f1;
     padding: 10px;
