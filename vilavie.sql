@@ -1,19 +1,4 @@
--- phpMyAdmin SQL Dump
--- version 4.9.2
--- https://www.phpmyadmin.net/
---
--- Hôte : 127.0.0.1:3306
-<<<<<<< HEAD
--- Généré le :  mer. 17 juin 2020 à 19:18
--- Version du serveur :  5.7.26
--- Version de PHP :  7.2.18
-=======
--- Généré le :  mer. 17 juin 2020 à 15:32
--- Version du serveur :  10.4.10-MariaDB
--- Version de PHP :  7.3.12
->>>>>>> ed76d6617dedd5977c87ddbf984ece9b7971cb46
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+﻿
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";

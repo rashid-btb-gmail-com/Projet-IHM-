@@ -163,7 +163,7 @@
                             ?>
                             <div class="form_admin">
                             <h2>Liste des biens :</h2>
-                                <div style="height: 250px; width: 700px; overflow: auto;">
+                                <div style="height: 250px; width: 730px; overflow: auto;">
                                     <table class="liste_biens" cellpadding="3" rules="all">
                                         <colgroup span="6" class="columns"></colgroup>
                                         <tr>
@@ -383,7 +383,7 @@
                             <h2>Liste des RDV :</h2>
 
 
-                            <!--****    filtre pour les rdv   **************     -->
+                            <!--**************    filtre pour les rdv   **************     -->
                             <form action="" method="post" class="filtre">
                                 <input type="text" name="client_filtre" class="inp_insc" placeholder="Nom du client">
                                 <input type="text" name="lieu_filtre" class="inp_insc" placeholder="lieu du rdv">
@@ -457,6 +457,49 @@
 
                                         }
                                         
+
+                                        if($_GET["action2"]=="modifier"){
+                                    
+
+                                            $select=$db->query("SELECT client FROM rdv_confirmer WHERE id=$id");
+                                            $donnees=$select->fetch();
+                                            ?>
+                                            <div class="modifier_bien">
+                                                <h3>Modification du RDV de : <?php echo $donnees[0]; ?></h3><br>
+                                                <form action="" method="post">
+                                                    <input list="champ_a_modifier2" name="champ_modifier2" placeholder="Champ à modifier" class="inp_insc" required>            
+                                                        <datalist id="champ_a_modifier2">
+                                                        <option value="lieu">
+                                                        <option value="date">
+                                                        <option value="heur">
+                                                        </datalist> 
+                                                    <br>
+                                                    <input type="text" name="modification" placeholder="Modification" class="inp_insc" required><br>
+                                                    <input type="submit" name="valider_modification" value="Valider">
+    
+                                                    <?php 
+                                                        if(isset($_POST["valider_modification"])){
+                                                            
+                                                            $champ_modifier=$_POST["champ_modifier2"];
+                                                            $modification=$_POST['modification'];
+                                                            echo $champ_modifier;
+                                                            $modifier=$db->prepare("UPDATE rdv_confirmer SET $champ_modifier='$modification' WHERE id=$id");
+                                                            $modifier->execute();
+    
+                                                            ?>
+                                                            <script> alert("Le RDV a été Modifié"); </script>
+                                                            <meta http-equiv="refresh" content="0;url=./plateforme_admin.php?action=gerer_rdv" />
+                                                            <?php
+                                                            
+                                                        } ?>
+                                                   
+    
+    
+                                                 </div>
+                                <?php   }
+
+
+
                                         ?>
                                         
                                         
@@ -493,15 +536,57 @@
                                         }
         
                                         //********************  supprimer des rdv    **************************** */
-                                        
-                                        if(isset($_GET["action2"])=="supprimer"){
+                                    if(isset($_GET["action2"])){    
+                                        if($_GET["action2"]=="supprimer"){
                                             $id=$_GET["id"];
                                             $supprimer=$db->prepare("DELETE FROM rdv_confirmer WHERE id = $id");
                                             $supprimer->execute();
+                                            echo "aaaaaa";
                                             ?>
                                             <meta http-equiv="refresh" content="0;url=./plateforme_admin.php?action=gerer_rdv" />
                                             <?php
                                         }
+
+
+                                        if($_GET["action2"]=="modifier"){
+                                            $id=$_GET["id"];
+
+                                            $select=$db->query("SELECT client FROM rdv_confirmer WHERE id=$id");
+                                            $donnees=$select->fetch();
+                                            ?>
+                                            <div class="modifier_bien">
+                                                <h3>Modification du RDV de : <?php echo $donnees[0]; ?></h3><br>
+                                                <form action="" method="post">
+                                                    <input list="champ_a_modifier2" name="champ_modifier2" placeholder="Champ à modifier" class="inp_insc" required>            
+                                                        <datalist id="champ_a_modifier2">
+                                                        <option value="lieu">
+                                                        <option value="date">
+                                                        <option value="heur">
+                                                        </datalist> 
+                                                    <br>
+                                                    <input type="text" name="modification" placeholder="Modification" class="inp_insc" required><br>
+                                                    <input type="submit" name="valider_modification" value="Valider">
+    
+                                                    <?php 
+                                                        if(isset($_POST["valider_modification"])){
+                                                            
+                                                            $champ_modifier=$_POST["champ_modifier2"];
+                                                            $modification=$_POST['modification'];
+                                                            echo $champ_modifier;
+                                                            $modifier=$db->prepare("UPDATE rdv_confirmer SET $champ_modifier='$modification' WHERE id=$id");
+                                                            $modifier->execute();
+    
+                                                            ?>
+                                                            <script> alert("Le RDV a été Modifié"); </script>
+                                                            <meta http-equiv="refresh" content="0;url=./plateforme_admin.php?action=gerer_rdv" />
+                                                            <?php
+                                                            
+                                                        } ?>
+                                                   
+    
+    
+                                                 </div>
+                                <?php   }
                                         
                                         ?>
                                         
@@ -509,6 +594,7 @@
                                     </table>
                                     <?php
                                     }
+                                }
                                 ?>
                             </form>
 

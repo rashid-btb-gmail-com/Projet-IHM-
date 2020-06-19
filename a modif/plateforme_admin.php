@@ -287,7 +287,7 @@
                                             <th>Etages</th>
                                             <th>Daïra</th>
                                             <th>Commune</th>
-                                            <th>Propriétaire</th>
+                                            <th>Proaire</th>
                                         </tr>
                                         <?php
                                         
@@ -317,8 +317,8 @@
                                             $id=$_GET["id"];
                                             $select=$db->query("SELECT * FROM demande_annonce WHERE id=$id");
                                             while($donnees=$select->fetch()){
-                                                $insert=$db->prepare('INSERT INTO biens VALUES(NULL,?,?,?,?,?,?,?,?,?)');
-                                                $insert->execute(array($donnees["titre"],$donnees["description"],$donnees["daira"],$donnees["commune"],$donnees["surface"],$donnees["etage"],$donnees["prix"],$donnees["lien_img"],$donnees["proprietaire"]));
+                                                $insert=$db->prepare('INSERT INTO biens VALUES(NULL,?,?,?,?,?,?,?,?,?,?,?,?)');
+                                                $insert->execute(array($donnees["titre"],$donnees["description"],$donnees["daira"],$donnees["commune"],$donnees["adresse"],$donnees["type_bien"],$donnees["surface"],$donnees["etage"],,$donnees["pieces"]$donnees["prix"],$donnees["lien_img"],$donnees["proprietaire"]));
                                                 $supprimer=$db->prepare("DELETE FROM demande_annonce WHERE id = $id");
                                                 $supprimer->execute();
                                                 ?>
@@ -515,7 +515,7 @@
 
                                              </div>
                             <?php   }            
-                        }
+                         }
                                ?>      
                             
                             <?php

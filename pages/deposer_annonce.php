@@ -198,7 +198,7 @@ else{
                                             
                                     
                                     //   insertion dans la base de donnee
-                                    $proprio=$_SESSION["nom"].' '.$_SESSION["prenom"]; 
+                                    $proprio=$_SESSION["nom"].' '.$_SESSION["prenom"];  
                                     $insert=$db->prepare('INSERT INTO demande_annonce VALUES(NULL,?,?,?,?,?,?,?,?,?,?,?,?)');
                                     $insert->execute(array($_POST["titre"],$_POST["description"],$_POST["daira"],$_POST["commune"],$_POST["adresse"],$_POST["type_bien"],$_POST["surface"],$_POST["nbr_etages"],$_POST["nbr_pieces"],$_POST["prix"],$lien_img,$proprio));
                                     ?>

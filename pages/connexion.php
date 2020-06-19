@@ -68,13 +68,14 @@
 					<?php 
 					$_SESSION["url_prec"];
 					if(isset($_POST["submit"])){
-						$select=$db->query("SELECT username,password,nom,prenom FROM clients");
+						$select=$db->query("SELECT * FROM clients");
 						
 						while($donnees=$select->fetch()){
 							if(($_POST["username"]==$donnees["username"])&&($_POST["password"]==$donnees["password"])){
 								$_SESSION["username"]=$donnees["username"];								
 								$_SESSION["nom"]=$donnees["nom"];
 								$_SESSION["prenom"]=$donnees["prenom"];
+								$_SESSION["id"]=$donnees["id"];
 
 								//redirection vers le lien			
 								
