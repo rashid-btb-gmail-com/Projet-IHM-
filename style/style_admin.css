@@ -163,17 +163,27 @@ h2.nom_admin {
     display: flex;
     position: relative;
     top: 25px;
+    /* background-color: black; */
+    height: 40px;
 }
 .radio_vendre {
     text-align: center;
     margin-left: auto;
+    border-radius: 14px;
+    width: 150px;
     margin-right: auto;
+    background-color: #000;
 }
 .radio_louer {
     text-align: center;
     margin-left: auto;
+    border-radius: 14px;
+    width: 150px;
     margin-right: auto;
+    background-color: #000;
 }
+
+
 /**     bouton radio vendre louer (deposer annonce)         ***/
 .input_radio {
     -webkit-appearance: none;
@@ -186,7 +196,7 @@ h2.nom_admin {
     transition: 0.2s all linear;
     margin-right: 5px;
     position: relative;
-    top: 4px;
+    top: 8px;
   }
   
   .input_radio:checked {
@@ -200,4 +210,6 @@ h2.nom_admin {
 .label_radio{
     font-size: 20px;
     color: white;
+    top: 6px;
+    position: relative;
 }
