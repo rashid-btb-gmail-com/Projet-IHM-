@@ -13,7 +13,8 @@
     <?php
         session_start();
             $_SESSION["nom_admin"]="";
-            $_SESSION["psw_admin"]="";
+			$_SESSION["psw_admin"]="";
+			$_SESSION["btn_radio"]="vendre";
     ?>
 
 

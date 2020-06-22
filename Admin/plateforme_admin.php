@@ -13,6 +13,9 @@
 <body>
     <?php
     session_start();
+    // variable de session pour le bouton radio vendre / location
+    
+
     $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
          
         if(($_SESSION["nom_admin"]!="user")||($_SESSION["psw_admin"]!="1234")){
@@ -163,14 +166,17 @@
                         if($_GET["action"]=="gerer_biens"){
                             $select=$db->query('SELECT * FROM biens');
                             $select_loc=$db->query('SELECT * FROM biens_location');
+                            
                             ?>
+                            <div id="session"></div>
+
                             <div class="radio_vendre_louer">
                                 <div class="radio_vendre">
-                                    <input type="radio" name="vendre_louer" id="vendre" value="Vendre" class="input_radio" checked onclick="afficher_formulaire()">
+                                    <input type="radio" name="vendre_louer" id="vendre" value="Vendre" class="input_radio" <?php if($_SESSION["btn_radio"]=="vendre") echo "checked" ?> onclick="afficher_formulaire()">
                                     <label for="vendre" class="label_radio">Vente</label>
                                 </div>
                                 <div class="radio_louer">
-                                    <input type="radio" name="vendre_louer" id="louer" value="Louer"  class="input_radio" onclick="afficher_formulaire()">
+                                    <input type="radio" name="vendre_louer" id="louer" value="Louer"  class="input_radio" <?php if($_SESSION["btn_radio"]=="louer") echo "checked" ?>  onclick="afficher_formulaire()">
                                     <label for="louer" class="label_radio">Location</label>
                                 </div>
                             </div>
@@ -216,48 +222,7 @@
                                 </div>
                                        
                             </div>
-
-                            <div class="form_admin" id="form_louer">
-                                <h2>Liste des biens à louer:</h2>
-                                <div style="height: 400px; width: 800px; overflow: auto;">
-                                    <table class="liste_biens" cellpadding="3" rules="all">
-                                        <colgroup span="6" class="columns"></colgroup>
-                                        <tr>
-                                            <th>Titre</th>
-                                            <th>Surface</th>
-                                            <th>Etages</th>
-                                            <th>Daïra</th>
-                                            <th>Commune</th>
-                                            <th>Prix</th>
-                                            <th>Propriétaire</th>
-                                        </tr>
-                                        <?php
-                                        
-                                        while($donnees_loc=$select_loc->fetch()){
-                                            
-                                            ?>
-                                            <tr>
-                                                <td><?php echo $donnees_loc["titre"] ?></td>
-                                                <td><?php echo $donnees_loc["surface"] ?></td>
-                                                <td><?php echo $donnees_loc["etage"] ?></td>
-                                                <td><?php echo $donnees_loc["daira"] ?></td>
-                                                <td><?php echo $donnees_loc["commune"] ?></td>
-                                                <td><?php echo $donnees_loc["prix"] ?> DA</td>
-                                                <td><?php echo $donnees_loc["proprietaire"] ?></td>
-                                                <td><a href="?action=gerer_biens&amp;action2=modifier&amp;id=<?php echo $donnees["id"]; ?>" title="Modifier le bien"class="icon_supprimer" style="color:green;"><i class="far fa-edit"></i></a></td>
-                                                <td><a href="?action=gerer_biens&amp;action2=supprimer&amp;id=<?php echo $donnees["id"]; ?>" title="Supprimer le bien"class="icon_supprimer "><i class="far fa-trash-alt"></i></a></td>
-                                                
-                                            </tr>
-
-                                            <?php
-                                        }
-
-                                        ?>
-                                    
-                                    </table>
-                                </div>
-                                       
-                            </div>
+                            
                             <?php 
                                 //********************  supprimer ou modifier des biens    **************************** */
                                 if(isset($_GET["action2"])){
@@ -307,6 +272,112 @@
                                                         $modification=$_POST['modification'];
                                                         echo $champ_modifier;
                                                         $modifier=$db->prepare("UPDATE biens SET $champ_modifier='$modification' WHERE id=$id");
+                                                        $modifier->execute();
+
+                                                        ?>
+                                                        <script> alert("Le bien a été Modifié"); </script>
+                                                        <meta http-equiv="refresh" content="0;url=./plateforme_admin.php?action=gerer_biens" />
+                                                        <?php
+                                                        
+                                                    }
+                                                ?>
+                                            </form>
+                                        </div>
+                                        <?php
+                                    }
+                                }
+                            ?>    
+
+                            <div class="form_admin" id="form_louer">
+                                <h2>Liste des biens à louer:</h2>
+                                <div style="height: 400px; width: 800px; overflow: auto;">
+                                    <table class="liste_biens" cellpadding="3" rules="all">
+                                        <colgroup span="6" class="columns"></colgroup>
+                                        <tr>
+                                            <th>Titre</th>
+                                            <th>Surface</th>
+                                            <th>Etages</th>
+                                            <th>Daïra</th>
+                                            <th>Commune</th>
+                                            <th>Prix</th>
+                                            <th>Propriétaire</th>
+                                        </tr>
+                                        <?php
+                                        
+                                        while($donnees_loc=$select_loc->fetch()){
+                                            
+                                            ?>
+                                            <tr>
+                                                <td><?php echo $donnees_loc["titre"] ?></td>
+                                                <td><?php echo $donnees_loc["surface"] ?></td>
+                                                <td><?php echo $donnees_loc["etage"] ?></td>
+                                                <td><?php echo $donnees_loc["daira"] ?></td>
+                                                <td><?php echo $donnees_loc["commune"] ?></td>
+                                                <td><?php echo $donnees_loc["prix"] ?> DA</td>
+                                                <td><?php echo $donnees_loc["proprietaire"] ?></td>
+                                                <td><a href="?action=gerer_biens&amp;action2=modifier_loc&amp;id=<?php echo $donnees_loc["id"]; ?>" title="Modifier le bien"class="icon_supprimer" style="color:green;"><i class="far fa-edit"></i></a></td>
+                                                <td><a href="?action=gerer_biens&amp;action2=supprimer_loc&amp;id=<?php echo $donnees_loc["id"]; ?>" title="Supprimer le bien"class="icon_supprimer "><i class="far fa-trash-alt"></i></a></td>
+                                                
+                                            </tr>
+
+                                            <?php
+                                        }
+
+                                        ?>
+                                    
+                                    </table>
+                                </div>
+                                       
+                            </div>
+                            <?php 
+                                //********************  supprimer ou modifier des biens    **************************** */
+                                if(isset($_GET["action2"])){
+                                    $id=$_GET["id"];
+                                    //supprimer
+                                    if($_GET["action2"]=="supprimer_loc"){
+                                    
+                                    $supprimer=$db->prepare("DELETE FROM biens_location WHERE id = $id");
+                                    $supprimer->execute();
+                                    ?>
+                                    <script>
+                                    alert("Le bien a été Supprimer");
+                                    </script>
+                                    <meta http-equiv="refresh" content="0;url=./plateforme_admin.php?action=gerer_biens" />
+                                    <?php
+                                    }
+                                    
+                                    
+                                    //***************************modifier ************************//
+                                    if($_GET["action2"]=="modifier_loc"){
+                                    
+
+                                        $select=$db->query("SELECT titre FROM biens_location WHERE id=$id");
+                                        $donnees=$select->fetch();
+                                        ?>
+                                        <div class="modifier_bien">
+                                            <h3>Modification du bien : <?php echo $donnees[0]; ?></h3><br>
+                                            <form action="" method="post">
+                                                <input list="champ_a_modifier" name="champ_modifier" placeholder="Champ à modifier" class="inp_insc" required">            
+                                                    <datalist id="champ_a_modifier">
+                                                    <option value="titre">
+                                                    <option value="surface">
+                                                    <option value="etage">
+                                                    <option value="daira">
+                                                    <option value="commune">
+                                                    <option value="prix">
+                                                    <option value="proprietaire">
+                                                    </datalist> 
+                                                <br>
+                                                <input type="text" name="modification" placeholder="Modification" class="inp_insc" required><br>
+                                                <input type="submit" name="valider_modification" value="Valider">
+
+                                                <?php 
+                                                    if(isset($_POST["valider_modification"])){
+                                                        
+                                                        $champ_modifier=$_POST["champ_modifier"];
+                                                        $modification=$_POST['modification'];
+                                                        echo $champ_modifier;
+                                                        $modifier=$db->prepare("UPDATE biens_location SET $champ_modifier='$modification' WHERE id=$id");
                                                         $modifier->execute();
 
                                                         ?>
@@ -881,7 +952,11 @@
 
 <script type="text/javascript">
  window.onload = style_onglet_admin();
- window.onload = afficher_formulaire();
+
+    
+
+window.onload = afficher_formulaire();
+ 
  </script> 
 
 
