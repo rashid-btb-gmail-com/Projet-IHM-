@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -53,7 +54,15 @@ $choisie = $detail_bien->fetch();
 <?php echo('<img class="imgdetail"src="../'. $choisie['lien_img'].'" alt="image du bien">') ?>
 <div class="pointdetail">
 <h3><u>Informations:</u></h3>
-<?php echo('
+<?php
+  /*$se=$db->query("SELECT id  FROM clients");
+while($donnees=$se->fetch()){
+  $id_cl=$donnees['id'];
+
+}*/
+
+
+ echo('
 <p><b> Lieux : </b>'.$choisie['commune'].', '.$choisie['daira'].'</p> 
 <p><b> Surface: </b>'.$choisie['surface'].'</p>
 <p><b> Etages: </b>'.$choisie['etage'].'</p>
@@ -63,7 +72,7 @@ $choisie = $detail_bien->fetch();
 <a href="./demande_rdv.php?id='.$choisie['id'].'" class="rdvdmdbien">Demander Un Rendez-Vous de Visite</a>
 </div>
 
-<a href="favoris.php?id='.$choisie['id'].'"> fav </a>
+<a href="favoris.php?id_cl='.$_SESSION["id"].'&t=1&id= '.$choisie['id'].'"> fav </a>
 
 '); 
 
