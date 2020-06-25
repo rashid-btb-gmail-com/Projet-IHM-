@@ -24,8 +24,11 @@
   $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));  
   include_once('../includes/header.php');
 ?>
-<div class="container-fluid" id="profile"></div>
-
+<div class="container-fluid d-flex justify-content-center" id="profile">
+    <section class="labox"> 
+        <div class="la"></div>
+    </section>
+</div>
 <?php
   include_once("../includes/footer.php");
 ?>
