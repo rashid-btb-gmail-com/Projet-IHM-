@@ -29,7 +29,7 @@
                  if(isset($_SESSION["username"])){
                      ?>
                         <li>        
-                        <a href="#" title="Mon profil"><i class="far fa-user"></i>  <?php echo $_SESSION["nom"]."  ".$_SESSION["prenom"];?></a> 
+                        <a href="../pages/profile.php#profile" title="Mon profil"><i class="far fa-user"></i>  <?php echo $_SESSION["nom"]."  ".$_SESSION["prenom"];?></a> 
                         </li>
                         <li>
                         <a href="?action=deco" title="Déconnexion"><i class="fas fa-sign-out-alt"></i></a>

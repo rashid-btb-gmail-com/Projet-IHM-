@@ -48,7 +48,7 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
                       ?>
                       
                         <li>        
-                        <a href="#" title="Mon profil" onmouseover="onglet_mon_profil_af()"><i class="far fa-user"></i>  <?php echo $_SESSION["nom"]."  ".$_SESSION["prenom"];?></a> 
+                        <a href="./pages/profile.php#profile" title="Mon profil" onmouseover="onglet_mon_profil_af()"><i class="far fa-user"></i>  <?php echo $_SESSION["nom"]."  ".$_SESSION["prenom"];?></a> 
                         </li>
                         <li>
                         <a href="?action=deco" title="Déconnexion"><i class="fas fa-sign-out-alt"></i></a>
@@ -138,7 +138,8 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
             <div class="div-recherche-estime">
             <h3>Vouz-chercher a louer dans la kabylie</h3>
             <h5>Faite une recherhes des bien que on dispose dans la region que vous desiriez </h5>
-            <input type="search" name="search" class="tizisearch" placeholder="wilaya, Daira, Commune, Ex:Tizi-Ouzou">
+            
+            <input type="search" name="search" class="tizisearch" placeholder="Commune, Daira, Wilaya">
             <button type="submit" name="btn_search" class="btn_recherche"><i class="fas fa-search"></i></button>
                   <?php 
                       //    barre de recherche        
