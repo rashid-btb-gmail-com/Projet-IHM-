@@ -26,7 +26,11 @@
 ?>
 <div class="container-fluid d-flex justify-content-center" id="profile">
     <section class="labox"> 
-        <div class="la"></div>
+        <div class="d-flexbox flexrow">
+            <div class=""></div>
+            <div></div>
+            <div></div>
+        </div>
     </section>
 </div>
 <?php
