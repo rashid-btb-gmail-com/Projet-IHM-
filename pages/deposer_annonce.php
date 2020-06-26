@@ -125,7 +125,7 @@ else{
                                     <option value="Local">Local</option>
                                     <option value="duplex">Duplex</option>
                                    
-                                </SELECT>
+                            </SELECT>
                             </div>
                             
                             <div class="input-group mb-3">
