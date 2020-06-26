@@ -31,8 +31,8 @@
         <h2 class="nom_admin">NOM Prenom </h2>
     </div>
     <div class="menubien">
-        <a href="?action=ajouter_bien" class="onglet_admin" id="onglet1" >Ajouter un bien</a>
-        <a href="?action=gerer_biens" class="onglet_admin" id="onglet2" onclick="">Gerer les biens</a>
+        <a href="?action=ajouter_bien" class="onglet_admin" id="onglet1" >Ajouter une annonce</a>
+        <a href="?action=gerer_biens" class="onglet_admin" id="onglet2" onclick="">Gerer les annonces</a>
         <a href="?action=confirmer_annonces" class="onglet_admin" id="onglet3" onclick="">Confirmer les annonces</a>
     </div> 
     <div class="menurdv">
@@ -64,51 +64,97 @@
                         //***************************affichage du formulaire ajouter un bien ************  */
                         if($_GET["action"]=="ajouter_bien"){
                             ?>
-
+                            <!--   radio vendre louer    -->
+                            <div class="radio_vendre_louer">
+                                <div class="radio_vendre">
+                                    <input type="radio" name="vendre_louer" id="vendre" value="Vendre" class="input_radio" checked onclick="afficher_formulaire()">
+                                    <label for="vendre" class="label_radio">Vendre</label>
+                                </div>
+                                <div class="radio_louer">
+                                    <input type="radio" name="vendre_louer" id="louer" value="Louer"  class="input_radio" onclick="afficher_formulaire()">
+                                    <label for="louer" class="label_radio">Louer</label>
+                                </div>
+                            </div>
                             
-                            <form action="" enctype="multipart/form-data" method="post" class="form_admin">
-                                <h2>Ajouter un bien :</h2>
-                                <input type="text" name="titre" class="inp_insc" placeholder="Titre" require><br>
-                                <textarea name="description" cols="35"  rows="10" class="inp_insc" style="height:150px; resize: none;" placeholder="Description du bien" require></textarea><br>
-                                <!--*********   liste des dairas de tizi ouzou   **********-->
-                                <SELECT id="daira" name="daira" class="inp_insc" onchange="filtre_commune()" required>
-                                <option value="" disabled selected> Daïra</option>
-                                <option value="01-Ain El Hammam">01-Ain El Hammam</option>
-                                <option value="02-Azazga">02-Azazga</option>
-                                <option value="03-Azeffoun ">03-Azeffoun</option>
-                                <option value="04-Beni Douala">04-Beni Douala</option>
-                                <option value="05-Beni Yenni">05-Beni Yenni</option>
-                                <option value="06-Boghni">06-Boghni</option>
-                                <option value="07-Bouzguen">07-Bouzguen</option>
-                                <option value="08-Draâ Ben Khedda">08-Draâ Ben Khedda</option>
-                                <option value="09-Draâ El Mizan">09-Draâ El Mizan</option>
-                                <option value="10-Iferhounène">10-Iferhounène</option>
-                                <option value="11-Larbaâ Nath Irathen">11-Larbaâ Nath Irathen</option>
-                                <option value="12-Mâatkas">12-Mâatkas</option>
-                                <option value="13-Makouda">13-Makouda</option>
-                                <option value="14-Mekla">14-Mekla</option>
-                                <option value="15-Ouacif">15-Ouacif</option>
-                                <option value="16-Ouadhia">16-Ouadhia</option>
-                                <option value="17-Ouaguenoun">17-Ouaguenoun</option>
-                                <option value="18-Tigzirt">18-Tigzirt</option>
-                                <option value="19-Tizi Gheniff">19-Tizi Gheniff</option>
-                                <option value="20-Tizi Ouzou">20-Tizi Ouzou</option>
-                                <option value="21-Tizi Rached">21-Tizi Rached</option>
-                            </SELECT>
-                                    
-                                <!--*********   liste des communes de tizi ouzou   **********-->
-                                <SELECT id="commune"  name="commune" class="inp_insc"required>
-                                <option value="" disabled selected>Commune</option>
+                            <form action="" enctype="multipart/form-data" method="post" class="form_admin" id="form_vendre">
+                                <h2>Ajouter une annonce de vente:</h2>
                             
-                            </SELECT><br>
+                            
+                                <div class="ajouter_annonce">
+                                <div class="container_left">
+                                    <div class="input_group">
+                                        <span>Titre de l'annonce :</span><br>
+                                        <input type="text" name="titre" class="inp_insc" placeholder="Titre de l'annonce" require><br>
+                                    </div>
 
 
-                                <input type="number" name="surface" class="inp_insc" placeholder="Surface"><br>
-                                <input type="number" name="nbr_etages" class="inp_insc" placeholder="Nombre d'étages"><br>
-                                <input type="number" name="prix" class="inp_insc" placeholder="Prix du biens"><br>
-                                <input type="text" name="proprio" class="inp_insc" placeholder="Propriétaire"><br>
-                                <input type="file" name="image_annonce"  ><br>
+                                    <textarea name="description" cols="35"  rows="10" class="inp_insc" style="height:150px; resize: none;" placeholder="Description du bien" require></textarea><br>
+                                    <!--*********   liste des dairas de tizi ouzou   **********-->
+
+                                    <div class="input_group">
+                                        <span>Localisation du bien :</span><br>
+                                        <SELECT id="daira" name="daira" class="inp_insc" onchange="filtre_commune()" required>
+                                            <option value="" disabled selected> Daïra</option>
+                                            <option value="01-Ain El Hammam">01-Ain El Hammam</option>
+                                            <option value="02-Azazga">02-Azazga</option>
+                                            <option value="03-Azeffoun ">03-Azeffoun</option>
+                                            <option value="04-Beni Douala">04-Beni Douala</option>
+                                            <option value="05-Beni Yenni">05-Beni Yenni</option>
+                                            <option value="06-Boghni">06-Boghni</option>
+                                            <option value="07-Bouzguen">07-Bouzguen</option>
+                                            <option value="08-Draâ Ben Khedda">08-Draâ Ben Khedda</option>
+                                            <option value="09-Draâ El Mizan">09-Draâ El Mizan</option>
+                                            <option value="10-Iferhounène">10-Iferhounène</option>
+                                            <option value="11-Larbaâ Nath Irathen">11-Larbaâ Nath Irathen</option>
+                                            <option value="12-Mâatkas">12-Mâatkas</option>
+                                            <option value="13-Makouda">13-Makouda</option>
+                                            <option value="14-Mekla">14-Mekla</option>
+                                            <option value="15-Ouacif">15-Ouacif</option>
+                                            <option value="16-Ouadhia">16-Ouadhia</option>
+                                            <option value="17-Ouaguenoun">17-Ouaguenoun</option>
+                                            <option value="18-Tigzirt">18-Tigzirt</option>
+                                            <option value="19-Tizi Gheniff">19-Tizi Gheniff</option>
+                                            <option value="20-Tizi Ouzou">20-Tizi Ouzou</option>
+                                            <option value="21-Tizi Rached">21-Tizi Rached</option>
+                                        </SELECT><br>                                    
+                                        <!--*********   liste des communes de tizi ouzou   **********-->
+                                        <SELECT id="commune"  name="commune" class="inp_insc"required>
+                                            <option value="" disabled selected>Commune</option>                            
+                                        </SELECT><br>
+
+                                        <input type="text" name="adresse" class="inp_insc" placeholder="Adresse"><br>
+                                        
+                                    </div>
+                                </div>
+
+
+                                <div class="container_right">
+                                    <div class="input_group">
+                                        <span>Caractéristiques du bien :</span><br>
+                                        <SELECT name="type_bien" class="inp_insc"  required>
+                                            <option value="" disabled selected>Type du bien</option>
+                                            <option value="appartement">Appartement</option>
+                                            <option value="studio">Studio</option>
+                                            <option value="villa">Villa</option>
+                                            <option value="niveau de villa">Niveau de villa</option>
+                                            <option value="Local">Local</option>
+                                            <option value="duplex">Duplex</option>
+                                        
+                                        </SELECT><br>
+                                        <input type="number" name="surface" class="inp_insc" placeholder="Surface"><br>
+                                        <input type="number" name="nbr_etages" class="inp_insc" placeholder="Nombre d'étages"><br>
+                                        <input type="number" name="nbr_pieces" class="inp_insc" placeholder="Nombre de piéces"><br>
+                                    </div>
+                                        <span>Prix du bien :</span><br>
+                                        <input type="number" name="prix" class="inp_insc" placeholder="Prix du biens"><br>
+                                        <span>Propriétaire du bien :</span><br>
+                                        <input type="text" name="proprio" class="inp_insc" placeholder="Propriétaire"><br>
+                                        <span>Ajouter des photos :</span><br>
+                                        <input type="file" name="image_annonce"  ><br>
+                                </div>
+                            </div>
                                 <input type="submit" value="Enregister" class="btn_inscr" name="submit">
+                            
                                     <?php
                                         if(isset($_POST["submit"])){
                                             
@@ -149,8 +195,138 @@
                                             
                                             
                                             //   insertion dans la base de donnee
-                                            $insert=$db->prepare('INSERT INTO biens VALUES(NULL,?,?,?,?,?,?,?,?,?)');
-                                            $insert->execute(array($_POST["titre"],$_POST["description"],$_POST["daira"],$_POST["commune"],$_POST["surface"],$_POST["nbr_etages"],$_POST["prix"],$lien_img,$_POST["proprio"]));
+                                            $insert=$db->prepare('INSERT INTO biens VALUES(NULL,?,?,?,?,?,?,?,?,?,?,?,?)');
+                                            $insert->execute(array($_POST["titre"],$_POST["description"],$_POST["daira"],$_POST["commune"],$_POST["adresse"],$_POST["type_bien"],$_POST["surface"],$_POST["nbr_etages"],$_POST["nbr_pieces"],$_POST["prix"],$lien_img,$_POST["proprio"]));
+                                            
+                                        }
+
+
+                                    ?>
+
+                            </form>
+
+
+                            <form action="" enctype="multipart/form-data" method="post" class="form_admin" id="form_louer">
+                                <h2>Ajouter une annonce de location:</h2>
+                            
+                            
+                                <div class="ajouter_annonce">
+                                <div class="container_left">
+                                    <div class="input_group">
+                                        <span>Titre de l'annonce :</span><br>
+                                        <input type="text" name="titre_loc" class="inp_insc" placeholder="Titre de l'annonce" require><br>
+                                    </div>
+
+
+                                    <textarea name="description_loc" cols="35"  rows="10" class="inp_insc" style="height:150px; resize: none;" placeholder="Description du bien" require></textarea><br>
+                                    <!--*********   liste des dairas de tizi ouzou   **********-->
+
+                                    <div class="input_group">
+                                        <span>Localisation du bien :</span><br>
+                                        <SELECT id="daira" name="daira_loc" class="inp_insc" onchange="filtre_commune_louer()" required>
+                                            <option value="" disabled selected> Daïra</option>
+                                            <option value="01-Ain El Hammam">01-Ain El Hammam</option>
+                                            <option value="02-Azazga">02-Azazga</option>
+                                            <option value="03-Azeffoun ">03-Azeffoun</option>
+                                            <option value="04-Beni Douala">04-Beni Douala</option>
+                                            <option value="05-Beni Yenni">05-Beni Yenni</option>
+                                            <option value="06-Boghni">06-Boghni</option>
+                                            <option value="07-Bouzguen">07-Bouzguen</option>
+                                            <option value="08-Draâ Ben Khedda">08-Draâ Ben Khedda</option>
+                                            <option value="09-Draâ El Mizan">09-Draâ El Mizan</option>
+                                            <option value="10-Iferhounène">10-Iferhounène</option>
+                                            <option value="11-Larbaâ Nath Irathen">11-Larbaâ Nath Irathen</option>
+                                            <option value="12-Mâatkas">12-Mâatkas</option>
+                                            <option value="13-Makouda">13-Makouda</option>
+                                            <option value="14-Mekla">14-Mekla</option>
+                                            <option value="15-Ouacif">15-Ouacif</option>
+                                            <option value="16-Ouadhia">16-Ouadhia</option>
+                                            <option value="17-Ouaguenoun">17-Ouaguenoun</option>
+                                            <option value="18-Tigzirt">18-Tigzirt</option>
+                                            <option value="19-Tizi Gheniff">19-Tizi Gheniff</option>
+                                            <option value="20-Tizi Ouzou">20-Tizi Ouzou</option>
+                                            <option value="21-Tizi Rached">21-Tizi Rached</option>
+                                        </SELECT><br>                                    
+                                        <!--*********   liste des communes de tizi ouzou   **********-->
+                                        <SELECT id="commune"  name="commune_loc" class="inp_insc"required>
+                                            <option value="" disabled selected>Commune</option>                            
+                                        </SELECT><br>
+
+                                        <input type="text" name="adresse_loc" class="inp_insc" placeholder="Adresse"><br>
+                                        
+                                    </div>
+                                </div>
+
+
+                                <div class="container_right">
+                                    <div class="input_group">
+                                        <span>Caractéristiques du bien :</span><br>
+                                        <SELECT name="type_bien_loc" class="inp_insc"  required>
+                                            <option value="" disabled selected>Type du bien</option>
+                                            <option value="appartement">Appartement</option>
+                                            <option value="studio">Studio</option>
+                                            <option value="villa">Villa</option>
+                                            <option value="niveau de villa">Niveau de villa</option>
+                                            <option value="Local">Local</option>
+                                            <option value="duplex">Duplex</option>
+                                        
+                                        </SELECT><br>
+                                        <input type="number" name="surface_loc" class="inp_insc" placeholder="Surface"><br>
+                                        <input type="number" name="nbr_etages_loc" class="inp_insc" placeholder="Nombre d'étages"><br>
+                                        <input type="number" name="nbr_pieces_loc" class="inp_insc" placeholder="Nombre de piéces"><br>
+                                    </div>
+                                        <span>Prix du bien :</span><br>
+                                        <input type="number" name="prix_loc" class="inp_insc" placeholder="Prix du biens"><br>
+                                        <span>Propriétaire du bien :</span><br>
+                                        <input type="text" name="proprio_loc" class="inp_insc" placeholder="Propriétaire"><br>
+                                        <span>Ajouter des photos :</span><br>
+                                        <input type="file" name="image_annonce_loc"  ><br>
+                                </div>
+                            </div>
+                                <input type="submit" value="Enregister" class="btn_inscr" name="submit_loc">
+                            
+                                    <?php
+                                        if(isset($_POST["submit_loc"])){
+                                            
+                                            $dossier_upload = 'upload/'; // dossier où sera déplacé le fichier
+
+                                            $tmp_fichier = $_FILES['image_annonce_loc']['tmp_name'];
+        
+                                            if( !is_uploaded_file($tmp_fichier) )
+                                            {
+                                                exit("Le fichier est introuvable");
+                                            }
+        
+                                            // on vérifie  l'extension
+        
+                                            $type_file = $_FILES['image_annonce_loc']['type'];
+        
+                                            if( !strstr($type_file, 'jpg') && !strstr($type_file, 'jpeg') && !strstr($type_file, 'bmp') && !strstr($type_file, 'gif') )
+                                            {
+                                                exit("Le fichier n'est pas une image");
+                                            }
+                                            
+                                            $select=$db->query('SELECT MAX(id) FROM demande_annonce');
+        
+                                                $id_img=$select->fetch();
+                                                
+                                            // on copie le fichier dans le dossier de destination
+                                            $nom_fichier =$id_img[0].'_'.$_FILES['image_annonce_loc']['name'];
+                                            //recuperer le lien de l'image
+                                            $lien_img=$dossier_upload . $nom_fichier;
+                                            if( !move_uploaded_file($tmp_fichier,"../".$dossier_upload . $nom_fichier) )
+                                            {
+                                                exit("Impossible de copier le fichier dans $dossier_upload");
+                                            }
+        
+                                            echo "  <script>
+                                            alert(\"Le bien a été Ajouté\");
+                                            </script> ";
+                                            
+                                            
+                                            //   insertion dans la base de donnee
+                                            $insert=$db->prepare('INSERT INTO biens_location VALUES(NULL,?,?,?,?,?,?,?,?,?,?,?,?)');
+                                            $insert->execute(array($_POST["titre_loc"],$_POST["description_loc"],$_POST["daira_loc"],$_POST["commune_loc"],$_POST["adresse_loc"],$_POST["type_bien_loc"],$_POST["surface_loc"],$_POST["nbr_etages_loc"],$_POST["nbr_pieces_loc"],$_POST["prix_loc"],$lien_img,$_POST["proprio_loc"]));
                                             
                                         }
 

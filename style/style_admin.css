@@ -118,8 +118,7 @@ h2.nom_admin {
     margin-top: 10px;
     margin-bottom: 10px;
     height: 30px;
-
-
+    width: 250px;
 }
 
 .inc_btn{
@@ -151,7 +150,7 @@ h2.nom_admin {
 
 .modifier_bien{
     position: absolute;
-    top: 50px;
+    top: 90px;
     width: 284px;
     left: 819px;
     border: 1px solid black;
@@ -212,4 +211,28 @@ h2.nom_admin {
     color: white;
     top: 6px;
     position: relative;
+}
+
+/**************** ajouter une annonce **********/
+.ajouter_annonce {
+    display: flex;
+}
+
+.container_left {
+    width: 50%;
+}
+
+.container_right {
+    width: 50%;
+}
+input.btn_inscr {
+    position: relative;
+    margin-left: 45%;
+    margin-top: 10px;
+    width: 150px;
+    height: 30px;
+    background-color: #fa6014;
+    color: #000;
+    border: 0;
+    font-size: 20px;
 }
