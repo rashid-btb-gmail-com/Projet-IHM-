@@ -823,15 +823,30 @@ color:white;
 }
 .proinit{
     padding:5vh;
-    border:3px solid black;
+    border:3px solid orange;
     border-radius:50%;
     margin:2% 0 2% 0;
-    color:black;
-    background-image:url(../images/flower.jpg);
-    background-size: cover; 
-    
-    }
+    color:orange;
+        }
 #initial{
     font-family: 'Times New Roman', Times, serif;
     font-weight:bold;
+}
+.label{
+ margin:-6px;
+ color:rgb(219, 69, 0);
+ font-family: Georgia, 'Times New Roman', Times, serif;
+}
+#barcoté{
+    padding-left:8.5%;
+    border-left:3px solid rgb(252, 155, 91);
+    }
+.sizebtn{
+    width:300px;
+}
+.bienvenue{
+    padding-right: 2%;
+    padding-top:5%; 
+    color:rgb(255, 158, 67);
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
