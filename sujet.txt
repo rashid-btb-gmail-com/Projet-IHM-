@@ -1,0 +1,17 @@
+En 2020, avoir un  site web pour son entreprise n'est plus une option mais une nécéssité de part les avantages qu'il procure,
+facilitant grandement la gestion et le contact avec le client,il est un réel plus qui permet de se demarquer de la concurrence.
+ Ainsi l'objectif de notre projet,CREATION D'UN SITE WEB POUR AGENCE IMMOBILIERE A TRAVERS LA KABYLIE,d'alleger considerablement la charge du point physique
+ de l'agence en exploitant l'aspect organisationnel de la BDD et du php,la prise en compte de l'experience de l'utilisateur
+  qu'apporte le javascript et enfin,le css, qui fournit l'agréabilité de navigation pour l'utilisateur.
+
+PROBLEMATIQUE
+Une agence immbolière  est une entreprise ayant un point physique(tout comme un magasin)qui peut
+ être gérer par une ou plusieurs personnes,elle est un intermediaire clé dans le marché de l'immbilier ,elle a comme objectif de mettre en relation les 
+personnes qui cherchent a louer ou acheter bien immobilié avec les personnes qui veulent en vendre;L'agence peut aussi elle meme(le proprietaire) vendre 
+ ou louer des biens si elle en possede. les personnes intéréssées par la vente ,l'achat ou la location,contacte l'agence en question que sa soit par
+telephone , via leurs site web,mail ou en s'y rendant directement.
+l'agence immobiliere facilite grandement les transactions entre les clients, elle a une connaissance fine de la valeur marchande d'un bien ,et permets aux acheteurs(resp vendeurs)
+d'acquerir un bien avec un rapport qualité prix optimal(respt de vendre ou louer leurs biens plus facilement au prix optimal ),c'est pourquoi beaucoup de gens y ont recours.
+Ainsi,Comment retranscrir tous les aspect d'une agence immobiliere sur une platforme numerique qu'est le site web?.
+
+ 
