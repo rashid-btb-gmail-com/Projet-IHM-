@@ -153,11 +153,11 @@
                   </label>
                  </div>  
                  <div class="input-group mb-3">
-                    <input type="submit" value="Modifier Les informations" class="btn login_btn " name="submit">
+                    <input type="submit" value="Modifier Les informations" class="btn login_btn " name="submit_info">
                  </div>  
                  ');
 
-                 if(isset($_POST["submit"])){
+                 if(isset($_POST["submit_info"])){
                      $id=$profile["id"];
                      $nomu=$_POST["nom"];
                      $prenomu=$_POST["prenom"];
@@ -179,7 +179,8 @@
               <p id="lienlistefav" style="color: orange;">les favoris</p>
               <div class="d-flex justify-content-center" >
               <a href="./profile#favoris"><i class="fa fa-angle-double-down" style="color: orange; font-size:1.5rem;"></i></i></a> </div>
-            </div></div>
+            </div>
+            </div>
           </div>
     </section>
     <div id="favoris" style="padding-top:3px;">
