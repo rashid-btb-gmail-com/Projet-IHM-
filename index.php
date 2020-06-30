@@ -38,7 +38,7 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
           <div class="navbar-right"> 
               <ul>
             
-                  <li><a href="#">Locations</a></li>                  
+                  <li><a href="./pages/location.php">Locations</a></li>                  
                   <li><a href="./pages/immobilier.php">Vente</a></li>
                   <li><a href="./pages/deposer_annonce.php#depose">Déposer une annonce</a></li>
                   <li><a href="./pages/contact.php">Contact</a></li>
@@ -194,7 +194,7 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
         </div>
        <div class="d-flex flex-wrap justify-content-center biensugbox ">
        <?php 
-       $bienrep = $db->query('SELECT id,titre, daira, commune, lien_img FROM biens ORDER BY id desc LIMIT 0,8');
+       $bienrep = $db->query('SELECT id,titre, daira, commune, lien_img FROM biens ORDER BY id desc LIMIT 0,3');
           
 
        while ($donne= $bienrep->fetch()){
