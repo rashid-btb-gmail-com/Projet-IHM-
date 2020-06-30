@@ -70,39 +70,33 @@ else{
                             </div>
 
                             
-                            <!--*********   liste des dairas de tizi ouzou   **********-->
+                            <!--     wilaya         -->
                             <span class="span_deposer_annonce">Localisation du bien</span>
                             <div class="input-group mb-3">
-                            <span></span>
+                            
+                                <SELECT id="wilaya" name="wilaya" class="form-control input_user" onchange="filtre_daira()" required>
+                                    <option value="" disabled selected> Wilaya</option>
+                                    <option value="01-Tizi-Ouzou">Tizi-Ouzou</option>
+                                    <option value="02-Béjaïa">Béjaïa</option>
+                                    <option value="03-Bouira">Bouira</option>
+                                    
+                                </SELECT>
+                                
+                            
+                            </div>
+
+                            <!--*********   liste des dairas de tizi ouzou   **********-->
+                            <div class="input-group mb-3">
+                           
                                 <SELECT id="daira" name="daira" class="form-control input_user" onchange="filtre_commune()" required>
                                     <option value="" disabled selected> Daïra</option>
-                                    <option value="01-Ain El Hammam">01-Ain El Hammam</option>
-                                    <option value="02-Azazga">02-Azazga</option>
-                                    <option value="03-Azeffoun ">03-Azeffoun</option>
-                                    <option value="04-Beni Douala">04-Beni Douala</option>
-                                    <option value="05-Beni Yenni">05-Beni Yenni</option>
-                                    <option value="06-Boghni">06-Boghni</option>
-                                    <option value="07-Bouzguen">07-Bouzguen</option>
-                                    <option value="08-Draâ Ben Khedda">08-Draâ Ben Khedda</option>
-                                    <option value="09-Draâ El Mizan">09-Draâ El Mizan</option>
-                                    <option value="10-Iferhounène">10-Iferhounène</option>
-                                    <option value="11-Larbaâ Nath Irathen">11-Larbaâ Nath Irathen</option>
-                                    <option value="12-Mâatkas">12-Mâatkas</option>
-                                    <option value="13-Makouda">13-Makouda</option>
-                                    <option value="14-Mekla">14-Mekla</option>
-                                    <option value="15-Ouacif">15-Ouacif</option>
-                                    <option value="16-Ouadhia">16-Ouadhia</option>
-                                    <option value="17-Ouaguenoun">17-Ouaguenoun</option>
-                                    <option value="18-Tigzirt">18-Tigzirt</option>
-                                    <option value="19-Tizi Gheniff">19-Tizi Gheniff</option>
-                                    <option value="20-Tizi Ouzou">20-Tizi Ouzou</option>
-                                    <option value="21-Tizi Rached">21-Tizi Rached</option>
+                                    
                                 </SELECT>
                                 
                             <!--*********   liste des communes de tizi ouzou   **********-->
                             </div>
                             <div class="input-group mb-3"> 
-                                <span></span>
+                               
                                 <SELECT id="commune"  name="commune" class="form-control input_user"required>
                                     <option value="" disabled selected>Commune</option>
                                 
@@ -199,8 +193,8 @@ else{
                                     
                                     //   insertion dans la base de donnee
                                     $proprio=$_SESSION["nom"].' '.$_SESSION["prenom"];  
-                                    $insert=$db->prepare('INSERT INTO demande_annonce VALUES(NULL,?,?,?,?,?,?,?,?,?,?,?,?)');
-                                    $insert->execute(array($_POST["titre"],$_POST["description"],$_POST["daira"],$_POST["commune"],$_POST["adresse"],$_POST["type_bien"],$_POST["surface"],$_POST["nbr_etages"],$_POST["nbr_pieces"],$_POST["prix"],$lien_img,$proprio));
+                                    $insert=$db->prepare('INSERT INTO demande_annonce VALUES(NULL,?,?,?,?,?,?,?,?,?,?,?,?,?)');
+                                    $insert->execute(array($_POST["titre"],$_POST["description"],$_POST["wilaya"],$_POST["daira"],$_POST["commune"],$_POST["adresse"],$_POST["type_bien"],$_POST["surface"],$_POST["nbr_etages"],$_POST["nbr_pieces"],$_POST["prix"],$lien_img,$proprio));
                                     ?>
                                     <meta http-equiv="refresh" content="0;url=./deposer_annonce.php" />
                                     <?php
@@ -222,6 +216,20 @@ else{
                             
                             <!--*********   liste des dairas de tizi ouzou   **********-->
                             <span class="span_deposer_annonce">Localisation du bien</span>
+                            <div class="input-group mb-3">
+                            <span></span>
+                                <SELECT id="wilaya" name="wilaya_loc" class="form-control input_user"  required>
+                                    <option value="" disabled selected> Wilaya</option>
+                                    <option value="01-Tizi-Ouzou">Tizi-Ouzou</option>
+                                    <option value="02-Béjaïa">Béjaïa</option>
+                                    <option value="03-Bouira ">Bouira</option>
+                                    
+                                </SELECT>
+                                
+                            <!--*********   liste des communes de tizi ouzou   **********-->
+                            </div>
+
+
                             <div class="input-group mb-3">
                             <span></span>
                                 <SELECT id="daira" name="daira_loc" class="form-control input_user" onchange="filtre_commune_louer()" required>
@@ -349,8 +357,8 @@ else{
                                     
                                     //   insertion dans la base de donnee
                                     $proprio=$_SESSION["nom"].' '.$_SESSION["prenom"]; 
-                                    $insert=$db->prepare('INSERT INTO demande_annonce_location VALUES(NULL,?,?,?,?,?,?,?,?,?,?,?,?)');
-                                    $insert->execute(array($_POST["titre_loc"],$_POST["description_loc"],$_POST["daira_loc"],$_POST["commune_loc"],$_POST["adresse_loc"],$_POST["type_bien_loc"],$_POST["surface_loc"],$_POST["nbr_etages_loc"],$_POST["nbr_pieces_loc"],$_POST["prix_loc"],$lien_img,$proprio));
+                                    $insert=$db->prepare('INSERT INTO demande_annonce_location VALUES(NULL,?,?,?,?,?,?,?,?,?,?,?,?,?)');
+                                    $insert->execute(array($_POST["titre_loc"],$_POST["description_loc"],$_POST["wilaya_loc"],$_POST["daira_loc"],$_POST["commune_loc"],$_POST["adresse_loc"],$_POST["type_bien_loc"],$_POST["surface_loc"],$_POST["nbr_etages_loc"],$_POST["nbr_pieces_loc"],$_POST["prix_loc"],$lien_img,$proprio));
                                     ?>
                                     <meta http-equiv="refresh" content="0;url=./deposer_annonce.php" />
                                     <?php

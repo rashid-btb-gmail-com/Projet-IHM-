@@ -137,8 +137,9 @@ function verifier_champs(){
     
 }
 
-function filtre_commune(){
-    var daira = [   d1=["Abi Youcef","Ain El Hammam","Aït Yahia","Akbil"],
+function filtre_commune_tizi(){
+    
+        var daira = [   d1=["Abi Youcef","Ain El Hammam","Aït Yahia","Akbil"],
                     d2=["Azazga","Freha","Ifigha","Yakouren ","Zekri"],
                     d3=["Aghribs","Aït Chafâa ","Akerrou","Azeffoun"],
                     d4=["Aït Mahmoud","Beni Aissi","Beni Douala","Beni Zmenzer"],
@@ -161,24 +162,145 @@ function filtre_commune(){
                     d21=["Aït Oumalou","Tizi Rached"],
                             
                             ];
+            
+
+            
+            var daira_select=document.getElementsByName("daira")[0].value;   //recuperer la daira
+            var num_daira=parseInt(daira_select[0]+daira_select[1],10)-1;    //recuperer le num de la daira                     
+            
+            
+            var currentDiv = document.getElementById('commune');  
+                    
+            currentDiv.innerHTML="";
+
+            for(var i=0;i<daira[num_daira].length;i++){
+                
+                
+                    currentDiv.insertAdjacentHTML('afterbegin','<option class="commune_daira">'+daira[num_daira][i]+'</option>');
+            }
+    
+}
+
+function filtre_commune_bejaia(){
+    
+    var daira = [   d1=["Adekar","Taourirt Ighil","Beni Ksila"],
+                    d2=["Akbou","Chellata","Ighram","Tamokra"],
+                    d3=["Amizour","Beni Djellil","Semaoun","Ferraoun"],
+                    d4=["Aokas","Tizi N'Berber"],
+                    d5=["Barbacha","Kendira"],
+                    d6=["Béjaïa","Oued Ghir"],
+                    d7=["Beni Maouche"],
+                    d8=["Chemini","Tibane","Souk-Oufella","Akfadou"],
+                    d9=["Darguina","Aït-Smail","Taskriout"],
+                    d10=["El Kseur","Fenaïa","Ilmaten","Toudja"],
+                    d11=["Ighil Ali","Aït-R'zine"],
+                    d12=["Kherrata","Draâ El-Kaïd"],
+                    d13=["Ouzellaguen"],
+                    d14=["Amalou","M'cisna","Bouhamza","Seddouk"],
+                    d15=["Sidi-Aïch","Leflaye","Tinabdher","Tifra","Sidi Ayad"],
+                    d16=["Melbou","Souk El Ténine","Tamridjet"],
+                    d17=["Tazmalt","Beni Mellikeche","Boudjellil"],
+                    d18=["Boukhelifa","Tichy","Tala Hamza"],    
+                    d19=["Timezrit"],
+                    
+                ];
+        
+
+        
+        var daira_select=document.getElementsByName("daira")[0].value;   //recuperer la daira
+        var num_daira=parseInt(daira_select[0]+daira_select[1],10)-1;    //recuperer le num de la daira                     
+        
+        
+        var currentDiv = document.getElementById('commune');  
+                
+        currentDiv.innerHTML="";
+
+        for(var i=0;i<daira[num_daira].length;i++){
+            
+            
+                currentDiv.insertAdjacentHTML('afterbegin','<option class="commune_daira">'+daira[num_daira][i]+'</option>');
+        }
+
+}
+
+function filtre_commune_bouira(){
+    
+    var daira = [   d1=["Bouira","Aïn El Turc","Aït Laziz"],
+                    d2=["Haizer","Taghzout"],
+                    d3=["Bechloul","El Asnam","El Adjiba","Ahl El Ksar","Ouled Rached"],
+                    d4=["M'Chedallah","Saharidj","Chorfa","Hanif","Aghbalou","Ath Mansour"],
+                    d5=["Kadiria","Aomar","Djebahia"],
+                    d6=["Lakhdaria","Boukram","Maala","Bouderbala","Zbarbar","Guerrouma"],
+                    d7=["Bir Ghbalou","Raouraoua","El Khabouzia"],
+                    d8=["Aïn Bessem","Ain Laloui","Aïn El Hadjar"],
+                    d9=["Souk El Khemis","El Mokrani"],
+                    d10=["El Hachimia","Oued El Berdi"],
+                    d11=["Sour El-Ghozlane","Maamora","Ridane","El Hakimia","Dechmia","Dirrah"],
+                    d12=["Bordj Okhriss","Mezdour","Taguedit","Hadjera Zerga"],
+                    
+                    
+                ];
+        
+
+        
+        var daira_select=document.getElementsByName("daira")[0].value;   //recuperer la daira
+        var num_daira=parseInt(daira_select[0]+daira_select[1],10)-1;    //recuperer le num de la daira                     
+        
+        
+        var currentDiv = document.getElementById('commune');  
+                
+        currentDiv.innerHTML="";
+
+        for(var i=0;i<daira[num_daira].length;i++){
+            
+            
+                currentDiv.insertAdjacentHTML('afterbegin','<option class="commune_daira">'+daira[num_daira][i]+'</option>');
+        }
+
+}
+
+function filtre_commune(){
+    
+    if(document.getElementById("wilaya").value=="01-Tizi-Ouzou"){
+        filtre_commune_tizi();
+    }
+
+    if(document.getElementById("wilaya").value=="02-Béjaïa"){
+        filtre_commune_bejaia();
+    }
+
+    if(document.getElementById("wilaya").value=="03-Bouira"){
+        filtre_commune_bouira();
+    }
+}
+
+
+function filtre_daira(){
+    var wilaya = [  w1=["01-Ain El Hammam","02-Azazga","03-Azeffoun","04-Beni Douala","05-Beni Yenni","06-Boghni","07-Bouzeguène","08-Draâ Ben Khedda","09-Draâ El Mizan","10-Iferhounène","11-Larbaâ Nath Irathen","12-Mâatkas","13-Makouda","14-Mekla","15-Ouacif","16-Ouadhia","17-Ouaguenoun","18-Tigzirt","19-Tizi Gheniff","20-Tizi Ouzou","21-Tizi Rached"],
+                    w2=["01-Adekar","02-Akbou","03-Amizour","04-Aokas ","05-Barbacha","06-Béjaïa","07-Beni Maouche","08-Chemini","09-Darguina","10-El Kseur","11-Ighil Ali","12-Kherrata","13-Ouzellaguen","14-Seddouk","15-Sidi-Aïch","16-Souk El-Ténine","17-Tazmalt","18-Tichy","19-Timezrit"],
+                    w3=["01-Bouira","02-Haizer","03-Bechloul","04-M'Chedallah","05-Kadiria","06-Lakhdaria","07-Bir Ghbalou","08-Aïn Bessem","09-Souk El Khemis","10-El Hachimia","11-Sour El-Ghozlane","12-Bordj Okhriss"],
+ 
+                            ];
               
-    var daira_select=document.getElementsByName("daira")[0].value;   //recuperer la daira
-    var num_daira=parseInt(daira_select[0]+daira_select[1],10)-1;                   //recuperer le num de la daira                     
+    var wilaya_select=document.getElementsByName("wilaya")[0].value;   //recuperer la wilaya
+    var num_wilaya=parseInt(wilaya_select[0]+wilaya_select[1],10)-1;  //recuperer le num de la wilaya                     
     
     
     
         
-        var commune_daira = document.getElementsByClassName('commune_daira')[0];
-        var currentDiv = document.getElementById('commune');  
+        
+        var currentDiv = document.getElementById('daira');  
             
             currentDiv.innerHTML="";
 
-    for(var i=0;i<daira[num_daira].length;i++){
+    for(var i=wilaya[num_wilaya].length-1;i>=0;i--){
         
         
-            currentDiv.insertAdjacentHTML('afterbegin','<option class="commune_daira">'+daira[num_daira][i]+'</option>');
+            currentDiv.insertAdjacentHTML('afterbegin','<option class="commune_daira">'+wilaya[num_wilaya][i]+'</option>');
     }
 }
+
+
 function filtre_commune_louer(){
     var daira = [   d1=["Abi Youcef","Ain El Hammam","Aït Yahia","Akbil"],
                     d2=["Azazga","Freha","Ifigha","Yakouren ","Zekri"],
