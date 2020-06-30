@@ -188,10 +188,10 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
         <!-- section des suggestions --> 
     </section>
     <section class="sec2" id="suggestions">
-      <div class="container">
+      <div class="container-fluid">
         <div class="headsug">
           <h1 class="text-center text-uppercase font-weight-bold " >Nos suggestions</h1>
-       </div>
+        </div>
        <div class="d-flex flex-wrap justify-content-center biensugbox ">
        <?php 
        $bienrep = $db->query('SELECT id,titre, daira, commune, lien_img FROM biens ORDER BY id desc LIMIT 0,8');
@@ -199,15 +199,15 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
 
        while ($donne= $bienrep->fetch()){
        //affichage des biens les plus recents       
-         echo('<div class="biensug" >
-           <img src="./'.$donne['lien_img'].'" class="imgbien" alt="l\'image du bien" >
+         echo('<div class="biensug" ><a class="linkdetail" href="./pages/detail.php?id='.$donne['id'].'">
+            <img src="./'.$donne['lien_img'].'" class="imgbien" alt="l\'image du bien" >
            <div class="infobien">
-           <h4>'.$donne['titre'].'</h4>
-           <p>Lieu:'.$donne['commune'].','.$donne['daira'].'</p>
-          </div>
-           <div class="linkdetail">
-            <a href="./pages/detail.php?id='.$donne['id'].'" class="linkdetail">Voir Detail</a> 
-            </div>
+           <h4 ">'.$donne['titre'].'</h4> 
+           <p>Lieu:'.$donne['commune'].','.$donne['daira'].'</p> 
+          </div></a>
+           
+           
+            
          </div>');}
          $bienrep->closeCursor();
          ?>

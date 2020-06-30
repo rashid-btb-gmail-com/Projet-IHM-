@@ -155,20 +155,17 @@ height:550px;
     background:#fff;
 }
 .headsug{
-    margin-top: 20px;
+    margin-top: 10px;
     margin-bottom:30px;
-    border-radius:0.25rem;
-    background-color: rgba(0, 0, 0, 0.9);
-    color:white;
     font-family: 'Cormorant Garamond', serif;
-    padding:20px 0 20px 0;
+    
 }
 .biensugbox{
     padding-top: 30px;
     padding-bottom: 30px;
 }
 .biensug{
-    height: 400px;
+    height:360px;
     width: 225px;
     margin: 20px;
     background-color: rgba(0, 0, 0, 0.9);
@@ -177,7 +174,7 @@ height:550px;
      
 }
 .imgbien{
-    width: inherit;
+    width: 225px;
     height:200px;
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
@@ -188,27 +185,10 @@ height:550px;
    
 }
 .linkdetail{
-    background-color: rgba(255,255,255,0.4);
-    height:40px;
-    display: flex;
-    justify-content: center;
-    border-bottom-left-radius: 1rem;
-    border-bottom-right-radius: 1rem;
-    width:inherit;
-}
-.linkdetail>a{
-    color:#000;
-    font-weight: 500;
-    font-size: 1.2em;
-    padding-top:5px;
-}
-.linkdetail :hover{
-    background-color:#ff5722;
-    font-size: 1.3rem;
-    padding-top: 3px;
-    width:inherit;
     color:white;
 }
+
+
 /**************************************   FOOTER   *************************************/
 footer{
     background-color: white;
