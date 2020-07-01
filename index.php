@@ -233,7 +233,9 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
               </div>
               <div class="onelinkfoot">
               <h5 class="titrelink">Des questions!</h5>
-              <a href="./pages/contact.php">Contactez-Nous</a>
+              <a href="./pages/contact.php">Contactez-Nous</a>   
+              <a href="./pages/aboutus.php">A Propos De Nous</a>
+
               </div>
             </div>
             <!--Les reseignement-->

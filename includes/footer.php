@@ -15,7 +15,8 @@
               </div>
               <div class="onelinkfoot">
               <h5 class="titrelink">Des questions!</h5>
-              <a href="../pages/contact.php">Contactez-Nous</a>
+              <a href="./pages/contact.php">Contactez-Nous</a>
+              <a href="./pages/aboutus.php">A Propos De Nous</a>
               </div>
             </div>
            <div class="reseign ">

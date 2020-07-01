@@ -830,3 +830,19 @@ color:white;
     color:rgb(255, 158, 67);
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
+/*********************       A propos de nous           *******************************************************/
+.secpropos{
+    background-image: url(../images/propos.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    height:80vh;
+   }
+   .divpropos{
+       background-color: rgba(0, 0, 0, 0.603);
+       height:75vh;
+       color: white;
+       font-size:4rem;
+       font-family:'Times New Roman', Times, serif;
+   }
+   
+   
