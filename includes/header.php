@@ -40,6 +40,7 @@
                    if(isset($_GET["action"])){
                     if($_GET["action"]="deco"){
                       $_SESSION["username"]=null;
+                      $_SESSION["id"]=null;
                       ?>
                           <meta http-equiv="refresh" content="0">
                           <?php

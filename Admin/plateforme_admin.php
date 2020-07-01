@@ -93,6 +93,13 @@
 
                                     <div class="input_group">
                                         <span>Localisation du bien :</span><br>
+                                        <SELECT id="wilaya" name="wilaya"  class="inp_insc" onchange="filtre_daira()" required>
+                                            <option value="" disabled selected> Wilaya</option>
+                                            <option value="01-Tizi-Ouzou">Tizi-Ouzou</option>
+                                            <option value="02-Béjaïa">Béjaïa</option>
+                                            <option value="03-Bouira">Bouira</option>
+                                            
+                                        </SELECT><br> 
                                         <SELECT id="daira" name="daira" class="inp_insc" onchange="filtre_commune()" required>
                                             <option value="" disabled selected> Daïra</option>
                                             <option value="01-Ain El Hammam">01-Ain El Hammam</option>
@@ -195,8 +202,8 @@
                                             
                                             
                                             //   insertion dans la base de donnee
-                                            $insert=$db->prepare('INSERT INTO biens VALUES(NULL,?,?,?,?,?,?,?,?,?,?,?,?)');
-                                            $insert->execute(array($_POST["titre"],$_POST["description"],$_POST["daira"],$_POST["commune"],$_POST["adresse"],$_POST["type_bien"],$_POST["surface"],$_POST["nbr_etages"],$_POST["nbr_pieces"],$_POST["prix"],$lien_img,$_POST["proprio"]));
+                                            $insert=$db->prepare('INSERT INTO biens VALUES(NULL,?,?,?,?,?,?,?,?,?,?,?,?,?)');
+                                            $insert->execute(array($_POST["titre"],$_POST["description"],$_POST["wilaya"],$_POST["daira"],$_POST["commune"],$_POST["adresse"],$_POST["type_bien"],$_POST["surface"],$_POST["nbr_etages"],$_POST["nbr_pieces"],$_POST["prix"],$lien_img,$_POST["proprio"]));
                                             
                                         }
 
@@ -599,6 +606,7 @@
                                             <th>Titre</th>
                                             <th>Surface</th>
                                             <th>Etages</th>
+                                            <th>Wilaya</th>
                                             <th>Daïra</th>
                                             <th>Commune</th>
                                             <th>Propriétaire</th>
@@ -612,9 +620,11 @@
                                                 <td><?php echo $donnees["titre"] ?></td>
                                                 <td><?php echo $donnees["surface"] ?></td>
                                                 <td><?php echo $donnees["etage"] ?></td>
+                                                <td><?php echo $donnees["wilaya"] ?></td>
                                                 <td><?php echo $donnees["daira"] ?></td>
                                                 <td><?php echo $donnees["commune"] ?></td>
                                                 <td><?php echo $donnees["proprietaire"] ?></td>
+                                                <td><a href="?action=confirmer_annonces&amp;action2=plus&amp;id=<?php echo $donnees["id"]; ?>" title="Voir plus"class="icon_supprimer" style="color:blue;"><i class="fas fa-plus" ></i></a></td>
                                                 <td><a href="?action=confirmer_annonces&amp;action2=accepter&amp;id=<?php echo $donnees["id"]; ?>" title="Accepter l'annonce"class="icon_supprimer" style="color:green;"><i class="fas fa-check" ></i></a></td>
                                                 <td><a href="?action=confirmer_annonces&amp;action2=supprimer&amp;id=<?php echo $donnees["id"]; ?>" title="Refuser l'annoce"class="icon_supprimer "><i class="fas fa-times" ></i></a></td>
                                                 
@@ -628,18 +638,18 @@
                                             //accepter
                                             if($_GET["action2"]=="accepter"){
                                                 
-                                            $id=$_GET["id"];
-                                            $select=$db->query("SELECT * FROM demande_annonce WHERE id=$id");
-                                            while($donnees=$select->fetch()){
-                                                $insert=$db->prepare('INSERT INTO biens VALUES(NULL,?,?,?,?,?,?,?,?,?,?,?,?)');
-                                                $insert->execute(array($donnees["titre"],$donnees["description"],$donnees["daira"],$donnees["commune"],$donnees["adresse"],$donnees["type_bien"],$donnees["surface"],$donnees["etage"],$donnees["pieces"],$donnees["prix"],$donnees["lien_img"],$donnees["proprietaire"]));
-                                                $supprimer=$db->prepare("DELETE FROM demande_annonce WHERE id = $id");
-                                                $supprimer->execute();
-                                                ?>
-                                                <meta http-equiv="refresh" content="0;url=./plateforme_admin.php?action=confirmer_annonces" />
-                                                <script> alert("La demande d'annonce a été Accepter");  </script>
-                                                <?php
-                                            }
+                                                $id=$_GET["id"];
+                                                $select=$db->query("SELECT * FROM demande_annonce WHERE id=$id");
+                                                while($donnees=$select->fetch()){
+                                                    $insert=$db->prepare('INSERT INTO biens VALUES(NULL,?,?,?,?,?,?,?,?,?,?,?,?,?)');
+                                                    $insert->execute(array($donnees["titre"],$donnees["description"],$donnees["wilaya"],$donnees["daira"],$donnees["commune"],$donnees["adresse"],$donnees["type_bien"],$donnees["surface"],$donnees["etage"],$donnees["pieces"],$donnees["prix"],$donnees["lien_img"],$donnees["proprietaire"]));
+                                                    $supprimer=$db->prepare("DELETE FROM demande_annonce WHERE id = $id");
+                                                    $supprimer->execute();
+                                                    ?>
+                                                    <meta http-equiv="refresh" content="0;url=./plateforme_admin.php?action=confirmer_annonces" />
+                                                    <script> alert("La demande d'annonce a été Accepter");  </script>
+                                                    <?php
+                                                }
                                 
                                             }
                                             //supprimer
@@ -650,6 +660,33 @@
                                                 ?>
                                                 <script> alert("La demande d'annonce a été Refuser");  </script>
                                                 <meta http-equiv="refresh" content="0;url=./plateforme_admin.php?action=confirmer_annonces" />
+                                                <?php
+                                            }
+                                            //voir plus
+                                            if($_GET["action2"]=="plus"){
+                                                $id=$_GET["id"];
+                                                $select=$db->query("SELECT * FROM demande_annonce WHERE id=$id");
+                                                
+                                                $donnees=$select->fetch();
+                                                ?>
+                                                <div class="box_voir_plus">
+                                                    <span>Titre :</span><span><?php echo $donnees["titre"] ?></span><br>
+                                                    <span>Wilaya :</span><span><?php echo $donnees["wilaya"] ?></span><br>
+                                                    <span>Daïra :</span><span><?php echo $donnees["daira"] ?></span><br>
+                                                    <span>Commune :</span><span><?php echo $donnees["commune"] ?></span><br>
+                                                    <span>Adresse :</span><span><?php echo $donnees["adresse"] ?></span><br>
+                                                    <span>Type du bien :</span><span><?php echo $donnees["type_bien"] ?></span><br>
+                                                    <span>Surface :</span><span><?php echo $donnees["surface"] ?></span><br>
+                                                    <span>Etage(s) :</span><span><?php echo $donnees["etage"] ?></span><br>
+                                                    <span>Piéce(s) :</span><span><?php echo $donnees["pieces"] ?></span><br>
+                                                    <span>Prix :</span><span><?php echo $donnees["prix"] ?></span><br>
+                                                    <span>Propriétaire :</span><span><?php echo $donnees["proprietaire"] ?></span><br>
+                                                    <img src="<?php echo $donnees["lien_img"] ?>" alt="image annonce" srcset="">
+
+                                                </div>   
+
+                                                
+                                                
                                                 <?php
                                             }
 
@@ -666,13 +703,14 @@
                             <!--   **************  liste des biens à louer     -->          
                             <div class="form_admin" id="form_louer">
                                 <h2>Liste des demande d'annoces de location:</h2>
-                                <div style="height: 400px; width: 650px; overflow: auto;">
+                                <div style="height: 400px; width: 700px; overflow: auto;">
                                     <table class="liste_biens" cellpadding="3" rules="all">
                                         <colgroup span="6" class="columns"></colgroup>
                                         <tr>
                                             <th>Titre</th>
                                             <th>Surface</th>
                                             <th>Etages</th>
+                                            <th>Wilaya</th>
                                             <th>Daïra</th>
                                             <th>Commune</th>
                                             <th>Propriétaire</th>
@@ -686,9 +724,11 @@
                                                 <td><?php echo $donnees_loc["titre"] ?></td>
                                                 <td><?php echo $donnees_loc["surface"] ?></td>
                                                 <td><?php echo $donnees_loc["etage"] ?></td>
+                                                <td><?php echo $donnees_loc["wilaya"] ?></td>
                                                 <td><?php echo $donnees_loc["daira"] ?></td>
                                                 <td><?php echo $donnees_loc["commune"] ?></td>
                                                 <td><?php echo $donnees_loc["proprietaire"] ?></td>
+                                                <td><a href="?action=confirmer_annonces&amp;action2=plus_loc&amp;id=<?php echo $donnees_loc["id"]; ?>" title="Voir plus"class="icon_supprimer" style="color:blue;"><i class="fas fa-plus" ></i></a></td>
                                                 <td><a href="?action=confirmer_annonces&amp;action2=accepter_loc&amp;id=<?php echo $donnees_loc["id"]; ?>" title="Accepter l'annonce"class="icon_supprimer" style="color:green;"><i class="fas fa-check" ></i></a></td>
                                                 <td><a href="?action=confirmer_annonces&amp;action2=supprimer_loc&amp;id=<?php echo $donnees_loc["id"]; ?>" title="Refuser l'annoce"class="icon_supprimer "><i class="fas fa-times" ></i></a></td>
                                                 
@@ -705,8 +745,8 @@
                                             $id=$_GET["id"];
                                             $select=$db->query("SELECT * FROM demande_annonce_location WHERE id=$id");
                                             while($donnees=$select->fetch()){
-                                                $insert=$db->prepare('INSERT INTO biens_location VALUES(NULL,?,?,?,?,?,?,?,?,?,?,?,?)');
-                                                $insert->execute(array($donnees["titre"],$donnees["description"],$donnees["daira"],$donnees["commune"],$donnees["adresse"],$donnees["type_bien"],$donnees["surface"],$donnees["etage"],$donnees["pieces"],$donnees["prix"],$donnees["lien_img"],$donnees["proprietaire"]));
+                                                $insert=$db->prepare('INSERT INTO biens_location VALUES(NULL,?,?,?,?,?,?,?,?,?,?,?,?,?)');
+                                                $insert->execute(array($donnees["titre"],$donnees["description"],$donnees["wilaya"],$donnees["daira"],$donnees["commune"],$donnees["adresse"],$donnees["type_bien"],$donnees["surface"],$donnees["etage"],$donnees["pieces"],$donnees["prix"],$donnees["lien_img"],$donnees["proprietaire"]));
                                                 $supprimer=$db->prepare("DELETE FROM demande_annonce_location WHERE id = $id");
                                                 $supprimer->execute();
                                                 ?>

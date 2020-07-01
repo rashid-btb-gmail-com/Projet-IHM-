@@ -72,10 +72,15 @@ while($donnees=$se->fetch()){
 <a href="./demande_rdv.php?id='.$choisie['id'].'" class="rdvdmdbien">Demander Un Rendez-Vous de Visite</a>
 </div>
 
-<a href="favoris.php?id_cl='.$_SESSION["id"].'&t=1&id= '.$choisie['id'].'"> fav </a>
+
 
 '); 
 
+if($_SESSION["username"]!=NULL){
+?>
+<a href="favoris.php?id_cl='.$_SESSION["id"].'&t=1&id= '.$choisie['id'].'"> fav </a>
+<?php
+}
 $_SESSION["url_prec"]="./demande_rdv.php?id=".$choisie['id'];
 $detail_bien->closeCursor();
  ?>
