@@ -89,7 +89,7 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
               <div class="carouselstyle">
               <h1>L'agence immobiliere VILAVIE</h1> <br>
               <h3>Vous fait visiter la kabylie a travers l'immobilier </h3> <br><br><br>
-              <div class="pubbtnhover"><a href="./pages/contact.php" class="pubbtn">A propos de nous</a></div>
+              <div class="pubbtnhover"><a href="./pages/aboutus.php" class="pubbtn">A propos de nous</a></div>
               </div>
             </div>
          </div>

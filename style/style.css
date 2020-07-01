@@ -831,6 +831,9 @@ color:white;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 /*********************       A propos de nous           *******************************************************/
+#about{
+    font-family:'Times New Roman', Times, serif;
+}
 .secpropos{
     background-image: url(../images/propos.jpg);
     background-size: cover;
@@ -844,5 +847,62 @@ color:white;
        font-size:4rem;
        font-family:'Times New Roman', Times, serif;
    }
-   
-   
+   .divteam{
+    background-color: rgba(0, 0, 0, 0.692);
+    height:95vh;
+    color: white;
+    font-size:4rem;
+    font-family:'Times New Roman', Times, serif;
+    }
+    .lespropos>a{
+        color: orangered;
+    }
+    .lespropos :hover {
+      color:orange;
+    }
+
+   .agence{
+       margin-bottom: 40px;
+   }
+
+   .kabylie{
+       margin-top:30px;
+       padding:30px 0 30px 0;
+   }
+   .imagespropos{
+      width:50%;
+      
+      margin:0 10px 0 10px;
+   }
+   .desckabylie{
+    margin:0 10px 0 10px;
+    width:50%;
+   }
+   .secteam{
+    background-image: url(../images/team.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    height:105vh;
+   }
+   .cardteam{
+       margin:20px 20px;
+    }
+    #titrepropos{
+        width:35vw;
+    }
+    .adminphoto{
+        width:200px;
+        height:280px;
+        box-shadow: 0px 0px 24px 12px rgba(168, 166, 165, 0.377);
+        border-radius:0.5rem;
+        
+    }
+    .imagespropos{
+        width:50%;
+        height:400px;
+    }
+    .imagespropos2{
+        width:50%;
+        height:550px;
+    }
+    
