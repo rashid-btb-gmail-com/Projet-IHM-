@@ -218,11 +218,11 @@ else{
                             <span class="span_deposer_annonce">Localisation du bien</span>
                             <div class="input-group mb-3">
                             <span></span>
-                                <SELECT id="wilaya" name="wilaya_loc" class="form-control input_user"  required>
+                                <SELECT id="wilaya" name="wilaya_loc" class="form-control input_user" onchange="filtre_daira()" required>
                                     <option value="" disabled selected> Wilaya</option>
                                     <option value="01-Tizi-Ouzou">Tizi-Ouzou</option>
                                     <option value="02-Béjaïa">Béjaïa</option>
-                                    <option value="03-Bouira ">Bouira</option>
+                                    <option value="03-Bouira">Bouira</option>
                                     
                                 </SELECT>
                                 

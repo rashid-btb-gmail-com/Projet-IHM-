@@ -236,3 +236,11 @@ input.btn_inscr {
     border: 0;
     font-size: 20px;
 }
+
+.box_voir_plus {
+    position: absolute;
+    width: 40%;
+    right: 0;
+    background: snow;
+    border: 1.5px solid;
+}
