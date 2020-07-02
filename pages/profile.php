@@ -31,17 +31,19 @@
             <div class=" d-flex justify-content-center" >
                 <div class="proinit">
                     <?php 
-                    $nom=$_SESSION["nom"];
-                    $prenom=$_SESSION["prenom"]; 
+                    $proclient=$db->query("SELECT * FROM clients WHERE id=".$_SESSION["id"]."");
+                    $profile = $proclient->fetch();      
+                    $nom=$profile["nom"];
+                    $prenom=$profile["prenom"]; 
                     echo('<h1 id="initial">'.$prenom[0].$nom[0].'</h1>'); 
-                                                   
+                                             
                     ?>
                    
                 </div>
             </div>
             <div class=" d-flex justify-content-center  ">
                 <div class="bienvenue">
-                    <h3 ><?php echo($_SESSION["username"]) ?> <br> Bienvenue sur votre profile</h3> <br> 
+                    <h3 ><?php echo($profile["username"]) ?> <br> Bienvenue sur votre profile</h3> <br> 
                     <h5>consulter vos informations personnelles <h5> <br>
                     <!-- Button trigger modal pour changer mot de passe et pseudo -->
                   <button type="button" class="btn login_btn" data-toggle="modal" data-target="#staticBackdrop">
@@ -61,8 +63,7 @@
                              <div class="modal-body d-flex justify-content-center  ">
                               <div>
                              <?php 
-                              $proclient=$db->query("SELECT * FROM clients WHERE id=".$_SESSION["id"]."");
-                               $profile = $proclient->fetch();
+                              
                              echo('<form action="" method="POST">
                                 <div class="input-group mb-3">
                                  <label  class="label"> Pseudo:
@@ -74,14 +75,16 @@
                                  </div> '); 
                                  if(isset($_POST["submit"])){
                                   $id=$profile["id"];
-                                  $username=$_POST["username"];
+                                  $username=$_POST["pseudo"];
                                   $use=$db->prepare("UPDATE clients SET username='$username' WHERE id=$id");
-                                  $use->execute();
-                                 echo(' <script> alert("le Pseudo as été modifier"); </script> </form>                                
-                                 ');
+                                  $use->execute(); 
+                                  $use->closeCursor();
+                                  $_SESSION["username"]=$username;
+                                 echo(' <script> alert("le Pseudo as été modifier"); </script> ');
                               }
-                                 ?>
-                                 <form action="" method="POST"></form>
+                                 ?></form>                                
+                                <?php 
+                                 echo('<form action="" method="POST"></form>
                                  <div class="input-group mb-3">
                                      <label class="label"> Ancien mot de passe:
                                       <input type="password" name="ancienpass" class="form-control input_user sizebtn" placeholder="Ancien" required >
@@ -97,21 +100,23 @@
                                  </label>
                                 </div> 
                                 <div class="input-group mb-3">
-                                  <input type="submit" value="Modifier le mot de pass" class="btn login_btn " name="submit_pass">
-                                </div> 
-                                <?php
-                                if(isset($_POST["submit_pass"])){
-                                  if($_POST['ancienpass']==$profile['password']){
-                                    if($_POST['nouveaupass']==$_POST['confirmepass']){
+                                  <input type="submit" value="Modifier le mot de pass" class="btn login_btn " name="submitpass">
+                                </div> ');
+                                
+                                if(isset($_POST["submitpass"])){
+                                  echo(' <script> alert("le mot de pass as été modifier"); </script>  ' );
+                                  if(($_POST['ancienpass'])==($profile['password'])){
+                                    if(($_POST['nouveaupass'])==($_POST['confirmepass'])){
                                        $id=$profile["id"];
                                        $pass=$_POST["nouveaupass"];
                                        $motpass=$db->prepare("UPDATE clients SET password='$pass' WHERE id=$id");
                                        $motpass->execute();
+                                       $motpass->closeCursor();
                                        echo(' <script> alert("le mot de pass as été modifier"); </script>  ' );}                              
                                     else{
-                                      echo(' <span class="warning">onfirmation et nouvea mot de passe sont different</span>  ' );
+                                      echo(' <script> alert("Confirmation et nouveau mot de passe sont different"); </script>' );
                                     }}
-                                    else{echo(' <span class="warning">Ancien mot de pass inorrect</span>  ' );}
+                                    else{echo('<script> alert(" Ancien mot de pass inorrect"); </script>' );}
                               }
                                 
                                 ?>
@@ -165,6 +170,7 @@
                      $mail=$_POST["mail"];
                     $modifier=$db->prepare("UPDATE clients SET nom='$nomu', prenom='$prenomu', tel='$tel', email='$mail'  WHERE id=$id");
                     $modifier->execute();
+                    $modifier->closeCursor();
                     echo(' <script> alert("Profile as été modifier"); </script>
                     <meta http-equiv="refresh" content="0;url=./profile.php#profile" />        
                     ');
