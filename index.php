@@ -190,20 +190,24 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
     <section class="sec2" id="suggestions">
       <div class="container-fluid">
         <div class="headsug">
-          <h1 class="text-center text-uppercase font-weight-bold " >Nos suggestions</h1>
+          <h1 class="text-center text-uppercase font-weight-bold " >Nos suggestions </h1><hr class="text-center " width="200px"><br>
+          <h1 class="text-center font-weight-bold border" >"Vente"</h1> 
+         
         </div>
-       <div class="d-flex flex-wrap justify-content-center biensugbox ">
-       <?php 
-       $bienrep = $db->query('SELECT id,titre, daira, commune, lien_img FROM biens ORDER BY id desc LIMIT 0,3');
+        <h2 class="headsug">Les Bienes les plus recents</h2>
+               
+       <div class="d-flex flex-wrap biensugbox ">
+        <?php 
+       $bienrep = $db->query('SELECT id,titre, daira, commune, wilaya, lien_img FROM biens ORDER BY id desc LIMIT 0,3');
           
 
        while ($donne= $bienrep->fetch()){
-       //affichage des biens les plus recents       
+       //affichage des biens a vendre les plus recents       
          echo('<div class="biensug" ><a class="linkdetail" href="./pages/detail.php?id='.$donne['id'].'">
             <img src="./'.$donne['lien_img'].'" class="imgbien" alt="l\'image du bien" >
            <div class="infobien">
            <h4 ">'.$donne['titre'].'</h4> 
-           <p>Lieu:'.$donne['commune'].','.$donne['daira'].'</p> 
+           <p>Lieu:'.$donne['commune'].','.$donne['daira'].','.$donne['wilaya'].'</p> 
           </div></a>
            
            
