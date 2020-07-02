@@ -80,11 +80,13 @@
                                   $use->execute(); 
                                   $use->closeCursor();
                                   $_SESSION["username"]=$username;
-                                 echo(' <script> alert("le Pseudo as été modifier"); </script> ');
+                                 echo(' <script> alert("le Pseudo as été modifier"); </script> 
+                                 <meta http-equiv="refresh" content="0;url=profile.php#profile" />
+                                 ');
                               }
                                  ?></form>                                
                                 <?php 
-                                 echo('<form action="" method="POST"></form>
+                                 echo('<form action="" method="POST">
                                  <div class="input-group mb-3">
                                      <label class="label"> Ancien mot de passe:
                                       <input type="password" name="ancienpass" class="form-control input_user sizebtn" placeholder="Ancien" required >
@@ -104,7 +106,6 @@
                                 </div> ');
                                 
                                 if(isset($_POST["submitpass"])){
-                                  echo(' <script> alert("le mot de pass as été modifier"); </script>  ' );
                                   if(($_POST['ancienpass'])==($profile['password'])){
                                     if(($_POST['nouveaupass'])==($_POST['confirmepass'])){
                                        $id=$profile["id"];
@@ -112,7 +113,8 @@
                                        $motpass=$db->prepare("UPDATE clients SET password='$pass' WHERE id=$id");
                                        $motpass->execute();
                                        $motpass->closeCursor();
-                                       echo(' <script> alert("le mot de pass as été modifier"); </script>  ' );}                              
+                                       								
+								                       echo(' <script> alert("le mot de pass as été modifier"); </script>  ' );}                              
                                     else{
                                       echo(' <script> alert("Confirmation et nouveau mot de passe sont different"); </script>' );
                                     }}
@@ -120,8 +122,8 @@
                               }
                                 
                                 ?>
-                              
                               </form>
+                              
                               </div>
                             
                             </div>
@@ -166,6 +168,8 @@
                      $id=$profile["id"];
                      $nomu=$_POST["nom"];
                      $prenomu=$_POST["prenom"];
+                     $_SESSION["nom"]=$nomu;
+								     $_SESSION["prenom"]=$prenomu;
                      $tel=$_POST["tel"];
                      $mail=$_POST["mail"];
                     $modifier=$db->prepare("UPDATE clients SET nom='$nomu', prenom='$prenomu', tel='$tel', email='$mail'  WHERE id=$id");
