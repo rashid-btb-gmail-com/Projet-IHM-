@@ -74,7 +74,6 @@ while($donnees=$se->fetch()){
 <a href="./demande_rdv.php?t=biens_location&id='.$choisie['id'].'" class="rdvdmdbien">Demander Un Rendez-Vous de Visite</a>
 </div>
 <a href="favoris.php?id_cl='.$_SESSION["id"].'&t=1&id= '.$choisie['id'].'"> fav </a>
-
 '); 
 
 if($_SESSION["username"]!=NULL){

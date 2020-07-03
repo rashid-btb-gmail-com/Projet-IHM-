@@ -520,7 +520,7 @@ color:black;
     .bienrdv{
         background-color: rgba(212, 212, 212, 0.9);
         width:400px;
-        height:384px;
+        height:395px;
         justify-self: right;
         margin-top: 40px;
         padding: 20px 10px 20px 10px;
@@ -662,6 +662,11 @@ bottom: 5cm;
         padding:30px;
         font-family: inherit;
         width:50%;
+    }
+    .pointdetail2{
+        padding:30px;
+        font-family: inherit;
+        width:100%;
     }
     .suggcontainer{
         margin-bottom: 7px; 
