@@ -427,7 +427,6 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
            </div>
            <div style="border:1px solid orange; height:550px; margin-left:10px; margin-right:20px;;"  ></div>
          </div>
-%20
        </div>
         <div>
         <h3 class="headsug">BEJAIA</h3>
