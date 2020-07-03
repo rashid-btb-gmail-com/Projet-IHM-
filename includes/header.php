@@ -20,7 +20,7 @@
          <!--les menu de navigation a droite  -->
          <div class="navbar-right"> 
              <ul>
-                  <li><a href="#">Locations</a></li>                  
+                  <li><a href="../pages/location.php">Locations</a></li>                  
                   <li><a href="../pages/immobilier.php">Vente</a></li>
                   <li><a href="../pages/deposer_annonce.php#depose">Déposer une annonce</a></li> 
                  <li><a href="../pages/contact.php">Contact</a></li>

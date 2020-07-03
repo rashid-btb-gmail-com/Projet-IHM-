@@ -36,7 +36,7 @@ include_once('../includes/header.php');
 ?>
 
 
-<div class="fullimmo" id="immo">
+<div class="fullimmo" id="loc">
            <div class="container h-100">
             <div class="d-flex-justify-content-center-h-100">
                
@@ -44,16 +44,50 @@ include_once('../includes/header.php');
                               
                                         
                       <div class="row hidden-xs" id="recherche" style="margin-top: 15px;">                                                                 
-                                  <img src="../images/logo.png" style="  margin-left: 11.6cm;">          
+                                  <img src="../images/logo.png" style="  margin-left: 11.7cm;">          
                           
-                          <div class="noo-text-block" style="padding-left: 143px; margin-top: 27px;">
+                          <div class="noo-text-block" style="padding-left: 80px; padding-right: 75px; margin-top: 30px;">
                                 <form enctype="multipart/form-data" id="id_form" action="" method="post">
                                   <div class="row">
+
+                                    <div class="form-group  col-sm-2 ">  
+                                            <div class="form-group ">
+                                        
+                                            <label for="type_bien" style="color: white;"><b>Type de bien</b> </label>
+
+                                        <SELECT id="type_bien" name="type_bien" class="form-control input_user" >
+                                    <option value="nul"  selected>Type du bien</option>
+                                    <option value="appartement">Appartement</option>
+                                    <option value="studio">Studio</option>
+                                    <option value="villa">Villa</option>
+                                    <option value="niveau de villa">Niveau de villa</option>
+                                    <option value="Local">Local</option>
+                                    <option value="duplex">Duplex</option>
+                                   
+                                        </SELECT>
+                                    </div>
+                                </div>
+
+                                     <div class="form-group  col-sm-2 ">  
+                                            <div class="form-group ">
+                                      
+                                            <label for="type_wilaya" style="color: white;"><b>Wilaya</b> </label>
+                                             <SELECT id="wilaya" name="wilaya" class="form-control input_user" onchange="filtre_daira()" >
+                                    <option value="nul" selected> Wilaya</option>
+                                    <option value="01-Tizi-Ouzou">Tizi-Ouzou</option>
+                                    <option value="02-Béjaïa">Béjaïa</option>
+                                    <option value="03-Bouira">Bouira</option>
+                                    
+                                </SELECT>
+                            </div>
+                        </div>
+                        
+
                                   <div class="form-group  col-sm-2 ">  
                                             <div class="form-group ">
                                             <label for="type_dairas" style="color: white;"><b>Daïras</b> </label>
-                                              <SELECT id="daira" name="daira" class="form-control input_user" onchange="filtre_commune()" required>
-                                                <option value="Daïras"  selected> Daïras</option>
+                                              <SELECT id="daira" name="daira" class="form-control input_user" onchange="filtre_commune()" >
+                                                <option value="nul"  selected> Daïras</option>
                                                 <option value="01-Ain El Hammam">01-Ain El Hammam</option>
                                                 <option value="02-Azazga">02-Azazga</option>
                                                 <option value="03-Azeffoun ">03-Azeffoun</option>
@@ -84,7 +118,7 @@ include_once('../includes/header.php');
                                             <label for="liste_commune" style="color: white;"><b>Commune</b> </label>
                                             <select class="form-control" id="commune" name="commune" >
                                              
-                                            <option>Commune</option>
+                                            <option value="nul">Commune</option>
                                              <option value="Abi Youcef">Abi Youcef</option>
                                              <option value="Aghribs">Aghribs</option>
                                              <option value="Agouni Gueghrane">Agouni Gueghrane</option>
@@ -112,6 +146,7 @@ include_once('../includes/header.php');
                                              <option value="Azeffoun">Azeffoun</option>
                                              <option value="Beni Aïssi">Beni Aïssi</option>
                                              <option value="Beni Douala">Beni Douala</option>
+                                             <option value="Beni Yenni">Beni Yenni</option>
                                              <option value="Boghni">Boghni</option>
                                              <option value="Boudjima">Boudjima</option>
                                              <option value="Bounouh">Bounouh</option>
@@ -161,7 +196,7 @@ include_once('../includes/header.php');
                                 <div class="form-group  col-sm-2">                  
                       <div class="input-group"> 
                         <div class="form-group">
-                        <label for="type_prix" style="color: white;"><b>Prix</b> </label>
+                        <label for="type_prix" style="color: white;"><b>Prix </b> </label>
                         <input id="prix" name="prix" type="number" class="form-control" onchange="valider('','')" placeholder="Prix Max" value="" >
                         <span class="input-group-addon">DA</span>
                     </div>
@@ -180,7 +215,7 @@ include_once('../includes/header.php');
                     </div>   
 
 
-                                <div class="form-group col-sm-2">
+                                <div class="form-group col-sm-11">
                                 <div class="form-group ">
                                     
                                     <input class="btn1" type="submit" name="formsend" value="Recherche">
@@ -209,20 +244,22 @@ include_once('../includes/header.php');
         <section class="sec2" id="search">
         <div class="container">
         <div class="yep">
-          <h1 class="text-center text-uppercase font-weight-bold " >Nos Biens</h1>
+          <h1 class="text-center text-uppercase font-weight-bold " >Location de nos biens </h1>
        </div>
        <div class="d-flex flex-wrap justify-content-center biensugbox ">
        <?php 
        
 
-            //filtre a 4 cases
+            //filtre a 6 cases
 
 
        if (isset($_POST['formsend'])) {
         
-            if (isset($_POST['daira']) && (isset($_POST['commune'])) && (isset($_POST['prix'])) && (isset($_POST['surface']))) {
-                $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens where daira = ? and commune = ? and prix <= ? and surface <= ?');
+            if (isset($_POST['type_bien']) && (isset($_POST['wilaya'])) && (isset($_POST['daira'])) && (isset($_POST['commune'])) && (isset($_POST['prix'])) && (isset($_POST['surface']))) {
+                $req=$db->prepare('SELECT id,titre,daira,commune,lien_img,type_bien,wilaya FROM biens_location where type_bien = ? and wilaya= ?  and daira = ? and commune = ? and prix <= ? and surface <= ?');
           $req->execute(array(
+            $_POST['type_bien'],
+            $_POST['wilaya'],
             $_POST['daira'],
             $_POST['commune'],
             $_POST['prix'],
@@ -230,113 +267,432 @@ include_once('../includes/header.php');
 
           )
           );
+          
             }
 
-            // filtre a 3 cases
-        if(isset($_POST['daira'])){  
-          if (($_POST['daira']=='Daïras') && (isset($_POST['commune'])) && (isset($_POST['prix'])) && (isset($_POST['surface'])) ) {
-              $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens WHERE commune=? AND prix<= ? AND surface<= ?');
-              $req->execute(array($_POST['commune'],$_POST['prix'],$_POST['surface']));
-          }
+            // filtre a 5 cases
+           
+                
+            
+            
+        if(isset($_POST['type_bien'])){ 
+
+        if (($_POST['type_bien']== 'nul') && (isset($_POST['wilaya'])) && (isset($_POST['daira'])) && (isset($_POST['commune'])) && (isset($_POST['prix'])) && (isset($_POST['surface'])) ) {
+            $req=$db->prepare('SELECT id,titre,wilaya,daira,commune,type_bien,lien_img FROM biens_location WHERE wilaya=? AND daira= ? AND commune =? AND prix <= ? AND surface<= ?');
+              $req->execute(array($_POST['wilaya'],$_POST['daira'],$_POST['commune'],$_POST['prix'],$_POST['surface']));
+           
         }
-        if (($_POST['commune']=='Commune') && (isset($_POST['daira'])) && (isset($_POST['prix'])) && (isset($_POST['surface'])) ) {
-             $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens WHERE daira=? AND prix<=? AND surface<=?');
-             $req->execute(array($_POST['daira'],$_POST['prix'],$_POST['surface']));
+    }
+        if (($_POST['wilaya']== 'nul') && (isset($_POST['type_bien'])) &&  (isset($_POST['daira']))&& (isset($_POST['commune'])) && (isset($_POST['prix'])) && (isset($_POST['surface'])) ) {
+              $req=$db->prepare('SELECT id,titre,wilaya,daira,commune,type_bien,lien_img FROM biens_location WHERE type_bien=? and daira=? AND commune=? AND prix<= ? AND surface<= ?');
+              $req->execute(array($_POST['type_bien'],$_POST['daira'],$_POST['commune'],$_POST['prix'],$_POST['surface']));
+          }
+        
+          if (($_POST['daira']== 'nul') && (isset($_POST['type_bien'])) &&  (isset($_POST['wilaya']))&& (isset($_POST['commune'])) && (isset($_POST['prix'])) && (isset($_POST['surface'])) ) {
+              $req=$db->prepare('SELECT id,titre,wilaya,daira,commune,type_bien,lien_img FROM biens_location WHERE type_bien=? and wilaya=? AND commune=? AND prix<= ? AND surface<= ?');
+              $req->execute(array($_POST['type_bien'],$_POST['wilaya'],$_POST['commune'],$_POST['prix'],$_POST['surface']));
+          }
+
+
+        if (($_POST['commune']=='Commune') && (isset($_POST['type_bien'])) && (isset($_POST['wilaya'])) && (isset($_POST['daira'])) && (isset($_POST['prix'])) && (isset($_POST['surface'])) ) {
+             $req=$db->prepare('SELECT id,titre,wilaya,daira,commune,type_bien,lien_img FROM biens_location WHERE type_bien=? AND wilaya=?
+             AND daira=? AND prix<=? AND surface<=?');
+             $req->execute(array($_POST['type_bien'],$_POST['wilaya'],$_POST['daira'],$_POST['prix'],$_POST['surface']));
         }
 
-        if (($_POST['prix']==null) && (isset($_POST['daira'])) && (isset($_POST['commune'])) && (isset($_POST['surface'])) ) {
-             $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens WHERE daira=? AND commune=? AND surface<=?');
-             $req->execute(array($_POST['daira'],$_POST['commune'],$_POST['surface']));
+        if (($_POST['prix']==null) && (isset($_POST['type_bien'])) && (isset($_POST['wilaya'])) && (isset($_POST['daira'])) && (isset($_POST['commune'])) && (isset($_POST['surface'])) ) {
+             $req=$db->prepare('SELECT id,titre,wilaya,daira,commune,type_bien,lien_img FROM biens_location WHERE type_bien=? AND wilaya=?
+             AND daira=? AND commune=? AND surface<=?');
+             $req->execute(array($_POST['type_bien'],$_POST['wilaya'],$_POST['daira'],$_POST['commune'],$_POST['surface']));
         }
         
-        if (($_POST['surface']==null) && (isset($_POST['daira'])) && (isset($_POST['commune'])) && (isset($_POST['prix'])) ) {
-             $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens WHERE daira=? AND commune=? AND prix<=?');
+        if (($_POST['surface']==null) && (isset($_POST['type_bien'])) && (isset($_POST['wilaya'])) && (isset($_POST['daira'])) && (isset($_POST['commune'])) && (isset($_POST['prix'])) ) {
+             $req=$db->prepare('SELECT id,titre,wilaya,daira,commune,type_bien,lien_img FROM biens_location WHERE type_bien=? AND wilaya=?
+             AND daira=? AND commune=? AND prix<=?');
+             $req->execute(array($_POST['type_bien'],$_POST['wilaya'],$_POST['daira'],$_POST['commune'],$_POST['prix']));
+        }
+
+
+        //filtre a 4 cases
+        if(isset($_POST['type_bien'])){  
+
+          if (($_POST['type_bien']=='nul') && ($_POST['wilaya']=='nul') && (isset($_POST['daira'])) && (isset($_POST['commune'])) && (isset($_POST['prix'])) && (isset($_POST['surface'])) ) {
+             $req=$db->prepare('SELECT id,titre,wilaya,daira,commune,type_bien,lien_img FROM biens_location WHERE daira=? AND commune=?
+             AND prix<=? AND surface<=?');
+             $req->execute(array($_POST['daira'],$_POST['commune'],$_POST['prix'],$_POST['surface']));
+        }
+
+
+            if (($_POST['type_bien']=='nul') && ($_POST['daira']=='nul') && (isset($_POST['wilaya'])) && (isset($_POST['commune'])) && (isset($_POST['prix'])) && (isset($_POST['surface'])) ) {
+             $req=$db->prepare('SELECT id,titre,wilaya,daira,commune,type_bien,lien_img FROM biens_location WHERE wilaya=? AND commune=?
+             AND prix<=? AND surface<=?');
+             $req->execute(array($_POST['wilaya'],$_POST['commune'],$_POST['prix'],$_POST['surface']));
+        } 
+
+
+            if (($_POST['type_bien']=='nul') && ($_POST['commune']=='nul') && (isset($_POST['wilaya'])) && (isset($_POST['daira'])) && (isset($_POST['prix'])) && (isset($_POST['surface'])) ) {
+             $req=$db->prepare('SELECT id,titre,wilaya,daira,commune,type_bien,lien_img FROM biens_location WHERE wilaya=? AND daira=?
+             AND prix<=? AND surface<=?');
+             $req->execute(array($_POST['wilaya'],$_POST['daira'],$_POST['prix'],$_POST['surface']));
+        }
+
+
+            if (($_POST['type_bien']=='nul') && ($_POST['prix']==null) && (isset($_POST['wilaya'])) && (isset($_POST['daira'])) && (isset($_POST['commune'])) && (isset($_POST['surface'])) ) {
+             $req=$db->prepare('SELECT id,titre,wilaya,daira,commune,type_bien,lien_img FROM biens_location WHERE wilaya=? AND daira=?
+             AND commune=? AND surface<=?');
+             $req->execute(array($_POST['wilaya'],$_POST['daira'],$_POST['commune'],$_POST['surface']));
+        }
+
+            if (($_POST['type_bien']=='nul') && ($_POST['surface']==null) && (isset($_POST['wilaya'])) && (isset($_POST['daira'])) && (isset($_POST['commune'])) && (isset($_POST['prix'])) ) {
+             $req=$db->prepare('SELECT id,titre,wilaya,daira,commune,type_bien,lien_img FROM biens_location WHERE wilaya=? AND daira=?
+             AND commune=? AND prix<=?');
+             $req->execute(array($_POST['wilaya'],$_POST['daira'],$_POST['commune'],$_POST['prix']));
+        } 
+
+
+            if (($_POST['wilaya']=='nul') && ($_POST['daira']=='nul') && (isset($_POST['type_bien'])) && (isset($_POST['commune'])) && (isset($_POST['prix'])) && (isset($_POST['surface'])) ) {
+             $req=$db->prepare('SELECT id,titre,wilaya,daira,commune,type_bien,lien_img FROM biens_location WHERE type_bien=? AND commune=?
+             AND prix<=? AND surface<=?');
+             $req->execute(array($_POST['type_bien'],$_POST['commune'],$_POST['prix'],$_POST['surface']));
+        }
+
+            if (($_POST['wilaya']=='nul') && ($_POST['commune']=='nul') && (isset($_POST['type_bien'])) && (isset($_POST['daira'])) && (isset($_POST['prix'])) && (isset($_POST['surface'])) ) {
+             $req=$db->prepare('SELECT id,titre,wilaya,daira,commune,type_bien,lien_img FROM biens_location WHERE type_bien=? AND daira=?
+             AND prix<=? AND surface<=?');
+             $req->execute(array($_POST['type_bien'],$_POST['daira'],$_POST['prix'],$_POST['surface']));
+        }
+
+            if (($_POST['wilaya']=='nul') && ($_POST['prix']==null) && (isset($_POST['type_bien'])) && (isset($_POST['daira'])) && (isset($_POST['commune'])) && (isset($_POST['surface'])) ) {
+             $req=$db->prepare('SELECT id,titre,wilaya,daira,commune,type_bien,lien_img FROM biens_location WHERE type_bien=? AND daira=?
+             AND commune=? AND surface<=?');
+             $req->execute(array($_POST['type_bien'],$_POST['daira'],$_POST['commune'],$_POST['surface']));
+        }
+
+            if (($_POST['wilaya']=='nul') && ($_POST['surface']==null) && (isset($_POST['type_bien'])) && (isset($_POST['daira'])) && (isset($_POST['commune'])) && (isset($_POST['prix'])) ) {
+             $req=$db->prepare('SELECT id,titre,wilaya,daira,commune,type_bien,lien_img FROM biens_location WHERE type_bien=? AND daira=?
+             AND commune=? AND prix<=?');
+             $req->execute(array($_POST['type_bien'],$_POST['daira'],$_POST['commune'],$_POST['prix']));
+        }
+
+            if (($_POST['daira']=='nul') && ($_POST['commune']=='nul') && (isset($_POST['type_bien'])) && (isset($_POST['wilaya'])) && (isset($_POST['prix'])) && (isset($_POST['surface'])) ) {
+             $req=$db->prepare('SELECT id,titre,wilaya,daira,commune,type_bien,lien_img FROM biens_location WHERE type_bien=? AND daira=?
+             AND prix<=? AND surface<=?');
+             $req->execute(array($_POST['type_bien'],$_POST['wilaya'],$_POST['commune'],$_POST['surface']));
+        }
+
+            if (($_POST['daira']=='nul') && ($_POST['prix']==null) && (isset($_POST['type_bien'])) && (isset($_POST['wilaya'])) && (isset($_POST['commune'])) && (isset($_POST['surface'])) ) {
+             $req=$db->prepare('SELECT id,titre,wilaya,daira,commune,type_bien,lien_img FROM biens_location WHERE type_bien=? AND daira=?
+             AND commune=? AND surface<=?');
+             $req->execute(array($_POST['type_bien'],$_POST['wilaya'],$_POST['commune'],$_POST['surface']));
+        }
+
+            if (($_POST['daira']=='nul') && ($_POST['surface']==null) && (isset($_POST['type_bien'])) && (isset($_POST['wilaya'])) && (isset($_POST['commune'])) && (isset($_POST['surface'])) ) {
+             $req=$db->prepare('SELECT id,titre,wilaya,daira,commune,type_bien,lien_img FROM biens_location WHERE type_bien=? AND daira=?
+             AND commune=? AND surface<=?');
+             $req->execute(array($_POST['type_bien'],$_POST['wilaya'],$_POST['commune'],$_POST['surface']));
+        }
+
+            if (($_POST['commune']=='nul') && ($_POST['prix']==null) && (isset($_POST['type_bien'])) && (isset($_POST['wilaya'])) && (isset($_POST['daira'])) && (isset($_POST['surface'])) ) {
+             $req=$db->prepare('SELECT id,titre,wilaya,daira,commune,type_bien,lien_img FROM biens_location WHERE type_bien=? AND wilaya=?
+             AND daira=? AND surface<=?');
+             $req->execute(array($_POST['type_bien'],$_POST['wilaya'],$_POST['daira'],$_POST['surface']));
+        }
+
+            if (($_POST['commune']=='nul') && ($_POST['surface']==null) && (isset($_POST['type_bien'])) && (isset($_POST['wilaya'])) && (isset($_POST['daira'])) && (isset($_POST['prix'])) ) {
+             $req=$db->prepare('SELECT id,titre,wilaya,daira,commune,type_bien,lien_img FROM biens_location WHERE type_bien=? AND wilaya=?
+             AND daira=? AND prix<=?');
+             $req->execute(array($_POST['type_bien'],$_POST['wilaya'],$_POST['daira'],$_POST['prix']));
+        }
+
+            if (($_POST['prix']==null) && ($_POST['surface']==null) && (isset($_POST['type_bien'])) && (isset($_POST['wilaya'])) && (isset($_POST['daira'])) && (isset($_POST['commune'])) ) {
+             $req=$db->prepare('SELECT id,titre,wilaya,daira,commune,type_bien,lien_img FROM biens_location WHERE type_bien=? AND wilaya=?
+             AND daira=? AND commune=?');
+             $req->execute(array($_POST['type_bien'],$_POST['wilaya'],$_POST['daira'],$_POST['commune']));
+        }
+                                      }
+
+
+        //filtre a 3 case
+
+        if(isset($_POST['type_bien'])) {                              
+            
+            if (($_POST['type_bien']=='nul') && ($_POST['wilaya']=='nul') && ($_POST['daira']=='nul') && (isset($_POST['commune'])) && (isset($_POST['prix'])) && (isset($_POST['surface'])) ) {
+             $req=$db->prepare('SELECT id,titre,wilaya,daira,commune,type_bien,lien_img FROM biens_location WHERE commune=? AND prix<=?
+             AND surface<=? ');
+             $req->execute(array($_POST['commune'],$_POST['prix'],$_POST['surface']));
+        }
+
+                                        
+            if (($_POST['type_bien']=='nul') && ($_POST['wilaya']=='nul') && ($_POST['commune']=='nul') && (isset($_POST['daira'])) && (isset($_POST['prix'])) && (isset($_POST['surface'])) ) {
+             $req=$db->prepare('SELECT id,titre,wilaya,daira,commune,type_bien,lien_img FROM biens_location  WHERE daira=? AND prix<=?
+             AND surface<=? ');
+             $req->execute(array($_POST['daira'],$_POST['prix'],$_POST['surface']));
+        }
+            
+
+            if (($_POST['type_bien']=='nul') && ($_POST['wilaya']=='nul') && ($_POST['prix']==null) && (isset($_POST['daira'])) && (isset($_POST['commune'])) && (isset($_POST['surface'])) ) {
+             $req=$db->prepare('SELECT id,titre,wilaya,daira,commune,type_bien,lien_img FROM biens_location  WHERE daira=? AND commune=?
+             AND surface<=? ');
+             $req->execute(array($_POST['daira'],$_POST['commune'],$_POST['surface']));
+        }
+
+
+            if (($_POST['type_bien']=='nul') && ($_POST['wilaya']=='nul') && ($_POST['surface']==null) && (isset($_POST['daira'])) && (isset($_POST['commune'])) && (isset($_POST['prix'])) ) {
+             $req=$db->prepare('SELECT id,titre,wilaya,daira,commune,type_bien,lien_img FROM biens_location  WHERE daira=? AND commune=?
+             AND prix<=? ');
              $req->execute(array($_POST['daira'],$_POST['commune'],$_POST['prix']));
         }
 
+            if (($_POST['type_bien']=='nul') && ($_POST['daira']=='nul') && ($_POST['commune']=='nul') && (isset($_POST['wilaya'])) && (isset($_POST['prix'])) && (isset($_POST['surface'])) ) {
+             $req=$db->prepare('SELECT id,titre,wilaya,daira,commune,type_bien,lien_img FROM biens_location  WHERE wilaya=? AND prix<=?
+             AND surface<=? ');
+             $req->execute(array($_POST['wilaya'],$_POST['prix'],$_POST['surface']));
+        }
 
-        //filtre a 2 cases
-        if(isset($_POST['daira'])){  
-          if(($_POST['daira']=='Daïras')&&($_POST['prix']==null)&& (isset($_POST['commune']))&&(isset($_POST['surface']))){
-                                            $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens WHERE commune=? AND surface<=?');                    
-                                            $req->execute(array($_POST['commune'],$_POST['surface']));
-                                        }
+            if (($_POST['type_bien']=='nul') && ($_POST['daira']=='nul') && ($_POST['prix']==null) && (isset($_POST['wilaya'])) && (isset($_POST['commune'])) && (isset($_POST['surface'])) ) {
+             $req=$db->prepare('SELECT id,titre,wilaya,daira,commune,type_bien,lien_img FROM biens_location  WHERE wilaya=? AND commune=?
+             AND surface<=? ');
+             $req->execute(array($_POST['wilaya'],$_POST['commune'],$_POST['surface']));
+        }
+
+            if (($_POST['type_bien']=='nul') && ($_POST['daira']=='nul') && ($_POST['surface']==null) && (isset($_POST['wilaya'])) && (isset($_POST['commune'])) && (isset($_POST['prix'])) ) {
+             $req=$db->prepare('SELECT id,titre,wilaya,daira,commune,type_bien,lien_img FROM biens_location  WHERE wilaya=? AND commune=?
+             AND prix<=? ');
+             $req->execute(array($_POST['wilaya'],$_POST['commune'],$_POST['prix']));
+        }
+
+            if (($_POST['type_bien']=='nul') && ($_POST['commune']=='nul') && ($_POST['prix']==null) && (isset($_POST['wilaya'])) && (isset($_POST['daira'])) && (isset($_POST['surface'])) ) {
+             $req=$db->prepare('SELECT id,titre,wilaya,daira,commune,type_bien,lien_img FROM biens_location  WHERE wilaya=? AND daira=?
+             AND surface<=? ');
+             $req->execute(array($_POST['wilaya'],$_POST['daira'],$_POST['surface']));
+        }
+
+            if (($_POST['type_bien']=='nul') && ($_POST['commune']=='nul') && ($_POST['surface']==null) && (isset($_POST['wilaya'])) && (isset($_POST['daira'])) && (isset($_POST['prix'])) ) {
+             $req=$db->prepare('SELECT id,titre,wilaya,daira,commune,type_bien,lien_img FROM biens_location  WHERE wilaya=? AND daira=?
+             AND prix<=? ');
+             $req->execute(array($_POST['wilaya'],$_POST['daira'],$_POST['prix']));
+        }
+
+            if (($_POST['type_bien']=='nul') && ($_POST['prix']==null) && ($_POST['surface']==null) && (isset($_POST['wilaya'])) && (isset($_POST['daira'])) && (isset($_POST['commune'])) ) {
+             $req=$db->prepare('SELECT id,titre,wilaya,daira,commune,type_bien,lien_img FROM biens_location WHERE wilaya=? AND daira=?
+             AND commune=? ');
+             $req->execute(array($_POST['wilaya'],$_POST['daira'],$_POST['commune']));
+        }
+
+            if (($_POST['wilaya']=='nul') && ($_POST['daira']=='nul') && ($_POST['commune']=='nul') && (isset($_POST['type_bien'])) && (isset($_POST['prix'])) && (isset($_POST['surface'])) ) {
+             $req=$db->prepare('SELECT id,titre,wilaya,daira,commune,type_bien,lien_img FROM biens_location WHERE type_bien=? AND prix<=?
+             AND surface<=? ');
+             $req->execute(array($_POST['type_bien'],$_POST['prix'],$_POST['surface']));
+        }
+
+            if (($_POST['wilaya']=='nul') && ($_POST['daira']=='nul') && ($_POST['prix']==null) && (isset($_POST['type_bien'])) && (isset($_POST['commune'])) && (isset($_POST['surface'])) ) {
+             $req=$db->prepare('SELECT id,titre,wilaya,daira,commune,type_bien,lien_img FROM biens_location WHERE type_bien=? AND commune=?
+             AND surface<=? ');
+             $req->execute(array($_POST['type_bien'],$_POST['commune'],$_POST['surface']));
+        }
+
+            if (($_POST['wilaya']=='nul') && ($_POST['daira']=='nul') && ($_POST['surface']==null) && (isset($_POST['type_bien'])) && (isset($_POST['commune'])) && (isset($_POST['prix'])) ) {
+             $req=$db->prepare('SELECT id,titre,wilaya,daira,commune,type_bien,lien_img FROM biens_location WHERE type_bien=? AND commune=?
+             AND prix<=? ');
+             $req->execute(array($_POST['type_bien'],$_POST['commune'],$_POST['prix']));
+        }
+
+            if (($_POST['wilaya']=='nul') && ($_POST['commune']=='nul') && ($_POST['prix']==null) && (isset($_POST['type_bien'])) && (isset($_POST['daira'])) && (isset($_POST['surface'])) ) {
+             $req=$db->prepare('SELECT id,titre,wilaya,daira,commune,type_bien,lien_img FROM biens_location WHERE type_bien=? AND daira=?
+             AND surface<=? ');
+             $req->execute(array($_POST['type_bien'],$_POST['daira'],$_POST['surface']));
+        }
+
+            if (($_POST['wilaya']=='nul') && ($_POST['commune']=='nul') && ($_POST['surface']==null) && (isset($_POST['type_bien'])) && (isset($_POST['daira'])) && (isset($_POST['prix'])) ) {
+             $req=$db->prepare('SELECT id,titre,wilaya,daira,commune,type_bien,lien_img FROM biens_location WHERE type_bien=? AND daira=?
+             AND prix<=? ');
+             $req->execute(array($_POST['type_bien'],$_POST['daira'],$_POST['prix']));
+        }
+
+            if (($_POST['wilaya']=='nul') && ($_POST['prix']==null) && ($_POST['surface']==null) && (isset($_POST['type_bien'])) && (isset($_POST['daira'])) && (isset($_POST['commune'])) ) {
+             $req=$db->prepare('SELECT id,titre,wilaya,daira,commune,type_bien,lien_img FROM biens_location WHERE type_bien=? AND daira=?
+             AND commune=? ');
+             $req->execute(array($_POST['type_bien'],$_POST['daira'],$_POST['commune']));
+        }
+
+            if (($_POST['daira']=='nul') && ($_POST['commune']=='nul') && ($_POST['prix']==null) && (isset($_POST['type_bien'])) && (isset($_POST['wilaya'])) && (isset($_POST['surface'])) ) {
+             $req=$db->prepare('SELECT id,titre,wilaya,daira,commune,type_bien,lien_img FROM biens_location WHERE type_bien=? AND wilaya=?
+             AND surface<=? ');
+             $req->execute(array($_POST['type_bien'],$_POST['wilaya'],$_POST['surface']));
+
+        }
+
+            if (($_POST['daira']=='nul') && ($_POST['commune']=='nul') && ($_POST['surface']==null) && (isset($_POST['type_bien'])) && (isset($_POST['wilaya'])) && (isset($_POST['prix'])) ) {
+             $req=$db->prepare('SELECT id,titre,wilaya,daira,commune,type_bien,lien_img FROM biens_location WHERE type_bien=? AND wilaya=?
+             AND prix<=? ');
+             $req->execute(array($_POST['type_bien'],$_POST['wilaya'],$_POST['prix']));
+            
+        }
+
+            if (($_POST['daira']=='nul') && ($_POST['prix']==null) && ($_POST['surface']==null) && (isset($_POST['type_bien'])) && (isset($_POST['wilaya'])) && (isset($_POST['commune'])) ) {
+             $req=$db->prepare('SELECT id,titre,wilaya,daira,commune,type_bien,lien_img FROM biens_location WHERE type_bien=? AND wilaya=?
+             AND commune=? ');
+             $req->execute(array($_POST['type_bien'],$_POST['wilaya'],$_POST['commune']));
+            
+        }
+
+            if (($_POST['commune']=='nul') && ($_POST['prix']==null) && ($_POST['surface']==null) && (isset($_POST['type_bien'])) && (isset($_POST['wilaya'])) && (isset($_POST['daira'])) ) {
+             $req=$db->prepare('SELECT id,titre,wilaya,daira,commune,type_bien,lien_img FROM biens_location WHERE type_bien=? AND wilaya=?
+             AND daira=? ');
+             $req->execute(array($_POST['type_bien'],$_POST['wilaya'],$_POST['daira']));
+            
+        }
+            
+            }
+
+            //filtre a 2 case
 
 
-            if(($_POST['daira']=='Daïras')&&($_POST['commune']=='Commune')&&(isset($_POST['prix'])) && (isset($_POST['surface'])) ){
-                                            $req=$db->prepare("SELECT id,titre,daira,commune,lien_img FROM biens WHERE  prix<=? and surface<=?"); 
-                                                               
-                                            $req->execute(array($_POST['prix'],$_POST['surface']));
-                                        } 
+            if (($_POST['daira']=='nul') && ($_POST['commune']=='nul') && ($_POST['prix']==null) && ($_POST['surface']==null) && (isset($_POST['type_bien'])) && (isset($_POST['wilaya'])) ) {
+             $req=$db->prepare('SELECT id,titre,wilaya,daira,commune,type_bien,lien_img FROM biens_location WHERE type_bien=? AND wilaya=? ');
+             $req->execute(array($_POST['type_bien'],$_POST['wilaya']));
+            
+        }
 
-            if(($_POST['daira']=='Daïras')&&($_POST['surface']==null)&& (isset($_POST['commune']))&&(isset($_POST['prix']))){
-                                            $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens WHERE commune=? AND prix<=?');                    
-                                            $req->execute(array($_POST['commune'],$_POST['prix']));
-                                        }
+            if (($_POST['wilaya']=='nul') && ($_POST['commune']=='nul') && ($_POST['prix']==null) && ($_POST['surface']==null) && (isset($_POST['type_bien'])) && (isset($_POST['daira'])) ) {
+             $req=$db->prepare('SELECT id,titre,wilaya,daira,commune,type_bien,lien_img FROM biens_location WHERE type_bien=? AND daira=? ');
+             $req->execute(array($_POST['type_bien'],$_POST['daira']));
+            
+        }
 
-            if(($_POST['surface']==null)&&($_POST['prix']==null)&& (isset($_POST['commune']))&&(isset($_POST['daira']))){
-                                            $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens WHERE commune=? AND daira=?');                    
-                                            $req->execute(array($_POST['commune'],$_POST['daira']));
-                                        }
+            if (($_POST['wilaya']=='nul') && ($_POST['daira']=='nul') && ($_POST['prix']==null) && ($_POST['surface']==null) && (isset($_POST['type_bien'])) && (isset($_POST['commune'])) ) {
+             $req=$db->prepare('SELECT id,titre,wilaya,daira,commune,type_bien,lien_img FROM biens_location WHERE type_bien=? AND commune=? ');
+             $req->execute(array($_POST['type_bien'],$_POST['commune']));
+            
+        }
 
-            if(($_POST['commune']=='Commune')&&($_POST['prix']==null)&& (isset($_POST['surface']))&&(isset($_POST['daira']))){
-                                            $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens WHERE surface<=? AND daira=?');                    
-                                            $req->execute(array($_POST['surface'],$_POST['daira']));
-                                        } 
+            if (($_POST['wilaya']=='nul') && ($_POST['daira']=='nul') && ($_POST['commune']=='nul') && ($_POST['surface']==null) && (isset($_POST['type_bien'])) && (isset($_POST['prix'])) ) {
+             $req=$db->prepare('SELECT id,titre,wilaya,daira,commune,type_bien,lien_img FROM biens_location WHERE type_bien=? AND prix<=? ');
+             $req->execute(array($_POST['type_bien'],$_POST['prix']));
+            
+        }
 
+            if (($_POST['wilaya']=='nul') && ($_POST['daira']=='nul') && ($_POST['commune']=='nul') && ($_POST['prix']==null) && (isset($_POST['type_bien'])) && (isset($_POST['surface'])) ) {
+             $req=$db->prepare('SELECT id,titre,wilaya,daira,commune,type_bien,lien_img FROM biens_location WHERE type_bien=? AND surface<=? ');
+             $req->execute(array($_POST['type_bien'],$_POST['surface']));
+            
+        }
 
-            if(($_POST['surface']==null)&&($_POST['commune']=='Commune')&& (isset($_POST['prix']))&&(isset($_POST['daira']))){
-                                            $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens WHERE prix<=? AND daira=?');                    
-                                            $req->execute(array($_POST['prix'],$_POST['daira']));
-                                        }  
-                                      }
+            if (($_POST['type_bien']=='nul') && ($_POST['commune']=='nul') && ($_POST['prix']==null) && ($_POST['surface']==null) && (isset($_POST['wilaya'])) && (isset($_POST['daira'])) ) {
+             $req=$db->prepare('SELECT id,titre,wilaya,daira,commune,type_bien,lien_img FROM biens_location WHERE wilaya=? AND daira=? ');
+             $req->execute(array($_POST['wilaya'],$_POST['daira']));
+            
+        }
 
+            if (($_POST['type_bien']=='nul') && ($_POST['daira']=='nul') && ($_POST['prix']==null) && ($_POST['surface']==null) && (isset($_POST['wilaya'])) && (isset($_POST['commune'])) ) {
+             $req=$db->prepare('SELECT id,titre,wilaya,daira,commune,type_bien,lien_img FROM biens_location WHERE wilaya=? AND commune=? ');
+             $req->execute(array($_POST['wilaya'],$_POST['commune']));
+            
+        }
+
+            if (($_POST['type_bien']=='nul') && ($_POST['daira']=='nul') && ($_POST['commune']=='nul') && ($_POST['surface']==null) && (isset($_POST['wilaya'])) && (isset($_POST['prix'])) ) {
+             $req=$db->prepare('SELECT id,titre,wilaya,daira,commune,type_bien,lien_img FROM biens_location WHERE wilaya=? AND prix<=? ');
+             $req->execute(array($_POST['wilaya'],$_POST['prix']));
+            
+        }
+
+            if (($_POST['type_bien']=='nul') && ($_POST['daira']=='nul') && ($_POST['commune']=='nul') && ($_POST['prix']==null) && (isset($_POST['wilaya'])) && (isset($_POST['surface'])) ) {
+             $req=$db->prepare('SELECT id,titre,wilaya,daira,commune,type_bien,lien_img FROM biens_location WHERE wilaya=? AND surface<=? ');
+             $req->execute(array($_POST['wilaya'],$_POST['surface']));
+            
+        }
+
+            if (($_POST['type_bien']=='nul') && ($_POST['wilaya']=='nul') && ($_POST['prix']==null) && ($_POST['surface']==null) && (isset($_POST['daira'])) && (isset($_POST['commune'])) ) {
+             $req=$db->prepare('SELECT id,titre,wilaya,daira,commune,type_bien,lien_img FROM biens_location WHERE daira=? AND commune=? ');
+             $req->execute(array($_POST['daira'],$_POST['commune']));
+            
+        }
+
+            if (($_POST['type_bien']=='nul') && ($_POST['wilaya']=='nul') && ($_POST['commune']=='nul') && ($_POST['surface']==null) && (isset($_POST['daira'])) && (isset($_POST['prix'])) ) {
+             $req=$db->prepare('SELECT id,titre,wilaya,daira,commune,type_bien,lien_img FROM biens_location WHERE daira=? AND prix<=? ');
+             $req->execute(array($_POST['daira'],$_POST['prix']));
+            
+        }
+
+            if (($_POST['type_bien']=='nul') && ($_POST['wilaya']=='nul') && ($_POST['commune']=='nul') && ($_POST['prix']==null) && (isset($_POST['daira'])) && (isset($_POST['surface'])) ) {
+             $req=$db->prepare('SELECT id,titre,wilaya,daira,commune,type_bien,lien_img FROM biens_location WHERE daira=? AND surface<=? ');
+             $req->execute(array($_POST['daira'],$_POST['surface']));
+            
+        }
+
+            if (($_POST['type_bien']=='nul') && ($_POST['wilaya']=='nul') && ($_POST['daira']=='nul') && ($_POST['surface']==null) && (isset($_POST['commune'])) && (isset($_POST['prix'])) ) {
+             $req=$db->prepare('SELECT id,titre,wilaya,daira,commune,type_bien,lien_img FROM biens_location WHERE commune=? AND prix<=? ');
+             $req->execute(array($_POST['commune'],$_POST['prix']));
+            
+        }
+
+            if (($_POST['type_bien']=='nul') && ($_POST['wilaya']=='nul') && ($_POST['daira']=='nul') && ($_POST['prix']==null) && (isset($_POST['commune'])) && (isset($_POST['surface'])) ) {
+             $req=$db->prepare('SELECT id,titre,wilaya,daira,commune,type_bien,lien_img FROM biens_location WHERE commune=? AND surface<=? ');
+             $req->execute(array($_POST['commune'],$_POST['surface']));
+            
+        }
+
+            if (($_POST['type_bien']=='nul') && ($_POST['wilaya']=='nul') && ($_POST['daira']=='nul') && ($_POST['commune']=='nul') && (isset($_POST['prix'])) && (isset($_POST['surface'])) ) {
+             $req=$db->prepare('SELECT id,titre,wilaya,daira,commune,type_bien,lien_img FROM biens_location WHERE prix<=? AND surface<=? ');
+             $req->execute(array($_POST['prix'],$_POST['surface']));
+            
+        }
 
         //filtre a 1 case
 
-        if(isset($_POST['daira'])){                              
-            if(($_POST['surface']==null)&&($_POST['commune']=='Commune')&& ($_POST['prix']==null)&&(isset($_POST['daira']))){
-                                            $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens WHERE  daira=?');                    
-                                            $req->execute(array($_POST['daira']));
-                                        }
+            if (($_POST['wilaya']=='nul') && ($_POST['daira']=='nul') && ($_POST['commune']=='nul') && ($_POST['prix']==null) && ($_POST['surface']==null) && (isset($_POST['type_bien'])) ) {
+             $req=$db->prepare('SELECT id,titre,wilaya,daira,commune,type_bien,lien_img FROM biens_location WHERE type_bien=?');
+             $req->execute(array($_POST['type_bien']));
             
+        }
 
-                                        
-
-            if(($_POST['surface']==null)&&($_POST['daira']=='Daïras')&& ($_POST['prix']==null)&&(isset($_POST['commune']))){
-                                            $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens WHERE  commune =?');                    
-                                            $req->execute(array($_POST['commune']));
-                                        }
+            if (($_POST['type_bien']=='nul') && ($_POST['daira']=='nul') && ($_POST['commune']=='nul') && ($_POST['prix']==null) && ($_POST['surface']==null) && (isset($_POST['wilaya'])) ) {
+             $req=$db->prepare('SELECT id,titre,wilaya,daira,commune,type_bien,lien_img FROM biens_location WHERE wilaya=?');
+             $req->execute(array($_POST['wilaya']));
             
+        }
 
-            if(($_POST['surface']==null)&&($_POST['daira']=='Daïras')&& ($_POST['commune']=='Commune')&&(isset($_POST['prix']))){
-                                            $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens WHERE  prix <= ?');                    
-                                            $req->execute(array($_POST['prix']));
-                                        }
+            if (($_POST['type_bien']=='nul') && ($_POST['wilaya']=='nul') && ($_POST['commune']=='nul') && ($_POST['prix']==null) && ($_POST['surface']==null) && (isset($_POST['daira'])) ) {
+             $req=$db->prepare('SELECT id,titre,wilaya,daira,commune,type_bien,lien_img FROM biens_location WHERE daira=?');
+             $req->execute(array($_POST['daira']));
+            
+        }
 
+            if (($_POST['type_bien']=='nul') && ($_POST['wilaya']=='nul') && ($_POST['daira']=='nul') && ($_POST['prix']==null) && ($_POST['surface']==null) && (isset($_POST['commune'])) ) {
+             $req=$db->prepare('SELECT id,titre,wilaya,daira,commune,type_bien,lien_img FROM biens_location WHERE commune=?');
+             $req->execute(array($_POST['commune']));
+            
+        }
 
-            if(($_POST['commune']=='Commune')&&($_POST['daira']=='Daïras')&& ($_POST['prix']==null)&&(isset($_POST['surface']))){
-                                            $req=$db->prepare('SELECT id,titre,daira,commune,lien_img FROM biens WHERE  surface <=?');                    
-                                            $req->execute(array($_POST['surface']));
-                                        }
-                                      }
+            if (($_POST['type_bien']=='nul') && ($_POST['wilaya']=='nul') && ($_POST['daira']=='nul') && ($_POST['commune']=='nul') && ($_POST['surface']==null) && (isset($_POST['prix'])) ) {
+             $req=$db->prepare('SELECT id,titre,wilaya,daira,commune,type_bien,lien_img FROM biens_location WHERE prix<=?');
+             $req->execute(array($_POST['prix']));
+            
+        }
+
+            if (($_POST['type_bien']=='nul') && ($_POST['wilaya']=='nul') && ($_POST['daira']=='nul') && ($_POST['commune']=='nul') && ($_POST['prix']==null) && (isset($_POST['surface'])) ) {
+             $req=$db->prepare('SELECT id,titre,wilaya,daira,commune,type_bien,lien_img FROM biens_location WHERE surface<=?');
+             $req->execute(array($_POST['surface']));
+            
+        }
 
             
+          
           
           if(isset($req)){  
             while ($donne= $req->fetch()){
               //affichage des biens aprés recherche
               
-            echo(' <div class="biensug" >
-                  <img src="../'.$donne['lien_img'].'" class="imgbien" alt="l\'image du bien" >
-                  <div class="infobien">
-                  <h4>'.$donne['titre'].'</h4>
-                  <p>Lieu:'.$donne['commune'].','.$donne['daira'].'</p>
-                  </div>
-                  <div class="linkdetail">
-                  <a href="../pages/detail.php?id='.$donne['id'].'" class="linkdetail">Voir Detail</a> 
-                  </div>
-                  </div>');
+            echo('<div class="biensug" ><a class="linkdetail" href="../pages/detail.php?id='.$donne['id'].'">
+            <img src="../'.$donne['lien_img'].'" class="imgbien" alt="l\'image du bien" >
+           <div class="infobien">
+           <h4 ">'.$donne['titre'].'</h4> 
+           <p>Lieu:'.$donne['commune'].','.$donne['daira'].'</p> 
+          </div></a>
+           
+           
+            
+         </div>');
               
             
             }
@@ -350,23 +706,23 @@ include_once('../includes/header.php');
       else {
         
       
-       $req = $db->query('SELECT id,titre, daira, commune, lien_img FROM biens ORDER BY id desc LIMIT 0,12');
+       $req = $db->query('SELECT id,titre, daira, commune, lien_img FROM biens_location ORDER BY id desc LIMIT 0,12');
        if(isset($_GET["search"])){
-        $req = $db->prepare('SELECT * FROM biens WHERE commune LIKE ? ');
+        $req = $db->prepare('SELECT * FROM biens_location WHERE commune LIKE ? ');
         $req->execute(array($_GET["search"]));
         
       }
        while ($donne= $req->fetch()){
        //affichage des biens les plus recents       
-         echo('<div class="biensug" >
-           <img src="../'.$donne['lien_img'].'" class="imgbien" alt="l\'image du bien" >
+         echo('<div class="biensug" ><a class="linkdetail" href="../pages/detail.php?id='.$donne['id'].'">
+            <img src="../'.$donne['lien_img'].'" class="imgbien" alt="l\'image du bien" >
            <div class="infobien">
-           <h4>'.$donne['titre'].'</h4>
-           <p>Lieu:'.$donne['commune'].','.$donne['daira'].'</p>
-          </div>
-           <div class="linkdetail">
-            <a href="../pages/detail.php?id='.$donne['id'].'" class="linkdetail">Voir Detail</a> 
-            </div>
+           <h4 ">'.$donne['titre'].'</h4> 
+           <p>Lieu:'.$donne['commune'].','.$donne['daira'].'</p> 
+          </div></a>
+           
+           
+            
          </div>');}
          $req->closeCursor();
 
