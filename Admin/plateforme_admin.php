@@ -345,22 +345,21 @@
                             
                             <?php
                         }
-                        //****************************  afficher et gerer tout les biens de l'agence*************** */
+                        //****************************  afficher et gerer tout les biens de vente*************** */
                         if($_GET["action"]=="gerer_biens"){
                             $select=$db->query('SELECT * FROM biens');
                             $select_loc=$db->query('SELECT * FROM biens_location');
                             
                             ?>
-                            <div id="session"></div>
+                            
 
                             <div class="radio_vendre_louer">
                                 <div class="radio_vendre">
-                                    <input type="radio" name="vendre_louer" id="vendre" value="Vendre" class="input_radio" <?php if($_SESSION["btn_radio"]=="vendre") echo "checked" ?> onclick="afficher_formulaire()">
-                                    <label for="vendre" class="label_radio">Vente</label>
+                                    <a href="?action=gerer_biens" class="input_radio " id="lien_vendre">Vente</a>
+                                    
                                 </div>
                                 <div class="radio_louer">
-                                    <input type="radio" name="vendre_louer" id="louer" value="Louer"  class="input_radio" <?php if($_SESSION["btn_radio"]=="louer") echo "checked" ?>  onclick="afficher_formulaire()">
-                                    <label for="louer" class="label_radio">Location</label>
+                                <a href="?action=gerer_biens_loc" class="input_radio" id="lien_louer">Location</a>
                                 </div>
                             </div>
 
@@ -471,50 +470,10 @@
                                 }
                             ?>    
 
-                            <div class="form_admin" id="form_louer">
-                                <h2>Liste des biens à louer:</h2>
-                                <div style="height: 400px; width: 800px; overflow: auto;">
-                                    <table class="liste_biens" cellpadding="3" rules="all">
-                                        <colgroup span="6" class="columns"></colgroup>
-                                        <tr>
-                                            <th>Titre</th>
-                                            <th>Surface</th>
-                                            <th>Etages</th>
-                                            <th>Daïra</th>
-                                            <th>Commune</th>
-                                            <th>Prix</th>
-                                            <th>Propriétaire</th>
-                                        </tr>
-                                        <?php
-                                        
-                                        while($donnees_loc=$select_loc->fetch()){
-                                            
-                                            ?>
-                                            <tr>
-                                                <td><?php echo $donnees_loc["titre"] ?></td>
-                                                <td><?php echo $donnees_loc["surface"] ?></td>
-                                                <td><?php echo $donnees_loc["etage"] ?></td>
-                                                <td><?php echo $donnees_loc["daira"] ?></td>
-                                                <td><?php echo $donnees_loc["commune"] ?></td>
-                                                <td><?php echo $donnees_loc["prix"] ?> DA</td>
-                                                <td><?php echo $donnees_loc["proprietaire"] ?></td>
-                                                <td><a href="?action=gerer_biens&amp;action2=modifier_loc&amp;id=<?php echo $donnees_loc["id"]; ?>" title="Modifier le bien"class="icon_supprimer" style="color:green;"><i class="far fa-edit"></i></a></td>
-                                                <td><a href="?action=gerer_biens&amp;action2=supprimer_loc&amp;id=<?php echo $donnees_loc["id"]; ?>" title="Supprimer le bien"class="icon_supprimer "><i class="far fa-trash-alt"></i></a></td>
-                                                
-                                            </tr>
-
-                                            <?php
-                                        }
-
-                                        ?>
-                                    
-                                    </table>
-                                </div>
-                                       
-                            </div>
+                            
                             <?php 
                                 //********************  supprimer ou modifier des biens    **************************** */
-                                if(isset($_GET["action2"])){
+                                    if(isset($_GET["action2"])){
                                     $id=$_GET["id"];
                                     //supprimer
                                     if($_GET["action2"]=="supprimer_loc"){
@@ -574,26 +533,83 @@
                                         </div>
                                         <?php
                                     }
-                                }
-                            ?>               
+                                    }
+                                ?>               
 
 
-                            <?php
-                        } 
-                        //****************************  afficher et gerer toutes les demande d'annoces *************** */
+                                <?php
+                                } 
+                        //******************************afficher et gerer tout les biens de loction */
+                        if($_GET["action"]=="gerer_biens_loc"){
+
+
+                            ?>
+                            <div class="radio_vendre_louer">
+                                <div class="radio_vendre">
+                                    <a href="?action=gerer_biens" class="input_radio " id="lien_vendre">Vente</a>
+                                    
+                                </div>
+                                <div class="radio_louer">
+                                <a href="?action=gerer_biens_loc" class="input_radio" id="lien_louer">Location</a>
+                                </div>
+                            </div>
+                            <div class="form_admin" id="form_louer">
+                            <h2>Liste des biens à louer:</h2>
+                            <div style="height: 400px; width: 800px; overflow: auto;">
+                                <table class="liste_biens" cellpadding="3" rules="all">
+                                    <colgroup span="6" class="columns"></colgroup>
+                                    <tr>
+                                        <th>Titre</th>
+                                        <th>Surface</th>
+                                        <th>Etages</th>
+                                        <th>Daïra</th>
+                                        <th>Commune</th>
+                                        <th>Prix</th>
+                                        <th>Propriétaire</th>
+                                    </tr>
+                                    <?php
+                                    $select_loc=$db->query("SELECT * FROM biens_location ");
+                                        
+                                    while($donnees_loc=$select_loc->fetch()){
+                                        
+                                        ?>
+                                        <tr>
+                                            <td><?php echo $donnees_loc["titre"] ?></td>
+                                            <td><?php echo $donnees_loc["surface"] ?></td>
+                                            <td><?php echo $donnees_loc["etage"] ?></td>
+                                            <td><?php echo $donnees_loc["daira"] ?></td>
+                                            <td><?php echo $donnees_loc["commune"] ?></td>
+                                            <td><?php echo $donnees_loc["prix"] ?> DA</td>
+                                            <td><?php echo $donnees_loc["proprietaire"] ?></td>
+                                            <td><a href="?action=gerer_biens&amp;action2=modifier_loc&amp;id=<?php echo $donnees_loc["id"]; ?>" title="Modifier le bien"class="icon_supprimer" style="color:green;"><i class="far fa-edit"></i></a></td>
+                                            <td><a href="?action=gerer_biens&amp;action2=supprimer_loc&amp;id=<?php echo $donnees_loc["id"]; ?>" title="Supprimer le bien"class="icon_supprimer "><i class="far fa-trash-alt"></i></a></td>
+                                            
+                                        </tr>
+
+                                        <?php
+                                    }
+
+                                    ?>
+                                
+                                </table>
+                            </div>
+                                   
+                        </div>
+                        <?php
+                        }
+                        //****************************  afficher et gerer toutes les demande de vente *************** */
                         if($_GET["action"]=="confirmer_annonces"){
                             $select=$db->query('SELECT * FROM demande_annonce');
-                            $select_loc=$db->query('SELECT * FROM demande_annonce_location');
+                            
                             ?>
                             <!--                       boutton radio                           -->
                             <div class="radio_vendre_louer">
                                 <div class="radio_vendre">
-                                    <input type="radio" name="vendre_louer" id="vendre" value="Vendre" class="input_radio" checked onclick="afficher_formulaire()">
-                                    <label for="vendre" class="label_radio">Vente</label>
+                                    <a href="?action=confirmer_annonces" class="input_radio " id="lien_vendre">Vente</a>
+                                    
                                 </div>
                                 <div class="radio_louer">
-                                    <input type="radio" name="vendre_louer" id="louer" value="Louer"  class="input_radio" onclick="afficher_formulaire()">
-                                    <label for="louer" class="label_radio">Location</label>
+                                <a href="?action=confirmer_annonces_loc" class="input_radio" id="lien_louer">Location</a>
                                 </div>
                             </div>
                             <!--   **************  liste des biens à vendre     -->
@@ -670,20 +686,22 @@
                                                 $donnees=$select->fetch();
                                                 ?>
                                                 <div class="box_voir_plus">
-                                                    <span>Titre :</span><span><?php echo $donnees["titre"] ?></span><br>
-                                                    <span>Wilaya :</span><span><?php echo $donnees["wilaya"] ?></span><br>
-                                                    <span>Daïra :</span><span><?php echo $donnees["daira"] ?></span><br>
-                                                    <span>Commune :</span><span><?php echo $donnees["commune"] ?></span><br>
-                                                    <span>Adresse :</span><span><?php echo $donnees["adresse"] ?></span><br>
-                                                    <span>Type du bien :</span><span><?php echo $donnees["type_bien"] ?></span><br>
-                                                    <span>Surface :</span><span><?php echo $donnees["surface"] ?></span><br>
-                                                    <span>Etage(s) :</span><span><?php echo $donnees["etage"] ?></span><br>
-                                                    <span>Piéce(s) :</span><span><?php echo $donnees["pieces"] ?></span><br>
-                                                    <span>Prix :</span><span><?php echo $donnees["prix"] ?></span><br>
-                                                    <span>Propriétaire :</span><span><?php echo $donnees["proprietaire"] ?></span><br>
-                                                    <img src="<?php echo $donnees["lien_img"] ?>" alt="image annonce" srcset="">
+                                                <button id="fermer"><i class="fas fa-times" value="fermer" onclick="fermer_voir_plus()" ></i></button>
+                                                <span>Titre :</span><span><?php echo $donnees["titre"] ?></span><br>
+                                                <span>Wilaya :</span><span><?php echo $donnees["wilaya"] ?></span><br>
+                                                <span>Daïra :</span><span><?php echo $donnees["daira"] ?></span><br>
+                                                <span>Commune :</span><span><?php echo $donnees["commune"] ?></span><br>
+                                                <span>Adresse :</span><span><?php echo $donnees["adresse"] ?></span><br>
+                                                <span>Type du bien :</span><span><?php echo $donnees["type_bien"] ?></span><br>
+                                                <span>Surface :</span><span><?php echo $donnees["surface"] ?></span><br>
+                                                <span>Etage(s) :</span><span><?php echo $donnees["etage"] ?></span><br>
+                                                <span>Piéce(s) :</span><span><?php echo $donnees["pieces"] ?></span><br>
+                                                <span>Prix :</span><span><?php echo $donnees["prix"] ?></span><br>
+                                                <span>Propriétaire :</span><span><?php echo $donnees["proprietaire"] ?></span><br>
+                                                
+                                                <img src="../<?php echo $donnees["lien_img"] ?>" alt="image annonce" width="448px" height="202px">
 
-                                                </div>   
+                                            </div>   
 
                                                 
                                                 
@@ -699,88 +717,130 @@
                                     </table>
                                 </div>
                             </div>
-
-                            <!--   **************  liste des biens à louer     -->          
+                            <?php
+                            
+                        } 
+                        //*******************************afficher et gerer toutes les demmandes de location */
+                        if($_GET["action"]=="confirmer_annonces_loc"){
+                            $select_loc=$db->query('SELECT * FROM demande_annonce_location');
+                            ?>
+                            <div class="radio_vendre_louer">
+                                <div class="radio_vendre">
+                                    <a href="?action=confirmer_annonces" class="input_radio " id="lien_vendre">Vente</a>
+                                    
+                                </div>
+                                <div class="radio_louer">
+                                <a href="?action=confirmer_annonces_loc" class="input_radio" id="lien_louer">Location</a>
+                                </div>
+                            </div>
+                            <!--   **************  liste des biens à louer  ***********   -->          
                             <div class="form_admin" id="form_louer">
-                                <h2>Liste des demande d'annoces de location:</h2>
-                                <div style="height: 400px; width: 700px; overflow: auto;">
-                                    <table class="liste_biens" cellpadding="3" rules="all">
-                                        <colgroup span="6" class="columns"></colgroup>
-                                        <tr>
-                                            <th>Titre</th>
-                                            <th>Surface</th>
-                                            <th>Etages</th>
-                                            <th>Wilaya</th>
-                                            <th>Daïra</th>
-                                            <th>Commune</th>
-                                            <th>Propriétaire</th>
-                                        </tr>
-                                        <?php
-                                        
-                                        while($donnees_loc=$select_loc->fetch()){
-                                            
-                                            ?>
-                                            <tr>
-                                                <td><?php echo $donnees_loc["titre"] ?></td>
-                                                <td><?php echo $donnees_loc["surface"] ?></td>
-                                                <td><?php echo $donnees_loc["etage"] ?></td>
-                                                <td><?php echo $donnees_loc["wilaya"] ?></td>
-                                                <td><?php echo $donnees_loc["daira"] ?></td>
-                                                <td><?php echo $donnees_loc["commune"] ?></td>
-                                                <td><?php echo $donnees_loc["proprietaire"] ?></td>
-                                                <td><a href="?action=confirmer_annonces&amp;action2=plus_loc&amp;id=<?php echo $donnees_loc["id"]; ?>" title="Voir plus"class="icon_supprimer" style="color:blue;"><i class="fas fa-plus" ></i></a></td>
-                                                <td><a href="?action=confirmer_annonces&amp;action2=accepter_loc&amp;id=<?php echo $donnees_loc["id"]; ?>" title="Accepter l'annonce"class="icon_supprimer" style="color:green;"><i class="fas fa-check" ></i></a></td>
-                                                <td><a href="?action=confirmer_annonces&amp;action2=supprimer_loc&amp;id=<?php echo $donnees_loc["id"]; ?>" title="Refuser l'annoce"class="icon_supprimer "><i class="fas fa-times" ></i></a></td>
-                                                
-                                            </tr>
-
-                                            <?php
-                                        }
-
-                                        //**************************    accepter et supprimerl'annonce *********************** */
-                                        if(isset($_GET["action2"])){
-                                            //accepter
-                                            if($_GET["action2"]=="accepter_loc"){
-                                                
-                                            $id=$_GET["id"];
-                                            $select=$db->query("SELECT * FROM demande_annonce_location WHERE id=$id");
-                                            while($donnees=$select->fetch()){
-                                                $insert=$db->prepare('INSERT INTO biens_location VALUES(NULL,?,?,?,?,?,?,?,?,?,?,?,?,?)');
-                                                $insert->execute(array($donnees["titre"],$donnees["description"],$donnees["wilaya"],$donnees["daira"],$donnees["commune"],$donnees["adresse"],$donnees["type_bien"],$donnees["surface"],$donnees["etage"],$donnees["pieces"],$donnees["prix"],$donnees["lien_img"],$donnees["proprietaire"]));
-                                                $supprimer=$db->prepare("DELETE FROM demande_annonce_location WHERE id = $id");
-                                                $supprimer->execute();
-                                                ?>
-                                                <meta http-equiv="refresh" content="0;url=./plateforme_admin.php?action=confirmer_annonces" />
-                                                <script> alert("La demande d'annonce a été Accepter");  </script>
-                                                <?php
-                                            }
-                                
-                                            }
-                                            //supprimer
-                                            if($_GET["action2"]=="supprimer_loc"){
-                                                $id=$_GET["id"];
-                                                $supprimer=$db->prepare("DELETE FROM demande_annonce_location WHERE id = $id");
-                                                $supprimer->execute();
-                                                ?>
-                                                <script> alert("La demande d'annonce a été Refuser");  </script>
-                                                <meta http-equiv="refresh" content="0;url=./plateforme_admin.php?action=confirmer_annonces" />
-                                                <?php
-                                            }
-
-                                            
-                                        }
+                            <h2>Liste des demande d'annoces de location:</h2>
+                            <div style="height: 400px; width: 700px; overflow: auto;">
+                                <table class="liste_biens" cellpadding="3" rules="all">
+                                    <colgroup span="6" class="columns"></colgroup>
+                                    <tr>
+                                        <th>Titre</th>
+                                        <th>Surface</th>
+                                        <th>Etages</th>
+                                        <th>Wilaya</th>
+                                        <th>Daïra</th>
+                                        <th>Commune</th>
+                                        <th>Propriétaire</th>
+                                    </tr>
+                                    <?php
+                                    
+                                    while($donnees_loc=$select_loc->fetch()){
                                         
                                         ?>
+                                        <tr>
+                                            <td><?php echo $donnees_loc["titre"] ?></td>
+                                            <td><?php echo $donnees_loc["surface"] ?></td>
+                                            <td><?php echo $donnees_loc["etage"] ?></td>
+                                            <td><?php echo $donnees_loc["wilaya"] ?></td>
+                                            <td><?php echo $donnees_loc["daira"] ?></td>
+                                            <td><?php echo $donnees_loc["commune"] ?></td>
+                                            <td><?php echo $donnees_loc["proprietaire"] ?></td>
+                                            <td><a href="?action=confirmer_annonces_loc&amp;action2=plus_loc&amp;id=<?php echo $donnees_loc["id"]; ?>" title="Voir plus"class="icon_supprimer" style="color:blue;"><i class="fas fa-plus" ></i></a></td>
+                                            <td><a href="?action=confirmer_annonces_loc&amp;action2=accepter_loc&amp;id=<?php echo $donnees_loc["id"]; ?>" title="Accepter l'annonce"class="icon_supprimer" style="color:green;"><i class="fas fa-check" ></i></a></td>
+                                            <td><a href="?action=confirmer_annonces_loc&amp;action2=supprimer_loc&amp;id=<?php echo $donnees_loc["id"]; ?>" title="Refuser l'annoce"class="icon_supprimer "><i class="fas fa-times" ></i></a></td>
+                                            
+                                        </tr>
+
+                                        <?php
+                                    }
+
+                                    //**************************    accepter et supprimerl'annonce *********************** */
+                                    if(isset($_GET["action2"])){
+                                        //accepter
+                                        if($_GET["action2"]=="accepter_loc"){
+                                            
+                                        $id=$_GET["id"];
+                                        $select=$db->query("SELECT * FROM demande_annonce_location WHERE id=$id");
+                                        while($donnees=$select->fetch()){
+                                            $insert=$db->prepare('INSERT INTO biens_location VALUES(NULL,?,?,?,?,?,?,?,?,?,?,?,?,?)');
+                                            $insert->execute(array($donnees["titre"],$donnees["description"],$donnees["wilaya"],$donnees["daira"],$donnees["commune"],$donnees["adresse"],$donnees["type_bien"],$donnees["surface"],$donnees["etage"],$donnees["pieces"],$donnees["prix"],$donnees["lien_img"],$donnees["proprietaire"]));
+                                            $supprimer=$db->prepare("DELETE FROM demande_annonce_location WHERE id = $id");
+                                            $supprimer->execute();
+                                            ?>
+                                            <meta http-equiv="refresh" content="0;url=./plateforme_admin.php?action=confirmer_annonces" />
+                                            <script> alert("La demande d'annonce a été Accepter");  </script>
+                                            <?php
+                                        }
+                            
+                                        }
+                                        //supprimer
+                                        if($_GET["action2"]=="supprimer_loc"){
+                                            $id=$_GET["id"];
+                                            $supprimer=$db->prepare("DELETE FROM demande_annonce_location WHERE id = $id");
+                                            $supprimer->execute();
+                                            ?>
+                                            <script> alert("La demande d'annonce a été Refuser");  </script>
+                                            <meta http-equiv="refresh" content="0;url=./plateforme_admin.php?action=confirmer_annonces" />
+                                            <?php
+                                        }
                                         
+                                        if($_GET["action2"]=="plus_loc"){                                            
+                                            $id=$_GET["id"];
+                                            $select=$db->query("SELECT * FROM demande_annonce_location WHERE id=$id");
+                                            $donnees_loc=$select->fetch();
+                                            ?>
+                                            <div class="box_voir_plus">
+                                                <button id="fermer"><i class="fas fa-times" value="fermer" onclick="fermer_voir_plus()" ></i></button>
+                                                <span>Titre :</span><span><?php echo $donnees_loc["titre"] ?></span><br>
+                                                <span>Wilaya :</span><span><?php echo $donnees_loc["wilaya"] ?></span><br>
+                                                <span>Daïra :</span><span><?php echo $donnees_loc["daira"] ?></span><br>
+                                                <span>Commune :</span><span><?php echo $donnees_loc["commune"] ?></span><br>
+                                                <span>Adresse :</span><span><?php echo $donnees_loc["adresse"] ?></span><br>
+                                                <span>Type du bien :</span><span><?php echo $donnees_loc["type_bien"] ?></span><br>
+                                                <span>Surface :</span><span><?php echo $donnees_loc["surface"] ?></span><br>
+                                                <span>Etage(s) :</span><span><?php echo $donnees_loc["etage"] ?></span><br>
+                                                <span>Piéce(s) :</span><span><?php echo $donnees_loc["pieces"] ?></span><br>
+                                                <span>Prix :</span><span><?php echo $donnees_loc["prix"] ?></span><br>
+                                                <span>Propriétaire :</span><span><?php echo $donnees_loc["proprietaire"] ?></span><br>
+                                                
+                                                <img src="../<?php echo $donnees_loc["lien_img"] ?>" alt="image annonce" width="448px" height="202px">
+
+                                            </div>   
+
+                                            
+                                            
+                                            <?php
+                                        }
                                         
-                                    </table>
+                                    }
+                                    
+                                    ?>
+                                    
+                                    
+                                </table>
                                 </div>
                             </div>
 
 
 
                             <?php
-                        } 
+                        }
                         //*******************************afficher le formulaire ajouter des RDV************ */
                         if($_GET["action"]=="ajouter_rdv"){
                             ?>
@@ -1168,7 +1228,7 @@
 
 <script type="text/javascript">
  window.onload = style_onglet_admin();
-
+ window.onload =style_vendre_location_admin();
     
 
 window.onload = afficher_formulaire();
@@ -1178,3 +1238,6 @@ window.onload = afficher_formulaire();
 
 </body>
 </html>
+
+
+

@@ -188,14 +188,22 @@ h2.nom_admin {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    border-radius: 50%;
+    border-radius: 18%;
     width: 16px;
+    color: white;
     height: 16px;
-    border: 5px solid white;
+    text-decoration: none;
+    
     transition: 0.2s all linear;
     margin-right: 5px;
     position: relative;
-    top: 8px;
+    top: 7px;
+    padding: 3px;
+    font-size: 20px;
+  }
+  .input_radio:hover{
+    color: #fa6014;
+
   }
   
   .input_radio:checked {
@@ -243,4 +251,8 @@ input.btn_inscr {
     right: 0;
     background: snow;
     border: 1.5px solid;
+}
+
+button#fermer {
+    float: right;
 }
