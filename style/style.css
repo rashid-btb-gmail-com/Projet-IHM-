@@ -187,7 +187,12 @@ height:550px;
 .linkdetail{
     color:white;
 }
-
+.stylelienrap :hover{
+    color:orangered;
+    }
+.stylelienrap> a{
+    color:black;
+}
 
 /**************************************   FOOTER   *************************************/
 footer{
