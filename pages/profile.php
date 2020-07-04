@@ -195,7 +195,67 @@
     </section>
     <div id="favoris" style="padding-top:3px;">
     <section class="labox" >
+      <h1 class="text-center styletitlefav">Les Favoris</h1>
+      <div class="d-flex justify-content-center align-items-center ">
+        <div class="favoritebox ">
+          <h3 class="text-center">VENTE</h3>
+        <div class="favbox d-flex justify-content-center flex-wrap">
+          
+    <?php 
 
+    $id=$_SESSION['id'];
+       $bienrep = $db->query('SELECT * FROM favoris WHERE id_cl="'.$id.'" ORDER BY id ');
+        
+       while ($donne2= $bienrep->fetch()){
+        $bienselect=$db->query("SELECT * FROM biens WHERE id=".$donne2['id_biens']."");
+        $donne = $bienselect->fetch(); 
+        if($donne['id']==$donne2['id_biens']){
+          echo('<div class="biensug2" ><a class="linkdetail" href="../pages/detailloc.php?id='.$donne['id'].'">
+            <img src="../'.$donne['lien_img'].'" class="imgbien" alt="l\'image du bien" >
+           <div class="infobien">
+           <h4 ">'.$donne['titre'].'</h4> 
+           <p>Lieu:'.$donne['commune'].','.$donne['daira'].','.$donne['wilaya'].'</p> 
+          </div></a>       
+          </div>');}
+        $bienselect->closeCursor();
+        }
+         $bienrep->closeCursor();
+         ?>
+    </div>
+     </div>
+     <div style="border:2px solid orange; height:370px; margin-top:30px; margin-left:5px; margin-right:5px;"  ></div>
+   <div class="favoritebox">
+   <h3 class="text-center">LOCATION</h3>
+     <div class="favbox d-flex justify-content-center flex-wrap">
+    <?php 
+
+    $id=$_SESSION['id'];
+       $bienrep = $db->query('SELECT * FROM favoris_loc WHERE id_cl="'.$id.'" ORDER BY id ');
+      
+       while ($donne2= $bienrep->fetch()){
+        $bienselect=$db->query("SELECT * FROM biens_location WHERE id=".$donne2['id_biens']."");
+        $donne = $bienselect->fetch(); 
+        if($donne['id']==$donne2['id_biens']){
+          echo('<div class="biensug2" ><a class="linkdetail" href="../pages/detailloc.php?id='.$donne['id'].'">
+            <img src="../'.$donne['lien_img'].'" class="imgbien" alt="l\'image du bien" >
+           <div class="infobien">
+           <h4 ">'.$donne['titre'].'</h4> 
+           <p>Lieu:'.$donne['commune'].','.$donne['daira'].','.$donne['wilaya'].'</p> 
+          </div></a>       
+          </div>');}
+        $bienselect->closeCursor();
+        }
+         $bienrep->closeCursor();
+         ?>
+    </div></div>
+  </div>
+  <div class="d-flex justify-content-center" >
+              <div class="d-flexbox flexrow">
+              <p id="lienlistefav" style="color: orange;">les RDVs</p>
+              <div class="d-flex justify-content-center" >
+              <a href="./profile#RDV"><i class="fa fa-angle-double-down" style="color: orange; font-size:1.5rem;"></i></i></a> </div>
+            </div>
+            </div>
     </section>
   </div>
 </div>

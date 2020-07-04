@@ -63,11 +63,13 @@ $nompre=$_SESSION["nom"].' '.$_SESSION["prenom"];
                                 <option value="A proximité du bien">A proximité du bien</option>
                         </SELECT>
                         <br>
-                        </div>                                            
+                        </div> 
+                        <span class="warning">Heur de visite entre 8h-18h</span>                                           
                         <div class="input-group mb-3 datetime">
-                        <input type="date" name="date" class="form-control input_user date"  required><br>
-                        <input type="time" name="time" class="form-control input_user"  required><br>
+                        <input type="date" name="date" class="form-control input_user date" min="<?php $date=date('Y-m-d', strtotime(' +1 day')); echo($date); ?>" required><br>
+                        <input type="time" name="time" class="form-control input_user"  min="08:00" max="18:00"  required><br>
                         </div>
+
                         
                         <div class="input-group mb-3">
                         <input type="submit" value="demander" class="btn login_btn" name="submit">
@@ -75,10 +77,20 @@ $nompre=$_SESSION["nom"].' '.$_SESSION["prenom"];
                         <?php
                          
                          if(isset($_POST["submit"])){
+                            ?>
+                            <script> alert("Votre RDV Sera pris en compte"); </script>
+                            
+                            <?php
                              //insersion dans la base de donné
                              $insert=$db->prepare('INSERT INTO demande_rdv VALUES(NULL,?,?,?,?,?)');
                              $insert->execute(array($nompre,$_POST["lieu"],$_POST["date"],$_POST["time"],$raison));
+                          if($raison=='location'){
+                              
+                              echo('<meta http-equiv="refresh" content="0;url=./location.php" />');
+                             
+                          }else{  echo('<meta http-equiv="refresh" content="0;url=./immobilier.php" />'); }
                          }
+
                          ?>
                 </form>
 				</div>
