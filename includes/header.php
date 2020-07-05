@@ -34,6 +34,7 @@
                         </li>
                         <li>
                         <a href="?action=deco" title="Déconnexion"><i class="fas fa-sign-out-alt"></i></a>
+
                         </li>
 
                         
@@ -43,7 +44,7 @@
                       $_SESSION["username"]=null;
                       $_SESSION["id"]=null;
                       ?>
-                          <meta http-equiv="refresh" content="0">
+                          <meta http-equiv="refresh" content="../index.php">
                           <?php
                     }
                 }
