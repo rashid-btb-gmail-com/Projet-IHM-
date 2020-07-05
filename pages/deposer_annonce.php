@@ -66,7 +66,8 @@ else{
                             <h3>Vendre un bien</h3>  
                             <span class="span_deposer_annonce">Titre de l'annonce</span>
                             <div class="input-group mb-3">
-                            <input type="text" name="titre" class="form-control input_user" placeholder="Titre de l'annonce" required><br>
+                            <input type="text" name="titre" class="form-control input_user" placeholder="Titre de l'annonce" required onchange="verifier_deposer_annonce()"><br>
+                            <span id="etat_titre"></span>
                             </div>
 
                             
@@ -81,7 +82,7 @@ else{
                                     <option value="03-Bouira">Bouira</option>
                                     
                                 </SELECT>
-                                
+                            <span id="etat_wilaya"></span>   
                             
                             </div>
 
@@ -218,7 +219,7 @@ else{
                             <span class="span_deposer_annonce">Localisation du bien</span>
                             <div class="input-group mb-3">
                             <span></span>
-                                <SELECT id="wilaya" name="wilaya_loc" class="form-control input_user" onchange="filtre_daira()" required>
+                                <SELECT id="wilaya_loc" name="wilaya_loc" class="form-control input_user" onchange="filtre_daira_loc()" required>
                                     <option value="" disabled selected> Wilaya</option>
                                     <option value="01-Tizi-Ouzou">Tizi-Ouzou</option>
                                     <option value="02-Béjaïa">Béjaïa</option>
@@ -232,7 +233,7 @@ else{
 
                             <div class="input-group mb-3">
                             <span></span>
-                                <SELECT id="daira" name="daira_loc" class="form-control input_user" onchange="filtre_commune_louer()" required>
+                                <SELECT id="daira_loc" name="daira_loc" class="form-control input_user" onchange="filtre_commune_louer()" required>
                                     <option value="" disabled selected> Daïra</option>
                                     <option value="01-Ain El Hammam">01-Ain El Hammam</option>
                                     <option value="02-Azazga">02-Azazga</option>
@@ -383,6 +384,7 @@ else{
    ?>
 <script type="text/javascript">
  window.onload = afficher_formulaire();
+ window.onload = verifier_deposer_annonce();
  </script> 
 
 

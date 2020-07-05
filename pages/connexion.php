@@ -72,10 +72,15 @@
 						$select=$db->query("SELECT * FROM clients");
 						
 						while($donnees=$select->fetch()){
+<<<<<<< HEAD
+							$t=false;
+							if(($_POST["username"]==$donnees["username"])&&($_POST["password"]==$donnees["password"])){
+=======
 						
 							$verifpass=password_verify ( $_POST["password"] ,$donnees["password"]) ;
 
 							if(($_POST["username"]==$donnees["username"])&&($verifpass)){
+>>>>>>> 690016427b52520ee799f3acb18062f4d5cf72ae
 								$_SESSION["username"]=$donnees["username"];								
 								$_SESSION["nom"]=$donnees["nom"];
 								$_SESSION["prenom"]=$donnees["prenom"];
@@ -88,8 +93,12 @@
 									<?php	
 								
 								
+							}else{
+								$t=false;
+									
 							}
 						}
+						echo("Pseudo ou mot de passe incorrect");
 					}
 					?>
 					</form>
