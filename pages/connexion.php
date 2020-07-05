@@ -71,6 +71,7 @@
 						$select=$db->query("SELECT * FROM clients");
 						
 						while($donnees=$select->fetch()){
+							$t=false;
 							if(($_POST["username"]==$donnees["username"])&&($_POST["password"]==$donnees["password"])){
 								$_SESSION["username"]=$donnees["username"];								
 								$_SESSION["nom"]=$donnees["nom"];
@@ -84,8 +85,12 @@
 									<?php	
 								
 								
+							}else{
+								$t=false;
+									
 							}
 						}
+						echo("Pseudo ou mot de passe incorrect");
 					}
 					?>
 					</form>
