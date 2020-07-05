@@ -142,9 +142,10 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
                         <?php
                     }
                     else{
+                        $pass=password_hash($_POST['password'], PASSWORD_DEFAULT);
                         //   insertion dans la base de donnee
                         $insert=$db->prepare('INSERT INTO clients VALUES(NULL,?,?,?,?,?,?,?)');
-                        $insert->execute(array($_POST['nom'],$_POST['prenom'],$_POST['username'],$_POST['email'],$_POST['password'],$_POST['tel'],$_POST['sit_fam']));
+                        $insert->execute(array($_POST['nom'],$_POST['prenom'],$_POST['username'],$_POST['email'],$pass,$_POST['tel'],$_POST['sit_fam']));
                         echo("Votre compte a été créé avec succès");
                         $_SESSION["username"]=$_POST["username"];
                         $_SESSION["nom"]=$_POST["nom"];

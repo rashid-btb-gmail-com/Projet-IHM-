@@ -61,7 +61,7 @@ while($donnees=$se->fetch()){
 
 }*/
 if(isset($_SESSION["username"])){
-  echo('<div id="beautyfav"> <a class=" favorisbeauty" title="favoris" href="favorisloc.php?id_cl='.$_SESSION["id"].'&t=1&id= '.$choisie['id'].'"> <i class="fa fa-heart"></i> </a> </div>');
+  echo('<div id="beautyfav"> <a class=" favorisbeauty" title="favoris" href="favoris.php?id_cl='.$_SESSION["id"].'&t=1&id= '.$choisie['id'].'"> <i class="fa fa-heart"></i> </a> </div>');
   }
 
  echo('

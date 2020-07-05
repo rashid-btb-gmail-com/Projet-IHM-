@@ -66,12 +66,16 @@
 					
 					
 					<?php 
+					
 					$_SESSION["url_prec"];
 					if(isset($_POST["submit"])){
 						$select=$db->query("SELECT * FROM clients");
 						
 						while($donnees=$select->fetch()){
-							if(($_POST["username"]==$donnees["username"])&&($_POST["password"]==$donnees["password"])){
+						
+							$verifpass=password_verify ( $_POST["password"] ,$donnees["password"]) ;
+
+							if(($_POST["username"]==$donnees["username"])&&($verifpass)){
 								$_SESSION["username"]=$donnees["username"];								
 								$_SESSION["nom"]=$donnees["nom"];
 								$_SESSION["prenom"]=$donnees["prenom"];
