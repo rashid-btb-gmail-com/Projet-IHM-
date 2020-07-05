@@ -680,6 +680,10 @@ include_once('../includes/header.php');
           
 
           if(isset($req)){  
+              if ($bienrep->rowCount()== 0) {
+         echo('<div class="text-center"> <h1 style="color:silver;">Aucun bien</h1></div>');
+       } 
+       else{
             while ($donne= $req->fetch()){
               //affichage des biens aprés recherche
               
@@ -699,7 +703,7 @@ include_once('../includes/header.php');
             
             
           $req->closeCursor();
-            
+        }
         }
       }
 
@@ -716,7 +720,11 @@ include_once('../includes/header.php');
         $req = $db->prepare('SELECT * FROM biens WHERE daira LIKE ? ');
         $req->execute(array($_GET["daira"]));
         
-      }
+      } 
+      if ($req->rowCount()== 0) {
+        echo('<div class="text-center"> <h1 style="color:silver;">Aucun bien</h1></div>');
+      } 
+      else{
        while ($donne= $req->fetch()){
        //affichage des biens les plus recents       
          echo('<div class="biensug" ><a class="linkdetail" href="../pages/detail.php?id='.$donne['id'].'">
@@ -729,7 +737,7 @@ include_once('../includes/header.php');
            
             
          </div>');}
-         $req->closeCursor();
+         $req->closeCursor();}
 
      }
          ?>

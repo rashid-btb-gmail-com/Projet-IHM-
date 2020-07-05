@@ -139,7 +139,7 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
             <h3>Vouz-chercher a louer dans la kabylie</h3>
             <h5>Faite une recherhes des bien que on dispose dans la region que vous desiriez </h5>
             
-            <input type="search" name="search" class="tizisearch" placeholder="Commune, Daira, Wilaya">
+            <input type="search" name="search" class="tizisearch" placeholder="Commune, Ex:Bini Zmenzer">
             <button type="submit" name="btn_search" class="btn_recherche"><i class="fas fa-search"></i></button>
                   <?php 
                       //    barre de recherche        
@@ -163,7 +163,7 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
             <div class="div-recherche-estime" >
             <h3>Vouz-chercher a acheter dans la kabylie</h3>
             <h5>Faite une recherhes des bien que on dispose dans la region que vous desiriez </h5>
-            <input type="search" name="search" class="tizisearch" placeholder="wilaya, Daira, Commune, Ex:Tizi-Ouzou">
+            <input type="search" name="search" class="tizisearch" placeholder="Commune, Ex:Ilmaten">
             <button type="submit" name="btn_search" class="btn_recherche"><i class="fas fa-search"></i></button>
                   <?php 
                       //    barre de recherche        

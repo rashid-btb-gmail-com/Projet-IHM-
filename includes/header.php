@@ -28,6 +28,7 @@
                  <?php
                  if(isset($_SESSION["username"])){
                      ?>
+                       
                         <li>        
                         <a href="../pages/profile.php#profile" title="Mon profil"><i class="far fa-user"></i>  <?php echo $_SESSION["nom"]."  ".$_SESSION["prenom"];?></a> 
                         </li>

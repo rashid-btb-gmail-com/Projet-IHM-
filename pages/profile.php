@@ -205,7 +205,10 @@
 
     $id=$_SESSION['id'];
        $bienrep = $db->query('SELECT * FROM favoris WHERE id_cl="'.$id.'" ORDER BY id ');
-        
+       if ($bienrep->rowCount()== 0) {
+        echo('<div class="align-self-center"> <h4 style="color:silver;">Aucun favoris</h4></div>');
+      } 
+      else{
        while ($donne2= $bienrep->fetch()){
         $bienselect=$db->query("SELECT * FROM biens WHERE id=".$donne2['id_biens']."");
         $donne = $bienselect->fetch(); 
@@ -218,7 +221,7 @@
           </div></a>       
           </div>');}
         $bienselect->closeCursor();
-        }
+        }}
          $bienrep->closeCursor();
          ?>
     </div>
@@ -231,6 +234,10 @@
 
     $id=$_SESSION['id'];
        $bienrep = $db->query('SELECT * FROM favoris_loc WHERE id_cl="'.$id.'" ORDER BY id ');
+       if ($bienrep->rowCount()== 0) {
+         echo('<div class="align-self-center"> <h4 style="color:silver;">Aucun favoris</h4></div>');
+       } 
+       else{
       
        while ($donne2= $bienrep->fetch()){
         $bienselect=$db->query("SELECT * FROM biens_location WHERE id=".$donne2['id_biens']."");
@@ -244,18 +251,12 @@
           </div></a>       
           </div>');}
         $bienselect->closeCursor();
-        }
+        }}
          $bienrep->closeCursor();
          ?>
     </div></div>
   </div>
-  <div class="d-flex justify-content-center" >
-              <div class="d-flexbox flexrow">
-              <p id="lienlistefav" style="color: orange;">les RDVs</p>
-              <div class="d-flex justify-content-center" >
-              <a href="./profile#RDV"><i class="fa fa-angle-double-down" style="color: orange; font-size:1.5rem;"></i></i></a> </div>
-            </div>
-            </div>
+  
     </section>
   </div>
 </div>
