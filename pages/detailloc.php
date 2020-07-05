@@ -71,7 +71,7 @@ while($donnees=$se->fetch()){
 <p><b> Description:</b> <br/>'.$choisie['description'].' </p>
 <h5> Prix = '.$choisie['prix'].' DA / Mois </h5> 
 <div class="text-center liendemanderdv">
-<a href="./demande_rdv.php?t=biens_location&id='.$choisie['id'].'" class="rdvdmdbien">Demander Un Rendez-Vous de Visite</a>
+<a href="./demande_rdv.php?t=location&id='.$choisie['id'].'" class="rdvdmdbien">Demander Un Rendez-Vous de Visite</a>
 </div>
 <a href="favorisloc.php?id_cl='.$_SESSION["id"].'&t=1&id= '.$choisie['id'].'"> fav </a>
 '); 
