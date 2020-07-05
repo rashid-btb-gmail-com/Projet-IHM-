@@ -537,8 +537,16 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
               <a href="./pages/deposer_annonce.php">vendre un bien</a>
               </div>
               <div class="onelinkfoot">
-              <h5 class="titrelink"> Devenez client</h5>
-              <a href="./pages/inscription.php">Inscrivez-Vous</a>
+              <?php
+              if(isset($_SESSION["username"])){
+                  echo('<h5 class="titrelink"> Nos Services</h5>
+                  <a href="./pages/serviedem.php">Déménagement</a>');
+              }else{
+                echo('<h5 class="titrelink"> Devenez client</h5>
+                <a href="./pages/inscription.php">Inscrivez-Vous</a>');
+              }
+              
+               ?>
               </div>
               <div class="onelinkfoot">
               <h5 class="titrelink">Des questions!</h5>
