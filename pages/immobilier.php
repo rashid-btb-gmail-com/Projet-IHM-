@@ -712,6 +712,11 @@ include_once('../includes/header.php');
         $req->execute(array($_GET["search"]));
         
       }
+      else if(isset($_GET["daira"])){
+        $req = $db->prepare('SELECT * FROM biens WHERE daira LIKE ? ');
+        $req->execute(array($_GET["daira"]));
+        
+      }
        while ($donne= $req->fetch()){
        //affichage des biens les plus recents       
          echo('<div class="biensug" ><a class="linkdetail" href="../pages/detail.php?id='.$donne['id'].'">
