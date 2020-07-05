@@ -31,7 +31,7 @@ else{
 <div class="fulldepose" id="depose">
     <div class="container h-100">
         <div class="deposeheader" >
-         <h1> Vous Souhaitez Vendre ou Louer un Bien Immobilier</h1>
+         <h1 class="text-center"> Vous Souhaitez Vendre ou Louer un Bien Immobilier</h1>
          <h1>Remplissez ce Formualaire, Notre Agence s'en Occupera</h1>
         </div>
 		<div class="d-flex justify-content-center h-100">
