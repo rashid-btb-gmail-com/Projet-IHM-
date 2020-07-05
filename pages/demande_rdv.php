@@ -28,7 +28,8 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
 if(!isset($_SESSION["username"])){
     header("location: ./connexion.php#fullconnex");
 }
-if(isset($_GET['t'])=='biens_location'){$raison="location";}else{$raison="Achat";}
+$t=$_GET['t'];
+if($t=='location'){$raison="location";}else {$raison="Achat";}
 $nompre=$_SESSION["nom"].' '.$_SESSION["prenom"];
 ?>
 <div class="demanderdv" id="rdvdem" >
@@ -77,18 +78,20 @@ $nompre=$_SESSION["nom"].' '.$_SESSION["prenom"];
                         <?php
                          
                          if(isset($_POST["submit"])){
+                             $id=$_SESSION["id"];
+                             $id_bien=$_GET['id'];
                             ?>
                             <script> alert("Votre RDV Sera pris en compte"); </script>
                             
                             <?php
                              //insersion dans la base de donné
-                             $insert=$db->prepare('INSERT INTO demande_rdv VALUES(NULL,?,?,?,?,?)');
-                             $insert->execute(array($nompre,$_POST["lieu"],$_POST["date"],$_POST["time"],$raison));
+                             $insert=$db->prepare('INSERT INTO demande_rdv VALUES(NULL,?,?,?,?,?,?,?)');
+                             $insert->execute(array($nompre,$_POST["lieu"],$_POST["date"],$_POST["time"],$raison,$id,$id_bien));
                           if($raison=='location'){
                               
                               echo('<meta http-equiv="refresh" content="0;url=./location.php" />');
                              
-                          }else{  echo('<meta http-equiv="refresh" content="0;url=./immobilier.php" />'); }
+                          }else {  echo('<meta http-equiv="refresh" content="0;url=./immobilier.php" />'); }
                          }
 
                          ?>
@@ -103,10 +106,10 @@ $nompre=$_SESSION["nom"].' '.$_SESSION["prenom"];
          <div class="bienrdv">
          <h3 class="titre_connexion">Le Bien selectioner</h3>
              <?php
-             if(isset($_GET['t'])=='biens_location'){
+             if(($raison=='location')){
                 $detail_bien = $db->query('SELECT adresse, wilaya, titre,commune,daira,lien_img FROM biens_location Where id="'.$_GET['id'].'"');
-                }else{
-                    $detail_bien = $db->query('SELECT adresse, wilaya, titre,commune,daira,lien_img FROM bien Where id="'.$_GET['id'].'"');
+                }else {
+                    $detail_bien = $db->query('SELECT adresse, wilaya, titre,commune,daira,lien_img FROM biens Where id="'.$_GET['id'].'"');
                 }           
              
              $choisie = $detail_bien->fetch();
