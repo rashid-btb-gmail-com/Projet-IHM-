@@ -679,7 +679,11 @@ include_once('../includes/header.php');
             
           
           
-          if(isset($req)){  
+          if(isset($req)){
+            if ($req->rowCount()== 0) {
+                echo('<div class="text-center"> <h1 style="color:silver;">Aucun bien</h1></div>');
+              } 
+              else{  
             while ($donne= $req->fetch()){
               //affichage des biens aprés recherche
               
@@ -687,7 +691,7 @@ include_once('../includes/header.php');
             <img src="../'.$donne['lien_img'].'" class="imgbien" alt="l\'image du bien" >
            <div class="infobien">
            <h4 ">'.$donne['titre'].'</h4> 
-           <p>Lieu:'.$donne['commune'].','.$donne['daira'].'</p> 
+           <p>Lieu:'.$donne['commune'].','.$donne['daira'].','.$donne['wilaya'].'</p> 
           </div></a>
            
            
@@ -698,7 +702,7 @@ include_once('../includes/header.php');
             }
             
             
-          $req->closeCursor();
+          $req->closeCursor();}
             
         }
       }
@@ -706,25 +710,34 @@ include_once('../includes/header.php');
       else {
         
       
-       $req = $db->query('SELECT id,titre, daira, commune, lien_img FROM biens_location ORDER BY id desc LIMIT 0,12');
+       $req = $db->query('SELECT id,titre, daira, commune,wilaya, lien_img FROM biens_location ORDER BY id desc LIMIT 0,30');
        if(isset($_GET["search"])){
         $req = $db->prepare('SELECT * FROM biens_location WHERE commune LIKE ? ');
         $req->execute(array($_GET["search"]));
         
       }
+      else if(isset($_GET["daira"])){
+        $req = $db->prepare('SELECT * FROM biens WHERE daira LIKE ? ');
+        $req->execute(array($_GET["daira"]));
+        
+      }
+       if ($req->rowCount()== 0) {
+        echo('<div class="text-center"> <h1 style="color:silver;">Aucun bien</h1></div>');
+      } 
+      else{
        while ($donne= $req->fetch()){
        //affichage des biens les plus recents       
          echo('<div class="biensug" ><a class="linkdetail" href="../pages/detailloc.php?id='.$donne['id'].'">
             <img src="../'.$donne['lien_img'].'" class="imgbien" alt="l\'image du bien" >
            <div class="infobien">
-           <h4 ">'.$donne['titre'].'</h4> 
-           <p>Lieu:'.$donne['commune'].','.$donne['daira'].'</p> 
+           <h4 >'.$donne['titre'].'</h4> 
+           <p>Lieu:'.$donne['commune'].','.$donne['daira'].','.$donne['wilaya'].'</p> 
           </div></a>
            
            
             
          </div>');}
-         $req->closeCursor();
+         $req->closeCursor();}
 
      }
          ?>

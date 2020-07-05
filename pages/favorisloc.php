@@ -24,7 +24,7 @@ if (isset($_GET['t'],$_GET['id'],$_GET['id_cl']) and !empty($_GET['t']) and !emp
 	 		$fav->execute(array($getid,$id_cl)); 
 
 	 		if ($fav->rowCount()==1){
-	 			$del=$db->prepare('DELETE FROM favoris2 where id_biens=? and id_cl=? ');
+	 			$del=$db->prepare('DELETE FROM favoris_loc where id_biens=? and id_cl=? ');
 	 			$del->execute(array($getid,$id_cl)); 
 
 	 		}else{
@@ -35,7 +35,7 @@ if (isset($_GET['t'],$_GET['id'],$_GET['id_cl']) and !empty($_GET['t']) and !emp
 	 		
 	 	}
 	 }
-	header('Location: http://localhost/Projet-IHM-/Projet-IHM-/pages/detailloc.php?id='.$getid);
+	header('Location: http://localhost/Projet-IHM-/pages/detailloc.php?id='.$getid);
   	exit();
 	 	} else echo "erreur";
 
