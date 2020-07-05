@@ -79,13 +79,14 @@ $nompre=$_SESSION["nom"].' '.$_SESSION["prenom"];
                          
                          if(isset($_POST["submit"])){
                              $id=$_SESSION["id"];
+                             $id_bien=$_GET['id'];
                             ?>
                             <script> alert("Votre RDV Sera pris en compte"); </script>
                             
                             <?php
                              //insersion dans la base de donné
-                             $insert=$db->prepare('INSERT INTO demande_rdv VALUES(NULL,?,?,?,?,?,?)');
-                             $insert->execute(array($nompre,$_POST["lieu"],$_POST["date"],$_POST["time"],$raison,$id));
+                             $insert=$db->prepare('INSERT INTO demande_rdv VALUES(NULL,?,?,?,?,?,?,?)');
+                             $insert->execute(array($nompre,$_POST["lieu"],$_POST["date"],$_POST["time"],$raison,$id,$id_bien));
                           if($raison=='location'){
                               
                               echo('<meta http-equiv="refresh" content="0;url=./location.php" />');
