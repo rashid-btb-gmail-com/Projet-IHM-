@@ -947,3 +947,13 @@ color:white;
         height:550px;
     }
     
+    /*********************************   Servie demenagement    ***********************************/
+    .demanderdv2{
+        background-image: url(../images/demenagement.jpg);
+        background-size: cover;
+        background-attachment: fixed;
+       height:100%;
+       padding-top:3px;
+       padding-bottom: 500px;
+       margin-top: -10px;
+    }
