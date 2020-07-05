@@ -72,11 +72,9 @@ while($donnees=$se->fetch()){
 <a href="./demande_rdv.php?id='.$choisie['id'].'" class="rdvdmdbien">Demander Un Rendez-Vous de Visite</a>
 </div>
 
-
-
 '); 
 
-if($_SESSION["username"]!=NULL){
+if(isset($_SESSION["username"])!=NULL){
 ?>
 <a href="favoris.php?id_cl='.$_SESSION["id"].'&t=1&id= '.$choisie['id'].'"> fav </a>
 <?php

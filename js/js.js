@@ -387,7 +387,8 @@ function style_onglet_admin() {
 function style_vendre_location_admin() {
     var url=window.location.href;
     //alert(url.substring(0,81));
-    if(url.substring(0,85)=="http://127.0.0.1/Projet-IHM-/admin/plateforme_admin.php?action=confirmer_annonces_loc"){
+    if((url.substring(0,85)=="http://127.0.0.1/Projet-IHM-/admin/plateforme_admin.php?action=confirmer_annonces_loc")
+    ||(url.substring(0,78)=="http://127.0.0.1/Projet-IHM-/admin/plateforme_admin.php?action=gerer_biens_loc")){
         document.getElementById("lien_louer").style.color="#fa6014";
     }
     else{
@@ -398,19 +399,6 @@ function style_vendre_location_admin() {
     
 }
 
-function style_vendre_location_admin() {
-    var url=window.location.href;
-    //alert(url.substring(0,81));
-    if(url.substring(0,85)=="http://127.0.0.1/Projet-IHM-/admin/plateforme_admin.php?action=gerer_biens_loc"){
-        document.getElementById("lien_louer").style.color="#fa6014";
-    }
-    else{
-        
-        document.getElementById("lien_vendre").style.color="#fa6014";
-    }
-    
-    
-}
 
 function afficher_formulaire(){
     if(document.getElementById("vendre").checked){
@@ -435,5 +423,17 @@ btn.addEventListener('click', updateBtn);
 function updateBtn() {
     
     document.getElementsByClassName("box_voir_plus")[0].style.display="none";
+}
+}
+
+function fermer_modifier_bien(){
+    var btn = document.getElementById('fermer');
+    
+
+btn.addEventListener('click', updateBtn);
+
+function updateBtn() {
+    
+    document.getElementsByClassName("modifier_bien")[0].style.display="none";
 }
 }

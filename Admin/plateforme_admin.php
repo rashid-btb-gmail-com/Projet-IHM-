@@ -67,12 +67,11 @@
                             <!--   radio vendre louer    -->
                             <div class="radio_vendre_louer">
                                 <div class="radio_vendre">
-                                    <input type="radio" name="vendre_louer" id="vendre" value="Vendre" class="input_radio" checked onclick="afficher_formulaire()">
-                                    <label for="vendre" class="label_radio">Vendre</label>
+                                    <a href="?action=ajouter_bien" class="input_radio " id="lien_vendre">Vente</a>
+                                    
                                 </div>
                                 <div class="radio_louer">
-                                    <input type="radio" name="vendre_louer" id="louer" value="Louer"  class="input_radio" onclick="afficher_formulaire()">
-                                    <label for="louer" class="label_radio">Louer</label>
+                                <a href="?action=ajouter_bien_loc" class="input_radio" id="lien_louer">Location</a>
                                 </div>
                             </div>
                             
@@ -83,7 +82,7 @@
                                 <div class="ajouter_annonce">
                                 <div class="container_left">
                                     <div class="input_group">
-                                        <span>Titre de l'annonce :</span><br>
+                                        <span class="span_ajouter_bien">Titre de l'annonce :</span><br>
                                         <input type="text" name="titre" class="inp_insc" placeholder="Titre de l'annonce" require><br>
                                     </div>
 
@@ -92,7 +91,7 @@
                                     <!--*********   liste des dairas de tizi ouzou   **********-->
 
                                     <div class="input_group">
-                                        <span>Localisation du bien :</span><br>
+                                        <span class="span_ajouter_bien">Localisation du bien :</span><br>
                                         <SELECT id="wilaya" name="wilaya"  class="inp_insc" onchange="filtre_daira()" required>
                                             <option value="" disabled selected> Wilaya</option>
                                             <option value="01-Tizi-Ouzou">Tizi-Ouzou</option>
@@ -137,7 +136,7 @@
 
                                 <div class="container_right">
                                     <div class="input_group">
-                                        <span>Caractéristiques du bien :</span><br>
+                                        <span class="span_ajouter_bien">Caractéristiques du bien :</span><br>
                                         <SELECT name="type_bien" class="inp_insc"  required>
                                             <option value="" disabled selected>Type du bien</option>
                                             <option value="appartement">Appartement</option>
@@ -152,11 +151,11 @@
                                         <input type="number" name="nbr_etages" class="inp_insc" placeholder="Nombre d'étages"><br>
                                         <input type="number" name="nbr_pieces" class="inp_insc" placeholder="Nombre de piéces"><br>
                                     </div>
-                                        <span>Prix du bien :</span><br>
+                                        <span class="span_ajouter_bien">Prix du bien :</span><br>
                                         <input type="number" name="prix" class="inp_insc" placeholder="Prix du biens"><br>
-                                        <span>Propriétaire du bien :</span><br>
+                                        <span class="span_ajouter_bien">Propriétaire du bien :</span><br>
                                         <input type="text" name="proprio" class="inp_insc" placeholder="Propriétaire"><br>
-                                        <span>Ajouter des photos :</span><br>
+                                        <span class="span_ajouter_bien">Ajouter des photos :</span><br>
                                         <input type="file" name="image_annonce"  ><br>
                                 </div>
                             </div>
@@ -213,6 +212,22 @@
                             </form>
 
 
+                            
+                            
+                            
+                            <?php
+                        }
+                        if($_GET["action"]=="ajouter_bien_loc"){
+                            ?>
+                            <div class="radio_vendre_louer">
+                                <div class="radio_vendre">
+                                    <a href="?action=ajouter_bien" class="input_radio " id="lien_vendre">Vente</a>
+                                    
+                                </div>
+                                <div class="radio_louer">
+                                <a href="?action=ajouter_bien_loc" class="input_radio" id="lien_louer">Location</a>
+                                </div>
+                            </div>
                             <form action="" enctype="multipart/form-data" method="post" class="form_admin" id="form_louer">
                                 <h2>Ajouter une annonce de location:</h2>
                             
@@ -220,7 +235,7 @@
                                 <div class="ajouter_annonce">
                                 <div class="container_left">
                                     <div class="input_group">
-                                        <span>Titre de l'annonce :</span><br>
+                                        <span class="span_ajouter_bien">Titre de l'annonce :</span><br>
                                         <input type="text" name="titre_loc" class="inp_insc" placeholder="Titre de l'annonce" require><br>
                                     </div>
 
@@ -229,7 +244,14 @@
                                     <!--*********   liste des dairas de tizi ouzou   **********-->
 
                                     <div class="input_group">
-                                        <span>Localisation du bien :</span><br>
+                                        <span class="span_ajouter_bien">Localisation du bien :</span><br>
+                                        <SELECT id="wilaya" name="wilaya_loc"  class="inp_insc" onchange="filtre_daira()" required>
+                                            <option value="" disabled selected> Wilaya</option>
+                                            <option value="01-Tizi-Ouzou">Tizi-Ouzou</option>
+                                            <option value="02-Béjaïa">Béjaïa</option>
+                                            <option value="03-Bouira">Bouira</option>
+                                            
+                                        </SELECT><br> 
                                         <SELECT id="daira" name="daira_loc" class="inp_insc" onchange="filtre_commune_louer()" required>
                                             <option value="" disabled selected> Daïra</option>
                                             <option value="01-Ain El Hammam">01-Ain El Hammam</option>
@@ -267,7 +289,7 @@
 
                                 <div class="container_right">
                                     <div class="input_group">
-                                        <span>Caractéristiques du bien :</span><br>
+                                        <span class="span_ajouter_bien">Caractéristiques du bien :</span><br>
                                         <SELECT name="type_bien_loc" class="inp_insc"  required>
                                             <option value="" disabled selected>Type du bien</option>
                                             <option value="appartement">Appartement</option>
@@ -282,14 +304,14 @@
                                         <input type="number" name="nbr_etages_loc" class="inp_insc" placeholder="Nombre d'étages"><br>
                                         <input type="number" name="nbr_pieces_loc" class="inp_insc" placeholder="Nombre de piéces"><br>
                                     </div>
-                                        <span>Prix du bien :</span><br>
+                                        <span class="span_ajouter_bien">Prix du bien :</span><br>
                                         <input type="number" name="prix_loc" class="inp_insc" placeholder="Prix du biens"><br>
-                                        <span>Propriétaire du bien :</span><br>
+                                        <span class="span_ajouter_bien">Propriétaire du bien :</span><br>
                                         <input type="text" name="proprio_loc" class="inp_insc" placeholder="Propriétaire"><br>
-                                        <span>Ajouter des photos :</span><br>
+                                        <span class="span_ajouter_bien">Ajouter des photos :</span><br>
                                         <input type="file" name="image_annonce_loc"  ><br>
                                 </div>
-                            </div>
+                                </div>
                                 <input type="submit" value="Enregister" class="btn_inscr" name="submit_loc">
                             
                                     <?php
@@ -332,8 +354,8 @@
                                             
                                             
                                             //   insertion dans la base de donnee
-                                            $insert=$db->prepare('INSERT INTO biens_location VALUES(NULL,?,?,?,?,?,?,?,?,?,?,?,?)');
-                                            $insert->execute(array($_POST["titre_loc"],$_POST["description_loc"],$_POST["daira_loc"],$_POST["commune_loc"],$_POST["adresse_loc"],$_POST["type_bien_loc"],$_POST["surface_loc"],$_POST["nbr_etages_loc"],$_POST["nbr_pieces_loc"],$_POST["prix_loc"],$lien_img,$_POST["proprio_loc"]));
+                                            $insert=$db->prepare('INSERT INTO biens_location VALUES(NULL,?,?,?,?,?,?,?,?,?,?,?,?,?)');
+                                            $insert->execute(array($_POST["titre_loc"],$_POST["description_loc"],$_POST["wilaya_loc"],$_POST["daira_loc"],$_POST["commune_loc"],$_POST["adresse_loc"],$_POST["type_bien_loc"],$_POST["surface_loc"],$_POST["nbr_etages_loc"],$_POST["nbr_pieces_loc"],$_POST["prix_loc"],$lien_img,$_POST["proprio_loc"]));
                                             
                                         }
 
@@ -341,8 +363,6 @@
                                     ?>
 
                             </form>
-                            
-                            
                             <?php
                         }
                         //****************************  afficher et gerer tout les biens de vente*************** */
@@ -365,17 +385,18 @@
 
                             <div class="form_admin" id="form_vendre">
                                 <h2>Liste des biens à vendre:</h2>
-                                <div style="height: 400px; width: 800px; overflow: auto;">
+                                <div style="height: 400px;overflow: auto;">
                                     <table class="liste_biens" cellpadding="3" rules="all">
                                         <colgroup span="6" class="columns"></colgroup>
                                         <tr>
-                                            <th>Titre</th>
-                                            <th>Surface</th>
-                                            <th>Etages</th>
-                                            <th>Daïra</th>
-                                            <th>Commune</th>
-                                            <th>Prix</th>
-                                            <th>Propriétaire</th>
+                                            <th class="colonne_tab">Titre</th> 
+                                            <th class="colonne_tab">Wilaya</th>                                           
+                                            <th class="colonne_tab">Daïra</th>
+                                            <th class="colonne_tab">Commune</th>
+                                            <th class="colonne_tab">Surface</th>
+                                            <th class="colonne_tab">Etages</th>
+                                            <th class="colonne_tab">Prix</th>
+                                            <th class="colonne_tab">Propriétaire</th>
                                         </tr>
                                         <?php
                                         
@@ -384,10 +405,11 @@
                                             ?>
                                             <tr>
                                                 <td><?php echo $donnees["titre"] ?></td>
-                                                <td><?php echo $donnees["surface"] ?></td>
-                                                <td><?php echo $donnees["etage"] ?></td>
+                                                <td><?php echo $donnees["wilaya"] ?></td>
                                                 <td><?php echo $donnees["daira"] ?></td>
                                                 <td><?php echo $donnees["commune"] ?></td>
+                                                <td><?php echo $donnees["surface"] ?></td>
+                                                <td><?php echo $donnees["etage"] ?></td>
                                                 <td><?php echo $donnees["prix"] ?> DA</td>
                                                 <td><?php echo $donnees["proprietaire"] ?></td>
                                                 <td><a href="?action=gerer_biens&amp;action2=modifier&amp;id=<?php echo $donnees["id"]; ?>" title="Modifier le bien"class="icon_supprimer" style="color:green;"><i class="far fa-edit"></i></a></td>
@@ -430,23 +452,24 @@
                                         $select=$db->query("SELECT titre FROM biens WHERE id=$id");
                                         $donnees=$select->fetch();
                                         ?>
-                                        <div class="modifier_bien">
+                                        <div class="modifier_bien" id="mama">
                                             <h3>Modification du bien : <?php echo $donnees[0]; ?></h3><br>
                                             <form action="" method="post">
                                                 <input list="champ_a_modifier" name="champ_modifier" placeholder="Champ à modifier" class="inp_insc" required">            
                                                     <datalist id="champ_a_modifier">
                                                     <option value="titre">
-                                                    <option value="surface">
-                                                    <option value="etage">
+                                                    <option value="wilaya">                                                      
                                                     <option value="daira">
                                                     <option value="commune">
+                                                    <option value="surface">
+                                                    <option value="etage">
                                                     <option value="prix">
                                                     <option value="proprietaire">
                                                     </datalist> 
                                                 <br>
-                                                <input type="text" name="modification" placeholder="Modification" class="inp_insc" required><br>
-                                                <input type="submit" name="valider_modification" value="Valider">
-
+                                                <input type="text" name="modification" placeholder="Modification" class="inp_insc" ><br>
+                                                <input type="submit" name="valider_modification" class="valider_btn" value="Valider">
+                                                
                                                 <?php 
                                                     if(isset($_POST["valider_modification"])){
                                                         
@@ -464,6 +487,7 @@
                                                     }
                                                 ?>
                                             </form>
+                                            <button id="fermer" onclick="fermer_modifier_bien()">Fermer</button>
                                         </div>
                                         <?php
                                     }
@@ -472,68 +496,7 @@
 
                             
                             <?php 
-                                //********************  supprimer ou modifier des biens    **************************** */
-                                    if(isset($_GET["action2"])){
-                                    $id=$_GET["id"];
-                                    //supprimer
-                                    if($_GET["action2"]=="supprimer_loc"){
-                                    
-                                    $supprimer=$db->prepare("DELETE FROM biens_location WHERE id = $id");
-                                    $supprimer->execute();
-                                    ?>
-                                    <script>
-                                    alert("Le bien a été Supprimer");
-                                    </script>
-                                    <meta http-equiv="refresh" content="0;url=./plateforme_admin.php?action=gerer_biens" />
-                                    <?php
-                                    }
-                                    
-                                    
-                                    //***************************modifier ************************//
-                                    if($_GET["action2"]=="modifier_loc"){
-                                    
-
-                                        $select=$db->query("SELECT titre FROM biens_location WHERE id=$id");
-                                        $donnees=$select->fetch();
-                                        ?>
-                                        <div class="modifier_bien">
-                                            <h3>Modification du bien : <?php echo $donnees[0]; ?></h3><br>
-                                            <form action="" method="post">
-                                                <input list="champ_a_modifier" name="champ_modifier" placeholder="Champ à modifier" class="inp_insc" required">            
-                                                    <datalist id="champ_a_modifier">
-                                                    <option value="titre">
-                                                    <option value="surface">
-                                                    <option value="etage">
-                                                    <option value="daira">
-                                                    <option value="commune">
-                                                    <option value="prix">
-                                                    <option value="proprietaire">
-                                                    </datalist> 
-                                                <br>
-                                                <input type="text" name="modification" placeholder="Modification" class="inp_insc" required><br>
-                                                <input type="submit" name="valider_modification" value="Valider">
-
-                                                <?php 
-                                                    if(isset($_POST["valider_modification"])){
-                                                        
-                                                        $champ_modifier=$_POST["champ_modifier"];
-                                                        $modification=$_POST['modification'];
-                                                        echo $champ_modifier;
-                                                        $modifier=$db->prepare("UPDATE biens_location SET $champ_modifier='$modification' WHERE id=$id");
-                                                        $modifier->execute();
-
-                                                        ?>
-                                                        <script> alert("Le bien a été Modifié"); </script>
-                                                        <meta http-equiv="refresh" content="0;url=./plateforme_admin.php?action=gerer_biens" />
-                                                        <?php
-                                                        
-                                                    }
-                                                ?>
-                                            </form>
-                                        </div>
-                                        <?php
-                                    }
-                                    }
+                                
                                 ?>               
 
 
@@ -555,17 +518,18 @@
                             </div>
                             <div class="form_admin" id="form_louer">
                             <h2>Liste des biens à louer:</h2>
-                            <div style="height: 400px; width: 800px; overflow: auto;">
+                            <div style="height: 400px; overflow: auto;">
                                 <table class="liste_biens" cellpadding="3" rules="all">
                                     <colgroup span="6" class="columns"></colgroup>
                                     <tr>
-                                        <th>Titre</th>
-                                        <th>Surface</th>
-                                        <th>Etages</th>
-                                        <th>Daïra</th>
-                                        <th>Commune</th>
-                                        <th>Prix</th>
-                                        <th>Propriétaire</th>
+                                        <th class="colonne_tab">Titre</th>
+                                        <th class="colonne_tab">Wilaya</th>
+                                        <th class="colonne_tab">Daïra</th>
+                                        <th class="colonne_tab">Commune</th>
+                                        <th class="colonne_tab">Surface</th>
+                                        <th class="colonne_tab">Etages</th>
+                                        <th class="colonne_tab">Prix</th>
+                                        <th class="colonne_tab">Propriétaire</th>
                                     </tr>
                                     <?php
                                     $select_loc=$db->query("SELECT * FROM biens_location ");
@@ -575,27 +539,91 @@
                                         ?>
                                         <tr>
                                             <td><?php echo $donnees_loc["titre"] ?></td>
-                                            <td><?php echo $donnees_loc["surface"] ?></td>
-                                            <td><?php echo $donnees_loc["etage"] ?></td>
+                                            <td><?php echo $donnees_loc["wilaya"] ?></td>
                                             <td><?php echo $donnees_loc["daira"] ?></td>
                                             <td><?php echo $donnees_loc["commune"] ?></td>
+                                            <td><?php echo $donnees_loc["surface"] ?></td>
+                                            <td><?php echo $donnees_loc["etage"] ?></td>
                                             <td><?php echo $donnees_loc["prix"] ?> DA</td>
                                             <td><?php echo $donnees_loc["proprietaire"] ?></td>
-                                            <td><a href="?action=gerer_biens&amp;action2=modifier_loc&amp;id=<?php echo $donnees_loc["id"]; ?>" title="Modifier le bien"class="icon_supprimer" style="color:green;"><i class="far fa-edit"></i></a></td>
-                                            <td><a href="?action=gerer_biens&amp;action2=supprimer_loc&amp;id=<?php echo $donnees_loc["id"]; ?>" title="Supprimer le bien"class="icon_supprimer "><i class="far fa-trash-alt"></i></a></td>
+                                            <td><a href="?action=gerer_biens_loc&amp;action2=modifier_loc&amp;id=<?php echo $donnees_loc["id"]; ?>" title="Modifier le bien"class="icon_supprimer" style="color:green;"><i class="far fa-edit"></i></a></td>
+                                            <td><a href="?action=gerer_biens_loc&amp;action2=supprimer_loc&amp;id=<?php echo $donnees_loc["id"]; ?>" title="Supprimer le bien"class="icon_supprimer "><i class="far fa-trash-alt"></i></a></td>
                                             
                                         </tr>
 
                                         <?php
                                     }
+                                //********************  supprimer ou modifier des biens    **************************** */
+                                if(isset($_GET["action2"])){
+                                    $id=$_GET["id"];
+                                    //supprimer
+                                    if($_GET["action2"]=="supprimer_loc"){
+                                    
+                                    $supprimer=$db->prepare("DELETE FROM biens_location WHERE id = $id");
+                                    $supprimer->execute();
+                                    ?>
+                                    <script>
+                                    alert("Le bien a été Supprimer");
+                                    </script>
+                                    <meta http-equiv="refresh" content="0;url=./plateforme_admin.php?action=gerer_biens_loc" />
+                                    <?php
+                                    }
+                                    
+                                    
+                                    //***************************modifier ************************//
+                                    if($_GET["action2"]=="modifier_loc"){
+                                    
 
+                                        $select=$db->query("SELECT titre FROM biens_location WHERE id=$id");
+                                        $donnees=$select->fetch();
+                                        ?>
+                                        <div class="modifier_bien">
+                                            <h3>Modification du bien : <?php echo $donnees[0]; ?></h3><br>
+                                            <form action="" method="post">
+                                                <input list="champ_a_modifier" name="champ_modifier" placeholder="Champ à modifier" class="inp_insc" required">            
+                                                    <datalist id="champ_a_modifier">
+                                                    <option value="titre">
+                                                    <option value="wilaya">
+                                                    <option value="daira">
+                                                    <option value="commune">
+                                                    <option value="prix">
+                                                    <option value="surface">
+                                                    <option value="etage">
+                                                    <option value="proprietaire">
+                                                    </datalist> 
+                                                <br>
+                                                <input type="text" name="modification" placeholder="Modification" class="inp_insc" required><br>
+                                                <input type="submit" name="valider_modification" class="valider_btn" id="btn_valider" value="Valider">
+
+                                                <?php 
+                                                    if(isset($_POST["valider_modification"])){
+                                                        
+                                                        $champ_modifier=$_POST["champ_modifier"];
+                                                        $modification=$_POST['modification'];
+                                                        echo $champ_modifier;
+                                                        $modifier=$db->prepare("UPDATE biens_location SET $champ_modifier='$modification' WHERE id=$id");
+                                                        $modifier->execute();
+
+                                                        ?>
+                                                        <script> alert("Le bien a été Modifié"); </script>
+                                                        <meta http-equiv="refresh" content="0;url=./plateforme_admin.php?action=gerer_biens_loc" />
+                                                        <?php
+                                                        
+                                                    }
+                                                ?>
+                                            </form>
+                                            <button id="fermer" onclick="fermer_modifier_bien()">Fermer</button>
+                                        </div>
+                                        <?php
+                                    }
+                                    }
                                     ?>
                                 
                                 </table>
                             </div>
                                    
-                        </div>
-                        <?php
+                            </div>
+                            <?php
                         }
                         //****************************  afficher et gerer toutes les demande de vente *************** */
                         if($_GET["action"]=="confirmer_annonces"){
@@ -615,17 +643,17 @@
                             <!--   **************  liste des biens à vendre     -->
                             <div class="form_admin" id="form_vendre">
                                 <h2>Liste des demande d'annoces vente:</h2>
-                                <div style="height: 400px; width: 650px; overflow: auto;">
+                                <div style="height: 400px; overflow: auto;">
                                     <table class="liste_biens" cellpadding="3" rules="all">
                                         <colgroup span="6" class="columns"></colgroup>
                                         <tr>
-                                            <th>Titre</th>
-                                            <th>Surface</th>
-                                            <th>Etages</th>
-                                            <th>Wilaya</th>
-                                            <th>Daïra</th>
-                                            <th>Commune</th>
-                                            <th>Propriétaire</th>
+                                            <th class="colonne_tab">Titre</th>                                            
+                                            <th class="colonne_tab">Wilaya</th>
+                                            <th class="colonne_tab">Daïra</th>
+                                            <th class="colonne_tab">Commune</th>
+                                            <th class="colonne_tab">Surface</th>
+                                            <th class="colonne_tab">Etages</th>
+                                            <th class="colonne_tab">Propriétaire</th>
                                         </tr>
                                         <?php
                                         
@@ -634,11 +662,12 @@
                                             ?>
                                             <tr>
                                                 <td><?php echo $donnees["titre"] ?></td>
-                                                <td><?php echo $donnees["surface"] ?></td>
-                                                <td><?php echo $donnees["etage"] ?></td>
+                                                
                                                 <td><?php echo $donnees["wilaya"] ?></td>
                                                 <td><?php echo $donnees["daira"] ?></td>
                                                 <td><?php echo $donnees["commune"] ?></td>
+                                                <td><?php echo $donnees["surface"] ?></td>
+                                                <td><?php echo $donnees["etage"] ?></td>
                                                 <td><?php echo $donnees["proprietaire"] ?></td>
                                                 <td><a href="?action=confirmer_annonces&amp;action2=plus&amp;id=<?php echo $donnees["id"]; ?>" title="Voir plus"class="icon_supprimer" style="color:blue;"><i class="fas fa-plus" ></i></a></td>
                                                 <td><a href="?action=confirmer_annonces&amp;action2=accepter&amp;id=<?php echo $donnees["id"]; ?>" title="Accepter l'annonce"class="icon_supprimer" style="color:green;"><i class="fas fa-check" ></i></a></td>
@@ -686,22 +715,22 @@
                                                 $donnees=$select->fetch();
                                                 ?>
                                                 <div class="box_voir_plus">
-                                                <button id="fermer"><i class="fas fa-times" value="fermer" onclick="fermer_voir_plus()" ></i></button>
-                                                <span>Titre :</span><span><?php echo $donnees["titre"] ?></span><br>
-                                                <span>Wilaya :</span><span><?php echo $donnees["wilaya"] ?></span><br>
-                                                <span>Daïra :</span><span><?php echo $donnees["daira"] ?></span><br>
-                                                <span>Commune :</span><span><?php echo $donnees["commune"] ?></span><br>
-                                                <span>Adresse :</span><span><?php echo $donnees["adresse"] ?></span><br>
-                                                <span>Type du bien :</span><span><?php echo $donnees["type_bien"] ?></span><br>
-                                                <span>Surface :</span><span><?php echo $donnees["surface"] ?></span><br>
-                                                <span>Etage(s) :</span><span><?php echo $donnees["etage"] ?></span><br>
-                                                <span>Piéce(s) :</span><span><?php echo $donnees["pieces"] ?></span><br>
-                                                <span>Prix :</span><span><?php echo $donnees["prix"] ?></span><br>
-                                                <span>Propriétaire :</span><span><?php echo $donnees["proprietaire"] ?></span><br>
+                                                <button id="fermer"  onclick="fermer_voir_plus()"><i class="fas fa-times" value="fermer" ></i></button>
+                                                <span class="span_voir_plus">Titre :</span><span class="span_info"><?php echo $donnees["titre"] ?></span><br>
+                                                <span class="span_voir_plus">Wilaya :</span><span class="span_info"><?php echo $donnees["wilaya"] ?></span><br>
+                                                <span class="span_voir_plus">Daïra :</span><span class="span_info"><?php echo $donnees["daira"] ?></span><br>
+                                                <span class="span_voir_plus">Commune :</span><span class="span_info"><?php echo $donnees["commune"] ?></span><br>
+                                                <span class="span_voir_plus">Adresse :</span><span class="span_info"><?php echo $donnees["adresse"] ?></span><br>
+                                                <span class="span_voir_plus">Type du bien :</span class="span_info"><span><?php echo $donnees["type_bien"] ?></span><br>
+                                                <span class="span_voir_plus">Surface :</span><span class="span_info"><?php echo $donnees["surface"] ?></span><br>
+                                                <span class="span_voir_plus">Etage(s) :</span><span class="span_info"><?php echo $donnees["etage"] ?></span><br>
+                                                <span class="span_voir_plus">Piéce(s) :</span><span class="span_info"><?php echo $donnees["pieces"] ?></span><br>
+                                                <span class="span_voir_plus">Prix :</span><span class="span_info"><?php echo $donnees["prix"] ?> DA</span><br>
+                                                <span class="span_voir_plus">Propriétaire :</span class="span_info"><span><?php echo $donnees["proprietaire"] ?></span><br>
                                                 
-                                                <img src="../<?php echo $donnees["lien_img"] ?>" alt="image annonce" width="448px" height="202px">
+                                                <img src="../<?php echo $donnees["lien_img"] ?>" alt="image annonce" width="448px" height="202px" class="img_voir_plus">
 
-                                            </div>   
+                                                </div>   
 
                                                 
                                                 
@@ -736,17 +765,17 @@
                             <!--   **************  liste des biens à louer  ***********   -->          
                             <div class="form_admin" id="form_louer">
                             <h2>Liste des demande d'annoces de location:</h2>
-                            <div style="height: 400px; width: 700px; overflow: auto;">
+                            <div style="height: 400px;  overflow: auto;">
                                 <table class="liste_biens" cellpadding="3" rules="all">
                                     <colgroup span="6" class="columns"></colgroup>
                                     <tr>
-                                        <th>Titre</th>
-                                        <th>Surface</th>
-                                        <th>Etages</th>
-                                        <th>Wilaya</th>
-                                        <th>Daïra</th>
-                                        <th>Commune</th>
-                                        <th>Propriétaire</th>
+                                        <th class="colonne_tab">Titre</th>                                        
+                                        <th class="colonne_tab">Wilaya</th>
+                                        <th class="colonne_tab">Daïra</th>
+                                        <th class="colonne_tab">Commune</th>
+                                        <th class="colonne_tab">Surface</th>
+                                        <th class="colonne_tab">Etages</th>
+                                        <th class="colonne_tab">Propriétaire</th>
                                     </tr>
                                     <?php
                                     
@@ -755,11 +784,12 @@
                                         ?>
                                         <tr>
                                             <td><?php echo $donnees_loc["titre"] ?></td>
-                                            <td><?php echo $donnees_loc["surface"] ?></td>
-                                            <td><?php echo $donnees_loc["etage"] ?></td>
+                                            
                                             <td><?php echo $donnees_loc["wilaya"] ?></td>
                                             <td><?php echo $donnees_loc["daira"] ?></td>
                                             <td><?php echo $donnees_loc["commune"] ?></td>
+                                            <td><?php echo $donnees_loc["surface"] ?></td>
+                                            <td><?php echo $donnees_loc["etage"] ?></td>
                                             <td><?php echo $donnees_loc["proprietaire"] ?></td>
                                             <td><a href="?action=confirmer_annonces_loc&amp;action2=plus_loc&amp;id=<?php echo $donnees_loc["id"]; ?>" title="Voir plus"class="icon_supprimer" style="color:blue;"><i class="fas fa-plus" ></i></a></td>
                                             <td><a href="?action=confirmer_annonces_loc&amp;action2=accepter_loc&amp;id=<?php echo $donnees_loc["id"]; ?>" title="Accepter l'annonce"class="icon_supprimer" style="color:green;"><i class="fas fa-check" ></i></a></td>
@@ -806,22 +836,22 @@
                                             $donnees_loc=$select->fetch();
                                             ?>
                                             <div class="box_voir_plus">
-                                                <button id="fermer"><i class="fas fa-times" value="fermer" onclick="fermer_voir_plus()" ></i></button>
-                                                <span>Titre :</span><span><?php echo $donnees_loc["titre"] ?></span><br>
-                                                <span>Wilaya :</span><span><?php echo $donnees_loc["wilaya"] ?></span><br>
-                                                <span>Daïra :</span><span><?php echo $donnees_loc["daira"] ?></span><br>
-                                                <span>Commune :</span><span><?php echo $donnees_loc["commune"] ?></span><br>
-                                                <span>Adresse :</span><span><?php echo $donnees_loc["adresse"] ?></span><br>
-                                                <span>Type du bien :</span><span><?php echo $donnees_loc["type_bien"] ?></span><br>
-                                                <span>Surface :</span><span><?php echo $donnees_loc["surface"] ?></span><br>
-                                                <span>Etage(s) :</span><span><?php echo $donnees_loc["etage"] ?></span><br>
-                                                <span>Piéce(s) :</span><span><?php echo $donnees_loc["pieces"] ?></span><br>
-                                                <span>Prix :</span><span><?php echo $donnees_loc["prix"] ?></span><br>
-                                                <span>Propriétaire :</span><span><?php echo $donnees_loc["proprietaire"] ?></span><br>
+                                                <button id="fermer"  onclick="fermer_voir_plus()"><i class="fas fa-times" value="fermer" ></i></button>
+                                                <span class="span_voir_plus">Titre :</span><span class="span_info"><?php echo $donnees_loc["titre"] ?></span><br>
+                                                <span class="span_voir_plus">Wilaya :</span><span class="span_info"><?php echo $donnees_loc["wilaya"] ?></span><br>
+                                                <span class="span_voir_plus">Daïra :</span><span class="span_info"><?php echo $donnees_loc["daira"] ?></span><br>
+                                                <span class="span_voir_plus">Commune :</span><span class="span_info"><?php echo $donnees_loc["commune"] ?></span><br>
+                                                <span class="span_voir_plus">Adresse :</span><span class="span_info"><?php echo $donnees_loc["adresse"] ?></span><br>
+                                                <span class="span_voir_plus">Type du bien :</span class="span_info"><span><?php echo $donnees_loc["type_bien"] ?></span><br>
+                                                <span class="span_voir_plus">Surface :</span><span class="span_info"><?php echo $donnees_loc["surface"] ?></span><br>
+                                                <span class="span_voir_plus">Etage(s) :</span><span class="span_info"><?php echo $donnees_loc["etage"] ?></span><br>
+                                                <span class="span_voir_plus">Piéce(s) :</span><span class="span_info"><?php echo $donnees_loc["pieces"] ?></span><br>
+                                                <span class="span_voir_plus">Prix :</span><span class="span_info"><?php echo $donnees_loc["prix"] ?> DA</span><br>
+                                                <span class="span_voir_plus">Propriétaire :</span class="span_info"><span><?php echo $donnees_loc["proprietaire"] ?></span><br>
                                                 
-                                                <img src="../<?php echo $donnees_loc["lien_img"] ?>" alt="image annonce" width="448px" height="202px">
+                                                <img src="../<?php echo $donnees_loc["lien_img"] ?>" alt="image annonce" width="448px" height="202px" class="img_voir_plus">
 
-                                            </div>   
+                                                </div>   
 
                                             
                                             
@@ -850,12 +880,12 @@
                                 <h2>Ajouter un rendez-vous :</h2>
                                 <input type="text" name="client" class="inp_insc" placeholder="Client" ><br>
                                 <input type="text" name="lieu" class="inp_insc" placeholder="Lieu du rendez-vous"><br>
-                                <span>Date et temps du rendez-vous :</span>
+                                <span class="span_ajouter_bien">Date et temps du rendez-vous :</span>
                                 <input type="date" name="date_rdv" class="inp_insc">
                                 <input type="time" name="time_rdv" class="inp_insc"><br>
                                 
                                 
-                                <input type="submit" value="Enregister" class="btn_inscr" name="submit">
+                                <input type="submit" value="Enregister" class="btn_inscr btn_ajouter_rdv" name="submit">
                                     <?php
                                         if(isset($_POST["submit"])){
                                             $date=$_POST["date_rdv"];
@@ -923,10 +953,10 @@
                                     <table class="liste_biens" cellpadding="3" rules="all">
                                             <colgroup span="4" class="columns"></colgroup>
                                             <tr>
-                                            <th>Client</th>
-                                            <th>Lieu</th>
-                                            <th>Date</th>
-                                            <th>heur</th>
+                                            <th class="colonne_tab">Client</th>
+                                            <th class="colonne_tab">Lieu</th>
+                                            <th class="colonne_tab">Date</th>
+                                            <th class="colonne_tab">heur</th>
                                             
                                             </tr>
                                           <?php
@@ -1020,12 +1050,12 @@
                             <h2>Liste des demande de rdv :</h2>
                                 <div style="height: 400px; width: 650px; overflow: auto;">
                                     <table class="liste_biens" cellpadding="3" rules="all">
-                                        <colgroup span="6" class="columns"></colgroup>
+                                        <colgroup span="6" class="columns" ></colgroup>
                                         <tr>
-                                            <th>Client</th>
-                                            <th>Lieu</th>
-                                            <th>Date</th>
-                                            <th>Heure</th>
+                                            <th class="colonne_tab">Client</th>
+                                            <th class="colonne_tab">Lieu</th>
+                                            <th class="colonne_tab">Date</th>
+                                            <th class="colonne_tab">Heure</th>
                                         </tr>
                                         <?php
                                         
@@ -1097,10 +1127,10 @@
                                 <table class="liste_biens" cellpadding="3" rules="all">
                                     <colgroup span="4" class="columns"></colgroup>
                                     <tr>
-                                        <th>Nom</th>
-                                        <th>Prénom</th>
-                                        <th>E-mail</th>
-                                        <th>Tel</th>    
+                                        <th class="colonne_tab">Nom</th>
+                                        <th class="colonne_tab">Prénom</th>
+                                        <th class="colonne_tab">E-mail</th>
+                                        <th class="colonne_tab">Tel</th>    
                                     </tr>
                                     <?php
                                     
@@ -1153,11 +1183,11 @@
                                 <table class="liste_biens" cellpadding="3" rules="all">
                                     <colgroup span="4" class="columns"></colgroup>
                                     <tr>
-                                        <th>Nom</th>
-                                        <th>Prénom</th>
-                                        <th>E-mail</th>
-                                        <th>Sujet</th> 
-                                        <th>Message</th>   
+                                        <th class="colonne_tab">Nom</th>
+                                        <th class="colonne_tab">Prénom</th>
+                                        <th class="colonne_tab">E-mail</th>
+                                        <th class="colonne_tab">Sujet</th> 
+                                        <th class="colonne_tab">Message</th>   
                                     </tr>
                                     <?php
                                     
@@ -1229,7 +1259,7 @@
 <script type="text/javascript">
  window.onload = style_onglet_admin();
  window.onload =style_vendre_location_admin();
-    
+ window.onload =style_vendre_location_admin2()
 
 window.onload = afficher_formulaire();
  
