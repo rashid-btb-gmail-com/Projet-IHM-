@@ -292,7 +292,7 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
 
        while ($donne= $bienrep->fetch()){
        //affichage des biens a louer les plus recents       
-         echo('<div class="biensug" ><a class="linkdetail" href="./pages/detail.php?id='.$donne['id'].'">
+         echo('<div class="biensug" ><a class="linkdetail" href="./pages/detailloc.php?id='.$donne['id'].'">
             <img src="./'.$donne['lien_img'].'" class="imgbien" alt="l\'image du bien" >
            <div class="infobien">
            <h4 ">'.$donne['titre'].'</h4> 
@@ -312,7 +312,7 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
 
        while ($donne= $bienrep->fetch()){
        //affichage des biens alouer a tizi    
-         echo('<div class="biensug" ><a class="linkdetail" href="./pages/detail.php?id='.$donne['id'].'">
+         echo('<div class="biensug" ><a class="linkdetail" href="./pages/detailloc.php?id='.$donne['id'].'">
             <img src="./'.$donne['lien_img'].'" class="imgbien" alt="l\'image du bien" >
            <div class="infobien">
            <h4 ">'.$donne['titre'].'</h4> 
@@ -332,7 +332,7 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
 
        while ($donne= $bienrep->fetch()){
        //affichage des biens a louer a bejaia     
-         echo('<div class="biensug" ><a class="linkdetail" href="./pages/detail.php?id='.$donne['id'].'">
+         echo('<div class="biensug" ><a class="linkdetail" href="./pages/detailloc.php?id='.$donne['id'].'">
             <img src="./'.$donne['lien_img'].'" class="imgbien" alt="l\'image du bien" >
            <div class="infobien">
            <h4 ">'.$donne['titre'].'</h4> 
@@ -352,7 +352,7 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
 
        while ($donne= $bienrep->fetch()){
        //affichage des biens a louer a bouira      
-         echo('<div class="biensug" ><a class="linkdetail" href="./pages/detail.php?id='.$donne['id'].'">
+         echo('<div class="biensug" ><a class="linkdetail" href="./pages/detailloc.php?id='.$donne['id'].'">
             <img src="./'.$donne['lien_img'].'" class="imgbien" alt="l\'image du bien" >
            <div class="infobien">
            <h4 ">'.$donne['titre'].'</h4> 
@@ -427,7 +427,6 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
            </div>
            <div style="border:1px solid orange; height:550px; margin-left:10px; margin-right:20px;;"  ></div>
          </div>
-%20
        </div>
         <div>
         <h3 class="headsug">BEJAIA</h3>
@@ -538,8 +537,16 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
               <a href="./pages/deposer_annonce.php">vendre un bien</a>
               </div>
               <div class="onelinkfoot">
-              <h5 class="titrelink"> Devenez client</h5>
-              <a href="./pages/inscription.php">Inscrivez-Vous</a>
+              <?php
+              if(isset($_SESSION["username"])){
+                  echo('<h5 class="titrelink"> Nos Services</h5>
+                  <a href="./pages/serviedem.php">Déménagement</a>');
+              }else{
+                echo('<h5 class="titrelink"> Devenez client</h5>
+                <a href="./pages/inscription.php">Inscrivez-Vous</a>');
+              }
+              
+               ?>
               </div>
               <div class="onelinkfoot">
               <h5 class="titrelink">Des questions!</h5>

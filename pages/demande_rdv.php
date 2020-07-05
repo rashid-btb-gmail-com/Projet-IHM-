@@ -28,6 +28,7 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
 if(!isset($_SESSION["username"])){
     header("location: ./connexion.php#fullconnex");
 }
+if(isset($_GET['t'])=='biens_location'){$raison="location";}else{$raison="Achat";}
 $nompre=$_SESSION["nom"].' '.$_SESSION["prenom"];
 ?>
 <div class="demanderdv" id="rdvdem" >
@@ -62,21 +63,34 @@ $nompre=$_SESSION["nom"].' '.$_SESSION["prenom"];
                                 <option value="A proximité du bien">A proximité du bien</option>
                         </SELECT>
                         <br>
-                        </div>                                            
+                        </div> 
+                        <span class="warning">Heur de visite entre 8h-18h</span>                                           
                         <div class="input-group mb-3 datetime">
-                        <input type="date" name="date" class="form-control input_user date"  required><br>
-                        <input type="time" name="time" class="form-control input_user"  required><br>
+                        <input type="date" name="date" class="form-control input_user date" min="<?php $date=date('Y-m-d', strtotime(' +1 day')); echo($date); ?>" required><br>
+                        <input type="time" name="time" class="form-control input_user"  min="08:00" max="18:00"  required><br>
                         </div>
+
                         
                         <div class="input-group mb-3">
                         <input type="submit" value="demander" class="btn login_btn" name="submit">
                         </div>
                         <?php
+                         
                          if(isset($_POST["submit"])){
+                            ?>
+                            <script> alert("Votre RDV Sera pris en compte"); </script>
+                            
+                            <?php
                              //insersion dans la base de donné
-                             $insert=$db->prepare('INSERT INTO demande_rdv VALUES(NULL,?,?,?,?)');
-                             $insert->execute(array($nompre,$_POST["lieu"],$_POST["date"],$_POST["time"]));
+                             $insert=$db->prepare('INSERT INTO demande_rdv VALUES(NULL,?,?,?,?,?)');
+                             $insert->execute(array($nompre,$_POST["lieu"],$_POST["date"],$_POST["time"],$raison));
+                          if($raison=='location'){
+                              
+                              echo('<meta http-equiv="refresh" content="0;url=./location.php" />');
+                             
+                          }else{  echo('<meta http-equiv="refresh" content="0;url=./immobilier.php" />'); }
                          }
+
                          ?>
                 </form>
 				</div>
@@ -89,15 +103,20 @@ $nompre=$_SESSION["nom"].' '.$_SESSION["prenom"];
          <div class="bienrdv">
          <h3 class="titre_connexion">Le Bien selectioner</h3>
              <?php
-             $detail_bien = $db->query('SELECT titre,commune,daira,lien_img FROM biens Where id="'.$_GET['id'].'"');
+             if(isset($_GET['t'])=='biens_location'){
+                $detail_bien = $db->query('SELECT adresse, wilaya, titre,commune,daira,lien_img FROM biens_location Where id="'.$_GET['id'].'"');
+                }else{
+                    $detail_bien = $db->query('SELECT adresse, wilaya, titre,commune,daira,lien_img FROM bien Where id="'.$_GET['id'].'"');
+                }           
+             
              $choisie = $detail_bien->fetch();
              echo('
              <div class="d-flex justify-content-center"> 
              <img class="imgrdv"src="../'. $choisie['lien_img'].'" alt="image du bien">
              </div>
-             <div class="pointdetail">
+             <div class="pointdetail2">
              <h3>'.$choisie['titre'].'</h3>
-             <p><b> Lieux : </b>'.$choisie['commune'].', '.$choisie['daira'].'</p>
+             <p><b> Lieux : </b>'.$choisie['adresse'].', '.$choisie['commune'].', '.$choisie['daira'].', '.$choisie['wilaya'].'</p> 
              </div>
              ');
              $detail_bien->closeCursor();

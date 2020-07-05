@@ -22,7 +22,7 @@
 <?php
 include_once('../includes/header.php');
 $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-$detail_bien = $db->query('SELECT * FROM biens Where id="'.$_GET['id'].'"');
+$detail_bien = $db->query('SELECT * FROM biens_location Where id="'.$_GET['id'].'"');
 $choisie = $detail_bien->fetch();
 ?>
 <div class="container-fluid d-flex justify-content-between fulldetail ">
@@ -31,13 +31,13 @@ $choisie = $detail_bien->fetch();
 <h5> Sure La Wilaya de "<?php echo($choisie['wilaya']) ?>"</h5>
 <!-- suggestion par regions-->
 <div class="lesbienssugg">
-<?php $bienrep = $db->query('SELECT id,titre, lien_img FROM biens Where wilaya="'.$choisie['wilaya'].'" LIMIT 0,3');
+<?php $bienrep = $db->query('SELECT id,titre, lien_img FROM biens_location Where wilaya="'.$choisie['wilaya'].'" LIMIT 0,3');
        while ($donne= $bienrep->fetch()){
          echo('<div class="d-flex suggcontainer" >
            <img src="../'.$donne['lien_img'].'" class="imgsuggestdetail" alt="l\'image du bien" >
            <div class="infosugg">
            <p>'.$donne['titre'].'</p>
-            <a href="../pages/detail.php?id='.$donne['id'].'">Voir Detail</a> 
+            <a href="../pages/detailloc.php?id='.$donne['id'].'">Voir Detail</a> 
 
             </div>
          </div>');}
@@ -69,28 +69,17 @@ while($donnees=$se->fetch()){
 <p><b> Pieces: </b>'.$choisie['pieces'].'</p>
 <p><b> Etages: </b>'.$choisie['etage'].'</p>
 <p><b> Description:</b> <br/>'.$choisie['description'].' </p>
-<h5> Prix = '.$choisie['prix'].' DA Negociable </h5> 
+<h5> Prix = '.$choisie['prix'].' DA / Mois </h5> 
 <div class="text-center liendemanderdv">
-<a href="./demande_rdv.php?t=biens&id='.$choisie['id'].'" class="rdvdmdbien">Demander Un Rendez-Vous de Visite</a>
+<a href="./demande_rdv.php?t=biens_location&id='.$choisie['id'].'" class="rdvdmdbien">Demander Un Rendez-Vous de Visite</a>
 </div>
-<<<<<<< HEAD
-
-'); 
-
-if(isset($_SESSION["username"])!=NULL){
-?>
-<a href="favoris.php?id_cl='.$_SESSION["id"].'&t=1&id= '.$choisie['id'].'"> fav </a>
-<?php
-=======
-<a href="favoris.php?id_cl='.$_SESSION["id"].'&t=1&id= '.$choisie['id'].'"> fav </a>
-
+<a href="favorisloc.php?id_cl='.$_SESSION["id"].'&t=1&id= '.$choisie['id'].'"> fav </a>
 '); 
 
 if($_SESSION["username"]!=NULL){
 
->>>>>>> 2a5a32a47594ac61e327ecb9d1e4b161da75dfb2
 }
-$_SESSION["url_prec"]="./demande_rdv.php?t=Achat&id=".$choisie['id'];
+$_SESSION["url_prec"]="./demande_rdv.php?t=biens_location&id=".$choisie['id'];
 $detail_bien->closeCursor();
  ?>
  </div>
@@ -101,13 +90,13 @@ $detail_bien->closeCursor();
 <h3> Suggestions des biens </h3>
 <h5> Avec un Prix moins de <?php echo($choisie['prix']) ?>DA</h5>
 <div class="lesbienssugg" >
-<?php $bienprix = $db->query('SELECT id,titre, lien_img FROM biens Where prix <'.$choisie['prix'].' LIMIT 0,4');
+<?php $bienprix = $db->query('SELECT id,titre, lien_img FROM biens_location Where prix <'.$choisie['prix'].' LIMIT 0,4');
        while ($aproxis= $bienprix->fetch()){
          echo('<div class="d-flex suggcontainer" >
            <img src="../'.$aproxis['lien_img'].'" class="imgsuggestdetail" alt="l\'image du bien" >
            <div class="infosugg">
            <p>'.$aproxis['titre'].'</p>
-            <a href="../pages/detail.php?id='.$aproxis['id'].'">Voir Detail</a> 
+            <a href="../pages/detailloc.php?id='.$aproxis['id'].'">Voir Detail</a> 
             </div>
          </div>');}
          $bienprix->closeCursor();
