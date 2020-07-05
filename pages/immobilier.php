@@ -690,8 +690,8 @@ include_once('../includes/header.php');
             echo('<div class="biensug" ><a class="linkdetail" href="../pages/detail.php?id='.$donne['id'].'">
             <img src="../'.$donne['lien_img'].'" class="imgbien" alt="l\'image du bien" >
            <div class="infobien">
-           <h4 ">'.$donne['titre'].'</h4> 
-           <p>Lieu:'.$donne['commune'].','.$donne['daira'].'</p> 
+           <h4 >'.$donne['titre'].'</h4> 
+           <p>Lieu:'.$donne['commune'].','.$donne['daira'].','.$donne['wilaya'].'</p> 
           </div></a>
            
            
@@ -710,7 +710,7 @@ include_once('../includes/header.php');
       else {
         
       
-       $req = $db->query('SELECT id,titre, daira, commune, lien_img FROM biens ORDER BY id desc LIMIT 0,12');
+       $req = $db->query('SELECT id,titre, daira, commune,wilaya, lien_img FROM biens ORDER BY id desc LIMIT 0,30');
        if(isset($_GET["search"])){
         $req = $db->prepare('SELECT * FROM biens WHERE commune LIKE ? ');
         $req->execute(array($_GET["search"]));
@@ -730,8 +730,8 @@ include_once('../includes/header.php');
          echo('<div class="biensug" ><a class="linkdetail" href="../pages/detail.php?id='.$donne['id'].'">
             <img src="../'.$donne['lien_img'].'" class="imgbien" alt="l\'image du bien" >
            <div class="infobien">
-           <h4 ">'.$donne['titre'].'</h4> 
-           <p>Lieu:'.$donne['commune'].','.$donne['daira'].'</p> 
+           <h4>'.$donne['titre'].'</h4> 
+           <p>Lieu:'.$donne['commune'].','.$donne['daira'].','.$donne['wilaya'].'</p> 
           </div></a>
            
            

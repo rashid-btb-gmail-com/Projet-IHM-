@@ -710,7 +710,21 @@ bottom: 5cm;
         border-radius: 0.25rem;
         color:#ff5722;
     }
+  .favorisbeauty{
+      float:right;
+      color: rgb(63, 62, 62);
+      font-size: xxx-large;
+      position: relative;
+      top: -60px; 
 
+  }
+  #beautyfav>a :hover{
+color:#ff5722;
+transition: 0.5s;
+  }
+  #beautyfav :visited{
+    color:#ff5722;
+      }
 
 /*******************************************************IMMOBILIER*****************************************************/
 

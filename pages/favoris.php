@@ -35,7 +35,7 @@ if (isset($_GET['t'],$_GET['id'],$_GET['id_cl']) and !empty($_GET['t']) and !emp
 	 		
 	 	}
 	 }
-	header('Location: http://localhost/Projet-IHM-/Projet-IHM-/pages/detail.php?id='.$getid);
+	header('Location: http://localhost/Projet-IHM-/pages/detail.php?id='.$getid);
   	exit();
 	 	} else echo "erreur";
 

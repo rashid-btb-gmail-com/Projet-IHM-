@@ -60,7 +60,9 @@ while($donnees=$se->fetch()){
   $id_cl=$donnees['id'];
 
 }*/
-
+if(isset($_SESSION["username"])){
+  echo('<div id="beautyfav"> <a class=" favorisbeauty" title="favoris" href="favorisloc.php?id_cl='.$_SESSION["id"].'&t=1&id= '.$choisie['id'].'"> <i class="fa fa-heart"></i> </a> </div>');
+  }
 
  echo('
 <p><b> Type: </b>'.$choisie['type_bien'].'</p>
@@ -73,24 +75,11 @@ while($donnees=$se->fetch()){
 <div class="text-center liendemanderdv">
 <a href="./demande_rdv.php?t=biens&id='.$choisie['id'].'" class="rdvdmdbien">Demander Un Rendez-Vous de Visite</a>
 </div>
-<<<<<<< HEAD
 
 '); 
 
-if(isset($_SESSION["username"])!=NULL){
-?>
-<a href="favoris.php?id_cl='.$_SESSION["id"].'&t=1&id= '.$choisie['id'].'"> fav </a>
-<?php
-=======
-<a href="favoris.php?id_cl='.$_SESSION["id"].'&t=1&id= '.$choisie['id'].'"> fav </a>
 
-'); 
-
-if($_SESSION["username"]!=NULL){
-
->>>>>>> 2a5a32a47594ac61e327ecb9d1e4b161da75dfb2
-}
-$_SESSION["url_prec"]="./demande_rdv.php?t=Achat&id=".$choisie['id'];
+$_SESSION["url_prec"]="./demande_rdv.php?d=Achat&id=".$choisie['id'];
 $detail_bien->closeCursor();
  ?>
  </div>

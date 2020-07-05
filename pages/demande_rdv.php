@@ -28,7 +28,7 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
 if(!isset($_SESSION["username"])){
     header("location: ./connexion.php#fullconnex");
 }
-$t=$_GET['t'];
+$t=$_GET['d'];
 if($t=='location'){$raison="location";}else {$raison="Achat";}
 $nompre=$_SESSION["nom"].' '.$_SESSION["prenom"];
 ?>
