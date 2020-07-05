@@ -23,7 +23,9 @@
   $titre_page="Profiless";
   $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));  
   include_once('../includes/header.php');
+  
 ?>
+
 <div class="container-fluid d-flex justify-content-center" id="profile">
   <div class="d-flexbox flexrow ">
     <section class="labox"> 
@@ -106,10 +108,12 @@
                                 </div> ');
                                 
                                 if(isset($_POST["submitpass"])){
-                                  if(($_POST['ancienpass'])==($profile['password'])){
+                                  $verifpass=password_verify ( $_POST["ancienpass"] ,$profile['password']) ;
+                                  if($verifpass){
                                     if(($_POST['nouveaupass'])==($_POST['confirmepass'])){
                                        $id=$profile["id"];
-                                       $pass=$_POST["nouveaupass"];
+                                       $pass=password_hash($_POST["nouveaupass"], PASSWORD_DEFAULT);
+                                       
                                        $motpass=$db->prepare("UPDATE clients SET password='$pass' WHERE id=$id");
                                        $motpass->execute();
                                        $motpass->closeCursor();
