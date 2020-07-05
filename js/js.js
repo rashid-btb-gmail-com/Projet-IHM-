@@ -300,6 +300,30 @@ function filtre_daira(){
     }
 }
 
+function filtre_daira_loc(){
+    var wilaya = [  w1=["01-Ain El Hammam","02-Azazga","03-Azeffoun","04-Beni Douala","05-Beni Yenni","06-Boghni","07-Bouzeguène","08-Draâ Ben Khedda","09-Draâ El Mizan","10-Iferhounène","11-Larbaâ Nath Irathen","12-Mâatkas","13-Makouda","14-Mekla","15-Ouacif","16-Ouadhia","17-Ouaguenoun","18-Tigzirt","19-Tizi Gheniff","20-Tizi Ouzou","21-Tizi Rached"],
+                    w2=["01-Adekar","02-Akbou","03-Amizour","04-Aokas ","05-Barbacha","06-Béjaïa","07-Beni Maouche","08-Chemini","09-Darguina","10-El Kseur","11-Ighil Ali","12-Kherrata","13-Ouzellaguen","14-Seddouk","15-Sidi-Aïch","16-Souk El-Ténine","17-Tazmalt","18-Tichy","19-Timezrit"],
+                    w3=["01-Bouira","02-Haizer","03-Bechloul","04-M'Chedallah","05-Kadiria","06-Lakhdaria","07-Bir Ghbalou","08-Aïn Bessem","09-Souk El Khemis","10-El Hachimia","11-Sour El-Ghozlane","12-Bordj Okhriss"],
+ 
+                            ];
+              
+    var wilaya_select=document.getElementsByName("wilaya_loc")[0].value;   //recuperer la wilaya
+    var num_wilaya=parseInt(wilaya_select[0]+wilaya_select[1],10)-1;  //recuperer le num de la wilaya                     
+    
+    
+    
+        
+        
+        var currentDiv = document.getElementById('daira_loc');  
+            
+            currentDiv.innerHTML="";
+
+    for(var i=wilaya[num_wilaya].length-1;i>=0;i--){
+        
+        
+            currentDiv.insertAdjacentHTML('afterbegin','<option class="commune_daira">'+wilaya[num_wilaya][i]+'</option>');
+    }
+}
 
 function filtre_commune_louer(){
     var daira = [   d1=["Abi Youcef","Ain El Hammam","Aït Yahia","Akbil"],
@@ -381,6 +405,11 @@ function style_onglet_admin() {
         document.getElementById("onglet7").style.borderLeft="17px #fa6014 solid";
         document.getElementById("onglet7").style.color="#fa6014";
         document.getElementById("onglet7").style.backgroundColor="#313131";
+    }
+    if(url=="http://127.0.0.1/Projet-IHM-/admin/plateforme_admin.php?action=demenagement"){
+        document.getElementById("onglet8").style.borderLeft="17px #fa6014 solid";
+        document.getElementById("onglet8").style.color="#fa6014";
+        document.getElementById("onglet8").style.backgroundColor="#313131";
     }
 }
 

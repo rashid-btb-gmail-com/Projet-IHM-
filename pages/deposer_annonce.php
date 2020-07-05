@@ -218,7 +218,7 @@ else{
                             <span class="span_deposer_annonce">Localisation du bien</span>
                             <div class="input-group mb-3">
                             <span></span>
-                                <SELECT id="wilaya" name="wilaya_loc" class="form-control input_user" onchange="filtre_daira()" required>
+                                <SELECT id="wilaya_loc" name="wilaya_loc" class="form-control input_user" onchange="filtre_daira_loc()" required>
                                     <option value="" disabled selected> Wilaya</option>
                                     <option value="01-Tizi-Ouzou">Tizi-Ouzou</option>
                                     <option value="02-Béjaïa">Béjaïa</option>
@@ -232,7 +232,7 @@ else{
 
                             <div class="input-group mb-3">
                             <span></span>
-                                <SELECT id="daira" name="daira_loc" class="form-control input_user" onchange="filtre_commune_louer()" required>
+                                <SELECT id="daira_loc" name="daira_loc" class="form-control input_user" onchange="filtre_commune_louer()" required>
                                     <option value="" disabled selected> Daïra</option>
                                     <option value="01-Ain El Hammam">01-Ain El Hammam</option>
                                     <option value="02-Azazga">02-Azazga</option>

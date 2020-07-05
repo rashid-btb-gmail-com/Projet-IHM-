@@ -41,6 +41,9 @@
         <a href="?action=confirmer_rdv" class="onglet_admin " id="onglet6" onclick="">Confirmer les RDV</a>
     </div>
     <div class="menuclient">
+        <a href="?action=demenagement" class="onglet_admin " id="onglet8" onclick="">Demenagement</a>
+    </div>
+    <div class="menuclient">
         <a href="?action=clients" class="onglet_admin " id="onglet7" onclick="">Clients</a>
     </div>
 </nav>
@@ -1243,6 +1246,73 @@
                             </div>
                             <?php
                         }
+                        if($_GET["action"]=="demenagement"){
+                            $select=$db->query('SELECT * FROM demande_rdv_dem');
+
+                            
+                            ?>
+                            <div class="form_admin">
+                            <h2>Liste des demande de rdv :</h2>
+                                <div style="height: 400px; overflow: auto;">
+                                    <table class="liste_biens" cellpadding="3" rules="all">
+                                        <colgroup span="6" class="columns" ></colgroup>
+                                        <tr>
+                                            <th class="colonne_tab">Client</th>
+                                            <th class="colonne_tab">E-mail</th>
+                                            <th class="colonne_tab">Tel</th>
+                                            <th class="colonne_tab">Adresse</th>
+                                            <th class="colonne_tab">Date</th>
+                                            
+                                        </tr>
+                                        <?php
+                                        
+                                        while($donnees=$select->fetch()){
+                                            $id_cl=$donnees["id_cl"];
+                                            $select_client=$db->query("SELECT * FROM clients WHERE id=$id_cl");
+                                            $donnees_cl=$select_client->fetch();
+                                            ?>
+                                            <tr>
+                                                <td><?php echo $donnees_cl["nom"].' '.$donnees_cl["prenom"] ?></td>
+                                                <td><?php echo $donnees_cl["email"] ?></td>
+                                                <td><?php echo $donnees_cl["tel"] ?></td>
+                                                <td><?php echo $donnees["lieu"] ?></td>
+                                                <td><?php echo $donnees["date"] ?></td>
+                                                                                               
+                                                <td><a href="?action=demenagement&amp;action2=supprimer&amp;id=<?php echo $donnees["id"]; ?>" title="supprimer le demenagement"class="icon_supprimer "><i class="fas fa-times" ></i></a></td>
+                                                
+                                            </tr>
+
+                                            <?php
+                                        }
+
+                                        //**************************    accepter et supprimerl'annonce *********************** */
+                                        if(isset($_GET["action2"])){
+                                            
+                                         
+                                            //supprimer
+                                            if($_GET["action2"]=="supprimer"){
+                                                $id=$_GET["id"];
+                                                echo $_GET["id"];
+                                                $supprimer=$db->prepare("DELETE FROM demande_rdv_dem WHERE id = $id");
+                                                $supprimer->execute();
+                                                ?>
+                                                <script> alert("La demande de demenagement a été refusé");  </script>
+                                                <meta http-equiv="refresh" content="0;url=./plateforme_admin.php?action=demenagement" />
+                                                <?php
+                                            }
+
+                                            
+                                        }
+                                        
+                                        ?>
+                                        
+                                        
+                                    </table>
+                                </div>
+                            </div>
+                            <?php
+                        }
+
                         
                     
 
