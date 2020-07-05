@@ -28,10 +28,10 @@
     <img src="../images/logo.png" alt="logo_agence">
     <div class="profileadmin">
         <input type="image" src="../images/user.png" alt="photo de profile" class="photo_profil">
-        <h2 class="nom_admin">NOM Prenom </h2>
+        <h2 class="nom_admin">Administrateur </h2>
     </div>
     <div class="menubien">
-        <a href="?action=ajouter_bien" class="onglet_admin" id="onglet1" >Ajouter une annonce</a>
+        <a href="?action=ajouter_bien" class="onglet_admin" id="onglet1" onclick="style_onglet_admin();" >Ajouter une annonce</a>
         <a href="?action=gerer_biens" class="onglet_admin" id="onglet2" onclick="">Gerer les annonces</a>
         <a href="?action=confirmer_annonces" class="onglet_admin" id="onglet3" onclick="">Confirmer les annonces</a>
     </div> 

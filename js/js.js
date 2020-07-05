@@ -372,7 +372,7 @@ function style_onglet_admin() {
     var url=window.location.href;
     
     if(url=="http://127.0.0.1/Projet-IHM-/admin/plateforme_admin.php?action=ajouter_bien"){
-        document.getElementById("onglet1").style.borderLeft="17px #fa6014 solid";
+        document.getElementById("onglet1").style.borderLeft="17px solid #fa6014 ";
         document.getElementById("onglet1").style.color="#fa6014";
         document.getElementById("onglet1").style.backgroundColor="#313131";
     }
@@ -392,7 +392,7 @@ function style_onglet_admin() {
         document.getElementById("onglet4").style.backgroundColor="#313131";
     }
     if(url=="http://127.0.0.1/Projet-IHM-/admin/plateforme_admin.php?action=gerer_rdv"){
-        document.getElementById("onglet5").style.borderLeft="17px #fa6014 solid";
+        document.getElementById("onglet5").style.borderLeft="17px solid #fa6014 ";
         document.getElementById("onglet5").style.color="#fa6014";
         document.getElementById("onglet5").style.backgroundColor="#313131";
     }
