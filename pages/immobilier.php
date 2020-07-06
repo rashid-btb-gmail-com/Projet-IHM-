@@ -681,8 +681,8 @@ include_once('../includes/header.php');
 
           if(isset($req)){  
               if ($req->rowCount()== 0) {
-         echo('<div class="text-center"> <h1 style="color:silver;">Aucun bien</h1></div>');
-       } 
+        echo('<div class="text-center"> <h1 style="color:rgb(66, 66, 66);">Aucun résultat selon ces critéres de recherches</h1></div>');
+      } 
        else{
             while ($donne= $req->fetch()){
               //affichage des biens aprés recherche
@@ -722,7 +722,7 @@ include_once('../includes/header.php');
         
       } 
       if ($req->rowCount()== 0) {
-        echo('<div class="text-center"> <h1 style="color:silver;">Aucun bien</h1></div>');
+        echo('<div class="text-center"> <h1 style="color:rgb(66, 66, 66);">Aucun résultat selon ces critéres de recherches</h1></div>');
       } 
       else{
        while ($donne= $req->fetch()){
