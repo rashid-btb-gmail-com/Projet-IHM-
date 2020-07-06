@@ -73,7 +73,7 @@ if(isset($_SESSION["username"])){
 <p><b> Description:</b> <br/>'.$choisie['description'].' </p>
 <h5> Prix = '.$choisie['prix'].' DA Negociable </h5> 
 <div class="text-center liendemanderdv">
-<a href="./demande_rdv.php?t=biens&id='.$choisie['id'].'" class="rdvdmdbien">Demander Un Rendez-Vous de Visite</a>
+<a href="./demande_rdv.php?d=biens&id='.$choisie['id'].'" class="rdvdmdbien">Demander Un Rendez-Vous de Visite</a>
 </div>
 
 '); 

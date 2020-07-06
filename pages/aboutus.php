@@ -31,7 +31,7 @@ include_once('../includes/header.php');
            <i class="fa fa-leanpub"></i> 
            <h1 id="textpropos">A Propos de Nous</h1>
 
-           <a href="./aboutus#secdescrip"><i style="color: tomato;" class="fa fa-angle-down"></i></a>
+           
         </div>
      </div>
     </section>
@@ -122,9 +122,8 @@ include_once('../includes/header.php');
          protégée par plusieurs parcs nationaux.
          la Kabylie se devise en deux "petite kabylie" qui s'étend
          sur les deux wilaya de "Bouira et Bejaia" et la "grande kabylie" qui 
-         s'étend sur la wilaya de "Tizi-Ouzou", des regions plain de cultures ancienne où
-          a chaque villages des traditions differents,
-          qui vous attend pour les decouvrire.
+         s'étend sur la wilaya de "Tizi-Ouzou",La découverte d'un monde s'étendant sur toute la Kabylie, 
+         débordant de cultures et de traditions extraordinaires, VOUS ATTEND
         
          <br>
          <br>
@@ -138,17 +137,17 @@ include_once('../includes/header.php');
       </div>
       <div class="agence container d-flex w-100">
         
-        <div class="desckabylie align-self-center text-right">
-         <h1 id="titrepropos">ⴰⵅⵅⴰⵎ</h1>
-         <h4  class="text-left">Des centaines de personnes logées chaque année.</h4>
-         <p class="text-left">
-         "ⴰⵅⵅⴰⵎ" Vu de loin n’est rien d’autre que la traduction du mot ‘’maison’’  en Tamazight, 
+        <div class="desckabylie align-self-center text-center">
+         <h1 id="titrepropos">Axxamiw</h1>
+         <h4  class="text-justify">Des centaines de personnes logées chaque année.</h4>
+         <p class="text-justify">
+         <b>Axxamiw</b> Vu de loin n’est rien d’autre que la traduction du mot ‘’ma maison’’  en Tamazight, 
            mais en réalité ce dernier enveloppe l’immense affection que ressentent un groupe de jeunes pour leurs
             origines. En effet en 2010, Un groupe d’amis rêveurs et audacieux ont crée 
             cette agence immobilière au cœur de la Kabylie et l’ont baptisé avec ce nom, dans le but
              de promouvoir cette région qui n’est rien d’autre que leurs région natale. Ainsi  un simple rêve
               d’une bande d’ados est devenu au bout de 10 ans un des leaders
-               de l’immobilier en Algérie. "ⴰⵅⵅⴰⵎ" est à votre disposition 
+               de l’immobilier en Algérie. <b>Axxamiw</b> est à votre disposition 
                  pour répondre à vos questions, vous aider à trouver votre maison de rêve, 
                  vendre votre magnifique maison et vous proposer différents services supplémentaires.
           </p>
@@ -161,27 +160,27 @@ include_once('../includes/header.php');
         <div class=" d-flex justify-content-center align-items-center container-fluid divteam">
         <div class="text-center" class="stylepropos">
            <i class="fa fa-user-o"></i>
-           <h1>Notre Equipe</h1> 
+           <h1>Les Fondateurs de Axxamiw</h1> 
            <div class="d-flex justify-content-center ">
              <div class="cardteam">
                <img src="../images/hocine.jpg"  class="adminphoto" alt="Hocine">
                <h3>H.Fedani</h3> 
-               <h5> Président Directeur Général <br>- Membre fondateur</h5>
+               <h5> Président Directeur Général </h5>
              </div>
              <div class="cardteam">
                <img src="../images/massilva.jpg" class="adminphoto" alt="massilva">
                <h3>M.Boutiab</h3> 
-               <h5> Directeur Général <br>- Membre fondateur</h5>
+               <h5> Directeur Général </h5>
              </div>
              <div class="cardteam">
                <img src="../images/nadir.jpg"  class="adminphoto" alt="nadir">
                <h3>N.Aissou</h3> 
-               <h5> Chef Equipe Marketing <br>- Membre fondateur</h5>
+               <h5> Chef Equipe Marketing </h5>
              </div>
              <div class="cardteam">
               <img src="../images/fodil.jpg"  class="adminphoto" alt="fodil">
               <h3>F.Ouguemat</h3> 
-              <h5> Chef du Service Client <br>- Membre fondateur</h5>
+              <h5> Chef du Service Client </h5>
              </div>
            </div>
         </div>

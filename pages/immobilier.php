@@ -680,7 +680,7 @@ include_once('../includes/header.php');
           
 
           if(isset($req)){  
-              if ($bienrep->rowCount()== 0) {
+              if ($req->rowCount()== 0) {
          echo('<div class="text-center"> <h1 style="color:silver;">Aucun bien</h1></div>');
        } 
        else{

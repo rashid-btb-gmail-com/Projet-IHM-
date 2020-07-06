@@ -21,7 +21,7 @@
          <div class="navbar-right"> 
              <ul>
                   <li><a href="../pages/location.php">Locations</a></li>                  
-                  <li><a href="../pages/immobilier.php">Vente</a></li>
+                  <li><a href="../pages/immobilier.php">Achat</a></li>
                   <li><a href="../pages/deposer_annonce.php#depose">Déposer une annonce</a></li> 
                  <li><a href="../pages/contact.php">Contact</a></li>
                  <li id="separateur"> </li> <!--un separateur -->

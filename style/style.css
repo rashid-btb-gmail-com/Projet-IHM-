@@ -25,7 +25,9 @@ header{
 }
 .logo{
     width: 200px;
-    height: 80px;
+height: 100px;
+margin-bottom: -20px;
+margin-top: -10px;
    
 }
 #separateur{
@@ -221,7 +223,7 @@ color:black;
     color: #ff5722;
     }
 .reseign{
-    margin-top:15sspx;
+    margin-top:20px;
     font-size:1.15rem;
 }
 #numero, #adresse,.sns{

@@ -39,7 +39,7 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
               <ul>
             
                   <li><a href="./pages/location.php">Locations</a></li>                  
-                  <li><a href="./pages/immobilier.php">Vente</a></li>
+                  <li><a href="./pages/immobilier.php">Achat</a></li>
                   <li><a href="./pages/deposer_annonce.php#depose">Déposer une annonce</a></li>
                   <li><a href="./pages/contact.php">Contact</a></li>
                   <li id="separateur"> </li> <!--un separateur -->
@@ -95,8 +95,8 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
          <div class="carousel-item active " style="background:url(./images/bg1.jpg); background-size:cover;">
             <div class="d-block w-100 d-flex justify-content-center align-items-center imgsize ">
               <div class="carouselstyle">
-              <h1>L'agence immobiliere VILAVIE</h1> <br>
-              <h3>Vous fait visiter la kabylie a travers l'immobilier </h3> <br><br><br>
+              <h1>L'agence immobiliere Axxamiw</h1> <br>
+              <h3>Vous fait visiter la kabylie à travers l'immobilier </h3> <br><br><br>
               <div class="pubbtnhover"><a href="./pages/aboutus.php" class="pubbtn">A propos de nous</a></div>
               </div>
             </div>
@@ -104,8 +104,10 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
          <div class="carousel-item" style="background:url(./images/bg2.jpg); background-size:cover;">
           <div class="d-block w-100 d-flex justify-content-center align-items-center imgsize ">
           <div class="carouselstyle">
-              <h1>Vous connaisez la kabyle </h1> <br>
-              <h3> et vous chercher un bien dans une region specifique </h3> <br><br><br>
+              <h1>La Kabylie vous est familière?</h1> <br>
+              <h3> Facilitez votre recherche en
+               cliquant sur le bouton  en-dessous <br> afin d'effectuer
+                votre recherche dans une commune particulière </h3> <br><br><br>
               <div class="pubbtnhover"><a href="./index.php#sec1" class="pubbtn">Recherchez un bien</a></div>
           </div>
 
@@ -114,8 +116,8 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
          <div class="carousel-item" style="background:url(./images/bg3.jpg); background-size:cover;" >
            <div class="d-block w-100 d-flex justify-content-center align-items-center imgsize ">
            <div class="carouselstyle">
-              <h1>Vous ne cherchez pas une region specifique </h1> <br>
-              <h3> et bien on vous suggere les meilleur bien dans les milleurs region de la kabylie </h3> <br><br><br>
+              <h1>La Kabylie vous est énigmatique?</h1> <br>
+              <h3> Visualisez l'ensemble de nos biens en cliquant sur le bouton en dessous </h3> <br><br><br>
               <div class="pubbtnhover"><a href="./index.php#suggestions" class="pubbtn">Nos suggestions</a></div>
           </div>
             </div>
@@ -144,8 +146,8 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
           
           <form action="" id="formsearch" method="post" > <!-- boutton de rechercche -->
             <div class="div-recherche-estime">
-            <h3>Vouz-chercher a louer dans la kabylie</h3>
-            <h5>Faite une recherhes des bien que on dispose dans la region que vous desiriez </h5>
+            <h1>Location</h1>
+            <h4>Tapez le nom d'une commune pour louer une maison </h4>
             
             <input type="search" name="search" class="tizisearch" placeholder="Commune, Ex:Bini Zmenzer">
             <button type="submit" name="btn_search2" class="btn_recherche"><i class="fas fa-search"></i></button>
@@ -169,8 +171,8 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
           <div class="tab-pane" id="achat">
           <form action="" id="formsearch" method="post" > <!-- boutton de rechercche -->
             <div class="div-recherche-estime" >
-            <h3>Vouz-chercher a acheter dans la kabylie</h3>
-            <h5>Faite une recherhes des bien que on dispose dans la region que vous desiriez </h5>
+            <h1>Achat</h1>
+            <h4>Tapez le nom d'une commune pour acheter une maison</h4>
             <input type="search" name="search" class="tizisearch" placeholder="Commune, Ex:Ilmaten">
             <button type="submit" name="btn_search" class="btn_recherche"><i class="fas fa-search"></i></button>
                   <?php 
@@ -200,8 +202,9 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
         <!--*****************   VENTE  *********************-->
         <div class="headsug">
           <h1 class="text-center text-uppercase font-weight-bold " >Nos suggestions </h1><hr class="text-center " width="200px"><br>
-          <h1 class="text-center font-weight-bold border" style="border-radius:0.5em;" >"Vente"</h1> 
-         
+          <hr class="hrsepare">
+          <h1 class="text-center font-weight-bold border"  >"Vente"</h1> 
+          <hr class="hrsepare">
         </div>
        
         <h2 class=" headsug text-center "><i class="fa fa-home"></i> Nos Biens les plus recents</h2>
