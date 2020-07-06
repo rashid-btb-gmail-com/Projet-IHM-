@@ -63,6 +63,13 @@
             <!--*****************************************Page admin*******************************************-->
             <div class="page_admin">
                 <?php
+                    if(!isset($_GET["action"])){
+                        echo('<div class="bienvenueadmin">
+                         <h1 >Bonjour!</h1>
+                         <h2>Vous étes sure votre platform administrateur</h2>
+                         <h2>Gerer vos annonces et rendez-vous </h2>
+                        </div>');
+                    }
                     if(isset($_GET["action"])){
                         //***************************affichage du formulaire ajouter un bien ************  */
                         if($_GET["action"]=="ajouter_bien"){
