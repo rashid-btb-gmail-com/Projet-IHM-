@@ -150,6 +150,9 @@ height:550px;
     color:white;
 }
 /*****************   suggestions    **********************/
+.hrsepare{
+    border-block-color: black;
+}
 .sec2{
     margin:auto;
     padding-top: 40px;
