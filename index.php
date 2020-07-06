@@ -51,9 +51,9 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
                            
                             <a href="./pages/profile.php#profile" class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Mon profil" onmouseover="onglet_mon_profil_af()"><i class="far fa-user"></i>  <?php echo $_SESSION["nom"]."  ".$_SESSION["prenom"];?></a> 
                            <div class="dropdown-menu"  aria-labelledby="dropdownMenuButton">
-                           <a class="dropdown-item" href="../pages/profile.php#profile"> Mon Profile</a>
-                          <a class="dropdown-item" href="../pages/profile.php#favoris">Mes Favoris</a>
-                           <a class="dropdown-item" href="../pages/servicedem.php#rdvdem">Mon déménagement</a>
+                           <a class="dropdown-item" href="./pages/profile.php#profile"> Mon Profile</a>
+                          <a class="dropdown-item" href="./pages/profile.php#favoris">Mes Favoris</a>
+                           <a class="dropdown-item" href="./pages/servicedem.php#rdvdem">Mon déménagement</a>
                            </div>
                          </li>   
                        
