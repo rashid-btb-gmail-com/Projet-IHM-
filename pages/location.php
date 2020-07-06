@@ -717,7 +717,7 @@ include_once('../includes/header.php');
         
       }
       else if(isset($_GET["daira"])){
-        $req = $db->prepare('SELECT * FROM biens WHERE daira LIKE ? ');
+        $req = $db->prepare('SELECT * FROM biens_location WHERE daira LIKE ? ');
         $req->execute(array($_GET["daira"]));
         
       }
