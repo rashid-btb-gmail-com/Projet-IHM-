@@ -45,4 +45,6 @@
      </footer> 
 <script src="../js/jquery"></script>
 <script src="../js/js.js"></script>
+<script src="../js/bootstrap.js"></script>
+<script src="../js/bootstrap.bundle..js"></script>
 

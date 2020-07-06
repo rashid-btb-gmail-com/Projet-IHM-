@@ -29,9 +29,19 @@
                  if(isset($_SESSION["username"])){
                      ?>
                        
-                        <li>        
-                        <a href="../pages/profile.php#profile" title="Mon profil"><i class="far fa-user"></i>  <?php echo $_SESSION["nom"]."  ".$_SESSION["prenom"];?></a> 
-                        </li>
+                          
+                        <li class="dropdown "> 
+                            
+                             <a class="dropdown-toggle" id="dropdownMenuButton" href="../pages/profile.php#profile" title="Mon profil" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="far fa-user"></i>  <?php echo $_SESSION["nom"]."  ".$_SESSION["prenom"];?></a> 
+                           
+                            <div class="dropdown-menu"  aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="../pages/profile.php#profile"> Mon Profile</a>
+                           <a class="dropdown-item" href="../pages/profile.php#favoris">Mes Favoris</a>
+                            <a class="dropdown-item" href="../pages/servicedem.php#rdvdem">Mon déménagement</a>
+                            </div>
+                          </li>   
+                        
+                        
                         <li>
                         <a href="?action=deco" title="Déconnexion"><i class="fas fa-sign-out-alt"></i></a>
 
