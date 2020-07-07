@@ -32,7 +32,7 @@ else{
     <div class="container h-100">
         <div class="deposeheader" >
          
-         <h1>Remplissez ce Formualaire, et deposez une annonce </h1>
+         <h1>Remplissez ce Formualaire </h1>
         </div>
 		<div class="d-flex justify-content-center h-100">
 			<div class="user_card" id="user_card_annonce">

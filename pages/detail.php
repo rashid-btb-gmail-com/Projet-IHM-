@@ -24,6 +24,12 @@ include_once('../includes/header.php');
 $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 $detail_bien = $db->query('SELECT * FROM biens Where id="'.$_GET['id'].'"');
 $choisie = $detail_bien->fetch();
+if(!isset($_SESSION['id'])){
+  $username=$_SESSION["username"];
+  $proclient= $db->query('SELECT * FROM clients WHERE username="'.$username.'"');
+  $profile = $proclient->fetch(); 
+   $_SESSION["id"]=$profile["id"];
+}
 ?>
 <div class="container-fluid d-flex justify-content-between fulldetail ">
 <div class="suggestdetail d-flexbox flex-row" id="dairasugg">

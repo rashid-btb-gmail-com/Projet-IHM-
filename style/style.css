@@ -523,7 +523,7 @@ color:black;
     .bienrdv{
         background-color: rgba(212, 212, 212, 0.9);
         width:400px;
-        height:419px;
+        height:351px;
         justify-self: right;
         margin-top: 20px;
         padding: 20px 10px 20px 10px;
@@ -537,7 +537,7 @@ color:black;
     }
     .imgrdv{
         width:250px;
-        height: 45%;
+        height: 150px;
         border-radius: 2rem;
     }
     /*********************************STYLE CONTACT*************************************************/
@@ -583,6 +583,7 @@ display:block;
 position:relative;
 margin-left:7cm;
 bottom: 7.9cm;
+margin-top:15px;
     }
 
 .corps{

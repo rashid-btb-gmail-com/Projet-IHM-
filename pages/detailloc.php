@@ -24,6 +24,13 @@ include_once('../includes/header.php');
 $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 $detail_bien = $db->query('SELECT * FROM biens_location Where id="'.$_GET['id'].'"');
 $choisie = $detail_bien->fetch();
+
+if(!isset($_SESSION['id'])){
+  $username=$_SESSION["username"];
+  $proclient= $db->query('SELECT * FROM clients WHERE username="'.$username.'"');
+  $profile = $proclient->fetch(); 
+   $_SESSION["id"]=$profile["id"];
+}
 ?>
 <div class="container-fluid d-flex justify-content-between fulldetail ">
 <div class="suggestdetail d-flexbox flex-row" id="dairasugg">
@@ -73,7 +80,7 @@ if(isset($_SESSION["username"])){
 <p><b> Description:</b> <br/>'.$choisie['description'].' </p>
 <h5> Prix = '.$choisie['prix'].' DA / Mois </h5> 
 <div class="text-center liendemanderdv">
-<a href="./demande_rdv.php?t=location&id='.$choisie['id'].'" class="rdvdmdbien">Demander Un Rendez-Vous de Visite</a>
+<a href="./demande_rdv.php?d=location&id='.$choisie['id'].'" class="rdvdmdbien">Demander Un Rendez-Vous de Visite</a>
 </div>
 
 '); 
