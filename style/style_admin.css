@@ -84,6 +84,7 @@ h2.nom_admin {
     height: 1.2cm;
     margin: 0;
     padding-left: 10px;
+    z-index:5;
 }
 .header_admin h1{
     position: absolute;
@@ -124,7 +125,9 @@ h2.nom_admin {
     padding: 10px;
 }
 
+
 .inp_insc{
+    padding-left: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
     height: 30px;
@@ -264,13 +267,15 @@ input.btn_inscr {
 .box_voir_plus {
     position: absolute;
     width: 81%;
-    height: 74%;
+    height: 60%;
     left: 89px;
     top: 9px;
     background: white;
-    border: 1.5px solid;
+    border: 1.5px solid silver;
     border-radius: 13px;
-    box-shadow: 0px 0px 17px 8px;
+    
+    padding: 20px;
+
 }
 
 
@@ -282,7 +287,7 @@ button#fermer {
     position: relative;
     font-size: 19px;
     background: #ff1a1a;
-    border: 2.5px solid black;
+    border: 2.5px solid red;
     border-radius: 5px;
     color: white;
 }
@@ -303,14 +308,15 @@ span.span_info {
     font-size: 17px;
 }
 img.img_voir_plus {
+    margin-top: -30px;
     float: right;
     position: relative;
     bottom: 225px;
     height: 250px;
-    border: 2px solid;
+   
     right: 10px;
     border-radius: 10px;
-    box-shadow: 7px 7px 11px;
+    
 }
 
 th.colonne_tab {
