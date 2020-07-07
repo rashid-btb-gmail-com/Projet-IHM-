@@ -46,10 +46,10 @@
             <div class=" d-flex justify-content-center  ">
                 <div class="bienvenue">
                     <h3 ><?php echo($profile["username"]) ?> <br> Bienvenue sur votre profile</h3> <br> 
-                    <h5>consulter vos informations personnelles <h5> <br>
+                   
                     <!-- Button trigger modal pour changer mot de passe et pseudo -->
                   <button type="button" class="btn login_btn" data-toggle="modal" data-target="#staticBackdrop">
-                   Modifier votre Mot De Pass ou/et Pseudo
+                   Modifier vos idantifiant
                   </button>
                   <!-- Modal -->
                     <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">

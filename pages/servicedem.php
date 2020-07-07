@@ -31,10 +31,10 @@ if(!isset($_SESSION["username"])){
 $idcl=$_SESSION["id"];
 ?>
 <div class="demanderdv2" id="rdvdem" >
-    <div class="container h-100">
+    <div class="container h-100" style="margin-top: 80px;">
         <div class="deposeheader " >
-         <h1 class="text-center"> Service Demenagement</h1>
-         <h3>Remplissez Ce Formualaire Pour Prendere Un Rendez-Vous</h3>
+         <h1 class="text-center" > Service de Déménagement</h1>
+         <h3 class="text-center">Remplissez Ce Formualaire </h3>
         </div>
 	 	<div class="d-flex justify-content-center h-100">
          <div class="blockformrdv">
@@ -45,7 +45,7 @@ $idcl=$_SESSION["id"];
 						<img src="../images/logo.png" class="brand_logo" alt="Logo">
 					
                 </div>
-                <h2 class="titre_connexion">RDV Déménagement</h2>
+                
 			  <div class="d-flex justify-content-center form_container">
 					<!--formulaire de demande de visit-->
                 <form enctype="multipart/form-data" action="" method="post" class="form_inscription">
@@ -54,7 +54,7 @@ $idcl=$_SESSION["id"];
                         
                         
                         
-                        <span class="warning">De 8H à 19H</span>                                           
+                                                                  
                         <div class="input-group mb-3 datetime">
                         <input type="date" name="date" class="form-control input_user date" min="<?php $date=date('Y-m-d', strtotime(' +3 day')); echo($date); ?>" required><br>
                         </div>
@@ -64,7 +64,7 @@ $idcl=$_SESSION["id"];
                         <br></div> 
 
                         <div class="input-group mb-3">
-                        <input type="submit" value="demander" class="btn login_btn" name="submit">
+                        <input type="submit" value="Demander RDV" class="btn login_btn" name="submit">
                         </div>
                         <?php
                          
