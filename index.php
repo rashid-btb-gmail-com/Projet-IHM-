@@ -295,7 +295,7 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
           <hr class="hrsepare"> 
           </div>
         
-         <h2 class=" headsug text-center "><i class="fa fa-home"></i> Les annonces les plus récentesss </h2>
+         <h2 class=" headsug text-center "><i class="fa fa-home"></i> Les annonces les plus récentes </h2>
          
        <div class="d-flex flex-nowrap justify-content-center "> 
         

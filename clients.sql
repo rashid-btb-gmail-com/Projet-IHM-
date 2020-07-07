@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  lun. 06 juil. 2020 à 13:40
+-- Généré le :  mar. 07 juil. 2020 à 16:06
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -37,16 +37,18 @@ CREATE TABLE IF NOT EXISTS `clients` (
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `tel` varchar(12) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `sit_fam` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=63 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=68 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `clients`
 --
 
-INSERT INTO `clients` (`id`, `nom`, `prenom`, `username`, `email`, `password`, `tel`, `sit_fam`) VALUES
-(62, 'Boutiab', 'Massilva', 'BouMas', 'rashid.btb@gmail.com', '$2y$10$AzC8pbrpMA6RkUa2UaORDu1uYxbmfQpXdRDDz9x32oEtMuFr4X0/m', '0668092184', 'MariÃ©');
+INSERT INTO `clients` (`id`, `nom`, `prenom`, `username`, `email`, `password`, `tel`) VALUES
+(65, 'Fedani', 'Hocine', 'Hocinefdn', 'fedani.hocine@gmail.com', '$2y$10$61VhKMNhyjQGTwbg7chtUOJChKxIR.qBnDVkOuDdvNb9w1o3UMNhu', '0752545458'),
+(64, 'Boutiab', 'Massilva', 'Massilvabtb', 'rashid.btb@gmail.com', '$2y$10$JJqnuMncxuYEWuFe.GmcSevqjkyXgIXRNPBfXmCBFLi38mBjLVS4e', '0668092184'),
+(66, 'Aissou', 'Nadir', 'NadirAis', 'nadiraissou@gmail.com', '$2y$10$vLbFDrSQ3vb6AUBzC1QtfObHupHS2R4K17/fDZf8FYCoCfZI5VYg.', '0235689752'),
+(67, 'Ouguemat', 'Fodil', 'FodilOgmt', 'fodil@gmail.com', '$2y$10$b02oKxGbCe3TXrLMqwrCGeKV9o8AQ76ry3Hy8xB8NOkkyXxx1urA6', '0561658257');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

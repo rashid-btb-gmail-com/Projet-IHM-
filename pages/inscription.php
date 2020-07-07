@@ -80,14 +80,6 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
 
 
                 <!--sit fam-->
-                    <div class="input-group mb-3">
-                    <input class="form-control input_user" list="sitfam" name="sit_fam" placeholder="Situation familiale" required onchange="verifier_champs()">            
-                            <datalist id="sitfam">
-                            <option value="Marié">
-                            <option value="Celibataire">
-                            </datalist>                                                                                                                      <span class="controle" id="etat_sit_fam"></span><br>
-                    </div>
-                    <span id="msg_sit_fam"></span>
                     
                     <input type="submit" value="S'inscrire" name="submit" class="btn login_btn" id="login_btn_insc"><br>
                     
@@ -143,8 +135,8 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
                     else{
                         $pass=password_hash($_POST['password'], PASSWORD_DEFAULT);
                         //   insertion dans la base de donnee
-                        $insert=$db->prepare('INSERT INTO clients VALUES(NULL,?,?,?,?,?,?,?)');
-                        $insert->execute(array($_POST['nom'],$_POST['prenom'],$_POST['username'],$_POST['email'],$pass,$_POST['tel'],$_POST['sit_fam']));
+                        $insert=$db->prepare('INSERT INTO clients VALUES(NULL,?,?,?,?,?,?)');
+                        $insert->execute(array($_POST['nom'],$_POST['prenom'],$_POST['username'],$_POST['email'],$pass,$_POST['tel']));
                         echo("Votre compte a été créé avec succès");
                         $_SESSION["username"]=$_POST["username"];
                         $_SESSION["nom"]=$_POST["nom"];

@@ -591,22 +591,6 @@ function verifier_deposer_annonce(){
     }
     
     //sit fam
-    var sit_fam=document.getElementsByName("sit_fam")[0].value;
     
-    if(sit_fam[0]==null){
-        document.getElementById("etat_sit_fam").innerHTML=rouge;
-    }
-    else{
-        if(!((sit_fam=="Marié")||(sit_fam=="Celibataire"))){
-            document.getElementsByName("sit_fam")[0].style.borderRight="";
-            document.getElementById("msg_sit_fam").innerHTML='<span style="color:red;font-size:25px;font-size:15px;position:relative;bottom:10px;">Veuillez choisir parmi les deux choix</span>';
-            document.getElementById("etat_sit_fam").innerHTML=rouge;
-        }
-        else{
-        document.getElementById("etat_sit_fam").innerHTML=vert;
-        document.getElementsByName("sit_fam")[0].style.borderRight="5px green solid";
-        document.getElementById("msg_sit_fam").innerHTML="";
-        }
-    }
     
 }
