@@ -20,9 +20,8 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
   <div class="fullinscri" id="inscript">
     <div class="container h-100">
        <div class="deposeheader" >
-         <h1> Inscrivez-Vous et Devenez Client</h1>
-         <h3> Pour bénéficier de nos promotions immobiléres</h3>
-         <h3> Consultez nos suggestions des Biens</h3>
+         <h1> Inscrivez-Vous </h1>
+         
         </div>
 		<div class="d-flex justify-content-center h-100">
 			<div class="user_card" id="user_card_insc">
@@ -31,7 +30,7 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
 						<img src="../images/logo.png" class="brand_logo" alt="Logo">
 					
                 </div>
-                <h4 class="titre_connexion">Crée un compte Vilavie</h4>
+               
 				<div class="d-flex justify-content-center form_container" >
 					
                 <form action="" method="post" onsubmit="return verifier_champs()" id="form_container_insc">

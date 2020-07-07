@@ -245,7 +245,7 @@ include_once('../includes/header.php');
         <section class="sec2" id="search">
         <div class="container">
         <div class="yep">
-          <h1 class="text-center text-uppercase font-weight-bold " >Location de nos biens </h1>
+          <h1 class="text-center text-uppercase font-weight-bold " >Les annonces disponible</h1>
        </div>
        <div class="d-flex flex-wrap justify-content-center biensugbox ">
        <?php 
