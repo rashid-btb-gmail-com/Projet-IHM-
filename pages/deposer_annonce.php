@@ -384,7 +384,7 @@ else{
    ?>
 <script type="text/javascript">
  window.onload = afficher_formulaire();
- window.onload = verifier_deposer_annonce();
+
  </script> 
 
 

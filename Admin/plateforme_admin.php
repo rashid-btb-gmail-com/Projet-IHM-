@@ -41,7 +41,7 @@
         <a href="?action=confirmer_rdv" class="onglet_admin " id="onglet6" onclick="">Confirmer les RDV</a>
     </div>
     <div class="menuclient">
-        <a href="?action=demenagement" class="onglet_admin " id="onglet8" onclick="">Demenagement</a>
+        <a href="?action=demenagement" class="onglet_admin " id="onglet8" onclick="">Déménagements</a>
     </div>
     <div class="menuclient">
         <a href="?action=clients" class="onglet_admin " id="onglet7" onclick="">Clients</a>
