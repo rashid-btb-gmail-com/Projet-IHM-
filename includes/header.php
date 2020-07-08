@@ -53,6 +53,8 @@
                     if($_GET["action"]="deco"){
                       $_SESSION["username"]=null;
                       $_SESSION["id"]=null;
+                      $_SESSION["nom"]=null;
+                      $_SESSION["prenom"]=null;
                       ?>
                           <meta http-equiv="refresh" content="../index.php">
                           <?php
