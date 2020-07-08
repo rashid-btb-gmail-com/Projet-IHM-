@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="../style/bootstrap.css">
 <link rel="stylesheet" href="../style/style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
-<link rel="icon" href="../images/icon/favicon.ico">
+<link rel="icon" href="../images/icon/home.ico">
 <title><?php echo $titre_page?></title>
 <header>
   <?php

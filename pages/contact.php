@@ -10,7 +10,7 @@
      <!--le titre-->
      <title>Contact - Axxmaiw </title>
      <!--icon du site-->
-     <link rel="icon" href="./images/icon/favicon.ico">
+     <link rel="icon" href="./images/icon/home.ico">
      <!--feuilles de style-->
      <link rel="stylesheet" href="./style/bootstrap.css">
      <link rel="stylesheet" href="./style/style.css">
