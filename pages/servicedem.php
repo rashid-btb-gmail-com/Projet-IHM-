@@ -9,7 +9,7 @@
          <meta name="viewport" content="width=width-device, initial-scale=1.0">
          <meta http-equiv="X-UA-Compatible" content="ie=edge">
          <!--le titre-->
-         <title>Vilavie- Demenagement  </title>
+         <title>Axxamiw- Déménagement  </title>
          <!--icon du site-->
          <link rel="icon" href="../images/icon/favicon.ico">
          <!--feuilles de style-->
@@ -27,6 +27,12 @@ include_once("../includes/header.php");
 $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 if(!isset($_SESSION["username"])){
     header("location: ./connexion.php#fullconnex");
+}
+if(!isset($_SESSION['id'])){
+  $username=$_SESSION["username"];
+  $iddata= $db->query('SELECT * FROM clients WHERE username="'.$username.'"');
+  $idset = $iddata->fetch(); 
+   $_SESSION["id"]=$idset["id"];
 }
 $idcl=$_SESSION["id"];
 ?>

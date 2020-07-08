@@ -12,7 +12,7 @@
          <meta name="viewport" content="width=width-device, initial-scale=1.0">
          <meta http-equiv="X-UA-Compatible" content="ie=edge">
          <!--le titre-->
-         <title>Vilavie- immobilier  </title>
+         <title>Achat -  Axxamiw </title>
          <!--icon du site-->
          <link rel="icon" href="../images/icon/favicon.ico">
          <!--feuilles de style-->

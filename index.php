@@ -8,7 +8,7 @@
      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
      <meta http-equiv="X-UA-Compatible" content="ie=edge">
      <!--le titre-->
-     <title>Vilavie - Acceuil</title>
+     <title>Axxamiw - Acceuil</title>
      <!--icon du site-->
      <link rel="icon" href="./images/icon/favicon.ico">
      <!--feuilles de style-->

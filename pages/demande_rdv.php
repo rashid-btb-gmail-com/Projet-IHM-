@@ -9,7 +9,7 @@
          <meta name="viewport" content="width=width-device, initial-scale=1.0">
          <meta http-equiv="X-UA-Compatible" content="ie=edge">
          <!--le titre-->
-         <title>Vilavie- demande RDV  </title>
+        <title>Demande de visite - Axxamiw </title>
          <!--icon du site-->
          <link rel="icon" href="../images/icon/favicon.ico">
          <!--feuilles de style-->
