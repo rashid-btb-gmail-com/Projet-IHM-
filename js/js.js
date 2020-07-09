@@ -468,130 +468,43 @@ function updateBtn() {
 }
 }
 
-function verifier_deposer_annonce(){
-    const vert='<i class="fas fa-check" style="color:green;font-size:23px;position:relative;left:10px;top:7px"></i>';
-    const rouge='<i class="fas fa-times" style="color:red;font-size:23px;position:relative;left:10px;top:7px"></i>';
-    var i;//indice i pour la boucle for
+function filtre_daira_immobilier(){
+    var wilaya = [  w1=["01-Ain El Hammam","02-Azazga","03-Azeffoun","04-Beni Douala","05-Beni Yenni","06-Boghni","07-Bouzeguène","08-Draâ Ben Khedda","09-Draâ El Mizan","10-Iferhounène","11-Larbaâ Nath Irathen","12-Mâatkas","13-Makouda","14-Mekla","15-Ouacif","16-Ouadhia","17-Ouaguenoun","18-Tigzirt","19-Tizi Gheniff","20-Tizi Ouzou","21-Tizi Rached"],
+                    w2=["01-Adekar","02-Akbou","03-Amizour","04-Aokas ","05-Barbacha","06-Béjaïa","07-Beni Maouche","08-Chemini","09-Darguina","10-El Kseur","11-Ighil Ali","12-Kherrata","13-Ouzellaguen","14-Seddouk","15-Sidi-Aïch","16-Souk El-Ténine","17-Tazmalt","18-Tichy","19-Timezrit"],
+                    w3=["01-Bouira","02-Haizer","03-Bechloul","04-M'Chedallah","05-Kadiria","06-Lakhdaria","07-Bir Ghbalou","08-Aïn Bessem","09-Souk El Khemis","10-El Hachimia","11-Sour El-Ghozlane","12-Bordj Okhriss"],
+ 
+                            ];
+              
+    var wilaya_select=document.getElementsByName("wilaya")[0].value;   //recuperer la wilaya
+    var num_wilaya=parseInt(wilaya_select[0]+wilaya_select[1],10)-1;  //recuperer le num de la wilaya                     
     
-
-    //contrôle des inputs
     
     
-    var controle;
-    //titre
-    var titre=document.getElementsByName("titre")[0].value;
-    if(titre[0]==null){
-        document.getElementById("etat_titre").innerHTML=rouge;
-    }else{
-        document.getElementById("etat_titre").innerHTML=vert;
-        document.getElementsByName("titre")[0].style.borderRight="5px green solid";
+    
         
-    }
-
-
-
-    //wilaya
-    var wilaya=document.getElementsByName("wilaya")[0].value;
-    if(wilaya=="01-Tizi-Ouzou"){
-        document.getElementById("etat_wilaya").innerHTML=rouge;
-    }else{
-        document.getElementById("etat_wilaya").innerHTML=vert;
-        document.getElementsByName("wilaya")[0].style.borderRight="5px green solid";
+        var currentDiv = document.getElementById('daira');  
+            
+            currentDiv.innerHTML="";
+    currentDiv.insertAdjacentHTML('afterbegin','<option value="nul"  selected> Daïras</option>');                       
+    for(var i=wilaya[num_wilaya].length-1;i>=0;i--){
         
-    }
-
-
-    //prenom
-    var prenom=document.getElementsByName("prenom")[0].value;
-    if(prenom[0]==null){
-        document.getElementById("etat_prenom").innerHTML=rouge;
-    }
-    for(i=0;i<prenom.length;i++){
         
-        if(!(((prenom[i]>='A')&&(prenom[i]<='Z'))||((prenom[i]>='a')&&(prenom[i]<='z')))){
-            document.getElementById("etat_prenom").innerHTML=rouge;
-            document.getElementsByName("prenom")[0].style.borderRight=""
-            document.getElementById("msg_prenom").innerHTML='<span style="color:red;font-size:25px;font-size:15px;position:relative;bottom:10px;">Veuillez saisir que des lettres</span>';  
-        }
-        else{
-            document.getElementById("etat_prenom").innerHTML=vert;
-            document.getElementsByName("prenom")[0].style.borderRight="5px green solid";
-            document.getElementById("msg_prenom").innerHTML="";
-        }
+            currentDiv.insertAdjacentHTML('afterbegin','<option class="commune_daira">'+wilaya[num_wilaya][i]+'</option>');
+    }
+    
+}
+
+function filtre_commune_immobilier(){
+    
+    if(document.getElementById("wilaya").value=="01-Tizi-Ouzou"){
+        filtre_commune_tizi();
     }
 
-    //username
-    var username=document.getElementsByName("username")[0].value;
-    if(username[0]==null){
-        document.getElementById("etat_username").innerHTML=rouge;
-    }
-    else{
-        document.getElementById("etat_username").innerHTML=vert;
-        document.getElementsByName("username")[0].style.borderRight="5px green solid";
+    if(document.getElementById("wilaya").value=="02-Béjaïa"){
+        filtre_commune_bejaia();
     }
 
-    //email
-    var email=document.getElementsByName("email")[0].value;
-    if(email[0]==null){
-        document.getElementById("etat_email").innerHTML=rouge;
+    if(document.getElementById("wilaya").value=="03-Bouira"){
+        filtre_commune_bouira();
     }
-    else{
-        document.getElementById("etat_email").innerHTML=vert;
-        document.getElementsByName("email")[0].style.borderRight="5px green solid";
-    }
-    
-
-    //mdp
-    var mdp=document.getElementsByName("password")[0].value;
-    
-    if(mdp[0]==null){
-        document.getElementById("etat_mdp").innerHTML=rouge;
-    }
-    else{
-        document.getElementById("etat_mdp").innerHTML=vert;
-        document.getElementsByName("password")[0].style.borderRight="5px green solid";
-    }
-
-
-    //mdp2
-    var mdp2=document.getElementsByName("confirm_password")[0].value;
-    
-    if(mdp2[0]==null){
-        document.getElementById("etat_mdp2").innerHTML=rouge;
-    }
-    else{
-        
-        if(mdp2[0]!=mdp[0]){
-            document.getElementById("etat_mdp2").innerHTML=rouge;
-            document.getElementsByName("confirm_password")[0].style.borderRight=""
-            document.getElementById("msg_mdp2").innerHTML='<span style="color:red;font-size:25px;font-size:15px;position:relative;bottom:10px;">Veuillez confirmer le mot de passe</span>';
-        }
-        else{
-            document.getElementById("etat_mdp2").innerHTML=vert;
-            document.getElementsByName("confirm_password")[0].style.borderRight="5px green solid";
-            document.getElementById("msg_mdp2").innerHTML="";
-        }
-    }
-    
-    //tel
-    var tel=document.getElementsByName("tel")[0].value;
-    if(tel[0]==null){
-        document.getElementById("etat_tel").innerHTML=rouge;
-    }
-    for(i=0;i<tel.length;i++){
-        
-        if(!((tel[i]>='0')&&(tel[i]<='9'))||(tel.length!=10)){
-            document.getElementById("etat_tel").innerHTML=rouge;
-            document.getElementById("msg_tel").innerHTML='<span style="color:red;font-size:25px;font-size:15px;position:relative;bottom:10px;">Numéro de téléphone invalide</span>';
-        }
-        else{
-            document.getElementById("etat_tel").innerHTML=vert;
-            document.getElementsByName("tel")[0].style.borderRight="5px green solid";
-            document.getElementById("msg_tel").innerHTML="";
-        }
-    }
-    
-    //sit fam
-    
-    
 }

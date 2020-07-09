@@ -72,11 +72,11 @@ include_once('../includes/header.php');
                                             <div class="form-group ">
                                       
                                             <label for="type_wilaya" style="color: white;"><b>Wilaya</b> </label>
-                                             <SELECT id="wilaya" name="wilaya" class="form-control input_user" onchange="filtre_daira()" >
-                                    <option value="nul" selected> Wilaya</option>
-                                    <option value="01-Tizi-Ouzou">Tizi-Ouzou</option>
-                                    <option value="02-Béjaïa">Béjaïa</option>
-                                    <option value="03-Bouira">Bouira</option>
+                                             <SELECT id="wilaya" name="wilaya" class="form-control input_user" onchange="filtre_daira_immobilier()" >
+                                                <option value="nul" selected> Wilaya</option>
+                                                <option value="01-Tizi-Ouzou">Tizi-Ouzou</option>
+                                                <option value="02-Béjaïa">Béjaïa</option>
+                                                <option value="03-Bouira">Bouira</option>
                                     
                                 </SELECT>
                             </div>
