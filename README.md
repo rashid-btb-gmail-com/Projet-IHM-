@@ -7,6 +7,6 @@ Hocine FEDANI
 Fodil OUGUEMAT
 Nadir AISSOU
 
-username admin : User
-Mot de passadmin : 1234
+username admin : User /
+Mot de pass admin : 1234
 
