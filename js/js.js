@@ -371,7 +371,7 @@ function filtre_commune_louer(){
 function style_onglet_admin() {
     var url=window.location.href;
     
-    if(url=="http://127.0.0.1/Projet-IHM-/admin/plateforme_admin.php?action=ajouter_bien"){
+    if(url.substring(0,75)=="http://127.0.0.1/Projet-IHM-/admin/plateforme_admin.php?action=ajouter_bien"){
         document.getElementById("onglet1").style.borderLeft="17px solid #fa6014 ";
         document.getElementById("onglet1").style.color="#fa6014";
         document.getElementById("onglet1").style.backgroundColor="#313131";
@@ -415,9 +415,10 @@ function style_onglet_admin() {
 
 function style_vendre_location_admin() {
     var url=window.location.href;
-    //alert(url.substring(0,81));
+    
     if((url.substring(0,85)=="http://127.0.0.1/Projet-IHM-/admin/plateforme_admin.php?action=confirmer_annonces_loc")
-    ||(url.substring(0,78)=="http://127.0.0.1/Projet-IHM-/admin/plateforme_admin.php?action=gerer_biens_loc")){
+    ||(url.substring(0,78)=="http://127.0.0.1/Projet-IHM-/admin/plateforme_admin.php?action=gerer_biens_loc")
+    ||(url.substring(0,80)=="http://127.0.0.1/Projet-IHM-/admin/plateforme_admin.php?action=ajouter_bien_loc")){
         document.getElementById("lien_louer").style.color="#fa6014";
     }
     else{
@@ -491,7 +492,7 @@ function verifier_deposer_annonce(){
 
     //wilaya
     var wilaya=document.getElementsByName("wilaya")[0].value;
-    if(wilaya[0]==null){
+    if(wilaya=="01-Tizi-Ouzou"){
         document.getElementById("etat_wilaya").innerHTML=rouge;
     }else{
         document.getElementById("etat_wilaya").innerHTML=vert;
