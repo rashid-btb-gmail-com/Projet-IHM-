@@ -1,9 +1,12 @@
 # projet_PFE
-vente des biens immobiliere a Tizi Ouzou,
+vente des biens immobiliere en kabylie ,
 projet fin d'etudes L3
 groupe :
-Massilva 
-Hocine 
-fodil 
-nadir
-projet pas vraiment open source pour l'instant
+Massilva BOUTIAB
+Hocine FEDANI
+Fodil OUGUEMAT
+Nadir AISSOU
+
+username admin : User /
+Mot de pass admin : 1234
+
