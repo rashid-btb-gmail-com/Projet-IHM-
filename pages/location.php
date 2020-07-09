@@ -86,7 +86,7 @@ include_once('../includes/header.php');
                                   <div class="form-group  col-sm-2 ">  
                                             <div class="form-group ">
                                             <label for="type_dairas" style="color: white;"><b>Daïras</b> </label>
-                                              <SELECT id="daira" name="daira" class="form-control input_user" onchange="filtre_commune()" >
+                                              <SELECT id="daira" name="daira" class="form-control input_user" onchange="filtre_commune_immobilier()" >
                                                 <option value="nul"  selected> Daïras</option>
                                                 <option value="01-Ain El Hammam">01-Ain El Hammam</option>
                                                 <option value="02-Azazga">02-Azazga</option>

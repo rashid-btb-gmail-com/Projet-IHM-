@@ -86,7 +86,7 @@ include_once('../includes/header.php');
                                   <div class="form-group  col-sm-2 ">  
                                             <div class="form-group ">
                                             <label for="type_dairas" style="color: white;"><b>Daïras</b> </label>
-                                              <SELECT id="daira" name="daira" class="form-control input_user" onchange="filtre_commune()" >
+                                              <SELECT id="daira" name="daira" class="form-control input_user" onchange="filtre_commune_immobilier()" >
                                                 <option value="nul"  selected> Daïras</option>
                                                 <option value="01-Ain El Hammam">01-Ain El Hammam</option>
                                                 <option value="02-Azazga">02-Azazga</option>
@@ -118,7 +118,7 @@ include_once('../includes/header.php');
                                             <label for="liste_commune" style="color: white;"><b>Commune</b> </label>
                                             <select class="form-control" id="commune" name="commune" >
                                              
-                                            <option value="nul">Commune</option>
+                                                <option value="nul">Commune</option>
                                              <option value="Abi Youcef">Abi Youcef</option>
                                              <option value="Aghribs">Aghribs</option>
                                              <option value="Agouni Gueghrane">Agouni Gueghrane</option>
@@ -188,7 +188,7 @@ include_once('../includes/header.php');
                                              <option value="Yatafen">Yatafen</option>
                                              <option value="Zekri">Zekri</option>
 
-                                        </select>
+                                            </select>
 
                                     </div>
                                 </div>
