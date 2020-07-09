@@ -25,10 +25,12 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
 $detail_bien = $db->query('SELECT * FROM biens Where id="'.$_GET['id'].'"');
 $choisie = $detail_bien->fetch();
 if(!isset($_SESSION['id'])){
-  $username=$_SESSION["username"];
-  $proclient= $db->query('SELECT * FROM clients WHERE username="'.$username.'"');
-  $profile = $proclient->fetch(); 
-   $_SESSION["id"]=$profile["id"];
+    if(isset($_SESSION["username"])){
+        $username=$_SESSION["username"];
+        $proclient= $db->query('SELECT * FROM clients WHERE username="'.$username.'"');
+        $profile = $proclient->fetch(); 
+        $_SESSION["id"]=$profile["id"];
+    }
 }
 ?>
 <div class="container-fluid d-flex justify-content-between fulldetail ">
@@ -96,7 +98,8 @@ $detail_bien->closeCursor();
 <h3> Suggestions des biens </h3>
 <h5> Avec un Prix moins de <?php echo($choisie['prix']) ?>DA</h5>
 <div class="lesbienssugg" >
-<?php $bienprix = $db->query('SELECT id,titre, lien_img FROM biens Where prix <'.$choisie['prix'].' LIMIT 0,4');
+<?php 
+       $bienprix = $db->query('SELECT id,titre, lien_img FROM biens Where prix <'.$choisie['prix'].' LIMIT 0,4');
        while ($aproxis= $bienprix->fetch()){
          echo('<div class="d-flex suggcontainer" >
            <img src="../'.$aproxis['lien_img'].'" class="imgsuggestdetail" alt="l\'image du bien" >

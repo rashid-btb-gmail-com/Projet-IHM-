@@ -72,11 +72,7 @@
 						$select=$db->query("SELECT * FROM clients");
 						
 						while($donnees=$select->fetch()){
-<<<<<<< HEAD
-						
-=======
 						     $t=false;
->>>>>>> 9bed52354a7a7b0c0a1665ba3794b951a0267269
 							$verifpass=password_verify ( $_POST["password"] ,$donnees["password"]) ;
 
 							if(($_POST["username"]==$donnees["username"])&&($verifpass)){

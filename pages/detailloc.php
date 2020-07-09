@@ -26,10 +26,12 @@ $detail_bien = $db->query('SELECT * FROM biens_location Where id="'.$_GET['id'].
 $choisie = $detail_bien->fetch();
 
 if(!isset($_SESSION['id'])){
+  if(isset($_SESSION["username"])){
   $username=$_SESSION["username"];
   $proclient= $db->query('SELECT * FROM clients WHERE username="'.$username.'"');
   $profile = $proclient->fetch(); 
    $_SESSION["id"]=$profile["id"];
+  }
 }
 ?>
 <div class="container-fluid d-flex justify-content-between fulldetail ">

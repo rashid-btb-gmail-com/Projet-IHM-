@@ -66,7 +66,7 @@
                     if(!isset($_GET["action"])){
                         echo('<div class="bienvenueadmin">
                          <h1 >Bonjour!</h1>
-                         <h2>Vous étes sure votre platform de getion du votre sitre</h2>
+                         <h2>Vous étes sur votre plateforme de getion du votre site</h2>
                          <h2>Gerer vos annonces et rendez-vous </h2>
                         </div>');
                     }

@@ -23,10 +23,12 @@ include_once("../includes/header.php");
 //    connexion a la base de donnee  
 $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 if(!isset($_SESSION['id'])){
+    if(isset($_SESSION["username"])){
     $username=$_SESSION["username"];
     $iddata= $db->query('SELECT * FROM clients WHERE username="'.$username.'"');
     $idset = $iddata->fetch(); 
      $_SESSION["id"]=$idset["id"];
+    }
   }
 if(!isset($_SESSION["username"])){
     
