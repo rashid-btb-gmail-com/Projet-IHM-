@@ -961,14 +961,16 @@
                                         }
                                         
                                      } ?>
-                                     <div style="height: 500px; width: 700px; overflow: auto;">
+                                     <div style="height: 500px;  overflow: auto;">
                                     <table class="liste_biens" cellpadding="3" rules="all">
                                             <colgroup span="4" class="columns"></colgroup>
                                             <tr>
                                             <th class="colonne_tab">Client</th>
                                             <th class="colonne_tab">Lieu</th>
                                             <th class="colonne_tab">Date</th>
-                                            <th class="colonne_tab">heur</th>
+                                            <th class="colonne_tab">heure</th>
+                                            <th class="colonne_tab">Raison</th>
+                                            <th class="colonne_tab">Adresse du bien</th>
                                             
                                             </tr>
                                           <?php
@@ -981,6 +983,8 @@
                                                 <td><?php echo $donnees["lieu"] ?></td>
                                                 <td><?php echo $donnees["date"] ?></td>
                                                 <td><?php echo $donnees["heur"] ?></td>
+                                                <td><?php echo $donnees["raison"] ?></td>
+                                                <td><?php echo $donnees["adresse"] ?></td>
                                                 <td><a href="?action=gerer_rdv&action2=modifier&id=<?php echo $donnees["id"]; ?>" title="Modifier le rdv" class="icon_supprimer" style="color:green;"><i class="far fa-edit"></i></a></td>
                                                 <td><a href="?action=gerer_rdv&action2=supprimer&id=<?php echo $donnees["id"]; ?>" title="Supprimer le rdv" class="icon_supprimer"><i class="far fa-trash-alt"></i></a></td>
                                                 
@@ -1021,13 +1025,14 @@
                                             <form action="" method="post">
                                                 <input list="champ_a_modifier2" name="champ_modifier2" placeholder="Champ à modifier" class="inp_insc" required>            
                                                     <datalist id="champ_a_modifier2">
+                                                    <option value="client">
                                                     <option value="lieu">
                                                     <option value="date">
                                                     <option value="heur">
                                                     </datalist> 
                                                 <br>
                                                 <input type="text" name="modification2" placeholder="Modification" class="inp_insc" required><br>
-                                                <input type="submit" name="valider_modification" value="Valider">
+                                                <input type="submit" name="valider_modification" class="valider_btn" id="btn_valider" value="Valider">
 
                                                 <?php 
                                                     if(isset($_POST["valider_modification"])){
@@ -1045,7 +1050,7 @@
                                                         
                                                     } ?>
                                                
-
+                                               <button id="fermer" onclick="fermer_modifier_bien()">Fermer</button>
 
                                              </div>
                             <?php   }            
@@ -1060,7 +1065,7 @@
                             ?>
                             <div class="form_admin">
                             
-                                <div style="height: 500px; width: 650px; overflow: auto;">
+                                <div style="height: 500px;  overflow: auto;">
                                     <table class="liste_biens" cellpadding="3" rules="all">
                                         <colgroup span="6" class="columns" ></colgroup>
                                         <tr>
@@ -1068,17 +1073,24 @@
                                             <th class="colonne_tab">Lieu</th>
                                             <th class="colonne_tab">Date</th>
                                             <th class="colonne_tab">Heure</th>
+                                            <th class="colonne_tab">Raison</th>
+                                            <th class="colonne_tab">Adresse du bien</th>
                                         </tr>
                                         <?php
                                         
                                         while($donnees=$select->fetch()){
-                                            
+                                                $id=$donnees["id_biens"];
+
+                                                $select_bien=$db->query("SELECT adresse FROM biens WHERE id=$id");
+                                                $donnees_bien=$select_bien->fetch();
                                             ?>
                                             <tr>
                                                 <td><?php echo $donnees["client"] ?></td>
                                                 <td><?php echo $donnees["lieu"] ?></td>
                                                 <td><?php echo $donnees["date"] ?></td>
                                                 <td><?php echo $donnees["time"] ?></td>
+                                                <td><?php echo $donnees["raison"] ?></td>
+                                                <td><?php echo $donnees_bien["adresse"] ?></td>
                                                 
                                                 <td><a href="?action=confirmer_rdv&amp;action2=accepter&amp;id=<?php echo $donnees["id"]; ?>" title="Accepter l'annonce"class="icon_supprimer" style="color:green;"><i class="fas fa-check" ></i></a></td>
                                                 <td><a href="?action=confirmer_rdv&amp;action2=supprimer&amp;id=<?php echo $donnees["id"]; ?>" title="Refuser l'annoce"class="icon_supprimer "><i class="fas fa-times" ></i></a></td>
@@ -1096,8 +1108,8 @@
                                             $id=$_GET["id"];
                                             $select=$db->query("SELECT * FROM demande_rdv WHERE id=$id");
                                             while($donnees=$select->fetch()){
-                                                $insert=$db->prepare('INSERT INTO rdv_confirmer VALUES(NULL,?,?,?,?)');
-                                                $insert->execute(array($donnees["client"],$donnees["lieu"],$donnees["date"],$donnees["time"]));
+                                                $insert=$db->prepare('INSERT INTO rdv_confirmer VALUES(NULL,?,?,?,?,?,?)');
+                                                $insert->execute(array($donnees["client"],$donnees["lieu"],$donnees["date"],$donnees["time"],$donnees["raison"],$donnees_bien["adresse"]));
                                                 $supprimer=$db->prepare("DELETE FROM demande_rdv WHERE id = $id");
                                                 $supprimer->execute();
                                                 ?>
