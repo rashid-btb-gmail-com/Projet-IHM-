@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,700&family=EB+Garamond&family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 /*********************  corps de la page  ********************************/
 html,body{
     
@@ -7,7 +7,7 @@ html,body{
         padding: 0;
         height: 100%;
         background: #ffffff !important;
-        font-family:Tahoma;
+        font-family: 'Roboto', sans-serif;;
 }
   
 
@@ -72,7 +72,7 @@ height:550px;
     color:white;
     padding:50px;
     border-radius:0.3rem;
-    font-family: initial;
+    font-family: 'Roboto', sans-serif;
 }
 .pubbtn{
     color:#fff;
@@ -108,7 +108,7 @@ height:550px;
     background-color: #000000d6;
     padding-bottom: 50px;
     padding-top: 50px;
-    font-family: serif;
+    font-family: 'Roboto', sans-serif;
     height:300px;
 
 }
@@ -163,7 +163,7 @@ height:550px;
 .headsug{
     margin-top: 10px;
     margin-bottom:30px;
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Roboto', sans-serif;
     
 }
 .biensugbox{
@@ -207,7 +207,7 @@ footer{
 .foot{
 border-top:1px solid silver;
 padding-top: 20px;
-font-family: initial;
+font-family: 'Roboto', sans-serif;
 margin-bottom:20px;
 }
 .logo-foot{
@@ -349,7 +349,7 @@ color:black;
     margin-top: 40px;
     border-radius: 0.4rem;
     padding: 30px 20px 30px 20px;
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 /**************************************     page de connexion    *******************************/
@@ -564,7 +564,7 @@ width:800px;
         margin-left: 5cm;
         font-size:26px;
      background-color: rgba(0, 0, 0, 0.9);
-    font-family: 'Cormorant Garamond', serif;
+     font-family: 'Roboto', sans-serif;
     border-radius: 20px;
     opacity: 0.8;
     color:white;
@@ -608,7 +608,7 @@ bottom: 5cm;
     }
     .info{
         font-weight: bold;
-         font-family: 'Cormorant Garamond', serif;
+        font-family: 'Roboto', sans-serif;
         margin-left:1cm;
         font-size:26px;
         position: relative;
@@ -664,12 +664,12 @@ bottom: 5cm;
     }
     .pointdetail{
         padding:30px;
-        font-family: inherit;
+        font-family: 'Roboto', sans-serif;
         width:50%;
     }
     .pointdetail2{
         padding:30px;
-        font-family: inherit;
+        font-family: 'Roboto', sans-serif;
         width:100%;
     }
     .suggcontainer{
@@ -797,7 +797,7 @@ color:white;
     border-radius:0.25rem;
     background-color: rgba(0, 0, 0, 0.9);
     color:white;
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Roboto', sans-serif;
     padding:20px 0 20px 0;
 }
 
@@ -841,13 +841,13 @@ color:white;
     color:orange;
         }
 #initial{
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Roboto', sans-serif;
     font-weight:bold;
 }
 .label{
  margin:-6px;
  color:rgb(219, 69, 0);
- font-family: Georgia, 'Times New Roman', Times, serif;
+ font-family: 'Roboto', sans-serif;
 }
 #barcoté{
     padding-left:8.5%;
@@ -860,13 +860,13 @@ color:white;
     padding-right: 4%;
     padding-top:5%; 
     color:rgb(255, 158, 67);
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: 'Roboto', sans-serif;
 }
 /***********************    favoris           ************************/
 .favoritebox{
     width:48%;
     height:80%;
-    font-family:'Times New Roman', Times, serif;
+    font-family: 'Roboto', sans-serif;
 }
 .favbox{
     width:100%;
@@ -879,7 +879,7 @@ color:white;
     color:orange;
     margin-top: 20px;
     margin-bottom: 20px;
-    font-family:'Times New Roman', Times, serif;
+    font-family: 'Roboto', sans-serif;
 }
 .biensug2{
     height: 360px;
@@ -891,7 +891,7 @@ color:white;
 }
 /*********************       A propos de nous           *******************************************************/
 #about{
-    font-family:'Times New Roman', Times, serif;
+    font-family: 'Roboto', sans-serif;
 }
 .secpropos{
     background-image: url(../images/propos.jpg);
@@ -904,14 +904,14 @@ color:white;
        height:75vh;
        color: white;
        font-size:4rem;
-       font-family:'Times New Roman', Times, serif;
-   }
+       font-family: 'Roboto', sans-serif;} 
+
    .divteam{
     background-color: rgba(0, 0, 0, 0.692);
     height:95vh;
     color: white;
     font-size:4rem;
-    font-family:'Times New Roman', Times, serif;
+    font-family: 'Roboto', sans-serif;
     }
     .lespropos>a{
         color: orangered;
