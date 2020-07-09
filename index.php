@@ -216,7 +216,7 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
 
        while ($donne= $bienrep->fetch()){
        //affichage des biens a vendre les plus recents       
-         echo('<div class="biensug" ><a class="linkdetail" href="./pages/detail.php?id='.$donne['id'].'">
+         echo('<div class="biensug" ><a class="linkdetail" href="./pages/detailloc.php?id='.$donne['id'].'">
             <img src="./'.$donne['lien_img'].'" class="imgbien" alt="l\'image du bien" >
            <div class="infobien">
            <h4 ">'.$donne['titre'].'</h4> 
@@ -236,7 +236,7 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
 
        while ($donne= $bienrep->fetch()){
        //affichage des biens a vendre  tizi      
-         echo('<div class="biensug" ><a class="linkdetail" href="./pages/detail.php?id='.$donne['id'].'">
+         echo('<div class="biensug" ><a class="linkdetail" href="./pages/detailloc.php?id='.$donne['id'].'">
             <img src="./'.$donne['lien_img'].'" class="imgbien" alt="l\'image du bien" >
            <div class="infobien">
            <h4 ">'.$donne['titre'].'</h4> 
@@ -256,7 +256,7 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
 
        while ($donne= $bienrep->fetch()){
        //affichage des biens a vendre   bejaia     
-         echo('<div class="biensug" ><a class="linkdetail" href="./pages/detail.php?id='.$donne['id'].'">
+         echo('<div class="biensug" ><a class="linkdetail" href="./pages/detailloc.php?id='.$donne['id'].'">
             <img src="./'.$donne['lien_img'].'" class="imgbien" alt="l\'image du bien" >
            <div class="infobien">
            <h4 ">'.$donne['titre'].'</h4> 
@@ -276,7 +276,7 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
 
        while ($donne= $bienrep->fetch()){
        //affichage des biens a vendre bouira
-         echo('<div class="biensug" ><a class="linkdetail" href="./pages/detail.php?id='.$donne['id'].'">
+         echo('<div class="biensug" ><a class="linkdetail" href="./pages/detailloc.php?id='.$donne['id'].'">
             <img src="./'.$donne['lien_img'].'" class="imgbien" alt="l\'image du bien" >
            <div class="infobien">
            <h4 ">'.$donne['titre'].'</h4> 
@@ -305,7 +305,7 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
 
        while ($donne= $bienrep->fetch()){
        //affichage des biens a louer les plus recents       
-         echo('<div class="biensug" ><a class="linkdetail" href="./pages/detailloc.php?id='.$donne['id'].'">
+         echo('<div class="biensug" ><a class="linkdetail" href="./pages/detail.php?id='.$donne['id'].'">
             <img src="./'.$donne['lien_img'].'" class="imgbien" alt="l\'image du bien" >
            <div class="infobien">
            <h4 ">'.$donne['titre'].'</h4> 
@@ -325,7 +325,7 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
 
        while ($donne= $bienrep->fetch()){
        //affichage des biens alouer a tizi    
-         echo('<div class="biensug" ><a class="linkdetail" href="./pages/detailloc.php?id='.$donne['id'].'">
+         echo('<div class="biensug" ><a class="linkdetail" href="./pages/detail.php?id='.$donne['id'].'">
             <img src="./'.$donne['lien_img'].'" class="imgbien" alt="l\'image du bien" >
            <div class="infobien">
            <h4 ">'.$donne['titre'].'</h4> 
@@ -345,7 +345,7 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
 
        while ($donne= $bienrep->fetch()){
        //affichage des biens a louer a bejaia     
-         echo('<div class="biensug" ><a class="linkdetail" href="./pages/detailloc.php?id='.$donne['id'].'">
+         echo('<div class="biensug" ><a class="linkdetail" href="./pages/detail.php?id='.$donne['id'].'">
             <img src="./'.$donne['lien_img'].'" class="imgbien" alt="l\'image du bien" >
            <div class="infobien">
            <h4 ">'.$donne['titre'].'</h4> 
@@ -365,7 +365,7 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
 
        while ($donne= $bienrep->fetch()){
        //affichage des biens a louer a bouira      
-         echo('<div class="biensug" ><a class="linkdetail" href="./pages/detailloc.php?id='.$donne['id'].'">
+         echo('<div class="biensug" ><a class="linkdetail" href="./pages/detail.php?id='.$donne['id'].'">
             <img src="./'.$donne['lien_img'].'" class="imgbien" alt="l\'image du bien" >
            <div class="infobien">
            <h4 ">'.$donne['titre'].'</h4> 
