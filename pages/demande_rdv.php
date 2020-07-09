@@ -9,9 +9,9 @@
          <meta name="viewport" content="width=width-device, initial-scale=1.0">
          <meta http-equiv="X-UA-Compatible" content="ie=edge">
          <!--le titre-->
-         <title>Vilavie- demande RDV  </title>
+        <title>Demande de visite - Axxamiw </title>
          <!--icon du site-->
-         <link rel="icon" href="../images/icon/favicon.ico">
+         <link rel="icon" href="../images/icon/home.ico">
          <!--feuilles de style-->
          <link rel="stylesheet" href="../style/style.css">
          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -33,10 +33,10 @@ if($t=='location'){$raison="location";}else {$raison="Achat";}
 $nompre=$_SESSION["nom"].' '.$_SESSION["prenom"];
 ?>
 <div class="demanderdv" id="rdvdem" >
-    <div class="container h-100">
+    <div class="container h-100" style="margin-top: 80px;">
         <div class="deposeheader " >
-         <h1> Vous Souhaitez Visiter Ce Bien Immobilier</h1>
-         <h3>Remplissez Ce Formualaire Pour Prendere Un Rendez-Vous</h3>
+         
+         <h1>Remplissez Ce Formualaire </h1>
         </div>
 	 	<div class="d-flex justify-content-center h-100">
          <div class="blockformrdv">
@@ -47,7 +47,7 @@ $nompre=$_SESSION["nom"].' '.$_SESSION["prenom"];
 						<img src="../images/logo.png" class="brand_logo" alt="Logo">
 					
                 </div>
-                <h2 class="titre_connexion">Demande de visit</h2>
+                
 			  <div class="d-flex justify-content-center form_container">
 					<!--formulaire de demande de visit-->
                 <form enctype="multipart/form-data" action="" method="post" class="form_inscription">
@@ -59,13 +59,13 @@ $nompre=$_SESSION["nom"].' '.$_SESSION["prenom"];
                         </div> 
                         <div class="input-group mb-3">
                         <SELECT name="lieu" class="form-control input_user" placeholder="Adress du Rdv" required>
-                                <option value="" disabled selected> Adress du RDV</option>
-                                <option value="A l'agence ">A l'agence de vilavie</option>
+                                <option value="" disabled selected> Adresse du RDV</option>
+                                <option value="A l'agence ">A l'agence de Axxamiw</option>
                                 <option value="A proximité du bien">A proximité du bien</option>
                         </SELECT>
                         <br>
                         </div> 
-                        <span class="warning">Heur de visite entre 8h-18h</span>                                           
+                                                                 
                         <div class="input-group mb-3 datetime">
                         <input type="date" name="date" class="form-control input_user date" min="<?php $date=date('Y-m-d', strtotime(' +1 day')); echo($date); ?>" required><br>
                         <input type="time" name="time" class="form-control input_user"  min="08:00" max="18:00"  required><br>
@@ -73,7 +73,7 @@ $nompre=$_SESSION["nom"].' '.$_SESSION["prenom"];
 
                         
                         <div class="input-group mb-3">
-                        <input type="submit" value="demander" class="btn login_btn" name="submit">
+                        <input type="submit" value="demander le RDV" class="btn login_btn" name="submit">
                         </div>
                         <?php
                          

@@ -10,9 +10,9 @@
     <meta name="viewport" content="width=width-device, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!--le titre-->
-    <title>Vilavie- detail bien  </title>
+    <title>detail bien - Axxamiw</title>
     <!--icon du site-->
-    <link rel="icon" href="../images/icon/favicon.ico">
+    <link rel="icon" href="../images/icon/home.ico">
     <!--feuilles de style-->
     <link rel="stylesheet" href="../style/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -24,6 +24,12 @@ include_once('../includes/header.php');
 $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 $detail_bien = $db->query('SELECT * FROM biens Where id="'.$_GET['id'].'"');
 $choisie = $detail_bien->fetch();
+if(!isset($_SESSION['id'])){
+  $username=$_SESSION["username"];
+  $proclient= $db->query('SELECT * FROM clients WHERE username="'.$username.'"');
+  $profile = $proclient->fetch(); 
+   $_SESSION["id"]=$profile["id"];
+}
 ?>
 <div class="container-fluid d-flex justify-content-between fulldetail ">
 <div class="suggestdetail d-flexbox flex-row" id="dairasugg">
@@ -73,22 +79,13 @@ if(isset($_SESSION["username"])){
 <p><b> Description:</b> <br/>'.$choisie['description'].' </p>
 <h5> Prix = '.$choisie['prix'].' DA Negociable </h5> 
 <div class="text-center liendemanderdv">
-<a href="./demande_rdv.php?t=biens&id='.$choisie['id'].'" class="rdvdmdbien">Demander Un Rendez-Vous de Visite</a>
+<a href="./demande_rdv.php?d=biens&id='.$choisie['id'].'" class="rdvdmdbien">Demander Un Rendez-Vous de Visite</a>
 </div>
-<<<<<<< HEAD
-<a href="favoris.php?id_cl='.$_SESSION["id"].'&t=1&id= '.$choisie['id'].'"> fav </a>
-=======
->>>>>>> 690016427b52520ee799f3acb18062f4d5cf72ae
 
 '); 
 
 
-<<<<<<< HEAD
-}
-$_SESSION["url_prec"]="./demande_rdv.php?t=Achat&id=".$choisie['id'];
-=======
 $_SESSION["url_prec"]="./demande_rdv.php?d=Achat&id=".$choisie['id'];
->>>>>>> 690016427b52520ee799f3acb18062f4d5cf72ae
 $detail_bien->closeCursor();
  ?>
  </div>

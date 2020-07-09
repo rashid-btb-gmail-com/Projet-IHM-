@@ -28,10 +28,10 @@
     <img src="../images/logo.png" alt="logo_agence">
     <div class="profileadmin">
         <input type="image" src="../images/user.png" alt="photo de profile" class="photo_profil">
-        <h2 class="nom_admin">NOM Prenom </h2>
+        <h2 class="nom_admin"> </h2>
     </div>
     <div class="menubien">
-        <a href="?action=ajouter_bien" class="onglet_admin" id="onglet1" >Ajouter une annonce</a>
+        <a href="?action=ajouter_bien" class="onglet_admin" id="onglet1" onclick="style_onglet_admin();" >Ajouter une annonce</a>
         <a href="?action=gerer_biens" class="onglet_admin" id="onglet2" onclick="">Gerer les annonces</a>
         <a href="?action=confirmer_annonces" class="onglet_admin" id="onglet3" onclick="">Confirmer les annonces</a>
     </div> 
@@ -63,6 +63,13 @@
             <!--*****************************************Page admin*******************************************-->
             <div class="page_admin">
                 <?php
+                    if(!isset($_GET["action"])){
+                        echo('<div class="bienvenueadmin">
+                         <h1 >Bonjour!</h1>
+                         <h2>Vous étes sure votre platform de getion du votre sitre</h2>
+                         <h2>Gerer vos annonces et rendez-vous </h2>
+                        </div>');
+                    }
                     if(isset($_GET["action"])){
                         //***************************affichage du formulaire ajouter un bien ************  */
                         if($_GET["action"]=="ajouter_bien"){
@@ -79,7 +86,7 @@
                             </div>
                             
                             <form action="" enctype="multipart/form-data" method="post" class="form_admin" id="form_vendre">
-                                <h2>Ajouter une annonce de vente:</h2>
+                                
                             
                             
                                 <div class="ajouter_annonce">
@@ -90,7 +97,7 @@
                                     </div>
 
 
-                                    <textarea name="description" cols="35"  rows="10" class="inp_insc" style="height:150px; resize: none;" placeholder="Description du bien" require></textarea><br>
+                                    <textarea name="description" cols="35"  rows="10" class="inp_insc" style="padding-top: 10px; height:150px; resize: none;" placeholder="Description du bien" require></textarea><br>
                                     <!--*********   liste des dairas de tizi ouzou   **********-->
 
                                     <div class="input_group">
@@ -232,7 +239,7 @@
                                 </div>
                             </div>
                             <form action="" enctype="multipart/form-data" method="post" class="form_admin" id="form_louer">
-                                <h2>Ajouter une annonce de location:</h2>
+                                
                             
                             
                                 <div class="ajouter_annonce">
@@ -387,8 +394,8 @@
                             </div>
 
                             <div class="form_admin" id="form_vendre">
-                                <h2>Liste des biens à vendre:</h2>
-                                <div style="height: 400px;overflow: auto;">
+                                
+                                <div style="height: 500px;overflow: auto;">
                                     <table class="liste_biens" cellpadding="3" rules="all">
                                         <colgroup span="6" class="columns"></colgroup>
                                         <tr>
@@ -520,8 +527,8 @@
                                 </div>
                             </div>
                             <div class="form_admin" id="form_louer">
-                            <h2>Liste des biens à louer:</h2>
-                            <div style="height: 400px; overflow: auto;">
+                            
+                            <div style="height: 500px; overflow: auto;">
                                 <table class="liste_biens" cellpadding="3" rules="all">
                                     <colgroup span="6" class="columns"></colgroup>
                                     <tr>
@@ -645,8 +652,8 @@
                             </div>
                             <!--   **************  liste des biens à vendre     -->
                             <div class="form_admin" id="form_vendre">
-                                <h2>Liste des demande d'annoces vente:</h2>
-                                <div style="height: 400px; overflow: auto;">
+                                
+                                <div style="height: 500px; overflow: auto;">
                                     <table class="liste_biens" cellpadding="3" rules="all">
                                         <colgroup span="6" class="columns"></colgroup>
                                         <tr>
@@ -719,6 +726,7 @@
                                                 ?>
                                                 <div class="box_voir_plus">
                                                 <button id="fermer"  onclick="fermer_voir_plus()"><i class="fas fa-times" value="fermer" ></i></button>
+                                                <div style="margin-top: 30px;">
                                                 <span class="span_voir_plus">Titre :</span><span class="span_info"><?php echo $donnees["titre"] ?></span><br>
                                                 <span class="span_voir_plus">Wilaya :</span><span class="span_info"><?php echo $donnees["wilaya"] ?></span><br>
                                                 <span class="span_voir_plus">Daïra :</span><span class="span_info"><?php echo $donnees["daira"] ?></span><br>
@@ -730,7 +738,7 @@
                                                 <span class="span_voir_plus">Piéce(s) :</span><span class="span_info"><?php echo $donnees["pieces"] ?></span><br>
                                                 <span class="span_voir_plus">Prix :</span><span class="span_info"><?php echo $donnees["prix"] ?> DA</span><br>
                                                 <span class="span_voir_plus">Propriétaire :</span class="span_info"><span><?php echo $donnees["proprietaire"] ?></span><br>
-                                                
+                                                </div>
                                                 <img src="../<?php echo $donnees["lien_img"] ?>" alt="image annonce" width="448px" height="202px" class="img_voir_plus">
 
                                                 </div>   
@@ -767,8 +775,8 @@
                             </div>
                             <!--   **************  liste des biens à louer  ***********   -->          
                             <div class="form_admin" id="form_louer">
-                            <h2>Liste des demande d'annoces de location:</h2>
-                            <div style="height: 400px;  overflow: auto;">
+                            
+                            <div style="height: 500px;  overflow: auto;">
                                 <table class="liste_biens" cellpadding="3" rules="all">
                                     <colgroup span="6" class="columns"></colgroup>
                                     <tr>
@@ -840,6 +848,7 @@
                                             ?>
                                             <div class="box_voir_plus">
                                                 <button id="fermer"  onclick="fermer_voir_plus()"><i class="fas fa-times" value="fermer" ></i></button>
+                                                <div style="margin-top: 30px;">
                                                 <span class="span_voir_plus">Titre :</span><span class="span_info"><?php echo $donnees_loc["titre"] ?></span><br>
                                                 <span class="span_voir_plus">Wilaya :</span><span class="span_info"><?php echo $donnees_loc["wilaya"] ?></span><br>
                                                 <span class="span_voir_plus">Daïra :</span><span class="span_info"><?php echo $donnees_loc["daira"] ?></span><br>
@@ -851,7 +860,7 @@
                                                 <span class="span_voir_plus">Piéce(s) :</span><span class="span_info"><?php echo $donnees_loc["pieces"] ?></span><br>
                                                 <span class="span_voir_plus">Prix :</span><span class="span_info"><?php echo $donnees_loc["prix"] ?> DA</span><br>
                                                 <span class="span_voir_plus">Propriétaire :</span class="span_info"><span><?php echo $donnees_loc["proprietaire"] ?></span><br>
-                                                
+                                                </div>
                                                 <img src="../<?php echo $donnees_loc["lien_img"] ?>" alt="image annonce" width="448px" height="202px" class="img_voir_plus">
 
                                                 </div>   
@@ -880,12 +889,12 @@
 
                             
                             <form action="" method="post" class="form_admin">
-                                <h2>Ajouter un rendez-vous :</h2>
+                                
                                 <input type="text" name="client" class="inp_insc" placeholder="Client" ><br>
                                 <input type="text" name="lieu" class="inp_insc" placeholder="Lieu du rendez-vous"><br>
-                                <span class="span_ajouter_bien">Date et temps du rendez-vous :</span>
-                                <input type="date" name="date_rdv" class="inp_insc">
-                                <input type="time" name="time_rdv" class="inp_insc"><br>
+                                <span class="span_ajouter_bien">Date et heure du rendez-vous :</span>
+                                <input type="date" name="date_rdv" min="<?php $date=date('Y-m-d', strtotime(' +1 day')); echo($date); ?>" class="inp_insc">
+                                <input type="time" name="time_rdv" class="inp_insc" min="08:00" max="18:00" ><br>
                                 
                                 
                                 <input type="submit" value="Enregister" class="btn_inscr btn_ajouter_rdv" name="submit">
@@ -913,7 +922,7 @@
                             $select=$db->query('SELECT * FROM rdv_confirmer');
                             ?>
                             <div class="form_admin">
-                            <h2>Liste des RDV :</h2>
+                            
 
 
                             <!--**************    filtre pour les rdv   **************     -->
@@ -952,7 +961,7 @@
                                         }
                                         
                                      } ?>
-                                     <div style="height: 400px; width: 700px; overflow: auto;">
+                                     <div style="height: 500px; width: 700px; overflow: auto;">
                                     <table class="liste_biens" cellpadding="3" rules="all">
                                             <colgroup span="4" class="columns"></colgroup>
                                             <tr>
@@ -1050,8 +1059,8 @@
                             $select=$db->query('SELECT * FROM demande_rdv');
                             ?>
                             <div class="form_admin">
-                            <h2>Liste des demande de rdv :</h2>
-                                <div style="height: 400px; width: 650px; overflow: auto;">
+                            
+                                <div style="height: 500px; width: 650px; overflow: auto;">
                                     <table class="liste_biens" cellpadding="3" rules="all">
                                         <colgroup span="6" class="columns" ></colgroup>
                                         <tr>
@@ -1125,8 +1134,8 @@
                             $select=$db->query('SELECT * FROM clients');
                             ?>
                             <div class="form_admin">
-                            <h2>Liste des clients :</h2>
-                            <div style="height: 400px; width: 650px; overflow: auto;">
+                            
+                            <div style="height: 500px; width: 650px; overflow: auto;">
                                 <table class="liste_biens" cellpadding="3" rules="all">
                                     <colgroup span="4" class="columns"></colgroup>
                                     <tr>
@@ -1252,8 +1261,8 @@
                             
                             ?>
                             <div class="form_admin">
-                            <h2>Liste des demande de rdv :</h2>
-                                <div style="height: 400px; overflow: auto;">
+                            
+                                <div style="height: 500px; overflow: auto;">
                                     <table class="liste_biens" cellpadding="3" rules="all">
                                         <colgroup span="6" class="columns" ></colgroup>
                                         <tr>

@@ -9,9 +9,9 @@
     <meta name="viewport" content="width=width-device, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <!--le titre-->
-    <title>Platform Client</title>
+    <title>Axxamiw - Platform Client</title>
 <!--icon du site-->
-    <link rel="icon" href="../images/icon/favicon.ico">
+    <link rel="icon" href="../images/icon/home.ico">
 <!--feuilles de style-->
     <link rel="stylesheet" href="../style/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -20,10 +20,18 @@
 </head>
 <body>
 <?php
-  $titre_page="Profiless";
+  $titre_page="Axxamiw - Profile";
   $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));  
   include_once('../includes/header.php');
+  if(!isset($_SESSION['id'])){
+    $username=$_SESSION["username"];
+    $iddata= $db->query('SELECT * FROM clients WHERE username="'.$username.'"');
+    $idset = $iddata->fetch(); 
+     $_SESSION["id"]=$idset["id"];
+  }
+  
 ?>
+
 <div class="container-fluid d-flex justify-content-center" id="profile">
   <div class="d-flexbox flexrow ">
     <section class="labox"> 
@@ -44,10 +52,10 @@
             <div class=" d-flex justify-content-center  ">
                 <div class="bienvenue">
                     <h3 ><?php echo($profile["username"]) ?> <br> Bienvenue sur votre profile</h3> <br> 
-                    <h5>consulter vos informations personnelles <h5> <br>
+                   
                     <!-- Button trigger modal pour changer mot de passe et pseudo -->
                   <button type="button" class="btn login_btn" data-toggle="modal" data-target="#staticBackdrop">
-                   Modifier votre Mot De Pass ou/et Pseudo
+                   Modifier vos idantifiant
                   </button>
                   <!-- Modal -->
                     <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -106,10 +114,12 @@
                                 </div> ');
                                 
                                 if(isset($_POST["submitpass"])){
-                                  if(($_POST['ancienpass'])==($profile['password'])){
+                                  $verifpass=password_verify ( $_POST["ancienpass"] ,$profile['password']) ;
+                                  if($verifpass){
                                     if(($_POST['nouveaupass'])==($_POST['confirmepass'])){
                                        $id=$profile["id"];
-                                       $pass=$_POST["nouveaupass"];
+                                       $pass=password_hash($_POST["nouveaupass"], PASSWORD_DEFAULT);
+                                       
                                        $motpass=$db->prepare("UPDATE clients SET password='$pass' WHERE id=$id");
                                        $motpass->execute();
                                        $motpass->closeCursor();

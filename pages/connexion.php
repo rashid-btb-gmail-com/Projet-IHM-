@@ -8,9 +8,9 @@
      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
      <meta http-equiv="X-UA-Compatible" content="ie=edge">
      <!--le titre-->
-     <title>Connexion</title>
+     <title>Connexion - Axxamiw</title>
      <!--icon du site-->
-     <link rel="icon" href="../images/icon/favicon.ico">
+     <link rel="icon" href="../images/icon/home.ico">
      <!--feuilles de style-->
      <link rel="stylesheet" href="../style/bootstrap.css">
      <link rel="stylesheet" href="../style/style.css">
@@ -72,7 +72,11 @@
 						$select=$db->query("SELECT * FROM clients");
 						
 						while($donnees=$select->fetch()){
+<<<<<<< HEAD
 						
+=======
+						     $t=false;
+>>>>>>> 9bed52354a7a7b0c0a1665ba3794b951a0267269
 							$verifpass=password_verify ( $_POST["password"] ,$donnees["password"]) ;
 
 							if(($_POST["username"]==$donnees["username"])&&($verifpass)){

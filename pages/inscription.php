@@ -1,6 +1,6 @@
 
 <?php
-$titre_page="Inscription";
+$titre_page="Inscription - Axxamiw";
 include_once("../includes/header.php");
 //    connexion a la base de donnee  
 $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
@@ -20,9 +20,8 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
   <div class="fullinscri" id="inscript">
     <div class="container h-100">
        <div class="deposeheader" >
-         <h1> Inscrivez-Vous et Devenez Client</h1>
-         <h3> Pour bénéficier de nos promotions immobiléres</h3>
-         <h3> Consultez nos suggestions des Biens</h3>
+         <h1> Inscrivez-Vous </h1>
+         
         </div>
 		<div class="d-flex justify-content-center h-100">
 			<div class="user_card" id="user_card_insc">
@@ -31,7 +30,7 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
 						<img src="../images/logo.png" class="brand_logo" alt="Logo">
 					
                 </div>
-                <h4 class="titre_connexion">Crée un compte Vilavie</h4>
+               
 				<div class="d-flex justify-content-center form_container" >
 					
                 <form action="" method="post" onsubmit="return verifier_champs()" id="form_container_insc">
@@ -81,14 +80,6 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
 
 
                 <!--sit fam-->
-                    <div class="input-group mb-3">
-                    <input class="form-control input_user" list="sitfam" name="sit_fam" placeholder="Situation familiale" required onchange="verifier_champs()">            
-                            <datalist id="sitfam">
-                            <option value="Marié">
-                            <option value="Celibataire">
-                            </datalist>                                                                                                                      <span class="controle" id="etat_sit_fam"></span><br>
-                    </div>
-                    <span id="msg_sit_fam"></span>
                     
                     <input type="submit" value="S'inscrire" name="submit" class="btn login_btn" id="login_btn_insc"><br>
                     
@@ -144,8 +135,8 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
                     else{
                         $pass=password_hash($_POST['password'], PASSWORD_DEFAULT);
                         //   insertion dans la base de donnee
-                        $insert=$db->prepare('INSERT INTO clients VALUES(NULL,?,?,?,?,?,?,?)');
-                        $insert->execute(array($_POST['nom'],$_POST['prenom'],$_POST['username'],$_POST['email'],$pass,$_POST['tel'],$_POST['sit_fam']));
+                        $insert=$db->prepare('INSERT INTO clients VALUES(NULL,?,?,?,?,?,?)');
+                        $insert->execute(array($_POST['nom'],$_POST['prenom'],$_POST['username'],$_POST['email'],$pass,$_POST['tel']));
                         echo("Votre compte a été créé avec succès");
                         $_SESSION["username"]=$_POST["username"];
                         $_SESSION["nom"]=$_POST["nom"];

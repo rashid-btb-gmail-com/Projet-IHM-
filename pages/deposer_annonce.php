@@ -9,9 +9,9 @@
          <meta name="viewport" content="width=width-device, initial-scale=1.0">
          <meta http-equiv="X-UA-Compatible" content="ie=edge">
          <!--le titre-->
-         <title>Vilavie- Deposer une annonce  </title>
+         <title>Deposer une annonce - Axxamiw </title>
          <!--icon du site-->
-         <link rel="icon" href="../images/icon/favicon.ico">
+         <link rel="icon" href="../images/icon/home.ico">
          <!--feuilles de style-->
          <link rel="stylesheet" href="../style/style.css">
          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -22,6 +22,12 @@
 include_once("../includes/header.php");
 //    connexion a la base de donnee  
 $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+if(!isset($_SESSION['id'])){
+    $username=$_SESSION["username"];
+    $iddata= $db->query('SELECT * FROM clients WHERE username="'.$username.'"');
+    $idset = $iddata->fetch(); 
+     $_SESSION["id"]=$idset["id"];
+  }
 if(!isset($_SESSION["username"])){
     
     header("location:./connexion.php");
@@ -31,8 +37,8 @@ else{
 <div class="fulldepose" id="depose">
     <div class="container h-100">
         <div class="deposeheader" >
-         <h1 class="text-center"> Vous Souhaitez Vendre ou Louer un Bien Immobilier</h1>
-         <h1>Remplissez ce Formualaire, Notre Agence s'en Occupera</h1>
+         
+         <h1>Remplissez ce Formualaire </h1>
         </div>
 		<div class="d-flex justify-content-center h-100">
 			<div class="user_card" id="user_card_annonce">
@@ -41,7 +47,6 @@ else{
 						<img src="../images/logo.png" class="brand_logo" alt="Logo">
 					
                 </div>
-                <h2 class="titre_connexion">Déposer une annonce </h2>
 
                 <!--   radio vendre louer    -->
                 <div class="radio_vendre_louer">
@@ -63,7 +68,7 @@ else{
                     <!-- formulaire de vente  -->	
                     
                     <form enctype="multipart/form-data" action="" method="post" class="form_inscription" id="form_vendre">
-                            <h3>Vendre un bien</h3>  
+                             
                             <span class="span_deposer_annonce">Titre de l'annonce</span>
                             <div class="input-group mb-3">
                             <input type="text" name="titre" class="form-control input_user" placeholder="Titre de l'annonce" required onchange="verifier_deposer_annonce()"><br>
@@ -148,7 +153,7 @@ else{
                             </div>
 
                             <div class="input-group mb-3">
-                            <input type="submit" value="Envoyer" class="btn login_btn" name="submit" onclick="alert('Votre annonce sera vérifiée et publiée');">
+                            <input type="submit" value="deposer l'annonce" class="btn login_btn" name="submit" onclick="alert('Votre annonce sera vérifiée et publiée éventuellement');">
                             </div>
                             
                             <?php
@@ -208,7 +213,7 @@ else{
 <!--*******************************************************************************************************************************************************************************************-->
                     <!-- formulaire de location  -->	
                     <form enctype="multipart/form-data" action="" method="post" class="form_inscription" id="form_louer">
-                            <h3>Louer un bien</h3>  
+                            
                             <span class="span_deposer_annonce">Titre de l'annonce</span>
                             <div class="input-group mb-3">
                             <input type="text" name="titre_loc" class="form-control input_user" placeholder="Titre de l'annonce" required><br>
@@ -312,7 +317,7 @@ else{
                             </div>
 
                             <div class="input-group mb-3">
-                            <input type="submit" value="Envoyer" class="btn login_btn" name="submit_loc" onclick="alert('Votre annonce sera vérifiée et publiée');">
+                            <input type="submit" value="deposer l'annonce" class="btn login_btn" name="submit_loc" onclick="alert('Votre annonce sera vérifiée et publiée éventuellement');">
                             </div>
                             
                             <?php

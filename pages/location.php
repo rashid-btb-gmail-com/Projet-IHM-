@@ -12,9 +12,9 @@
          <meta name="viewport" content="width=width-device, initial-scale=1.0">
          <meta http-equiv="X-UA-Compatible" content="ie=edge">
          <!--le titre-->
-         <title>Vilavie- immobilier  </title>
+         <title>Axxamiw - location </title>
          <!--icon du site-->
-         <link rel="icon" href="../images/icon/favicon.ico">
+         <link rel="icon" href="../images/icon/home.ico">
          <!--feuilles de style-->
          <link rel="stylesheet" href="../style/style.css">
          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -219,6 +219,7 @@ include_once('../includes/header.php');
                                 <div class="form-group ">
                                     
                                     <input class="btn1" type="submit" name="formsend" value="Recherche">
+                                    
 
                                 </div>
                                                               
@@ -244,7 +245,7 @@ include_once('../includes/header.php');
         <section class="sec2" id="search">
         <div class="container">
         <div class="yep">
-          <h1 class="text-center text-uppercase font-weight-bold " >Location de nos biens </h1>
+          <h1 class="text-center text-uppercase font-weight-bold " >Les annonces disponible</h1>
        </div>
        <div class="d-flex flex-wrap justify-content-center biensugbox ">
        <?php 
@@ -681,8 +682,8 @@ include_once('../includes/header.php');
           
           if(isset($req)){
             if ($req->rowCount()== 0) {
-                echo('<div class="text-center"> <h1 style="color:silver;">Aucun bien</h1></div>');
-              } 
+                echo('<div class="text-center"> <h1 style="color:rgb(66, 66, 66);">Aucun résultat selon ces critéres de recherches</h1></div>');
+            } 
               else{  
             while ($donne= $req->fetch()){
               //affichage des biens aprés recherche
@@ -717,12 +718,12 @@ include_once('../includes/header.php');
         
       }
       else if(isset($_GET["daira"])){
-        $req = $db->prepare('SELECT * FROM biens WHERE daira LIKE ? ');
+        $req = $db->prepare('SELECT * FROM biens_location WHERE daira LIKE ? ');
         $req->execute(array($_GET["daira"]));
         
       }
        if ($req->rowCount()== 0) {
-        echo('<div class="text-center"> <h1 style="color:silver;">Aucun bien</h1></div>');
+        echo('<div class="text-center"> <h1 style="color:rgb(66, 66, 66);">Aucun résultat selon ces critéres de recherches</h1></div>');
       } 
       else{
        while ($donne= $req->fetch()){

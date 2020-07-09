@@ -8,9 +8,9 @@
      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
      <meta http-equiv="X-UA-Compatible" content="ie=edge">
      <!--le titre-->
-     <title>Vilavie - Acceuil</title>
+     <title>Axxamiw - Acceuil</title>
      <!--icon du site-->
-     <link rel="icon" href="./images/icon/favicon.ico">
+     <link rel="icon" href="./images/icon/home.ico">
      <!--feuilles de style-->
      <link rel="stylesheet" href="./style/bootstrap.css">
      <link rel="stylesheet" href="./style/style.css">
@@ -39,17 +39,25 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
               <ul>
             
                   <li><a href="./pages/location.php">Locations</a></li>                  
-                  <li><a href="./pages/immobilier.php">Vente</a></li>
+                  <li><a href="./pages/immobilier.php">Achat</a></li>
                   <li><a href="./pages/deposer_annonce.php#depose">Déposer une annonce</a></li>
                   <li><a href="./pages/contact.php">Contact</a></li>
                   <li id="separateur"> </li> <!--un separateur -->
                   <?php
                   if(isset($_SESSION["username"])){
                       ?>
-                      
-                        <li>        
-                        <a href="./pages/profile.php#profile" title="Mon profil" onmouseover="onglet_mon_profil_af()"><i class="far fa-user"></i>  <?php echo $_SESSION["nom"]."  ".$_SESSION["prenom"];?></a> 
-                        </li>
+                        <li class="dropdown "> 
+                            
+                           
+                            <a href="./pages/profile.php#profile" class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Mon profil" onmouseover="onglet_mon_profil_af()"><i class="far fa-user"></i>  <?php echo $_SESSION["nom"]."  ".$_SESSION["prenom"];?></a> 
+                           <div class="dropdown-menu"  aria-labelledby="dropdownMenuButton">
+                           <a class="dropdown-item" href="./pages/profile.php#profile"> Mon Profile</a>
+                          <a class="dropdown-item" href="./pages/profile.php#favoris">Mes Favoris</a>
+                           <a class="dropdown-item" href="./pages/servicedem.php#rdvdem">Mon déménagement</a>
+                           </div>
+                         </li>   
+                       
+                        
                         <li>
                         <a href="?action=deco" title="Déconnexion"><i class="fas fa-sign-out-alt"></i></a>
                         </li>
@@ -87,8 +95,8 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
          <div class="carousel-item active " style="background:url(./images/bg1.jpg); background-size:cover;">
             <div class="d-block w-100 d-flex justify-content-center align-items-center imgsize ">
               <div class="carouselstyle">
-              <h1>L'agence immobiliere VILAVIE</h1> <br>
-              <h3>Vous fait visiter la kabylie a travers l'immobilier </h3> <br><br><br>
+              <h1>L'agence immobiliere Axxamiw</h1> <br>
+              <h3>Vous fait visiter la kabylie à travers l'immobilier </h3> <br><br><br>
               <div class="pubbtnhover"><a href="./pages/aboutus.php" class="pubbtn">A propos de nous</a></div>
               </div>
             </div>
@@ -96,8 +104,10 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
          <div class="carousel-item" style="background:url(./images/bg2.jpg); background-size:cover;">
           <div class="d-block w-100 d-flex justify-content-center align-items-center imgsize ">
           <div class="carouselstyle">
-              <h1>Vous connaisez la kabyle </h1> <br>
-              <h3> et vous chercher un bien dans une region specifique </h3> <br><br><br>
+              <h1>La Kabylie vous est familière?</h1> <br>
+              <h3> Facilitez votre recherche en
+               cliquant sur le bouton  en-dessous <br> afin d'effectuer
+                votre recherche dans une commune particulière </h3> <br><br><br>
               <div class="pubbtnhover"><a href="./index.php#sec1" class="pubbtn">Recherchez un bien</a></div>
           </div>
 
@@ -106,8 +116,8 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
          <div class="carousel-item" style="background:url(./images/bg3.jpg); background-size:cover;" >
            <div class="d-block w-100 d-flex justify-content-center align-items-center imgsize ">
            <div class="carouselstyle">
-              <h1>Vous ne cherchez pas une region specifique </h1> <br>
-              <h3> et bien on vous suggere les meilleur bien dans les milleurs region de la kabylie </h3> <br><br><br>
+              <h1>La Kabylie vous est énigmatique?</h1> <br>
+              <h3> Visualisez l'ensemble de nos biens en cliquant sur le bouton en dessous </h3> <br><br><br>
               <div class="pubbtnhover"><a href="./index.php#suggestions" class="pubbtn">Nos suggestions</a></div>
           </div>
             </div>
@@ -136,8 +146,8 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
           
           <form action="" id="formsearch" method="post" > <!-- boutton de rechercche -->
             <div class="div-recherche-estime">
-            <h3>Vouz-chercher a louer dans la kabylie</h3>
-            <h5>Faite une recherhes des bien que on dispose dans la region que vous desiriez </h5>
+            <h1>Location</h1>
+            <h4>Tapez le nom d'une commune pour louer une maison </h4>
             
             <input type="search" name="search" class="tizisearch" placeholder="Commune, Ex:Bini Zmenzer">
             <button type="submit" name="btn_search2" class="btn_recherche"><i class="fas fa-search"></i></button>
@@ -161,8 +171,8 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
           <div class="tab-pane" id="achat">
           <form action="" id="formsearch" method="post" > <!-- boutton de rechercche -->
             <div class="div-recherche-estime" >
-            <h3>Vouz-chercher a acheter dans la kabylie</h3>
-            <h5>Faite une recherhes des bien que on dispose dans la region que vous desiriez </h5>
+            <h1>Achat</h1>
+            <h4>Tapez le nom d'une commune pour acheter une maison</h4>
             <input type="search" name="search" class="tizisearch" placeholder="Commune, Ex:Ilmaten">
             <button type="submit" name="btn_search" class="btn_recherche"><i class="fas fa-search"></i></button>
                   <?php 
@@ -192,15 +202,16 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
         <!--*****************   VENTE  *********************-->
         <div class="headsug">
           <h1 class="text-center text-uppercase font-weight-bold " >Nos suggestions </h1><hr class="text-center " width="200px"><br>
-          <h1 class="text-center font-weight-bold border" style="border-radius:0.5em;" >"Vente"</h1> 
-         
+          <hr class="hrsepare">
+          <h1 class="text-center font-weight-bold "  >Les biens disponibles pour location</h1> 
+          <hr class="hrsepare">
         </div>
        
-        <h2 class=" headsug text-center "><i class="fa fa-home"></i> Nos Biens les plus recents</h2>
+        <h2 class=" headsug text-center "><i class="fa fa-home"></i> Les annonces les plus récentes</h2>
        <div class="d-flex flex-nowrap justify-content-center "> 
         
         <?php 
-       $bienrep = $db->query('SELECT id,titre, daira, commune, wilaya, lien_img FROM biens ORDER BY id desc LIMIT 0,5');
+       $bienrep = $db->query('SELECT id,titre, daira, commune, wilaya, lien_img FROM biens_location ORDER BY id desc LIMIT 0,5');
           
 
        while ($donne= $bienrep->fetch()){
@@ -216,11 +227,11 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
          ?>
                               
          </div>
-         <h2 class=" headsug  text-center"><i class="fa fa-home"></i> Nos Biens A "TIZI-OUZOU"</h2>
+         <h2 class=" headsug  text-center"><i class="fa fa-home"></i> TIZI-OUZOU</h2>
        <div class="d-flex flex-nowrap justify-content-center  "> 
         
         <?php 
-       $bienrep = $db->query('SELECT id,titre, daira, commune, wilaya, lien_img FROM biens WHERE wilaya="01-Tizi-Ouzou" ORDER BY id LIMIT 0,5');
+       $bienrep = $db->query('SELECT id,titre, daira, commune, wilaya, lien_img FROM biens_location WHERE wilaya="01-Tizi-Ouzou" ORDER BY id LIMIT 0,5');
           
 
        while ($donne= $bienrep->fetch()){
@@ -236,11 +247,11 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
          ?>
                               
          </div>
-         <h2 class=" headsug  text-center "><i class="fa fa-home"></i> Nos bien a "BEJAIA"</h2>
+         <h2 class=" headsug  text-center "><i class="fa fa-home"></i>BEJAIA</h2>
        <div class="d-flex flex-nowrap justify-content-center "> 
         
         <?php 
-       $bienrep = $db->query('SELECT id,titre, daira, commune, wilaya, lien_img FROM biens WHERE wilaya="02-Béjaïa" ORDER BY id LIMIT 0,5');
+       $bienrep = $db->query('SELECT id,titre, daira, commune, wilaya, lien_img FROM biens_location WHERE wilaya="02-Béjaïa" ORDER BY id LIMIT 0,5');
           
 
        while ($donne= $bienrep->fetch()){
@@ -256,11 +267,11 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
          ?>
                               
          </div>
-         <h2 class=" headsug  text-center"><i class="fa fa-home"></i> Nos Bien a "BOUIRA"</h2>
+         <h2 class=" headsug  text-center"><i class="fa fa-home"></i>BOUIRA</h2>
        <div class="d-flex flex-nowrap justify-content-center "> 
         
         <?php 
-       $bienrep = $db->query('SELECT id,titre, daira, commune, wilaya, lien_img FROM biens WHERE wilaya="03-Bouira" ORDER BY id LIMIT 0,5');
+       $bienrep = $db->query('SELECT id,titre, daira, commune, wilaya, lien_img FROM biens_location WHERE wilaya="03-Bouira" ORDER BY id LIMIT 0,5');
           
 
        while ($donne= $bienrep->fetch()){
@@ -279,15 +290,17 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
          <!--LOCATION-->
          <div class="headsug">
           <br>
-          <h1 class="text-center font-weight-bold border" style="border-radius:0.5em;">"Location"</h1> 
+          <hr class="hrsepare">
+          <h1 class="text-center font-weight-bold " >Les biens disponibles pour achat </h1>
+          <hr class="hrsepare"> 
           </div>
         
-         <h2 class=" headsug text-center "><i class="fa fa-home"></i> Nos Biens les plus recents </h2>
+         <h2 class=" headsug text-center "><i class="fa fa-home"></i> Les annonces les plus récentes </h2>
          
        <div class="d-flex flex-nowrap justify-content-center "> 
         
         <?php 
-       $bienrep = $db->query('SELECT id,titre, daira, commune, wilaya, lien_img FROM biens_location ORDER BY id desc LIMIT 0,5');
+       $bienrep = $db->query('SELECT id,titre, daira, commune, wilaya, lien_img FROM biens ORDER BY id desc LIMIT 0,5');
           
 
        while ($donne= $bienrep->fetch()){
@@ -303,11 +316,11 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
          ?>
                               
          </div>
-         <h2 class=" headsug  text-center"><i class="fa fa-home"></i> Nos Biens A "TIZI-OUZOU"</h2>
+         <h2 class=" headsug  text-center"><i class="fa fa-home"></i> TIZI-OUZOU</h2>
        <div class="d-flex flex-nowrap justify-content-center  "> 
         
         <?php 
-       $bienrep = $db->query('SELECT id,titre, daira, commune, wilaya, lien_img FROM biens_location WHERE wilaya="01-Tizi-Ouzou" ORDER BY id LIMIT 0,5');
+       $bienrep = $db->query('SELECT id,titre, daira, commune, wilaya, lien_img FROM biens WHERE wilaya="01-Tizi-Ouzou" ORDER BY id LIMIT 0,5');
           
 
        while ($donne= $bienrep->fetch()){
@@ -323,11 +336,11 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
          ?>
                               
          </div>
-         <h2 class=" headsug  text-center "><i class="fa fa-home"></i> Nos bien a "BEJAIA"</h2>
+         <h2 class=" headsug  text-center "><i class="fa fa-home"></i> BEJAIA</h2>
        <div class="d-flex flex-nowrap justify-content-center "> 
         
         <?php 
-       $bienrep = $db->query('SELECT id,titre, daira, commune, wilaya, lien_img FROM biens_location WHERE wilaya="02-Béjaïa" ORDER BY id LIMIT 0,5');
+       $bienrep = $db->query('SELECT id,titre, daira, commune, wilaya, lien_img FROM biens WHERE wilaya="02-Béjaïa" ORDER BY id LIMIT 0,5');
           
 
        while ($donne= $bienrep->fetch()){
@@ -343,11 +356,11 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
          ?>
                               
          </div>
-         <h2 class=" headsug  text-center"><i class="fa fa-home"></i> Nos Bien a "BOUIRA"</h2>
+         <h2 class=" headsug  text-center"><i class="fa fa-home"></i> BOUIRA</h2>
        <div class="d-flex flex-nowrap justify-content-center "> 
         
         <?php 
-       $bienrep = $db->query('SELECT id,titre, daira, commune, wilaya, lien_img FROM biens_location WHERE wilaya="03-Bouira" ORDER BY id LIMIT 0,5');
+       $bienrep = $db->query('SELECT id,titre, daira, commune, wilaya, lien_img FROM biens WHERE wilaya="03-Bouira" ORDER BY id LIMIT 0,5');
           
 
        while ($donne= $bienrep->fetch()){
@@ -376,54 +389,57 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
          <div class="d-flex flex-nowrap">
            <div class="stylelienrap d-flex flex-column" style="padding: 6px;">
              <p style="color:orange; font-size:1.5rem;">Vente</p>
-            
-             <a href="./pages/immobilier.php?daira=20-Tizi%20Ouzou">Daira de Tizi-Ouzou</a>
-             <a href="./pages/immobilier.php?daira=09-Draâ%20El%20Mizan">Daira de Draâ El Mizan</a>
-             <a href="./pages/immobilier.php?daira=08-Draâ%20Ben%20Khedda">Daira de Draâ Ben Khedda</a>
+            <a href="./pages/immobilier.php?daira=01-Ain%20El%20Hammam">Daira de Ain El Hammam</a>
              <a href="./pages/immobilier.php?daira=02-Azazga">Daira de Azazga</a>
-             <a href="./pages/immobilier.php?daira=06-Boghni">Daira de Boghni</a>
-             <a href="./pages/immobilier.php?daira=17-Ouaguenoun">Daira de Ouaguenoun</a>
-             <a href="./pages/immobilier.php?daira=16-Ouadhia">Daira de Ouadhia</a>
-             <a href="./pages/immobilier.php?daira=01-Ain%20El%20Hammam">Daira de Ain El Hammam</a>
-             <a href="./pages/immobilier.php?daira=07-Bouzeguène">Daira de Bouzeguène</a>
+             <a href="./pages/immobilier.php?daira=03-Azeffoun">Daira de Azeffoun</a>
              <a href="./pages/immobilier.php?daira=04-Beni%20Douala">Daira de Beni Douala</a>
-             <a href="./pages/immobilier.php?daira=19-Tizi%20Gheniff">Daira de Tizi Gheniff</a>
+             <a href="./pages/immobilier.php?daira=05-Beni%20Yenni">Daira de Beni Yenni</a>
+             <a href="./pages/immobilier.php?daira=06-Boghni">Daira de Boghni</a>
+              <a href="./pages/immobilier.php?daira=07-Bouzeguène">Daira de Bouzeguène</a>
+             <a href="./pages/immobilier.php?daira=08-Draâ%20Ben%20Khedda">Daira de Draâ Ben Khedda</a>
+             <a href="./pages/immobilier.php?daira=09-Draâ%20El%20Mizan">Daira de Draâ El Mizan</a>
+            <a href="./pages/immobilier.php?daira=10-Iferhounène">Daira de Iferhounène</a>
              <a href="./pages/immobilier.php?daira=11-Larbaâ%20Nath%20Irathen">Daira de Larbaâ Nath Irathen</a>
              <a href="./pages/immobilier.php?daira=12-Mâatkas">Daira de Mâatkas</a>
-             <a href="./pages/immobilier.php?daira=14-Mekla">Daira de Mekla</a>
              <a href="./pages/immobilier.php?daira=13-Makouda">Daira de Makouda</a>
-             <a href="./pages/immobilier.php?daira=03-Azeffoun">Daira de Azeffoun</a>
-             <a href="./pages/immobilier.php?daira=18-Tigzirt">D%20aira de Tigzirt</a>
-             <a href="./pages/immobilier.php?daira=10-Iferhounène">Daira de Iferhounène</a>
-             <a href="./pages/immobilier.php?daira=21-Tizi%20Rached">Daira de Tizi Rached</a>
+             
+             <a href="./pages/immobilier.php?daira=14-Mekla">Daira de Mekla</a>
              <a href="./pages/immobilier.php?daira=15-Ouacif">Daira de Ouacif</a>
-             <a href="./pages/immobilier.php?daira=05-Beni%20Yenni">Daira de Beni Yenni</a>
+             <a href="./pages/immobilier.php?daira=16-Ouadhia">Daira de Ouadhia</a>
              
              
+             <a href="./pages/immobilier.php?daira=17-Ouaguenoun">Daira de Ouaguenoun</a>
+            <a href="./pages/immobilier.php?daira=18-Tigzirt">locationaira de Tigzirt</a>
+             <a href="./pages/immobilier.php?daira=19-Tizi%20Gheniff">Daira de Tizi Gheniff</a>
+             <a href="./pages/immobilier.php?daira=20-Tizi%20Ouzou">Daira de Tizi-Ouzou</a>
+              <a href="./pages/immobilier.php?daira=21-Tizi%20Rached">Daira de Tizi Rached</a>
             </div>
            <div class="stylelienrap d-flex flex-column" style="padding: 6px;">
            <p style="color:orange; font-size:1.5rem;">location</p>
-           <a href="./pages/location.php?daira=20-Tizi%20Ouzou">Daira de Tizi-Ouzou</a>
-             <a href="./pages/location.php?daira=09-Draâ%20El%20Mizan">Daira de Draâ El Mizan</a>
-             <a href="./pages/location.php?daira=08-Draâ%20Ben%20Khedda">Daira de Draâ Ben Khedda</a>
+           <a href="./pages/location.php?daira=01-Ain%20El%20Hammam">Daira de Ain El Hammam</a>
              <a href="./pages/location.php?daira=02-Azazga">Daira de Azazga</a>
-             <a href="./pages/location.php?daira=06-Boghni">Daira de Boghni</a>
-             <a href="./pages/location.php?daira=17-Ouaguenoun">Daira de Ouaguenoun</a>
-             <a href="./pages/location.php?daira=16-Ouadhia">Daira de Ouadhia</a>
-             <a href="./pages/location.php?daira=01-Ain%20El%20Hammam">Daira de Ain El Hammam</a>
-             <a href="./pages/location.php?daira=07-Bouzeguène">Daira de Bouzeguène</a>
+             <a href="./pages/location.php?daira=03-Azeffoun">Daira de Azeffoun</a>
              <a href="./pages/location.php?daira=04-Beni%20Douala">Daira de Beni Douala</a>
-             <a href="./pages/location.php?daira=19-Tizi%20Gheniff">Daira de Tizi Gheniff</a>
+             <a href="./pages/location.php?daira=05-Beni%20Yenni">Daira de Beni Yenni</a>
+             <a href="./pages/location.php?daira=06-Boghni">Daira de Boghni</a>
+              <a href="./pages/location.php?daira=07-Bouzeguène">Daira de Bouzeguène</a>
+             <a href="./pages/location.php?daira=08-Draâ%20Ben%20Khedda">Daira de Draâ Ben Khedda</a>
+             <a href="./pages/location.php?daira=09-Draâ%20El%20Mizan">Daira de Draâ El Mizan</a>
+            <a href="./pages/location.php?daira=10-Iferhounène">Daira de Iferhounène</a>
              <a href="./pages/location.php?daira=11-Larbaâ%20Nath%20Irathen">Daira de Larbaâ Nath Irathen</a>
              <a href="./pages/location.php?daira=12-Mâatkas">Daira de Mâatkas</a>
-             <a href="./pages/location.php?daira=14-Mekla">Daira de Mekla</a>
              <a href="./pages/location.php?daira=13-Makouda">Daira de Makouda</a>
-             <a href="./pages/location.php?daira=03-Azeffoun">Daira de Azeffoun</a>
-             <a href="./pages/location.php?daira=18-Tigzirt">Daira de Tigzirt</a>
-             <a href="./pages/location.php?daira=10-Iferhounène">Daira de Iferhounène</a>
-             <a href="./pages/location.php?daira=21-Tizi%20Rached">Daira de Tizi Rached</a>
+             
+             <a href="./pages/location.php?daira=14-Mekla">Daira de Mekla</a>
              <a href="./pages/location.php?daira=15-Ouacif">Daira de Ouacif</a>
-             <a href="./pages/location.php?daira=05-Beni%20Yenni">Daira de Beni Yenni</a>
+             <a href="./pages/location.php?daira=16-Ouadhia">Daira de Ouadhia</a>
+             
+             
+             <a href="./pages/location.php?daira=17-Ouaguenoun">Daira de Ouaguenoun</a>
+            <a href="./pages/location.php?daira=18-Tigzirt">Daira de Tigzirt</a>
+             <a href="./pages/location.php?daira=19-Tizi%20Gheniff">Daira de Tizi Gheniff</a>
+             <a href="./pages/location.php?daira=20-Tizi%20Ouzou">Daira de Tizi-Ouzou</a>
+              <a href="./pages/location.php?daira=21-Tizi%20Rached">Daira de Tizi Rached</a>
            </div>
            <div style="border:1px solid orange; height:550px; margin-left:10px; margin-right:20px;;"  ></div>
          </div>
@@ -433,51 +449,57 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
         <div class="d-flex flex-nowrap">
         <div class="stylelienrap d-flex flex-column" style="padding: 6px;" >
         <p style="color:orange; font-size:1.5rem;">Vente</p>
-            
-            <a href="./pages/immobilier.php?daira=15-Sidi-Aïch">Daira de Sidi-Aïch</a>
             <a href="./pages/immobilier.php?daira=01-Adekar">Daira de Adekar</a>
-            <a href="./pages/immobilier.php?daira=14-Seddouk">Daira de Seddouk</a>
-            <a href="./pages/immobilier.php?daira=07-Beni%20Maouchea">Daira de Beni Maouchea</a>
-            <a href="./pages/immobilier.php?daira=12-Kherrata">Daira de Kherrata</a>
-            <a href="./pages/immobilier.php?daira=17-Tazmalt">Daira de Tazmalt</a>
             <a href="./pages/immobilier.php?daira=02-Akbou">Daira de Akbou</a>
-            <a href="./pages/immobilier.php?daira=16-Souk%20El-Ténine">Daira de Souk El-Ténine</a>
-            <a href="./pages/immobilier.php?daira=13-Ouzellaguen">Daira de Ouzellaguen</a>
-            <a href="./pages/immobilier.php?daira=05-Barbacha">Daira de Barbacha</a>
-            <a href="./pages/immobilier.php?daira=03-Amizour">Daira de Amizourf</a>
-            <a href="./pages/immobilier.php?daira=06-Béjaïa">Daira de Béjaïa</a>
-            <a href="./pages/immobilier.php?daira=10-El%20Kseur">Daira de El Kseur</a>
-            <a href="./pages/immobilier.php?daira=18-Tichy">Daira de Tichy</a>
-            <a href="./pages/immobilier.php?daira=08-Cheminia">Daira de Cheminia</a>
-            <a href="./pages/immobilier.php?daira=11-Ighil%20Ali">Daira de Ighil Ali</a>
-            <a href="./pages/immobilier.php?daira=19-Timezrit">Daira de Timezrit</a>
+            <a href="./pages/immobilier.php?daira=03-Amizour">Daira de Amizour</a>
             <a href="./pages/immobilier.php?daira=04-Aokas">Daira de Aokas</a>
+            <a href="./pages/immobilier.php?daira=05-Barbacha">Daira de Barbacha</a>
+            <a href="./pages/immobilier.php?daira=06-Béjaïa">Daira de Béjaïa</a>
+            
+            <a href="./pages/immobilier.php?daira=07-Beni%20Maouchea">Daira de Beni Maouchea</a>
+            <a href="./pages/immobilier.php?daira=08-Cheminia">Daira de Cheminia</a>
+            
             <a href="./pages/immobilier.php?daira=09-Darguina">Daira de Darguina</a>
             
             
-
+            <a href="./pages/immobilier.php?daira=10-El%20Kseur">Daira de El Kseur</a>
+            <a href="./pages/immobilier.php?daira=11-Ighil%20Ali">Daira de Ighil Ali</a>
+            <a href="./pages/immobilier.php?daira=12-Kherrata">Daira de Kherrata</a>
+            <a href="./pages/immobilier.php?daira=13-Ouzellaguen">Daira de Ouzellaguen</a>
+            
+            <a href="./pages/immobilier.php?daira=14-Seddouk">Daira de Seddouk</a>
+            <a href="./pages/immobilier.php?daira=15-Sidi-Aïch">Daira de Sidi-Aïch</a>
+            <a href="./pages/immobilier.php?daira=16-Souk%20El-Ténine">Daira de Souk El-Ténine</a>
+            <a href="./pages/immobilier.php?daira=17-Tazmalt">Daira de Tazmalt</a>
+           <a href="./pages/immobilier.php?daira=18-Tichy">Daira de Tichy</a>
+           <a href="./pages/immobilier.php?daira=19-Timezrit">Daira de Timezrit</a>
         </div>
         <div class="stylelienrap d-flex flex-column" style="padding:6px;">
         <p style="color:orange; font-size:1.5rem;">location</p>
-        <a href="./pages/location.php?daira=15-Sidi-Aïch">Daira de Sidi-Aïch</a>
-            <a href="./pages/location.php?daira=01-Adekar">Daira de Adekar</a>
-            <a href="./pages/location.php?daira=14-Seddouk">Daira de Seddouk</a>
-            <a href="./pages/location.php?daira=07-Beni%20Maouchea">Daira de Beni Maouchea</a>
-            <a href="./pages/location.php?daira=12-Kherrata">Daira de Kherrata</a>
-            <a href="./pages/locationr.php?daira=17-Tazmalt">Daira de Tazmalt</a>
+        <a href="./pages/location.php?daira=01-Adekar">Daira de Adekar</a>
             <a href="./pages/location.php?daira=02-Akbou">Daira de Akbou</a>
-            <a href="./pages/location.php?daira=16-Souk%20El-Ténine">Daira de Souk El-Ténine</a>
-            <a href="./pages/location.php?daira=13-Ouzellaguen">Daira de Ouzellaguen</a>
-            <a href="./pages/location.php?daira=05-Barbacha">Daira de Barbacha</a>
-            <a href="./pages/location.php?daira=03-Amizour">Daira de Amizourf</a>
-            <a href="./pages/location.php?daira=06-Béjaïa">Daira de Béjaïa</a>
-            <a href="./pages/location.php?daira=10-El%20Kseur">Daira de El Kseur</a>
-            <a href="./pages/location.php?daira=18-Tichy">Daira de Tichy</a>
-            <a href="./pages/location.php?daira=08-Cheminia">Daira de Cheminia</a>
-            <a href="./pages/location.php?daira=11-Ighil%20Ali">Daira de Ighil Ali</a>
-            <a href="./pages/location.php?daira=19-Timezrit">Daira de Timezrit</a>
+            <a href="./pages/location.php?daira=03-Amizour">Daira de Amizour</a>
             <a href="./pages/location.php?daira=04-Aokas">Daira de Aokas</a>
+            <a href="./pages/location.php?daira=05-Barbacha">Daira de Barbacha</a>
+            <a href="./pages/location.php?daira=06-Béjaïa">Daira de Béjaïa</a>
+            
+            <a href="./pages/location.php?daira=07-Beni%20Maouchea">Daira de Beni Maouchea</a>
+            <a href="./pages/location.php?daira=08-Cheminia">Daira de Cheminia</a>
+            
             <a href="./pages/location.php?daira=09-Darguina">Daira de Darguina</a>
+            
+            
+            <a href="./pages/location.php?daira=10-El%20Kseur">Daira de El Kseur</a>
+            <a href="./pages/location.php?daira=11-Ighil%20Ali">Daira de Ighil Ali</a>
+            <a href="./pages/location.php?daira=12-Kherrata">Daira de Kherrata</a>
+            <a href="./pages/location.php?daira=13-Ouzellaguen">Daira de Ouzellaguen</a>
+            
+            <a href="./pages/location.php?daira=14-Seddouk">Daira de Seddouk</a>
+            <a href="./pages/location.php?daira=15-Sidi-Aïch">Daira de Sidi-Aïch</a>
+            <a href="./pages/location.php?daira=16-Souk%20El-Ténine">Daira de Souk El-Ténine</a>
+            <a href="./pages/location.php?daira=17-Tazmalt">Daira de Tazmalt</a>
+           <a href="./pages/location.php?daira=18-Tichy">Daira de Tichy</a>
+           <a href="./pages/location.php?daira=19-Timezrit">Daira de Timezrit</a>
          </div>
          <div style="border:1px solid orange; height:550px; margin-left:10px; margin-right:20px;"  ></div>
          </div>
@@ -491,16 +513,17 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
             
             <a href="./pages/immobilier.php?daira=01-Bouira">Daira de Bouira</a>
             <a href="./pages/immobilier.php?daira=02-Haizer">Daira de Haizer </a>
-            <a href="./pages/immobilier.php?daira=07-Bir%20Ghbalou">Daira de Bir Ghbalou</a>
-            <a href="./pages/immobilier.php?daira=11-Sour%20El-Ghozlane">Daira de Sour El-Ghozlane</a>
-            <a href="./pages/immobilier.php?daira=08-Aïn%20Bessem">Daira de Aïn Bessem</a>
-            <a href="./pages/immobilier.php?daira=04-M'Chedallah">Daira de M'Chedallah</a>
-            <a href="./pages/immobilier.php?daira=09-Souk%20El%20Khemis">Daira de Souk El Khemis</a>
             <a href="./pages/immobilier.php?daira=03-Bechloul">Daira de Bechloul</a>
+            <a href="./pages/immobilier.php?daira=04-M'Chedallah">Daira de M'Chedallah</a>
+            <a href="./pages/immobilier.php?daira=05-Kadiria">Daira de Kadiri</a>
             <a href="./pages/immobilier.php?daira=06-Lakhdaria">Daira de Lakhdaria</a>
+            <a href="./pages/immobilier.php?daira=07-Bir%20Ghbalou">Daira de Bir Ghbalou</a>
+            <a href="./pages/immobilier.php?daira=08-Aïn%20Bessem">Daira de Aïn Bessem</a>
+            <a href="./pages/immobilier.php?daira=09-Souk%20El%20Khemis">Daira de Souk El Khemis</a>
+            <a href="./pages/immobilier.php?daira=11-Sour%20El-Ghozlane">Daira de Sour El-Ghozlane</a>
+            
             <a href="./pages/immobilier.php?daira=10-El%20Hachimia">Daira de El Hachimia</a>
             <a href="./pages/immobilier.php?daira=12-Bordj%20Okhriss">Daira de Bordj Okhriss</a>
-            <a href="./pages/immobilier.php?daira=05-Kadiria">Daira de Kadiri</a>
             
             
           </div>
@@ -508,16 +531,17 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
           <p style="color:orange; font-size:1.5rem;">location</p>
           <a href="./pages/location.php?daira=01-Bouira">Daira de Bouira</a>
             <a href="./pages/location.php?daira=02-Haizer">Daira de Haizer </a>
-            <a href="./pages/location.php?daira=07-Bir%20Ghbalou">Daira de Bir Ghbalou</a>
-            <a href="./pages/location.php?daira=11-Sour%20El-Ghozlane">Daira de Sour El-Ghozlane</a>
-            <a href="./pages/location.php?daira=08-Aïn%20Bessem">Daira de Aïn Bessem</a>
-            <a href="./pages/location.php?daira=04-M'Chedallah">Daira de M'Chedallah</a>
-            <a href="./pages/location.php?daira=09-Souk%20El%20Khemis">Daira de Souk El Khemis</a>
             <a href="./pages/location.php?daira=03-Bechloul">Daira de Bechloul</a>
+            <a href="./pages/location.php?daira=04-M'Chedallah">Daira de M'Chedallah</a>
+            <a href="./pages/location.php?daira=05-Kadiria">Daira de Kadiri</a>
             <a href="./pages/location.php?daira=06-Lakhdaria">Daira de Lakhdaria</a>
+            <a href="./pages/location.php?daira=07-Bir%20Ghbalou">Daira de Bir Ghbalou</a>
+            <a href="./pages/location.php?daira=08-Aïn%20Bessem">Daira de Aïn Bessem</a>
+            <a href="./pages/location.php?daira=09-Souk%20El%20Khemis">Daira de Souk El Khemis</a>
+            <a href="./pages/location.php?daira=11-Sour%20El-Ghozlane">Daira de Sour El-Ghozlane</a>
+            
             <a href="./pages/location.php?daira=10-El%20Hachimia">Daira de El Hachimia</a>
             <a href="./pages/location.php?daira=12-Bordj%20Okhriss">Daira de Bordj Okhriss</a>
-            <a href="./pages/location.php?daira=05-Kadiria">Daira de Kadiri</a>
          </div>
          
          </div>
@@ -561,7 +585,7 @@ $db=new PDO('mysql:host=localhost;dbname=vilavie','root','',array(PDO::ATTR_ERRM
             <i class="fas fa-map-marker-alt"id="adresse"></i><span class="adres">rue khoudja khaled 
              batiment 5 tizi-ouzou</span>
              <div class="social"> <!--Les reseau sociaux-->
-             <h5>rejoignez nous sur<h5>
+             
              <a href="" title="Notre page facebook" id="fb"class="sns fab fa-facebook-f"></a>
              <a href=""title="Notre twitter" class="sns fab fa-twitter"></a>
              <a href="" title="Notre instagram" class="sns fab fa-instagram"></a>
