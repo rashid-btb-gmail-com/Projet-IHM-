@@ -32,7 +32,10 @@ if(!isset($_SESSION['id'])){
   }
 if(!isset($_SESSION["username"])){
     
-    header("location:./connexion.php");
+    ?>
+    <meta http-equiv="refresh" content="0;url=./connexion.php" />
+                                    
+    <?php
 }
 else{
 ?>

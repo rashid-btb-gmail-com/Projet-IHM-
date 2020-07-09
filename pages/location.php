@@ -72,13 +72,13 @@ include_once('../includes/header.php');
                                             <div class="form-group ">
                                       
                                             <label for="type_wilaya" style="color: white;"><b>Wilaya</b> </label>
-                                             <SELECT id="wilaya" name="wilaya" class="form-control input_user" onchange="filtre_daira()" >
-                                    <option value="nul" selected> Wilaya</option>
-                                    <option value="01-Tizi-Ouzou">Tizi-Ouzou</option>
-                                    <option value="02-Béjaïa">Béjaïa</option>
-                                    <option value="03-Bouira">Bouira</option>
+                                            <SELECT id="wilaya" name="wilaya" class="form-control input_user" onchange="filtre_daira_immobilier()" >
+                                                <option value="nul" selected> Wilaya</option>
+                                                <option value="01-Tizi-Ouzou">Tizi-Ouzou</option>
+                                                <option value="02-Béjaïa">Béjaïa</option>
+                                                <option value="03-Bouira">Bouira</option>
                                     
-                                </SELECT>
+                                            </SELECT>
                             </div>
                         </div>
                         
@@ -86,7 +86,7 @@ include_once('../includes/header.php');
                                   <div class="form-group  col-sm-2 ">  
                                             <div class="form-group ">
                                             <label for="type_dairas" style="color: white;"><b>Daïras</b> </label>
-                                              <SELECT id="daira" name="daira" class="form-control input_user" onchange="filtre_commune()" >
+                                              <SELECT id="daira" name="daira" class="form-control input_user" onchange="filtre_commune_immobilier()" >
                                                 <option value="nul"  selected> Daïras</option>
                                                 <option value="01-Ain El Hammam">01-Ain El Hammam</option>
                                                 <option value="02-Azazga">02-Azazga</option>
