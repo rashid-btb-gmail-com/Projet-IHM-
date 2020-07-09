@@ -123,6 +123,7 @@ height:550px;
     
 }
 .btn_recherche{
+    margin-top: 1px;
     border: none;
     height: 55px;
     width: 64px;
