@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  jeu. 09 juil. 2020 à 14:44
+-- Généré le :  jeu. 09 juil. 2020 à 16:02
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -188,13 +188,6 @@ CREATE TABLE IF NOT EXISTS `demande_annonce` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=71 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Déchargement des données de la table `demande_annonce`
---
-
-INSERT INTO `demande_annonce` (`id`, `titre`, `description`, `wilaya`, `daira`, `commune`, `adresse`, `type_bien`, `surface`, `etage`, `pieces`, `prix`, `lien_img`, `proprietaire`) VALUES
-(70, 'maison 3', 'popoopopo', '01-Tizi-Ouzou', '15-Ouacif', 'AÃ¯t Boumahdi', 'hohoh', 'studio', 20, 2, 2, 600000, 'upload/_images.jpg', 'Fedani    hocine');
-
 -- --------------------------------------------------------
 
 --
@@ -220,13 +213,6 @@ CREATE TABLE IF NOT EXISTS `demande_annonce_location` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Déchargement des données de la table `demande_annonce_location`
---
-
-INSERT INTO `demande_annonce_location` (`id`, `titre`, `description`, `wilaya`, `daira`, `commune`, `adresse`, `type_bien`, `surface`, `etage`, `pieces`, `prix`, `lien_img`, `proprietaire`) VALUES
-(5, 'ooooooooooo', '^p^pioouoiz', '01-Tizi-Ouzou', '14-Mekla', 'SouamaÃ¢', 'eazeae', 'villa', 30, 2, 2, 3000, 'upload/70_unnamed.jpg', 'Fedani    hocine');
-
 -- --------------------------------------------------------
 
 --
@@ -246,17 +232,6 @@ CREATE TABLE IF NOT EXISTS `demande_rdv` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Déchargement des données de la table `demande_rdv`
---
-
-INSERT INTO `demande_rdv` (`id`, `client`, `lieu`, `date`, `time`, `raison`, `id_cl`, `id_biens`) VALUES
-(3, 'Fedani    hocine', 'A l\'agence ', '2020-07-07', '12:00:00', 'location', 0, 0),
-(4, 'Fedani    hocine', 'A l\'agence ', '2006-07-16', '08:00:00', 'location', 0, 0),
-(5, 'Fedani    hocine', 'A proximitÃ© du bien', '2020-07-24', '14:00:00', 'location', 0, 0),
-(6, 'Fedani    hocine', 'A proximitÃ© du bien', '2020-07-16', '15:00:00', 'location', 58, 0),
-(7, 'Fedani    hocine', 'A l\'agence ', '2020-07-15', '09:00:00', 'Achat', 58, 0);
-
 -- --------------------------------------------------------
 
 --
@@ -271,14 +246,6 @@ CREATE TABLE IF NOT EXISTS `demande_rdv_dem` (
   `id_cl` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
-
---
--- Déchargement des données de la table `demande_rdv_dem`
---
-
-INSERT INTO `demande_rdv_dem` (`id`, `lieu`, `date`, `id_cl`) VALUES
-(1, 'tizi ouzou', '2020-07-15', 58),
-(2, 'f', '2020-07-15', 58);
 
 -- --------------------------------------------------------
 
@@ -351,8 +318,6 @@ CREATE TABLE IF NOT EXISTS `rdv_confirmer` (
 --
 
 INSERT INTO `rdv_confirmer` (`id`, `client`, `lieu`, `date`, `heur`, `raison`, `adresse`) VALUES
-(20, 'massi', 'a proximitÃ© ', '2020-06-18', '05:02:00', '', ''),
-(21, 'azea', 'A l\'agence ', '2020-06-27', '12:00:00', '', ''),
 (22, 'Fedani    hocine', 'A l\'agence ', '2020-07-07', '09:00:00', 'Achat', 'Rue Tiza prÃ©s du commissariat ');
 COMMIT;
 
