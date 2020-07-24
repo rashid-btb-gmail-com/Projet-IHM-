@@ -272,7 +272,7 @@ else{
                             </div>
                             <div class="input-group mb-3"> 
                                 <span></span>
-                                <SELECT id="commune"  name="commune_loc" class="form-control input_user"required>
+                                <SELECT id="commune_loc"  name="commune_loc" class="form-control input_user" required>
                                     <option value="" disabled selected>Commune</option>
                                 
                                 </SELECT>
